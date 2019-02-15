@@ -1,0 +1,22 @@
+image: kieluniphysik/texlive:2018
+
+stages:
+    - build
+
+compile_thesis:
+    stage: build
+    script:
+        - latexmk -xelatex -latexoption="-synctex=1 -shell-escape" thesis.tex
+    artifacts:
+        paths:
+            - thesis.pdf
+
+#compile_talk:
+#    stage: build
+#    script:
+#        - cd talks
+#        - latexmk -xelatex master_thesis_talk.tex
+#        - mv master_thesis_talk.pdf ../
+#    artifacts:
+#        paths:
+#            - master_thesis_talk.pdf
