@@ -1,31 +1,52 @@
 % !TeX spellcheck = en_US
-\documentclass[11pt]{book}
+\documentclass[ twoside,openright,titlepage,numbers=noenddot,headinclude,%1headlines,% letterpaper a4paper
+footinclude=true,cleardoublepage=empty,abstractoff, % <--- obsolete, remove (todo)
+BCOR=10mm,paper=a4,fontsize=11pt,%11pt,a4paper,%
+ngerman,american]{scrreprt} %,pdftex, xcolor=dvipsnames
+\usepackage{acronym} %printonlyused,withpage
+\usepackage{amsmath,amssymb}
+\usepackage[ngerman,american]{babel}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}         
+\usepackage[hypertexnames=false]{hyperref}
+\usepackage[parts]{classicthesis} % ,manychapters, dottedtoc, drafting
+\usepackage{colortbl}
+%
+\usepackage{tikz}
+\usetikzlibrary{shapes,snakes}
+\usepackage{verbatim}
+\tikzstyle{mybox} = [draw=red, fill=blue!20, very thick,
+rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
+\tikzstyle{fancytitle} =[fill=red, text=white]
+%
+\usepackage[final]{pdfpages}
+\usepackage[titles]{tocloft}
+\hypersetup{linktocpage=true,bookmarksnumbered=true,pageanchor=true,hypertexnames=false,naturalnames=true,plainpages=false}
+\usepackage{tabto} % for tabbing
+\usepackage{capt-of}
+\usepackage{multicol} 
+\usepackage{dcolumn}
+\usepackage{supertabular}
+\usepackage{tabularx}
+\usepackage{upgreek}
+\usepackage{enumitem}
+\usepackage{doi}
+\usepackage[style=authoryear-comp,natbib=true,backend=biber,uniquename=false,sortcites=false,maxnames=2,maxbibnames=99]{biblatex}
+%\usepackage{framed, color}
+%\definecolor{shadecolor}{rgb}{1.0, 0.72, 0.77}
 
-\usepackage{etex}		% fix for miktex version 2.9 and above
-\reserveinserts{10}		% fix for miktex version 2.9 and above
-%\usepackage{fixltx2e}	% fix for latex version from 2015 and below
-\usepackage[resetfonts]{cmap}
-\usepackage{nameref}
+\addtolength{\footskip}{5mm}
+\addtolength{\oddsidemargin}{-1cm}
+\addtolength{\evensidemargin}{-1cm}
+\addtolength{\textwidth}{2cm}
 
-%% imports SE-KCSS-Style EN v1.3
-\usepackage[%
-language=english,paper=a4paper,largepaper=true,%
-hcenter,%
-algorithm=false,%
-biblatexstyle=authoryear-comp,biblatexOptions={natbib=true,backend=biber,uniquename=false,sortcites=false,maxnames=2,maxbibnames=99},%
-acronymOptions={smaller,printonlyused},%,withpage
-font=LinuxLibertine,halfparskip=true
-]{ifiseries}
-\DeclareFieldFormat{realtitlecase}{#1}
+\renewcommand{\cftchappresnum}{\scshape\MakeTextLowercase}%
+\renewcommand{\cftchapfont}{\color{Maroon}\roman{part}\small\textsc}%textbf}%
 
-\usepackage{biblatex}
 \usepackage[format=hang]{caption}[2008/08/24]
 \usepackage{textcomp}
 \usepackage{todonotes}
 \usepackage{fontawesome}
-\usepackage{subcaption}
-\usepackage{multicol}
-\usepackage{amsmath}
 \usepackage{rotating}
 \usepackage{pdflscape}
 \usepackage{longtable}
@@ -47,14 +68,8 @@ font=LinuxLibertine,halfparskip=true
 \makeatother
 
 \ExecuteBibliographyOptions{sortcase=false,babel=other,backref=true,abbreviate=false}
-\ExecuteBibliographyOptions{isbn=false,url=true,doi=false,eprint=false}
+\ExecuteBibliographyOptions{isbn=false,url=true,eprint=false}
 \bibliography{bibliography.bib}
-
-\hypersetup{bookmarksdepth=3}
-\hypersetup{bookmarksopen=true}
-\hypersetup{bookmarksopenlevel=0}
-\hypersetup{bookmarksnumbered=true}
-\hypersetup{unicode,psdextra}
 
 \newcommand{\TODO}[1]{\todo[inline]{#1}}
 \newcommand{\const}{\ensuremath\textrm{const.}}
@@ -67,81 +82,81 @@ font=LinuxLibertine,halfparskip=true
     andothers = {{et\,al\adddot}},             
 } 
 
+\DeclareCiteCommand{\pubcite}
+{\usebibmacro{prenote}}
+{\textcolor{Maroon}{\textsc{\thefield{title}}}\\\printnames[][1-99]{author}, \printfield{journaltitle}, 
+\printfield{volume}, 
+\printfield{number}, \printfield{pages} (\printfield{year}), \printfield{doi}}
+{\multicitedelim}
+{\usebibmacro{postnote}}
+
 \makeatletter
 \let\pgfimageWithoutPath\pgfimage 
 \renewcommand{\pgfimage}[2][]{\pgfimageWithoutPath[#1]{plots/#2}}
 \makeatother
-
-\lstset{
-    frame=single,
-    breaklines=true,
-    numbers=left,
-    numbersep=6pt,
-    tabsize=3,
-}
-
-
-\hypersetup{pdftitle=Comparison of the radiation environments on Mars and the Moon}
-\hypersetup{pdfauthor=Johan Lauritz Freiherr von Forstner}
-\hypersetup{pdfsubject=Dissertation}
-\hypersetup{pdfkeywords=}
 
 \definecolor{red}{HTML}{d62728}
 \definecolor{orange}{HTML}{ff7f0e}
 \definecolor{green}{HTML}{2ca02c}
 \definecolor{blue}{HTML}{1f77b4}
 
+\input{classicthesis-config}
+
 \begin{document}
-\frontmatter
-  \disstitlepage
-    {Comparison of the radiation environments on Mars and the Moon}
-    {}
-    {Johan Lauritz Freiherr von Forstner}
-    {nat}
-    {2021}
-  \dissreviewerpage
-  	{Prof. Dr. Robert F. Wimmer-Schweingruber}
-  	{_}
-  	{}
-  	{xx.xx.2021}
-  \disseidesstatt 
-  
-\begin{otherlanguage}{ngerman}
-  \chapter*{Zusammenfassung}
-  
-\end{otherlanguage}
+\frenchspacing
+\raggedbottom
+\selectlanguage{american} % american ngerman
+%\renewcommand*{\bibname}{new name}
+%\setbibpreamble{}
+%\footskip=2cm
+\pagenumbering{roman}
+\pagestyle{plain}
+%********************************************************************
+% Frontmatter
+%*******************************************************
 
-\chapter*{Abstract}
-
-
-  \cleardoublepage
-  \tableofcontents{}
-  %\listoffigures{}\listoftables{}\lstlistoflistings{}
-  %\chapter*{List of Acronyms}
-  %% List of acronyms
-
-\mainmatter
+\include{chapters/Titlepage}
+\include{chapters/Titleback}
+\cleardoublepage
+\include{chapters/Abstract}
+\cleardoublepage
+\include{chapters/Publication}
+%
+%\pagestyle{scrheadings}
+%\cleardoublepage
+\include{chapters/Contents}
 
 
-\backmatter
+%********************************************************************
+% Mainmatter
+%*******************************************************
+\cleardoublepage
+\pagenumbering{arabic}
+\setcounter{page}{1}	
+	
+\chapter{Introduction}
 
-\chapter{Acknowledgements}
+\chapter{title}
 
-...
+\chapter{Tracking and validating}
 
-Last but not least, the data analysis presented in this thesis as well as the typesetting of the thesis itself were 
-made possible by a number of open source software projects, including, but not limited to, the ones acknowledged below:
+\input{chapters/pub01_tracking_validating}
 
-\begin{refsection}[software.bib]
-	\nocite{*}
-	\newrefcontext[sorting=none]
-	\printbibliography[heading=none]
-\end{refsection}
+% ********************************************************************
+% Backmatter
+%*******************************************************
+\newpage
+\markboth{}{\thepage}
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliography}
 
-  \newrefcontext[sorting=nyt]
-  \tocbibliography
-  \clearpage  
-  \listoffigures\clearpage
-  \listoftables
+\printbibliography
+
+\cleardoublepage
+\include{chapters/Acknowledgements}
+
+\cleardoublepage
+\include{chapters/Declaration}
 
 \end{document}

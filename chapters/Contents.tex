@@ -1,0 +1,81 @@
+%*******************************************************
+% Table of Contents
+%*******************************************************
+%\phantomsection
+\refstepcounter{dummy}
+\pdfbookmark[1]{\contentsname}{tableofcontents}
+\setcounter{tocdepth}{2} % <-- 2 includes up to subsections in the ToC
+\setcounter{secnumdepth}{3} % <-- 3 numbers up to subsubsections
+\manualmark
+\markboth{\spacedlowsmallcaps{\contentsname}}{\spacedlowsmallcaps{\contentsname}}
+\tableofcontents \label{toc}
+\automark[section]{chapter}
+\renewcommand{\chaptermark}[1]{\markboth{\spacedlowsmallcaps{#1}}{\spacedlowsmallcaps{#1}}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\enspace\spacedlowsmallcaps{#1}}}
+%*******************************************************
+% List of Figures and of the Tables
+%*******************************************************
+\clearpage
+
+\begingroup 
+    \let\clearpage\relax
+    \let\cleardoublepage\relax
+    \let\cleardoublepage\relax
+    %*******************************************************
+    % List of Figures
+    %*******************************************************    
+    %\phantomsection 
+    \refstepcounter{dummy}
+    %\addcontentsline{toc}{chapter}{\listfigurename}
+    \pdfbookmark[1]{\listfigurename}{lof}
+    \listoffigures
+
+    \vspace*{8ex}
+
+    %*******************************************************
+%    % List of Tables
+%    %*******************************************************
+    %\phantomsection 
+    \refstepcounter{dummy}
+    %\addcontentsline{toc}{chapter}{\listtablename}
+    \pdfbookmark[1]{\listtablename}{lot}
+    \listoftables
+        
+    \vspace*{8ex}
+    \newpage
+       
+    %*******************************************************
+    % Acronyms
+    %*******************************************************
+    %\phantomsection 
+    \refstepcounter{dummy}
+    \pdfbookmark[1]{Acronyms}{acronyms}
+    \markboth{\spacedlowsmallcaps{Acronyms}}{\spacedlowsmallcaps{Acronyms}}
+    \chapter*{Acronyms}
+
+	\begin{acronym}[SWEPAM\quad]
+	\acro{ACE}[ACE]{Advanced Composition Explorer}
+	\acro{CIR}[CIR]{Corotating Interaction Region}
+	\acro{CME}[CME]{Coronal Mass Ejection}
+	\acro{EPHIN}[EPHIN]{Electron Proton Helium Instrument}
+	\acro{FD}[FD]{Forbush Decrease}
+	\acro{ForbMod}[ForbMod]{Forbush decrease model for flux rope ICMEs \cite{Dumbovic2018-ForbMod}}
+	\acro{GCR}[GCR]{Galactic Cosmic Radiation}
+	\acro{GLE}[GLE]{Ground Level Enhancement}
+	\acro{GSM}[GSM]{Global Survey Method \cite{Belov-2005-GSM}}
+	\acro{HI}[HI]{Heliospheric Imager}
+	\acro{IMF}[IMF]{Interplanetary Magnetic Field}
+	\acro{ICME}[ICME]{Interplanetary Coronal Mass Ejection}
+	\acro{MAVEN}[MAVEN]{Mars Atmosphere and Volatile Evolution}
+	\acro{MSL}[MSL]{Mars Science Laboratory}
+	\acro{PDB}[PDB]{Propagating diffusive barrier model for Forbush decreases \cite{Wibberenz-1998}}
+	\acro{RAD}[RAD]{Radiation Assessment Detector}
+	\acro{SEP}[SEP]{Solar Energetic Particles}
+	\acro{SOHO}[SOHO]{Solar and Heliospheric Observatory}
+	\acro{STEREO}[STEREO]{Solar Terrestrial Relations Observatory}
+	\end{acronym}
+	
+
+\endgroup
+
+\cleardoublepage
