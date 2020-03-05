@@ -1,0 +1,39 @@
+% use et al. in German as well
+\DefineBibliographyStrings{ngerman}{ 
+    andothers = {{et\,al\adddot}},             
+} 
+
+
+% print my own name bold if namebold=true
+\newboolean{namebold}
+\setboolean{namebold}{false}
+\newbibmacro*{name:bold}[2]{
+	\ifthenelse{\boolean{namebold}}{
+		\iffieldequalstr{hash}{a516f5c008a5000e7c2d91aa291494f3}{\bfseries}{}
+	}{}
+} 
+
+\xpretobibmacro{name:family}{\begingroup\usebibmacro{name:bold}{#1}{#2}}{}{}
+\xpretobibmacro{name:given-family}{\begingroup\usebibmacro{name:bold}{#1}{#2}}{}{}
+\xpretobibmacro{name:family-given}{\begingroup\usebibmacro{name:bold}{#1}{#2}}{}{}
+\xpretobibmacro{name:delim}{\begingroup\normalfont}{}{}
+
+\xapptobibmacro{name:family}{\endgroup}{}{}
+\xapptobibmacro{name:given-family}{\endgroup}{}{}
+\xapptobibmacro{name:family-given}{\endgroup}{}{}
+\xapptobibmacro{name:delim}{\endgroup}{}{}
+
+
+% pubcite for citing publications
+\DeclareCiteCommand{\pubcite}
+{\usebibmacro{prenote}}
+{\textcolor{Maroon}{\textsc{\thefield{title}}}\\
+\setboolean{namebold}{true}
+\printnames[][1-99]{author},
+\setboolean{namebold}{false}
+\printfield{journaltitle}, 
+\printfield{volume}, 
+\printfield{number}, \printfield{pages} (\printfield{year}), \printfield{doi}}
+{\multicitedelim}
+{\usebibmacro{postnote}}
+
