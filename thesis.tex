@@ -31,7 +31,7 @@ rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
 \usepackage{upgreek}
 \usepackage{enumitem}
 \usepackage{doi}
-\usepackage[style=authoryear-comp,natbib=true,backend=biber,uniquename=false,uniquelist=minyear,sortcites=false,maxcitenames=2,maxbibnames=99]{biblatex}
+\usepackage[style=authoryear-comp,natbib=true,backend=biber,uniquename=false,uniquelist=minyear,sortcites=false,maxcitenames=2,maxbibnames=99,date=year]{biblatex}
 %\usepackage{framed, color}
 %\definecolor{shadecolor}{rgb}{1.0, 0.72, 0.77}
 
@@ -127,19 +127,21 @@ rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
 
 \chapter{Introduction}
 
-\input{chapters/introduction}
+\input{chapters/Introduction}
 
-\chapter{Using FDs to derive ICME transit times between \SI{1}{\AU} and Mars}
+\chapter{Studies of ICME arrival times at Earth and Mars using FD data}
 
-\input{chapters/pub01_forstner2018}
-
-\chapter{Validating STEREO-HI ICME tracking using FD observations}
-
-\input{chapters/pub02_forstner2019}
+\input{chapters/ICME_arrival_times}
 
 \chapter{Comparing the properties of FDs at Earth and Mars}
 
-\input{chapters/pub03_forstner2020}
+\input{chapters/FD_Properties}
+
+\chapter{Major Space Weather events: The events of September 2017}
+
+\input{chapters/September_event}
+
+
 
 % ********************************************************************
 % Backmatter
