@@ -7,10 +7,10 @@
 % print my own name bold if namebold=true
 \newboolean{namebold}
 \setboolean{namebold}{false}
-\newbibmacro*{name:bold}[2]{
-	\ifthenelse{\boolean{namebold}}{
-		\iffieldequalstr{hash}{a516f5c008a5000e7c2d91aa291494f3}{\bfseries}{}
-	}{}
+\newbibmacro*{name:bold}[2]{%
+	\ifthenelse{\boolean{namebold}}{%
+		\iffieldequalstr{hash}{a516f5c008a5000e7c2d91aa291494f3}{\bfseries}{}%
+	}{}%
 } 
 
 \xpretobibmacro{name:family}{\begingroup\usebibmacro{name:bold}{#1}{#2}}{}{}
