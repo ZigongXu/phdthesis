@@ -29,7 +29,9 @@
 {\usebibmacro{prenote}}
 {\textcolor{Maroon}{\textsc{\thefield{title}}}\\
 \setboolean{namebold}{true}
-\printnames[][1-99]{author},
+\setkeys{blx@opt@pre}{firstinits=true}%
+\printnames[][1-99]{author},%
+\setkeys{blx@opt@pre}{firstinits=false}%
 \setboolean{namebold}{false}
 \printfield{journaltitle}, 
 \printfield{volume}, 
