@@ -35,7 +35,9 @@
 \setboolean{namebold}{false}
 \printfield{journaltitle}, 
 \printfield{volume}, 
-\printfield{number}, \printfield{pages} (\printfield{year}), \printfield{doi}}
+\printfield{number}, \printfield{pages} (\printfield{year}), \printfield{doi}
+\iffieldundef{note}{}{\printfield{note}.}
+}
 {\multicitedelim}
 {\usebibmacro{postnote}}
 
