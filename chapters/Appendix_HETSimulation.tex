@@ -24,9 +24,8 @@ The simulation was run for \num{5e8} particles, and $\sim\num{1.6e7}$ particle h
 
 To simulate how the interaction of GCR particles with the Solar Orbiter spacecraft affects the HET measurements, the spacecraft needs to be included into the Geant4 simulation. Accurately modeling a spacecraft is notoriously difficult, as it consists of numerous components and information about their exact shape and composition is not always readily available. Thus, simulations taking into account spacecraft effects often need to make many assumptions and drastically simplify the geometry of the spacecraft (see e.g. \citet{Appel-2018-PhD,Appel-2018} for a similar simulation of the Mars Science Laboratory rover).
 
-In the case of Solar Orbiter, ESA has provided a CAD model of the spacecraft that can serve as a reference for simulations (D. Müller, 2020, priv. comm.). This file (\texttt{dpl7a1\_bulk.bdf}) is in the NASTRAN BDF format.
-
-\url{http://www.f-e-x.com/}
+In the case of Solar Orbiter, ESA has provided a CAD model of the spacecraft that can serve as a reference for simulations (D. Müller, 2020, priv. comm.). This file (\texttt{dpl7a1\_bulk.bdf}) is provided in the NASTRAN BDF format
+and contains the 3D geometry of the spacecraft, including material properties such as the density. Using the freeware software \textit{FEX}\footnote{\url{http://www.f-e-x.com/}}, it is possible to inspect the model and measure the dimensions and total mass of certain structures.
 
 \begin{figure}
 	\centering
