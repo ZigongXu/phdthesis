@@ -1,8 +1,5 @@
 Zu jedem Paper so 1-2 Seiten Einführung/Überleitung?
 
-
-Mewaldt et al. oxygen spectra plot (mit messungen von ACE)
-
 Einführung in die Logik -> übersicht der Abschnitte
 Kapitel Messinstrumente -> gute zählstatistik in kleinem Sensor
 
