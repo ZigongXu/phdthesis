@@ -24,8 +24,10 @@ The simulation was run for \num{5e8} particles, and $\sim\num{1.6e7}$ particle h
 
 To simulate how the interaction of GCR particles with the Solar Orbiter spacecraft affects the HET measurements, the spacecraft needs to be included into the Geant4 simulation. Accurately modeling a spacecraft is notoriously difficult, as it consists of numerous components and information about their exact shape and composition is not always readily available. Thus, simulations taking into account spacecraft effects often need to make many assumptions and drastically simplify the geometry of the spacecraft (see e.g. \citet{Appel-2018-PhD,Appel-2018} for a similar simulation of the Mars Science Laboratory rover).
 
-In the case of Solar Orbiter, ESA has provided a CAD model of the spacecraft that can serve as a reference for simulations (D. Müller, 2020, priv. comm.). This file (\texttt{dpl7a1\_bulk.bdf}) is provided in the NASTRAN BDF format
-and contains the 3D geometry of the spacecraft, including material properties such as the density. Using the freeware software \textit{FEX}\footnote{\url{http://www.f-e-x.com/}}, it is possible to inspect the model and measure the dimensions and total mass of certain structures. As shown in \autoref{fig:solo_spacecraft_model}, the model accurately represents the major structures of the SolO spacecraft, such as the main body, the solar panels, the heat shield, the instrument boom and various communications and radio wave antennae.
+In the case of Solar Orbiter, ESA has provided a computer-aided design (CAD) model of the spacecraft that can serve as a reference for simulations (D. Müller, 2020, priv. comm.). This file (\texttt{dpl7a1\_bulk.bdf}) is provided in the NASTRAN BDF format
+and contains the 3D geometry of the spacecraft, including material properties such as the density. Using the freeware software \textit{FEX}\footnote{\url{http://www.f-e-x.com/}}, it is possible to inspect the model and measure the dimensions and total mass of certain structures.
+
+As shown in \autoref{fig:solo_spacecraft_model}, the model accurately represents the major structures of the SolO spacecraft, such as the main body, the solar panels, the heat shield, the instrument boom and various communications and radio wave antennae. However, not all parts are modeled in detail: Many small structures, such as the scientific payload and electronics within the spacecraft body, are replaced with mass points that are attached to the model (shown as colored tetrahedra in the image), and thus no information about their extent and materials are provided. In addition, some parts of the spacecraft are constructed using composite materials, such as honeycomb structures instead of solid Aluminium --- in these cases, the material properties given in the CAD file do not include the correct density, but are instead set to zero. Thus, the total mass of the spacecraft according to the CAD file is \SI{1202}{\kilogram}, which is significantly less than the total launch mass off $\sim\SI{1800}{\kilo\gram}$, or $\sim\SI{1600}{\kilo\gram}$ without fuel \citep{Mueller-2020-SolO}.
 
 \begin{figure}
 	\centering
@@ -34,6 +36,48 @@ and contains the 3D geometry of the spacecraft, including material properties su
 	\label{fig:solo_spacecraft_model}
 \end{figure}
 
-To speed up future simulations, the spacecraft model may be converted into spherical shells of equivalent column density that are placed around HET.
+An automated conversion from the CAD file to a Geant4-compatible model (GDML) is not easily possible and would also not be very meaningful due to the shortcomings of the CAD model described above.
+As a first step towards implementing the spacecraft model in Geant4, I have therefore simply measured the dimensions of the main box-shaped spacecraft body in the CAD file and created a corresponding box in Geant4. To estimate the mass of this box, the following estimations are made: 
+The total mass of the two solar panels in the CAD file is \SI{110}{\kilo\gram}, so the main spacecraft body (without solar panels) has a mass of $\sim\SI{1100}{\kilogram} + \SI{600}{\kilogram} = \SI{1700}{\kilogram}$ (adding the \SI{400}{\kilogram} of mass that is ``missing'' in the CAD file \SI{200}{\kilogram} of fuel). This value is used as the mass of the box in the Geant4 model.
+For the material of the box, we assume that the mass is equally distributed throughout the box, with \SI{200}{\kilogram} of hydrazine fuel, and the remaining mass split 50:50 between electronics components and aluminium (\SI{750}{\kilogram} each). Electronics were modeled using the PCB material taken from \citet{Appel-2018,Appel-2018-PhD}.
+The dimensions and materials used are summarized in \autoref{tab:solo_spacecraft_gdml}.
+
+\begin{table}
+    \begin{tabular}{rp{6cm}}
+        \toprule
+        \multicolumn{2}{c}{\textbf{SolO spacecraft body}}                   \\
+        \midrule
+        X dimension & \SI{1812}{\milli\meter}                \\
+        Y dimension & \SI{1461}{\milli\meter}                \\
+        Z dimension & \SI{2200}{\milli\meter}                \\
+        Mass        & \SI{1700}{\kilogram}                   \\
+        Density     & \SI{291.89}{\kilogram\per\cubic\meter} \\
+        Composition & \SI{12}{\percent} Hydrazine (N$_2$H$_4$) \newline \SI{44}{\percent} PCB material (see right table) \newline \SI{44}{\percent} Aluminium Alloy (same as HET housing) \\
+        \bottomrule
+    \end{tabular}
+    \hspace{1cm}
+    \begin{tabular}{rr}
+    	\toprule
+    	\multicolumn{2}{c}{\textbf{PCB material}} \\ \midrule
+    	Cu      & \SI{20}{\percent}     \\
+    	SiO$_2$ & \SI{15}{\percent}     \\
+    	PET     & \SI{9.9}{\percent}    \\
+    	PP      & \SI{4.8}{\percent}    \\
+    	Al      & \SI{2}{\percent}      \\
+    	Pb      & \SI{2}{\percent}      \\
+    	Ni      & \SI{2}{\percent}      \\
+    	Fe      & \SI{8}{\percent}      \\
+    	Sn      & \SI{4}{\percent}      \\
+    	Mg      & \SI{30}{\percent}     \\ \bottomrule
+    \end{tabular}
+    \caption{Details of the spacecraft model used for the HET simulation. The left table shows the dimensions and composition of the box-shaped spacecraft body, while the right table shows the PCB material taken from \citet{Appel-2018,Appel-2018-PhD}.}
+    \label{tab:solo_spacecraft_gdml}
+\end{table}
+
+HET was then positioned next to the spacecraft body, at a location derived from the position of the corresponding mass point of HET 1 in the CAD file, and with the correct orientation relative to the Sun. As both HET 1 and HET 2 are located at an edge of the spacecraft body, the difference between the positions of HET 1 and HET 2 is not expected to be significant for an isotropic radiation field --- but of course, this may be verified with another simulation in the future. As a source, a cube of edge length \SI{260}{\centi\meter}, which surrounds the spacecraft body and the HET sensor was used, again with a cosine-law distribution of particles injected from its surface.
+
+To speed up future simulations, the spacecraft model may also be converted into spherical shells of equivalent column density that are placed around the HET sensor. In this case, the source size could be significantly reduced and thus the fraction of simulated particles that reach HET would increase. The simulation results with the actual spacecraft geometry can then be used to validate this approach.
 
 \section{Analysis of the simulation results}
+
+For the study by \citet{Forstner-2021-SolO}, the 
