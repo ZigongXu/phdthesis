@@ -5,7 +5,7 @@ The Graduated Cylindrical Shell model \citep[GCS,][]{Thernisien-2006-GCS,Thernis
 
 \begin{figure}
     \input{images/gcs_schematic.tex}
-    \caption[Illustration of the GCS model]{Illustration of the GCS model and definition of parameters $h_\text{apex}$, $\alpha$, $\delta$ and $R_\text{apex}$. Adapted from \citet{Thernisien-2011-GCS}. In this example, $\alpha = \SI{30}{\degree}$ and $\kappa = 0.35$.}
+    \caption[Illustration of the GCS model]{Illustration of the GCS model and definition of parameters $h_\text{apex}$, $\alpha$, $\delta$ and $R_\text{apex}$. Adapted from \citet{Thernisien-2011-GCS}. In this example, the parameters are set to $\alpha = \SI{30}{\degree}$ and $\kappa = 0.35$. The left panel shows a side view of the CME, where the thick line marks the outer contour of the flux rope and the thin line corresponds to its central axis. The dotted lines mark the intersection of the front section and the legs. The dashed line is a circular arc around the central point, showing that the front section does not have a constant radius. The right panel shows a cut in the perpendicular plane, where the cross section of the front is marked with a thick circle and the conical legs are indicated using the thin lines.}
     \label{fig:gcs_schematic}
 \end{figure}
 
@@ -13,7 +13,7 @@ The GCS geometry is constrained using 3 main parameters: The CME apex height $h_
 \begin{equation}
     \kappa = \sin \delta
 \end{equation}
-Three additional parameters describe the orientation of the flux rope relative to the Sun: The heliographic latitude $\theta$, longitude $\phi$ (typically in Stonyhurst or Carrington coordinates), and the tilt angle $\gamma$ (rotation around the $y$ axis in \autoref{fig:gcs_schematic}).
+Three additional parameters describe the orientation of the flux rope relative to the Sun: The heliographic latitude $\theta$, longitude $\phi$ (typically in Stonyhurst or Carrington coordinates), and the tilt angle $\gamma$ (rotation around the $y$ axis in \autoref{fig:gcs_schematic}). For a detailed description of the mathematical derivation of the GCS model, please refer to \citet{Thernisien-2011-GCS}.
 
 The GCS model is typically employed in a forward modelling approach, i.e. the model is visually compared to coronagraph observations of a CME and the input parameters iteratively adjusted by the scientist to achieve a good fit. This manual fitting process is ideally applied simultaneously to coronagraph images from multiple viewpoints, such as from the SOHO and STEREO spacecraft, to avoid ambiguity due to the line of sight effect. The resulting GCS parameters for the best fit can then be used for further evaluation, e.g. as input parameters for further models. Additional properties of the flux rope, such as the radius at the apex $R_\text{apex}$ (see \autoref{fig:gcs_schematic}) can also be calculated from these parameters, as derived by \citep{Thernisien-2011-GCS}. When applied to a sequence of consecutive images, the CME kinematics can also be reconstructed.
 
@@ -21,8 +21,8 @@ The original implementation of the GCS model in the Interactive Data Language (I
 
 The Python programming language is becoming increasingly popular in solar and heliospheric physics \citep[e.g.]{Burrell-2018}, and various open source software libraries to assist with the associated data analysis are available. Python is a modern general-purpose programming language that is easy to learn and emphasizes code readability. According to the TIOBE Programming Community Index\footnote{\url{https://www.tiobe.com/tiobe-index/}}, it has recently surpassed Java as the second most popular programming language, and in contrast to IDL, it is open source and available free of charge on all major operating systems.
 
-The SunPy library \citep{sunpy_community2020}, which provides Python utilities to e.g. retrieve and plot solar images from various missions and to take care of the correct projection of plotted coordinates on top of these images, is one of the most widely-used Python toolkits for solar physics. However, it does not yet provide any models for CME reconstruction in coronagraph images.
-Thus, I have developed an open source Python implementation of the GCS model and a simple GUI application. As it is easy to install and based on SunPy, it can not only be used as a standalone application, but also can also be integrated into existing Python-based plotting routines. The source code is available on GitHub at \url{https://github.com/johan12345/gcs_python}, and is also mirrored at Kiel University under \url{https://gitlab.physik.uni-kiel.de/ET/gcs_python}. It can be easily installed with the command
+SunPy, a library \citep{sunpy_community2020} which provides Python utilities to e.g. retrieve and plot solar images from various missions and to take care of the correct projection of plotted coordinates on top of these images, is one of the most widely-used Python toolkits for solar physics. However, it does not yet provide any models for CME reconstruction in coronagraph images.
+Thus, I have developed an open source Python implementation of the GCS model and a simple corresponding GUI application. As it is easy to install and based on SunPy, it can not only be used as a standalone application, but also can also be integrated into existing Python-based plotting routines. The source code is available on GitHub at \url{https://github.com/johan12345/gcs_python}, and is also mirrored at Kiel University under \url{https://gitlab.physik.uni-kiel.de/ET/gcs_python}. It can be easily installed with the command
 \begin{minted}{bash}
 pip3 install git+https://github.com/johan12345/gcs_python.git
 \end{minted}
@@ -36,10 +36,47 @@ The basic GCS geometry is implemented in the \texttt{gcs.geometry} package. This
 In addition to the the points along the axis, the \texttt{skeleton} function also provides the radius of the circular shell at each point, and the orientation of these circles (i.e. the orientation of the tangent vector in the $xy$ plane).
 The \verb|gcs_mesh| function (based on \texttt{cmecloud.pro} in SolarSoft) then uses the output of the \texttt{skeleton} function to construct a 3D mesh by generating circles around each point of the central axis with the appropriate radius and orientation. The parameters of the \verb|gcs_mesh| function are the half angle $\alpha$, the CME height $h_\text{apex}$, and the aspect ratio $\kappa$, as well as the desired numbers of vertices along the straight segments, along the front, and along each circle in the mesh.
 
-% TODO: add plot here
+\begin{figure}
+	\centering
+	\input{plots/gcs_geometry.pgf}
+	\caption[Results of the functions from the GCS Python implementation.]{Results of the functions from the GCS Python implementation. The left panel shows the central axis of the flux rope, calculated using the \texttt{skeleton} function, in orange, and the surrounding circles generated by the \texttt{gcs\_mesh} function in blue. The right panel shows a 3D wireframe representation of the same data. The input parameters $\alpha$ and $\kappa$ are the same as in \autoref{fig:gcs_schematic}.}
+	\label{fig:gcs_geometry}
+\end{figure}
 
-In addition to these basic routines to construct the GCS mesh, there is also a function \verb|gcs_mesh_rotated|, which includes the 3 angles $\theta, \phi, \gamma$ to rotate the CME cloud in 3D space, and the function \verb|gcs_mesh_sunpy|, which converts the GCS mesh into a \texttt{SkyCoord} object, which contains the necessary metadata about the coordinate system so that the model can directly be integrated into a SunPy plot.
+In addition to these basic routines to construct the GCS mesh, there is also a function \verb|gcs_mesh_rotated|, which includes the 3 angles $\theta, \phi, \gamma$ to rotate the CME cloud in 3D space, and the function \verb|gcs_mesh_sunpy|, which converts the GCS mesh into a \texttt{SkyCoord} object. This object then contains the necessary metadata about the coordinate system so that the model can directly be integrated into a SunPy plot.
 
 \section{Graphical user interface}
 
+In addition to the implementation of the GCS geometry, I created a convenient graphical user interface (GUI) that can be used to fit the GCS model to coronagraph images. As SunPy already provides functions to obtain coronagraph images and to perform the coordinate conversion to plot coordinates on top of them, the implementation of
+
+% TODO: continue here.
+
 \section{Validation}
+
+To validate that the Python implementation of GCS yields the correct results, CMEs previously fitted using the IDL version were re-plotted using the Python version, and the resulting plots were compared. One example of this is shown in \autoref{fig:gcs_validation} for a CME launched on May 13, 2013 \citep[originally reconstructed by][Figure 2]{Gou-2020}. The corresponding GCS parameters are shown in \autoref{tab:gcs_validation_params}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{images/gcs_validation_20130513_idl.png}\\[5mm]
+	\includegraphics[width=\textwidth]{plots/gcs_validation_20130513_python.pdf}
+	\caption[Validation of the GCS Python implementation]{Validation of the GCS Python implementation. Both panels show the same CME on May 13, 2013, with the GCS parameters listed in \autoref{tab:gcs_validation_params}. The top image was generated by the IDL implementation of GCS, while the bottom panel shows the result of the new Python implementation.}
+	\label{fig:gcs_validation}
+\end{figure}
+
+\begin{table}
+	\centering
+	\begin{tabular}{rS[table-format=3.2]}
+		\toprule
+		                                  {Parameter} & {Value} \\ \midrule
+		   Stonyhurst Longitude $\phi$ [\si{\degree}] & 270     \\
+		Heliographic Latitude $\theta$ [\si{\degree}] & 19      \\
+		           Tilt angle $\gamma$ [\si{\degree}] & 35      \\
+		           Half angle $\alpha$ [\si{\degree}] & 28      \\
+		      Apex height $R_\text{apex}$ [$R_\odot$] & 10.8    \\
+		                        Aspect ratio $\kappa$ & 0.35    \\ \bottomrule
+	\end{tabular}
+	\caption[GCS parameters for \autoref{fig:gcs_validation}]{GCS parameters for the May 13, 2013 CME shown in \autoref{fig:gcs_validation}.}
+	\label{tab:gcs_validation_params}
+\end{table}
+
+Similar comparisons were performed for other CMEs with different characteristics: The June 21, 2011 CME \citep[originally reconstructed by][Table 1]{Heinemann-2019}, and the May 25, 2014 CME \citep[originally reconstructed by][Figure 5b]{Dumbovic2018-ForbMod}, as well as the April 15, 2020 CME studied by \citet{Forstner-2021-SolO}. In all cases, the GCS 3D meshes generated by the Python implementation match the locations in the original results from the IDL implementation. This shows that the Python version is implemented correctly and can be used for scientific purposes.
