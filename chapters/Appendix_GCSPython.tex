@@ -47,7 +47,17 @@ In addition to these basic routines to construct the GCS mesh, there is also a f
 
 \section{Graphical user interface}
 
-In addition to the implementation of the GCS geometry, I created a convenient graphical user interface (GUI) that can be used to fit the GCS model to coronagraph images. As SunPy already provides functions to obtain coronagraph images and to perform the coordinate conversion to plot coordinates on top of them, the implementation of
+In addition to the implementation of the GCS geometry, I created a convenient graphical user interface (GUI) that can be used to fit the GCS model to coronagraph images. As SunPy already provides functions to obtain coronagraph images and to perform the coordinate transformations to be able plot arbitrary points on top of them, the implementation of the GUI using SunPy was relatively simple.
+
+For starting the GUI, a convenient command line interface is provided. For example,
+\begin{minted}{bash}
+gcs_gui "2013-05-13 16:54" STB SOHO STA
+\end{minted}
+starts the GCS GUI with the closest available coronagraph images to the given date and time from STEREO-B, SOHO and STEREO-A. Additional command line options are available to set which coronagraph should be used (\texttt{-soho C2} or \texttt{C3}, and \texttt{-stereo COR1} or \texttt{COR2}) and whether to show running difference images (\texttt{-rd}).
+
+The GUI components, e.g. sliders and text boxes for each input parameter, were implemented using the \textit{PyQt5} library \footnote{\url{https://riverbankcomputing.com/software/pyqt/}}, which provides Python bindings for the popular GUI framework \textit{Qt}. The GUI is defined in the \texttt{gcs.gui} module as the \texttt{GCSGui} class. For embedding the solar images, it uses a figure canvas provided by the \textit{matplotlib} plotting package (\texttt{FigureCanvasQTAgg}).
+
+When the user starts the GUI, it first retrieves the desired coronagraph images. This is done using the Helioviewer.org API \footnote{\url{https://api.helioviewer.org/docs/v2/}}, which directly provides calibrated images in JPEG2000 format. This drastically simplifies and speeds up the process compared to the IDL version, where images need to be downloaded from the respective mission sites, with additional
 
 % TODO: continue here.
 
