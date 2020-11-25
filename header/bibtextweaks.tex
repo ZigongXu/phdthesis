@@ -29,9 +29,7 @@
 {\usebibmacro{prenote}}
 {\textcolor{Maroon}{\textsc{\thefield{title}}}\\
 \setboolean{namebold}{true}
-\setkeys{blx@opt@pre}{firstinits=true}%
 \printnames[][1-99]{author},%
-\setkeys{blx@opt@pre}{firstinits=false}%
 \setboolean{namebold}{false}
 \printfield{journaltitle}, 
 \printfield{volume}, 
@@ -41,3 +39,19 @@
 {\multicitedelim}
 {\usebibmacro{postnote}}
 
+
+% print url only if no doi
+\renewbibmacro*{doi+eprint+url}{%
+	\printfield{doi}%
+	\newunit\newblock%
+	\iftoggle{bbx:eprint}{%
+		\usebibmacro{eprint}%
+	}{}%
+	\newunit\newblock%
+	\iffieldundef{doi}{%
+		\usebibmacro{url+urldate}}%
+	{}%
+}
+
+% smaller font for bibliography
+\renewcommand*{\bibfont}{\normalfont\small}
