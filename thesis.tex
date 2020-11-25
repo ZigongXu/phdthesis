@@ -87,6 +87,10 @@ rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
 \renewcommand{\pgfimage}[2][]{\pgfimageWithoutPath[#1]{plots/#2}}
 \makeatother
 
+% reset acronyms for each chapter
+\usepackage{etoolbox}
+\preto\chapter\acresetall
+
 \definecolor{red}{HTML}{d62728}
 \definecolor{orange}{HTML}{ff7f0e}
 \definecolor{green}{HTML}{2ca02c}
