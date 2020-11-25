@@ -76,7 +76,9 @@ rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
 \newcommand{\TODO}[1]{\todo[inline]{#1}}
 \newcommand{\const}{\ensuremath\textrm{const.}}
 
+\usetikzlibrary{calc}
 \usetikzlibrary{shapes.misc}
+\usetikzlibrary{decorations.pathmorphing}
 \tikzset{cross/.style={cross out, draw=black, fill=none, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer 
 		sep=0pt}, cross/.default={2pt}}
 
@@ -95,6 +97,7 @@ rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
 \definecolor{orange}{HTML}{ff7f0e}
 \definecolor{green}{HTML}{2ca02c}
 \definecolor{blue}{HTML}{1f77b4}
+\definecolor{light-gray}{gray}{0.9}
 
 \input{classicthesis-config}
 
