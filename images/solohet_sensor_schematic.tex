@@ -1,0 +1,66 @@
+%\documentclass{standalone}
+%\usepackage[dvipsnames]{xcolor}
+%\usepackage{tikz}
+%\usepackage{amsmath}
+%\usepackage{siunitx}
+
+%\usetikzlibrary{calc}
+%\usetikzlibrary{decorations.pathmorphing}
+
+%\definecolor{light-gray}{gray}{0.9}
+
+%\begin{document}
+\begin{tikzpicture}[scale=0.8]
+    \tikzset{%
+        add/.style args={#1 and #2}{
+            to path={%
+                ($(\tikztostart)!-#1!(\tikztotarget)$)--($(\tikztotarget)!-#2!(\tikztostart)$)%
+                \tikztonodes},add/.default={.2 and .2}}
+    }   
+    
+    \def\Sithickness{0.05}
+    
+    % A1
+    \draw[fill=light-gray] (-\Sithickness, -0.87) rectangle (\Sithickness, 0.87) node[above,yshift=2mm]{A1};
+    \draw (-\Sithickness, -0.4) -- (\Sithickness, -0.4);
+    \draw (-\Sithickness, 0.4) -- (\Sithickness, 0.4);
+    
+    % B1
+    \draw[fill=light-gray] (4.4-\Sithickness, -1.82) rectangle (4.4+\Sithickness, 1.82) node[above]{B1};
+    \draw (4.4-\Sithickness, -0.4) -- (4.4+\Sithickness, -0.4);
+    \draw (4.4-\Sithickness, 0.4) -- (4.4+\Sithickness, 0.4);
+    \draw (4.4-\Sithickness, -0.87) -- (4.4+\Sithickness, -0.87);
+    \draw (4.4-\Sithickness, 0.87) -- (4.4+\Sithickness, 0.87);
+    
+    % C
+    \draw[fill=light-gray] (4.635, -1.75) rectangle ++(2, 3.5);
+    \node[above, yshift=0.5mm] at (5.635, 1.75) {C};
+    
+    % B2
+    \draw[fill=light-gray] (6.9-\Sithickness, -1.82) rectangle (6.9+\Sithickness, 1.82) node[above]{B2};
+    \draw (6.9-\Sithickness, -0.4) -- (6.9+\Sithickness, -0.4);
+    \draw (6.9-\Sithickness, 0.4) -- (6.9+\Sithickness, 0.4);
+    \draw (6.9-\Sithickness, -0.87) -- (6.9+\Sithickness, -0.87);
+    \draw (6.9-\Sithickness, 0.87) -- (6.9+\Sithickness, 0.87);
+    
+    % A2
+    \draw[fill=light-gray] (11.3-\Sithickness, -0.87) rectangle (11.3+\Sithickness, 0.87) node[above,yshift=2mm]{A2};
+    \draw (11.3-\Sithickness, -0.4) -- (11.3+\Sithickness, -0.4);
+    \draw (11.3-\Sithickness, 0.4) -- (11.3+\Sithickness, 0.4);
+    
+    % FOV
+    \draw[add=0.1 and 0, dashed, opacity=0.5] (0, -0.87) to (6.9, 1.82);
+    \draw[add=0.1 and 0, dashed, opacity=0.5] (0, 0.87) to (6.9, -1.82);
+    \draw[add=0.1 and 0, dashed, opacity=0.5] (11.3, -0.87) to (4.4, 1.82);
+    \draw[add=0.1 and 0, dashed, opacity=0.5] (11.3, 0.87) to (4.4, -1.82);
+    
+    \draw[|<->|] (0, 0.87) ++ (180-21.45:0.5) arc (180-21.45:180+21.45:2.4+0.48) node[midway, left] {\small\SI{42.9}{\degree}};
+    
+
+    \draw[thick, red, -latex] (-0.2, 0.2) -- (4.4, 0.5);
+    \draw[thick, OliveGreen, -latex] (-0.2, 0) -- (5.7, 0.1);
+    \draw[thick, blue, -latex] (-0.2, -0.2) -- (11.5, -0.5);
+    \draw[thick, Aquamarine, -latex] (2.5, 2) -- (8.4, -2);
+    \draw[thick, orange, -latex] (5.635, -2.3) -- (5.635, -1);
+\end{tikzpicture}
+%\end{document}
