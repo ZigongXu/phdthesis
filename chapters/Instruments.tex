@@ -1,24 +1,42 @@
 \section{The MSL Radiation Assessment Detector}
 \label{sec:mslrad}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.4\linewidth]{images/rad}
-    \caption[Photo of the \acs{RAD} sensor head]{A photo of the \ac{RAD} sensor head before it was mounted on the \ac{MSL} spacecraft. Source: NASA/JPL-Caltech/SwRI}
-    \label{subfig:rad-photo}
-\end{figure}
-
+Built in a cooperation between the University of Kiel and Southwest Research Institute, the \acl{RAD}\acused{RAD} \citep[\acs{RAD},][]{Hassler-2012-MSLRAD} instrument onboard the \acl{MSL}\acused{MSL} \citep[\acs{MSL},][]{Grotzinger-2012} mission provided the first-ever direct radiation measurements on the surface of Mars. It is designed to measure both charged and neutral particles, and calculate energy spectra as well as dosimetric quantities, such as the \ac{TID} rate and \ac{LET} spectra. This aligns with its main science objectives, which include the characterization of energetic particle spectra on the surface of Mars (\acp{GCR} and \acp{SEP}) and the determination of the radiation hazard for past and present life on Mars and for future human Mars missions. Consequently, \ac{RAD} not only been continuously measuring the radiation environment on the Martian surface since the \textit{Curiosity} rover's landing on August 6, 2012, but has also been active during a large part of the 9-month flight to Mars (the so-called cruise phase) to evaluate the radiation dose that astronauts would receive on a flight to Mars.
 
 \begin{figure}
-    \centering
-    \input{images/mslrad_sensor_schematic.tex}
-    \caption[Schematic diagram of the \acs{RAD} sensor head]{Schematic diagram of the \ac{RAD} sensor head. Red, green and gray arrows show possible trajectories of charged and neutral particles through the detectors. Based on      \textcite{Hassler-2012-MSLRAD}, Fig. 7b}
-    \label{fig:rad-sensorhead}
+	\centering
+	\includegraphics[width=0.4\linewidth]{images/rad}
+	\caption[Photo of the \acs{RAD} sensor head]{A photo of the \ac{RAD} sensor head before it was mounted on the \ac{MSL} spacecraft. Source: NASA/JPL-Caltech/SwRI}
+	\label{fig:rad-photo}
 \end{figure}
 
+The \ac{RAD} sensor head (shown in \autoref{fig:rad-photo}) is mounted on the top deck of the rover, pointing towards the zenith. It is composed of three hexagonal silicon solid-state detectors (A, B, and C) with a thickness of \SI{300}{\micro\meter}, mounted on top of each other to form a charged particle telescope (\autoref{fig:rad-sensorhead}) with an opening angle of about \SI{60}{\degree}. Each detector is split into inner and outer segments.
+Directly below the charged particle telescope follows the D detector, a cesium iodide (CsI) scintillator in the shape of a truncated hexagonal pyramid. Its shape is chosen so that it continues the opening angle of the charged particle telescope (shown with dashed lines in \autoref{fig:rad-sensorhead}). The E detector, which is located below D, is a plastic scintillator and mainly responsible for neutral particle detection. D and E are surrounded by another plastic scintillator (F), which is used as an anticoincidence shield to reject ions that enter D or E from the sides.
+
+\begin{figure}
+	\centering
+	\input{images/mslrad_sensor_schematic.tex}
+	\caption[Schematic diagram of the \acs{RAD} sensor head]{Schematic diagram of the \ac{RAD} sensor head. Red, green and gray arrows show possible trajectories of charged and neutral particles through the detectors. Based on      \textcite{Hassler-2012-MSLRAD}, Fig. 7b}
+	\label{fig:rad-sensorhead}
+\end{figure}
+
+For the detection of charged particles, \ac{RAD} requires an energy deposit in at least the A and B detector, which sets the lower energy limit to e.g. \SI{6}{\mega\electronvolt} for protons. Higher energy charged particles stop in C, D, or E, and the high stopping power of the D detector allows for a large energy range, e.g. up to \SI{95}{\mega\electronvolt} for stopping protons. For these stopping charged particles, both the charge and the total energy can be determined using two measured quantities, the total deposited energy $E$ and the deposited energy per path length in the A detector (the so-called \ac{LET} or $\dd E/\dd x$). This common principle is called the $\dd E/\dd x$-$E$-method.
+Higher energy charged particles, which penetrate the whole \ac{RAD} sensor, can only be partially analyzed as the total energy $E$ is not measured directly. Up to a few \SI{100}{\mega\electronvolt} per nucleon, particles can still be partially analyzed as their \ac{LET} is slightly different at the top and bottom of the telescope, which allows to infer the approximate total energy. For even higher energy particles, the so-called \acp{MIP}, only the charge and \ac{LET} can be determined, but not the total energy.
+
+The D and E detectors are both, to different degrees, also sensitive to neutral particles. The CsI scintillator D can effectively detect $\gamma$-rays by producing secondary electrons, while neutrons hitting E can produce recoil protons by interacting with the hydrogen atoms in the plastic. An inversion method that takes these and other processes into account can then be used to derive neutral particle spectra \citep{Koehler-2011}.
+
+Being an instrument with a rather small mass (\SI{1.6}{\kilogram}) and volume, the observation of short-term \ac{GCR} variations such as Forbush decreases with \ac{RAD} are only possible when measuring particles entering the sensor head from all directions. This is possible with the dose rate data products of \ac{RAD}, which are available for the B and E detectors. The E detector is best suited for this purpose due to its larger volume and therefore better statistics.
+
+As \ac{RAD} is located on the surface of Mars, incoming primary \ac{GCR} and \ac{SEP} particles first need to travel through Mars's atmosphere before reaching the \ac{RAD} detectors. In this process, some particles are shielded and others can generate secondary particles. Thus, the radiation environment observed by \ac{RAD} is a mix of primary and secondary particles, and \ac{RAD} measurements cannot be directly compared to deep-space detectors without taking into account the atmospheric response \citep[see e.g.][]{Guo-2017,Guo-2019}. This of course does not apply to the cruise phase data, where \ac{RAD} was relatively lightly shielded by the surrounding \ac{MSL} spacecraft \citep{Zeitlin-2013-cruise,guo2015cruise}.
+
+% TODO: diurnal variation.
 
 \section{The Solar Orbiter High Energy Telescope}
 \label{sec:solohet}
+
+The ESA \ac{SolO} spacecraft \citep{Mueller-2020-SolO} was launched successfully on February 10, 2020.
+
+\acl{EPD}\acused{EPD} \citep[\acs{EPD},]{RodriguezPacheco-2019-EPD}
 
 \section{Neutron monitor measurements}
 \label{sec:neutronmonitors}
