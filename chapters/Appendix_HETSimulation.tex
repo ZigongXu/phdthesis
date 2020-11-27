@@ -30,6 +30,8 @@ and contains the 3D geometry of the spacecraft, including material properties su
 
 As shown in \autoref{fig:solo_spacecraft_model}, the model accurately represents the major structures of the SolO spacecraft, such as the main body, the solar panels, the heat shield, the instrument boom and various communications and radio wave antennae. However, not all parts are modeled in detail: Many small structures, such as the scientific payload and electronics within the spacecraft body, are replaced with mass points that are attached to the model (shown as colored tetrahedra in the image), and thus no information about their spatial extent and materials are provided. In addition, some parts of the spacecraft are constructed using composite materials, such as honeycomb structures instead of solid aluminium --- in these cases, the material properties given in the \ac{CAD} file do not include the correct density, but are instead set to zero. Thus, the total mass of the spacecraft according to the \ac{CAD} file is \SI{1202}{\kilogram}, which is significantly less than the total launch mass of $\sim\SI{1800}{\kilo\gram}$, or $\sim\SI{1600}{\kilo\gram}$ without fuel \citep{Mueller-2020-SolO}.
 
+\todo[inline]{Add figure(s) with the simulation setup.}
+
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{images/solo_spacecraft_model}
