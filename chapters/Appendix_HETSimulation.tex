@@ -30,8 +30,6 @@ and contains the 3D geometry of the spacecraft, including material properties su
 
 As shown in \autoref{fig:solo_spacecraft_model}, the model accurately represents the major structures of the SolO spacecraft, such as the main body, the solar panels, the heat shield, the instrument boom and various communications and radio wave antennae. However, not all parts are modeled in detail: Many small structures, such as the scientific payload and electronics within the spacecraft body, are replaced with mass points that are attached to the model (shown as colored tetrahedra in the image), and thus no information about their spatial extent and materials are provided. In addition, some parts of the spacecraft are constructed using composite materials, such as honeycomb structures instead of solid aluminium --- in these cases, the material properties given in the \ac{CAD} file do not include the correct density, but are instead set to zero. Thus, the total mass of the spacecraft according to the \ac{CAD} file is \SI{1202}{\kilogram}, which is significantly less than the total launch mass of $\sim\SI{1800}{\kilo\gram}$, or $\sim\SI{1600}{\kilo\gram}$ without fuel \citep{Mueller-2020-SolO}.
 
-\todo[inline]{Add figure(s) with the simulation setup.}
-
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{images/solo_spacecraft_model}
@@ -77,7 +75,49 @@ The dimensions and materials are summarized in \autoref{tab:solo_spacecraft_gdml
     \label{tab:solo_spacecraft_gdml}
 \end{table}
 
-\ac{HET} was then positioned next to the spacecraft body, at a location derived from the position of the corresponding mass point of \ac{HET} 1 in the \ac{CAD} file, and with the correct orientation relative to the Sun. As both \ac{HET} 1 and \ac{HET} 2 are located near an edge of the spacecraft body, the difference between the positions of \ac{HET} 1 and \ac{HET} 2 is not expected to be significant for an isotropic radiation field --- but of course, this may be verified with another simulation in the future. As a source, a cube of edge length \SI{260}{\centi\meter} was used, which surrounds the spacecraft body and the \ac{HET} sensor, again with a cosine-law distribution of particles injected from its surface. Due to the large source size, the simulation needed to be run multiple times with different initialization values for \ac{Geant4}'s random number generator to achieve a sufficient amount of particles detected in \ac{HET}. In total, $N_\text{total} = \num{1.6e10}$ primary particles were simulated, resulting in \num{5.6e6} hits in the \ac{HET} detectors (ratio: \SI{0.035}{\percent}).
+\ac{HET} was then positioned next to the spacecraft body, at a location approximately derived from the position of the corresponding mass point of \ac{HET} 1 in the \ac{CAD} file, and with the correct orientation relative to the Sun. This setup is shown in \autoref{fig:het_simulation_setup}. As both \ac{HET} 1 and \ac{HET} 2 are located near an edge of the spacecraft body, the difference between the positions of \ac{HET} 1 and \ac{HET} 2 is not expected to be significant for an isotropic radiation field --- but of course, this may be verified with another simulation in the future. As a source, a cube of edge length \SI{260}{\centi\meter} was used, which surrounds the spacecraft body and the \ac{HET} sensor, again with a cosine-law distribution of particles injected from its surface. Due to the large source size, the simulation needed to be run multiple times with different initialization values for \ac{Geant4}'s random number generator to achieve a sufficient amount of particles detected in \ac{HET}. In total, $N_\text{total} = \num{1.6e10}$ primary particles were simulated, resulting in \num{5.6e6} hits in the \ac{HET} detectors (ratio: \SI{0.035}{\percent}).
+
+\begin{figure}
+    \centering
+    \subfloat[Top View]{
+        \begin{tikzpicture}
+            \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=0.4\textwidth]{images/het_simulation_setup_topview.pdf}};
+            \begin{scope}[x={(image.south east)},y={(image.north west)}]
+                \draw[-latex] (1.05, 0.05) -- ++(7mm, 0) node[right] {\small $x$};
+                \draw[-latex] (1.05, 0.05) -- ++(0, 7mm) node[above] {\small $y$};
+                \node at (1.05, 0.05) {$\odot$};
+                \node[below left] at (1.05, 0.05) {\small $z$};
+            \end{scope}
+        \end{tikzpicture}
+        \label{subfig:het_simulation_setup_topview}
+    }
+    \hspace{2mm}
+    \subfloat[Side View]{
+        \begin{tikzpicture}
+            \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=0.32\textwidth]{images/het_simulation_setup_sideview.pdf}};
+            \begin{scope}[x={(image.south east)},y={(image.north west)}]
+                \draw[-latex] (1.05, -0.05) -- ++(7mm, 0) node[right] {\small $x$};
+                \draw[-latex] (1.05, -0.05) -- ++(0, 7mm) node[above] {\small $z$};
+                \node at (1.05, -0.05) {$\otimes$};
+                \node[below left] at (1.05, -0.05) {\small $y$};
+            \end{scope}
+        \end{tikzpicture}
+        \label{subfig:het_simulation_setup_sideview}
+    }\\
+    \subfloat[Perspective View]{
+        \begin{tikzpicture}
+            \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=0.7\textwidth]{images/het_simulation_setup_perspective.pdf}};
+            \begin{scope}[x={(image.south east)},y={(image.north west)}]
+                \draw[-latex] (1.05, -0.05) -- ++(14mm, -0.4mm) node[right] {\small $x$};
+                \draw[-latex] (1.05, -0.05) -- ++(0.2mm, 14mm) node[above] {\small $z$};
+                \draw[-latex] (1.05, -0.05) -- ++(6.4mm, 4.5mm) node[above right] {\small $y$};
+            \end{scope}
+        \end{tikzpicture}
+        \label{subfig:het_simulation_setup_perspective}
+    }
+    \caption[\acs{HET} simulation setup with spacecraft model]{\ac{HET} simulation setup with spacecraft model. The spacecraft (whose dimensions are given in \autoref{tab:solo_spacecraft_gdml}) is drawn in red, and the \ac{HET} sensor head and electronics box are drawn in gray and other colors.}
+    \label{fig:het_simulation_setup}
+\end{figure}
 
 To speed up future simulations, the spacecraft model may also be replaced with smaller spherical shells of equivalent column density that are placed directly around the \ac{HET} sensor head. In this case, the source size could be significantly reduced and thus the fraction of simulated particles that reach \ac{HET} would increase. The simulation results with the actual spacecraft geometry could then be used to validate this approach.
 
