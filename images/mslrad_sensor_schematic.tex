@@ -29,6 +29,8 @@
     % FOV
     \draw[add=0 and 0.3, dashed] (\midwidth - \Fthickness, \midheight) to (-\topwidth, \topheight);
     \draw[add=0 and 0.3, dashed] (-\midwidth + \Fthickness, \midheight) to (\topwidth, \topheight);
+    
+    \draw[|<->|] (-\topwidth, \topheight) ++ (90+30:0.5) arc (90+30:90-30:{\topheight-\midheight-0.2}) node[pos=0.4, above] {\small\SI{60}{\degree}};
 
     % A
     \draw[fill=light-gray] (-\topwidth, \topheight - \Sithickness) rectangle (\topwidth, \topheight);
@@ -75,11 +77,11 @@
     \node at (0, \Fthickness / 2) {F};
     
     % trajectories of ions
-    \draw[thick, green, -latex] (-\topwidth*0.7, \topheight*1.15) node[above, align=center] {\small Ion\\ \small (accepted)}
+    \draw[thick, green, -latex] (-\topwidth*0.7, \topheight*1.25) node[above, align=center] {\small Ion\\ \small (accepted)}
      -- ({-(\midwidth - \Fthickness) * 0.5}, \midheight + \Sithickness / 2);
-    \draw[thick, green, -latex] (\topwidth*0.65, \topheight*1.15) node[above, align=center] {\small Ion\\ \small (accepted)}
+    \draw[thick, green, -latex] (\topwidth*0.65, \topheight*1.25) node[above, align=center] {\small Ion\\ \small (accepted)}
      -- ({-(\midwidth - \Fthickness) * 0.5}, {\bottomheight +  (\midheight - \bottomheight) / 2});
-    \draw[thick, red, -latex] (0, \topheight*1.3) node[above, align=center] {\small Ion\\ \small (rejected)}
+    \draw[thick, red, -latex] (0, \topheight*1.4) node[above, align=center] {\small Ion\\ \small (rejected)}
      -- (0, \topheight - \Sithickness / 2);
     \draw[thick, red, -latex] (\bottomwidth, \midheight) node[above right, align=center] {\small Ion\\ \small (rejected)}
     -- (\bottomwidth * 0.4, {\bottomheight + (\midheight - \bottomheight) * 0.2});
