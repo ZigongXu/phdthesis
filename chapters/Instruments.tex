@@ -1,17 +1,17 @@
 \section{The MSL Radiation Assessment Detector}
 \label{sec:mslrad}
 
-Built in a cooperation between the University of Kiel and Southwest Research Institute, the \acl{RAD}\acused{RAD} \citep[\acs{RAD},][]{Hassler-2012-MSLRAD} instrument onboard the \acl{MSL}\acused{MSL} \citep[\acs{MSL},][]{Grotzinger-2012} mission provided the first-ever direct radiation measurements on the surface of Mars. It is designed to measure both charged and neutral particles, and calculate particle spectra as well as dosimetric quantities, such as the \ac{TID} rate and \ac{LET} spectra. This aligns with its main science objectives, which include the characterization of energetic particle spectra on the surface of Mars (\acp{GCR} and \acp{SEP}) and the determination of the radiation hazard for past and present life on Mars and for future human Mars missions. Consequently, \ac{RAD} not only been continuously measuring the radiation environment on the Martian surface since the \textit{Curiosity} rover's landing on August 6, 2012, but has also been active during a large part of the 9-month flight to Mars (the so-called cruise phase) to evaluate the radiation dose that astronauts would receive on a flight to Mars.
+Built in a cooperation between the University of Kiel and Southwest Research Institute, the \acl{RAD}\acused{RAD} \citep[\acs{RAD},][]{Hassler-2012-MSLRAD} instrument onboard the \acl{MSL}\acused{MSL} \citep[\acs{MSL},][]{Grotzinger-2012} mission provided the first-ever direct radiation measurements on the surface of Mars. It is designed to measure both charged and neutral particles, and calculate particle spectra as well as dosimetric quantities, such as the \ac{TID} rate and \ac{LET} spectra. This aligns with its main science objectives, which include the characterization of energetic particle spectra on the surface of Mars (\acp{GCR} and \acp{SEP}) and the determination of the radiation hazard for past or present life on Mars or for future human Mars missions. Consequently, \ac{RAD} not only been continuously measuring the radiation environment on the Martian surface since the \textit{Curiosity} rover's landing on August 6, 2012, but has also been active during the most part of its 9-month flight to Mars (the so-called cruise phase) to evaluate the radiation dose that astronauts would receive when traveling to Mars.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.4\linewidth]{images/rad}
-	\caption[Photo of the \acs{RAD} sensor head]{A photo of the \ac{RAD} sensor head before it was mounted on the \ac{MSL} spacecraft. Source: NASA/JPL-Caltech/SwRI}
+	\caption[Photo of the \acs{RAD} sensor head]{A photo of the \ac{RAD} sensor head before it was mounted on the \ac{MSL} spacecraft. The red protection cap was removed after installation on the rover. Source: NASA/JPL-Caltech/SwRI}
 	\label{fig:rad-photo}
 \end{figure}
 
-The \ac{RAD} sensor head (shown in \autoref{fig:rad-photo}) is mounted on the top deck of the rover, pointing towards the zenith. It is composed of three hexagonal silicon solid-state detectors (A, B, and C) with a thickness of \SI{300}{\micro\meter}, mounted on top of each other to form a charged particle telescope (\autoref{fig:rad-sensorhead}) with an opening angle of about \SI{60}{\degree}. Each detector is split into inner and outer segments.
-Directly below the charged particle telescope follows the D detector, a cesium iodide (CsI) scintillator in the shape of a truncated hexagonal pyramid. Its shape is chosen so that it continues the opening angle of the charged particle telescope (shown with dashed lines in \autoref{fig:rad-sensorhead}). The E detector, which is located below D, is a plastic scintillator and mainly responsible for neutral particle detection. D and E are surrounded by another plastic scintillator (F), which is used as an anticoincidence shield to reject ions that enter D or E from the sides.
+The \ac{RAD} sensor head (shown in \autoref{fig:rad-photo}) is mounted on the top deck of the rover, pointing towards the zenith. It is composed of three hexagonal silicon solid-state detectors (A, B, and C) with a thickness of \SI{300}{\micro\meter} each, mounted in a stack to form a charged particle telescope (\autoref{fig:rad-sensorhead}) with an opening angle of about \SI{60}{\degree}. Each detector is divided into an inner and an outer segment.
+Directly below the charged particle telescope follows the D detector, a cesium iodide (CsI) scintillator in the shape of a truncated hexagonal pyramid. Its shape is chosen so that it aligns with the inner segment of C and follows the opening angle of the charged particle telescope (shown with dashed lines in \autoref{fig:rad-sensorhead}). The E detector, which is located below D, is a plastic scintillator and mainly responsible for neutral particle detection. D and E are surrounded by another plastic scintillator (F), which is used as an anticoincidence shield to reject ions that enter D or E from the sides.
 
 \begin{figure}
 	\centering
@@ -20,54 +20,64 @@ Directly below the charged particle telescope follows the D detector, a cesium i
 	\label{fig:rad-sensorhead}
 \end{figure}
 
-For the detection of charged particles, \ac{RAD} requires an energy deposit in at least the A and B detector, which sets the lower energy limit to e.g. \SI{6}{\mega\electronvolt} for protons. Higher energy charged particles stop in C, D, or E, and the high stopping power of the D detector allows for a large energy range, e.g. up to \SI{95}{\mega\electronvolt} for stopping protons. For these stopping charged particles, both the charge and the total energy can be determined using two measured quantities, the total deposited energy $E$ and the deposited energy per path length in the A detector (the so-called \ac{LET} or $\dd E/\dd x$). This common principle is called the $\dd E/\dd x$-$E$-method and has been in use since the IMP-1 mission in the 1960s \citep{McDonald-1964}.
+For the detection of charged particles, \ac{RAD} requires an energy deposit in at least the A and B detector, which sets the lower energy limit to e.g. \SI{6}{\mega\electronvolt} for protons. Higher energy charged particles penetrate the B detector and stop in C, D, or E, and the high stopping power of the D detector allows for a large energy range, e.g. up to \SI{95}{\mega\electronvolt} for stopping protons. For stopping charged particles, both the charge and the total energy can be determined from two measured quantities, the total deposited energy $E$ and the \ac{LET} (deposited energy per path length) $\dd E/\dd x$. This common principle is called the $\dd E/\dd x$-$E$ method and has been in use in numerous particle detectors since the IMP-1 mission in the 1960s \citep{McDonald-1964}.
 
-Higher energy charged particles, which penetrate the whole \ac{RAD} sensor, can only be partially analyzed as the total energy $E$ is not measured directly. Up to a few \SI{100}{\mega\electronvolt} per nucleon, particles can still be partially analyzed as their \ac{LET} is slightly different at the top and bottom of the telescope, which allows to infer the approximate total energy. For even higher energy particles, the so-called \acp{MIP}, only the charge and \ac{LET} can be determined, but not the total energy.
+Higher energy charged particles, which penetrate the whole \ac{RAD} sensor, can not be analyzed using this technique, as the total energy $E$ is not measured directly. Up to a few \SI{100}{\mega\electronvolt} per nucleon, particles can still be partially analyzed as their \ac{LET} is slightly different at the top and bottom ends of the telescope, which allows to infer the approximate total energy. For even higher energy particles, the so-called \acp{MIP}, only the charge and \ac{LET} can be determined, but not the total energy.
 
-The D and E detectors are both, to different degrees, also sensitive to neutral particles. The CsI scintillator D can effectively detect $\gamma$-rays by producing secondary electrons, while neutrons hitting E can produce recoil protons by interacting with the hydrogen atoms in the plastic. An inversion method that takes these and other processes into account can then be used to derive neutral particle spectra \citep{Koehler-2011}.
+The D and E detectors are both, to different degrees, also sensitive to neutral particles. The CsI scintillator D can effectively detect secondary electrons produced by $\gamma$-rays, while neutrons hitting E can interact with the hydrogen atoms in the plastic to produce recoil protons. An inversion method that takes all these interaction processes into account is then used to derive neutral particle spectra \citep{Koehler-2011}.
 
-Being an instrument with a rather small mass (\SI{1.6}{\kilogram}) and volume, the observation of short-term \ac{GCR} variations such as Forbush decreases with \ac{RAD} are only possible when measuring particles entering the sensor head from all directions. This is possible with the dose rate data products of \ac{RAD}, which are available for the B and E detectors. The E detector is best suited for this purpose due to its larger volume and therefore better statistics.
+Being an instrument with a rather low mass (\SI{1.6}{\kilogram}) and volume, the observation of short-term \ac{GCR} variations such as Forbush decreases with \ac{RAD} is only possible when measuring particles that enter the sensor head from all directions, as the restricted opening angle of the charged particle telescope decreases the count rate too much. This is possible with the dose rate data products of \ac{RAD}, which are available for the B and E detectors. The E detector is best suited for this purpose due to its larger volume and therefore better statistics.
+The dose rate is calculated as
+\begin{equation}
+D = E_\text{dep}/m,
+\end{equation}
+i.e. the total energy deposited in the detector divided by its mass, and typically given in units of $\si{\gray} = \si{\joule\per\kilogram}$. In comparison to a simple count rate, using the dose rate ``weighs'' stopping particles more than penetrating particles, as these deposit more energy in the detector.
 
-As \ac{RAD} is located on the surface of Mars, incoming primary \ac{GCR} and \ac{SEP} particles first need to travel through Mars's atmosphere before reaching the \ac{RAD} detectors. In this process, some particles are shielded and others can generate secondary particles. Thus, the radiation environment observed by \ac{RAD} is a mix of primary and secondary particles, and \ac{RAD} measurements cannot be directly compared to deep-space detectors without taking into account the atmospheric response \citep[see e.g.][]{Guo-2017,Guo-2019}. This of course does not apply to the cruise phase data, where \ac{RAD} was relatively lightly shielded by the surrounding \ac{MSL} spacecraft \citep{Zeitlin-2013-cruise,guo2015cruise}.
-
-% TODO: diurnal variation.
+As \ac{RAD} is located on the surface of Mars, incoming primary \ac{GCR} and \ac{SEP} particles first need to travel through the Martian atmosphere before reaching the \ac{RAD} detectors. In this process, some particles are shielded away, while others can generate secondary particles by interacting with the particles in the atmosphere. Thus, the radiation environment observed by \ac{RAD} is a mix of primary and secondary particles, and \ac{RAD} measurements cannot be directly compared to deep-space detectors without taking into account the atmospheric response functions \citep[see e.g.][]{Guo-2017,Guo-2019}. For example, \ac{SEP} events need a certain minimum energy to be observed on ground, so \ac{RAD} only sees the most intense events as a \ac{GLE}.
+The atmospheric pressure measured by the \ac{REMS} instrument onboard \ac{MSL} shows a significant daily variation of about $\pm\SI{5}{\percent}$ \citep{Haberle-2014} due to the large temperature changes between day and night. These pressure variations also influence the \ac{RAD} measurements, as they affect the column mass of the atmosphere above \ac{MSL}, and thus change the amount of secondary particles generated in the atmosphere. A clear correlation between dose rate and pressure was observed by \citet{Guo-2017}. This needs to be taken into account when observing short-term variations of the \ac{GCR}, as the diurnal variations are on a similar order of magnitude (up to $\sim\SI{2.5}{\percent}$): The easiest solution would be to average the dose rate measurements over one solar day (sol) but this would significantly increase the uncertainty for the onset time definition of such events. Instead, a spectral notch filter can be applied to the data to filter out the 1 sol frequency and harmonics. This method was described in detail by \citet{Guo-2017-maven} and is also used for most \ac{RAD} data shown within this thesis.
+These considerations about atmospheric effects of course do not apply to the cruise phase data, where \ac{RAD} was relatively lightly shielded by the surrounding \ac{MSL} spacecraft \citep{Zeitlin-2013-cruise,guo2015cruise} and no diurnal effects were observed.
 
 \section{The Solar Orbiter High Energy Telescope}
 \label{sec:solohet}
 
-The ESA \acl{SolO}\acused{SolO} spacecraft \citep[\acs{SolO}][]{Mueller-2020-SolO} was launched successfully on February 10, 2020. During its mission, it will travel as close to the Sun as \SI{0.27}{\AU} and provide valuable measurements with its remote sensing and in situ instruments. Its \ac{EPD}\acused{EPD} suite \citep[\acs{EPD},][]{RodriguezPacheco-2019-EPD}, developed in collaboration of the University of Kiel, the University of Alcalá and the Johns Hopkins University APL, is comprised of four instruments, covering the whole energetic particle spectrum from a few \si{\kilo\electronvolt} up to sevaral hundreds of \si{\mega\electronvolt} (\autoref{fig:epd_energy_ranges}). The lowest energies of electrons and protons, slightly above the solar wind up to \SI{80}{\kilo\electronvolt} are covered by the \ac{STEP} telescope, which is followed by the \ac{EPT} for medium energies up to $\sim\SI{6}{\mega\electronvolt}$. Both of these sensors mainly measure electrons and protons and cannot separate heavy ion species, so they are supplemented with the \ac{SIS}, a time-of-flight based instrument that measures 12 ion species from H to Fe between \SI{14}{\kilo\electronvolt\per nuc} and \SI{20.5}{\mega\electronvolt\per nuc}. The highest energies of electrons and all ion species are covered by the \ac{HET}, whose measurements are, similarly to \ac{RAD}, based on the $\dd E/\dd x$-$E$ method.
+The ESA \acl{SolO}\acused{SolO} spacecraft \citep[\acs{SolO},][]{Mueller-2020-SolO} was launched successfully on February 10, 2020. During its mission, it will travel as close to the Sun as \SI{0.27}{\AU} and provide valuable measurements of all kinds of solar events with its comprehensive remote sensing and in situ instrument suite. The \acl{EPD}\acused{EPD} investigation \citep[\acs{EPD},][]{RodriguezPacheco-2019-EPD} onboard \ac{SolO}, a collaboration of the University of Kiel, the University of Alcalá and the Johns Hopkins University APL, is comprised of four instruments, covering the whole energetic particle spectrum from a few \si{\kilo\electronvolt} up to several hundreds of \si{\mega\electronvolt} (\autoref{fig:epd_energy_ranges}).
+\begin{figure}
+	\centering
+	\input{images/epd_energy_ranges.tex}
+	\caption[\acs{EPD} energy coverage]{Energy coverage of the different sensors in the \ac{EPD} suite for electrons and different ion species, based on the current science data products as of October 2020. This is an updated and enhanced version of Figure 3 from \citet{RodriguezPacheco-2019-EPD}. In the case of the CNO and NeMgSi groups, the responses for carbon and neon were taken as an example, the other species differ slightly. For simplicity, \ac{SIS} protons, \ac{EPT} stopping Helium as well as \ac{EPT} penetrating data products are excluded from this plot. For the penetrating data products of \ac{HET}, the highest energy bin \citep[as given by][Appendix A]{Elftmann-2020-PhD} is not displayed, as its coverage extends to infinity.}
+	\label{fig:epd_energy_ranges}
+\end{figure}
+The lowest energies of electrons and protons, slightly above the solar wind up to \SI{80}{\kilo\electronvolt}, are measured by the \ac{STEP} telescope, which is followed by the \ac{EPT} for medium energies up to $\sim\SI{6}{\mega\electronvolt}$ for protons and \SI{450}{\kilo\electronvolt} for electrons. Both \ac{EPT} and \ac{STEP} mainly measure electrons and protons and cannot separate heavy ion species, so they are supplemented with the \ac{SIS}, a time-of-flight based instrument that measures 12 ion species from H to Fe between \SI{14}{\kilo\electronvolt\per nuc} and \SI{20.5}{\mega\electronvolt\per nuc}. The highest energies of electrons and all ion species are covered by the \ac{HET}, whose measurements are, similarly to \ac{RAD}, based on the $\dd E/\dd x$-$E$ method.
 
-% TODO: Include or recreate energy coverage plot from Instrument paper
+The double-ended \ac{HET} sensor head is shown in Figure \ref{subfig:het-sensorhead-cad}. Two of these sensors are installed onboard the \ac{SolO} spacecraft on the side decks, which provide four viewing directions: Sunward, antisunward, north and south. The sunward and antisunward fields of view (HET 1) are pointed \SI{35}{\degree} away from the radial direction within the ecliptic, which corresponds to the mean direction of the nominal Parker spiral, while the north and south fields of view (HET 2) are pointed out of the ecliptic. The \ac{HET} telescopes each consist of four silicon solid-state detectors (A1, B1, B2, A2) and a Bi$_4$Ge$_3$O$_{12}$ (BGO) scintillator (C) in the center. This setup is similar to \ac{MSL} (\autoref{sec:mslrad}), though there is no second plastic scintillator for the detection of neutral particles.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\textwidth]{images/epd-energy-ranges.pdf}
-	\caption[\acs{EPD} energy coverage]{Energy coverage of the different sensors in the \ac{EPD} suite. Taken from \citet[Fig. 3]{RodriguezPacheco-2019-EPD}.}
-	\label{fig:epd_energy_ranges}
-\end{figure}
-
-The double-ended \ac{HET} sensor head is shown in Figure \ref{fig:het-sensorhead}. Two of these sensors are installed onboard the \ac{SolO} spacecraft on the side decks, which provide four viewing directions: Sunward, antisunward, north and south. The sunward and antisunward fields of view are pointed \SI{35}{\degree} away from the radial direction, which corresponds to the mean direction of the nominal Parker spiral. The telescope consists of four silicon solid-state detectors (A1, B1, B2, A2) and a Bi$_4$Ge$_3$O$_{12}$ (BGO) scintillator (C) in the center. This setup is similar to \ac{MSL} (\autoref{sec:mslrad}), though there is no second plastic scintillator for the detection of neutral particles.
-
-
-
-\begin{figure}
-    \centering
-    \subfloat[\acs{CAD} rendering of the \ac{HET} sensor head. Taken from \citet{RodriguezPacheco-2019-EPD}, Fig. 31.]{
-    	\includegraphics[width=0.6\textwidth]{images/het.png}
-    	\label{subfig:het-sensorhead-cad}
-    }\\
-    \subfloat[Schematic diagram of the \ac{HET} sensor head]{
-    	\input{images/solohet_sensor_schematic.tex}
-    	\label{subfig:het-sensorhead-diagram}
+	\subfloat[\acs{CAD} rendering of the \ac{HET} sensor head. Taken from \citet{RodriguezPacheco-2019-EPD}, Fig. 31.]{
+		\includegraphics[width=0.6\textwidth]{images/het.png}
+		\label{subfig:het-sensorhead-cad}
+	}\\
+	\subfloat[Schematic diagram of the \ac{HET} sensor head. Exemplary particle trajectories ending up in different data products are shown by the arrows: \textcolor{red}{stopping in B}, \textcolor{green}{stopping in C}, \textcolor{blue}{penetrating}, \textcolor{Aquamarine}{GCR channel}, \textcolor{orange}{C single counter}.]{
+		\input{images/solohet_sensor_schematic.tex}
+		\label{subfig:het-sensorhead-diagram}
 	}
-    \caption[\acs{HET} sensor head]{\acs{HET} sensor head}
-    \label{fig:het-sensorhead}
+	\caption[\acs{HET} sensor head]{\acs{HET} sensor head}
+	\label{fig:het-sensorhead}
 \end{figure}
 
-Further details about the design of the \ac{HET} instrument can be found in \cite{Elftmann-2020-PhD}. 
+Charged particles that enter through one of the A detectors and then stop in B or C are measured in the \ac{HET} data products for stopping particles, which are defined using the ABnC and ABC coincidence conditions (as shown in red and green in \autoref{subfig:het-sensorhead-diagram}). These particles are fully analyzed using the $\dd E/\dd x$-$E$ method, i.e. their primary energy and charge can be directly determined.
+Ions with higher energies (e.g. $\gtrsim\SI{100}{\mega\electronvolt\per nuc}$ for protons and helium) penetrate the whole telescope (ABCBA coincidence, shown in blue in \autoref{subfig:het-sensorhead-diagram}). In this case, as with the penetrating particles in \ac{RAD}, the particles are not fully analyzed, but up to a few \SI{100}{\mega\electronvolt}, the particle direction and primary energy can still be estimated based on the different \ac{LET} at each end of the telescope (e.g. in the A1 and A2 detectors).
+
+Similarly to \ac{RAD}, these energy-resolved data products are very useful for \ac{SEP} events as well as to calculate longterm \ac{GCR} spectra, but they do not have high enough count rates to study short-term variations of the \ac{GCR}. Alternatively, \ac{HET} also produces a data product using the BCB coincidence (irrespective of the A detectors, shown in turquoise in \autoref{subfig:het-sensorhead-diagram}), which significantly increases the opening angle at the cost of lower energy and species resolution. In addition, basic single detector count rates (level 1 trigger rates) without any coincidence conditions applied are available in \ac{HET}'s housekeeping data, and the count rates for the C detector are best suited for measuring short-term variations due to its large volume. The response function of this single detector counter is derived in \autoref{chp:HETSimulation}.
+
+Further details about the design of the \ac{HET} instrument, the definition of its data products and their calibration can be found in \citet{Elftmann-2020-PhD}. 
 
 \section{Neutron monitor measurements}
 \label{sec:neutronmonitors}
+
+First developed in the 1950s \citep[see e.g.]{Simpson-2000}, ground-based neutron monitors have historically been the most widely available instrument for the measurement of cosmic rays. They measure secondary neutrons generated by the primary \ac{GCR} and \ac{SEP} particles in the Earth's atmosphere. Neutron monitors are typically large and heavy instruments, as they include one or multiple large tubes of lead with which the high-energy neutrons can interact. Neutron monitors have been deployed at many locations around the globe, and many of them have been producing long-term measurements for many decades.
+
+% TODO: NMDB, atmospheric and magnetic cutoff, South pole neutron monitor, GSM.
 
 \section{The STEREO Heliospheric Imagers}
 \label{sec:stereohi}
