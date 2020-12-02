@@ -60,7 +60,7 @@ rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
 \usepackage[separate-uncertainty=true, quotient-mode=fraction, per-mode=symbol]{siunitx}
 \DeclareSIUnit{\AU}{AU}
 \DeclareSIUnit{\AUgerman}{AE}
-\DeclareSIUnit{\solarradius}{R_\astrosun}
+\DeclareSIUnit{\solarradius}{\ensuremath R_\odot}
 \DeclareSIUnit{\sol}{sol}
 
 \renewcommand{\max}{{\text{max}}}
@@ -139,26 +139,32 @@ rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
 \setcounter{page}{1}	
 
 \chapter{Introduction}
+\label{chp:introduction}
 
 \input{chapters/Introduction}
 
 \chapter{Instrumentation}
+\label{chp:instruments}
 
 \input{chapters/Instruments}
 
 \chapter{Studies of ICME arrival times at Earth and Mars using FD data}
+\label{chp:arrival_times}
 
 \input{chapters/ICME_arrival_times}
 
 \chapter{Comparing the properties of FDs at Earth and Mars}
+\label{chp:fd_properties}
 
 \input{chapters/FD_Properties}
 
 \chapter{Major Space Weather events: The events of September 2017}
+\label{chp:september_event}
 
 \input{chapters/September_event}
 
 \chapter{Case study: First CME seen at Solar Orbiter}
+\label{chp:solo}
 
 \input{chapters/SolO}
 
