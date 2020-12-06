@@ -27,7 +27,7 @@
 \makeatletter%
 \begin{pgfpicture}%
 \pgfpathrectangle{\pgfpointorigin}{\pgfqpoint{3.000000in}{3.000000in}}%
-\pgfusepath{use as bounding box, clip}%
+\pgfusepath{use as bounding box}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
 \pgfsetmiterjoin%
