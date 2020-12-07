@@ -31,9 +31,11 @@
 \setboolean{namebold}{true}
 \printnames[][1-99]{author},%
 \setboolean{namebold}{false}
-\printfield{journaltitle}, 
-\printfield{volume}, 
-\printfield{number}, \printfield{pages} (\printfield{year}), \printfield{doi}
+\printfield{journaltitle}%
+\iffieldundef{volume}{}{, \printfield{volume}}%
+\iffieldundef{number}{}{, \printfield{number}}%
+\iffieldundef{pages}{}{, \printfield{pages}}
+(\printfield{year}), \printfield{doi}
 \iffieldundef{note}{}{\printfield{note}.}
 }
 {\multicitedelim}
