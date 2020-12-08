@@ -174,9 +174,8 @@
        \global\let\AC@populated\AC@used
    \fi}
 \newcommand{\@firstupper}[1]{%
-    \StrLeft{#1}{1}[\firstletter]%
-    \StrGobbleLeft{#1}{1}[\remainder]%
-    \MakeUppercase\firstletter\remainder%
+  \StrSplit{#1}{1}{\head}{\tail}%
+  \MakeUppercase\head\tail%
 }
 \newcommand*\newacro[1]{%
   \@ifnextchar[{\AC@newacro{#1}}{\AC@newacro{#1}[#1]}}
@@ -336,7 +335,9 @@
   \fi
 }
 \newcommand*\AC@Aclp[1]{%
-  \@firstupper{\AC@aclp{#1}}%
+  \AC@uppertrue%
+  \AC@aclp{#1}%
+  \AC@upperfalse%
 }
 \newcommand*\AC@acsp[1]{%
   \ifcsname fn@#1@PS\endcsname
@@ -346,19 +347,27 @@
   \fi
 }
 \newif\ifAC@starred
+\newif\ifAC@upper
 \newcommand*\AC@get[3]{%
-    \ifx#1\relax
-       \PackageWarning{acronym}{Acronym `#3' is not defined}%
-       \textbf{#3!}%
+  \ifx#1\relax
+    \PackageWarning{acronym}{Acronym `#3' is not defined}%
+    \textbf{#3!}%
+  \else
+    \ifAC@upper
+      \@firstupper{\expandafter#2#1}%
     \else
-       \expandafter#2#1%
-    \fi}
+      \expandafter#2#1%
+    \fi
+  \fi
+}
 \newcommand*\AC@acs[1]{%
    \mbox{\expandafter\AC@get\csname fn@#1\endcsname\@firstoftwo{#1}}}
 \newcommand*\AC@acl[1]{%
    \expandafter\AC@get\csname fn@#1\endcsname\@secondoftwo{#1}}
 \newcommand*\AC@Acl[1]{%
-   \@firstupper{\AC@acl{#1}}%
+  \AC@uppertrue%
+  \AC@acl{#1}%
+  \AC@upperfalse%
 }
 \newcommand*{\acs}{\AC@starredfalse\protect\acsa}%
 \WithSuffix\newcommand\acs*{\AC@starredtrue\protect\acsa}%
@@ -536,7 +545,8 @@
    \@iaci{#2} \ifAC@starred\ac*[#1]{#2}\else\ac[#1]{#2}\fi%
 }
 \newcommand*{\@Iac}[2][\AC@linebreakpenalty]{%
-   \@firstupper{\@iaci{#2}} \ifAC@starred\ac*[#1]{#2}\else\ac[#1]{#2}\fi%
+  \@firstupper{\@iaci{#2}}\space%
+  \ifAC@starred\ac*[#1]{#2}\else\ac[#1]{#2}\fi%
 }
 \newcommand*{\acsp}{\AC@starredfalse\protect\acspa}%
 \WithSuffix\newcommand\acsp*{\AC@starredtrue\protect\acspa}%
