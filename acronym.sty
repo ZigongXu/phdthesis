@@ -5,7 +5,7 @@
 %% The original source files were:
 %%
 %% acronym.dtx  (with options: `acronym')
-%%  Copyright 1995--2020  by Tobias Oetiker (tobi@oetiker.ch)
+%%  Copyright 1995--2009  by Tobias Oetiker (tobi@oetiker.ch)
 %%                        and individual authors listed elsewhere.
 %%  All rights reserved.
 %% 
@@ -40,8 +40,8 @@
 %%
 %%
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
-\ProvidesPackage{acronym}[2020/04/17
-                          v1.47
+\ProvidesPackage{acronym}[2019/11/11
+                          v1.42
                           Support for acronyms (Tobias Oetiker)]
 \RequirePackage{suffix,xstring}
 \newif\ifAC@footnote
@@ -50,15 +50,9 @@
 \newif\ifAC@nohyperlinks
 \AC@nohyperlinksfalse
 \DeclareOption{nohyperlinks}{\AC@nohyperlinkstrue}
-\newif\ifAC@noacroprefix
-\AC@noacroprefixfalse
-\DeclareOption{noacroprefix}{\AC@noacroprefixtrue}
 \newif\ifAC@printonlyused
 \AC@printonlyusedfalse
 \DeclareOption{printonlyused}{\AC@printonlyusedtrue}
-\newif\ifAC@printonlyreused
-\AC@printonlyreusedfalse
-\DeclareOption{printonlyreused}{\AC@printonlyreusedtrue}
 \newif\ifAC@withpage
 \AC@withpagefalse
 \DeclareOption{withpage}{\AC@withpagetrue}
@@ -89,7 +83,6 @@
   \def\AC@linebreakpenalty{3}
 \fi
 \def\AC@hyperlink#1#2{#2}
-\def\AC@hyperref[#1]#2{#2}
 \def\AC@hypertarget#1#2{#2}
 \def\AC@phantomsection{}
 \ifAC@nohyperlinks
@@ -97,7 +90,6 @@
    \AtBeginDocument{%
       \@ifpackageloaded{hyperref}
          {\let\AC@hyperlink=\hyperlink
-          \let\AC@hyperref=\hyperref
           \newcommand*\AC@raisedhypertarget[2]{%
              \Hy@raisedlink{\hypertarget{#1}{}}#2}%
           \let\AC@hypertarget=\AC@raisedhypertarget
@@ -110,13 +102,6 @@
           }%
          }{}}%
 \fi
-\AtBeginDocument{%
-  \@ifpackageloaded{hyperref}{%
-    \let\AC@pageref=\@pagerefstar%
-  }{%
-    \let\AC@pageref=\pageref%
-  }%
-}
 \AtBeginDocument{%
    \providecommand\texorpdfstring[2]{#1}%
    \providecommand\pdfstringdefDisableCommands[1]{}%
@@ -167,11 +152,12 @@
 }
 \newcommand*\acresetall{\the\AC@clearlist\AC@clearlist={}}
 \def\AC@reset#1{%
-  \global\expandafter\let\csname AC@\AC@prefix#1\endcsname\relax
+  \global\expandafter\let\csname AC@#1\endcsname\relax
 }
 \newcommand*\AC@used{@<>@<>@}
 \newcommand{\AC@populated}{}
 \newcommand*{\AC@logged}[1]{%
+   \acronymused{#1}% mark it as used in the current run too
    \@bsphack
    \protected@write\@auxout{}{\string\acronymused{#1}}%
    \@esphack}
@@ -181,31 +167,17 @@
    }%
 }
 \newcommand*{\acronymused}[1]{%
-  \expandafter\ifx\csname acused@#1@once\endcsname\AC@used%
-    \expandafter\ifx\csname acused@#1@twice\endcsname\AC@used%
-      \relax%
-    \else%
-      \global\expandafter\let\csname acused@#1@twice\endcsname\AC@used%
-      \global\let\AC@populated\AC@used%
-    \fi%
-  \else%
-    \global\expandafter\let\csname acused@#1@once\endcsname\AC@used%
-    \ifAC@printonlyreused%
-      \relax%
-    \else%
-      \global\let\AC@populated\AC@used%
-    \fi%
-  \fi%
-}
+   \expandafter\ifx\csname acused@#1\endcsname\AC@used
+      \relax
+   \else
+       \global\expandafter\let\csname acused@#1\endcsname\AC@used
+       \global\let\AC@populated\AC@used
+   \fi}
 \newcommand{\@firstupper}[1]{%
-  \StrSplit{#1}{1}{\head}{\tail}%
-  \MakeUppercase\head\tail%
+    \StrLeft{#1}{1}[\firstletter]%
+    \StrGobbleLeft{#1}{1}[\remainder]%
+    \MakeUppercase\firstletter\remainder%
 }
-\ifAC@noacroprefix
-  \newcommand*\AC@prefix{}
-\else
-  \newcommand*\AC@prefix{acronyms@}
-\fi
 \newcommand*\newacro[1]{%
   \@ifnextchar[{\AC@newacro{#1}}{\AC@newacro{#1}[#1]}}
 \newcommand\AC@newacro{}
@@ -267,66 +239,33 @@
       \end{AC@deflist}%
    \fi}%
 \newcommand*\AC@acro[1]{%
-  \@ifnextchar[{%
-    \csname AC@\AC@prefix{}@acro\endcsname{#1}%
-  }{%
-    \csname AC@\AC@prefix{}@acro\endcsname{#1}[#1]%
-  }%
-}
-\expandafter\newcommand\csname AC@\AC@prefix{}@acro\endcsname{}
-\expandafter\def\csname AC@\AC@prefix{}@acro\endcsname#1[#2]#3{%
+  \@ifnextchar[{\AC@@acro{#1}}{\AC@@acro{#1}[#1]}}
+\newcommand\AC@@acro{}
+\def\AC@@acro#1[#2]#3{%
   \ifAC@nolist%
   \else%
-  \ifnum%
-    \ifAC@printonlyused 1%
-    \else\ifAC@printonlyreused 1%
-    \else 0\fi\fi%
-  =1\relax%
-    \ifnum%
-      \ifAC@printonlyused%
-        \expandafter\ifx\csname acused@#1@once\endcsname\AC@used 1 \else 0 \fi%
-      \else\ifAC@printonlyreused%
-        \expandafter\ifx\csname acused@#1@twice\endcsname\AC@used 1 \else 0 \fi%
-      \else 0 \fi\fi%
-    =1\relax%
-      \item[\protect\AC@hypertarget{#1}{%
-        \AC@hyperref[acro:#1]{\aclabelfont{#2}\hfill}%
-      }]\AC@hyperref[acro:#1]{#3}%
+  \ifAC@printonlyused%
+    \expandafter\ifx\csname acused@#1\endcsname\AC@used%
+       \item[\protect\AC@hypertarget{#1}{\aclabelfont{#2}}] #3%
           \ifAC@withpage%
             \expandafter\ifx\csname r@acro:#1\endcsname\relax%
                \PackageInfo{acronym}{%
                  Acronym #1 used in text but not spelled out in
                  full in text}%
             \else%
-              \nobreak\leaders\hbox{$\m@th\mkern\@dotsep mu\hbox{.}\mkern\@dotsep mu$}\hfill%
-              \nobreak\hb@xt@\@pnumwidth{%
-                \hfil\normalfont\normalcolor\AC@pageref{acro:#1}%
-              }%
+               \dotfill\pageref{acro:#1}%
             \fi%
           \fi\\%
     \fi%
-  \else%
-    \item[\protect\AC@hypertarget{#1}{\AC@hyperref[acro:#1]{\aclabelfont{#2}\hfill}}]\AC@hyperref[acro:#1]{#3}%
-  \fi%
-  \fi%
-  \begingroup
+ \else%
+    \item[\protect\AC@hypertarget{#1}{\aclabelfont{#2}}] #3%
+ \fi%
+ \fi%
+ \begingroup
     \def\acroextra##1{}%
     \@bsphack
-      \ifAC@printonlyreused%
-        \protected@write\@auxout{}{%
-          \string\newacro{#1}[%
-            \expandafter\ifx\csname acused@#1@twice\endcsname\AC@used%
-              \string\AC@hyperlink{#1}{#2}%
-            \else%
-              {#2}%
-            \fi%
-          ]{#3}%
-        }%
-      \else%
-        \protected@write\@auxout{}{%
-          \string\newacro{#1}[\string\AC@hyperlink{#1}{#2}]{#3}%
-        }%
-      \fi%
+    \protected@write\@auxout{}%
+       {\string\newacro{#1}[\string\AC@hyperlink{#1}{#2}]{#3}}%
     \@esphack
   \endgroup
   \ignorespaces}
@@ -342,7 +281,7 @@
 \newcommand\AC@acroindefinite[3]{
   \@bsphack
   \protected@write\@auxout{}%
-    {\string\newacroindefinite{#1}{#2}{#3}}%
+    {\string\newacroindefinite{#1}{\string\AC@hyperlink{#1}{#2}}{#3}}%
   \@esphack
 }
 \newcommand*\newacroplural[1]{%
@@ -397,9 +336,7 @@
   \fi
 }
 \newcommand*\AC@Aclp[1]{%
-  \AC@uppertrue%
-  \AC@aclp{#1}%
-  \AC@upperfalse%
+  \@firstupper{\AC@aclp{#1}}%
 }
 \newcommand*\AC@acsp[1]{%
   \ifcsname fn@#1@PS\endcsname
@@ -409,27 +346,19 @@
   \fi
 }
 \newif\ifAC@starred
-\newif\ifAC@upper
 \newcommand*\AC@get[3]{%
-  \ifx#1\relax
-    \PackageWarning{acronym}{Acronym `#3' is not defined}%
-    \textbf{#3!}%
-  \else
-    \ifAC@upper
-      \@firstupper{\expandafter#2#1}%
+    \ifx#1\relax
+       \PackageWarning{acronym}{Acronym `#3' is not defined}%
+       \textbf{#3!}%
     \else
-      \expandafter#2#1%
-    \fi
-  \fi
-}
+       \expandafter#2#1%
+    \fi}
 \newcommand*\AC@acs[1]{%
    \mbox{\expandafter\AC@get\csname fn@#1\endcsname\@firstoftwo{#1}}}
 \newcommand*\AC@acl[1]{%
    \expandafter\AC@get\csname fn@#1\endcsname\@secondoftwo{#1}}
 \newcommand*\AC@Acl[1]{%
-  \AC@uppertrue%
-  \AC@acl{#1}%
-  \AC@upperfalse%
+   \@firstupper{\AC@acl{#1}}%
 }
 \newcommand*{\acs}{\AC@starredfalse\protect\acsa}%
 \WithSuffix\newcommand\acs*{\AC@starredtrue\protect\acsa}%
@@ -519,11 +448,11 @@
   \fi
 }%
 \newcommand*\AC@placelabel[1]{%
-  \expandafter\ifx\csname AC@\AC@prefix#1\endcsname\AC@used
+  \expandafter\ifx\csname AC@#1\endcsname\AC@used
   \else
     {\AC@phantomsection\@verridelabel{acro:#1}}%
     \ifAC@starred\else%
-    \global\expandafter\let\csname AC@\AC@prefix#1\endcsname\AC@used
+    \global\expandafter\let\csname AC@#1\endcsname\AC@used
     \fi%
     \AC@addtoAC@clearlist{#1}%
   \fi
@@ -568,7 +497,7 @@
   \ifAC@dua
      \ifAC@starred\acl*{#2}\else\acl{#2}\fi%
   \else
-     \expandafter\ifx\csname AC@\AC@prefix#2\endcsname\AC@used%
+     \expandafter\ifx\csname AC@#2\endcsname\AC@used%
      \ifAC@starred\acs*{#2}\else\acs{#2}\fi%
    \else
      \ifAC@starred\acf*[#1]{#2}\else\acf[#1]{#2}\fi%
@@ -578,7 +507,7 @@
   \ifAC@dua
      \ifAC@starred\Acl*{#2}\else\Acl{#2}\fi%
   \else
-     \expandafter\ifx\csname AC@\AC@prefix#2\endcsname\AC@used%
+     \expandafter\ifx\csname AC@#2\endcsname\AC@used%
      \ifAC@starred\acs*{#2}\else\acs{#2}\fi%
    \else
      \ifAC@starred\Acf*[#1]{#2}\else\Acf[#1]{#2}\fi%
@@ -589,26 +518,25 @@
 \newcommand*{\Iac}{\AC@starredfalse\protect\@Iac}%
 \WithSuffix\newcommand\Iac*{\AC@starredtrue\protect\@Iac}%
 \newcommand*{\@iaci}[1]{%
-  \ifcsname fn@#1@IL\endcsname
-    \ifAC@dua
-      \csname fn@#1@IL\endcsname%
-    \else
-      \expandafter\ifx\csname AC@\AC@prefix#1\endcsname\AC@used%
+   \ifcsname fn@#1@IL\endcsname
+     \ifAC@dua
+        \csname fn@#1@IL\endcsname%
+     \else
+        \expandafter\ifx\csname AC@#1\endcsname\AC@used%
         \csname fn@#1@IS\endcsname%
       \else
         \csname fn@#1@IL\endcsname%
       \fi
-    \fi
-  \else
-    a%
-  \fi
+     \fi
+   \else
+   a%
+   \fi
 }
 \newcommand*{\@iac}[2][\AC@linebreakpenalty]{%
    \@iaci{#2} \ifAC@starred\ac*[#1]{#2}\else\ac[#1]{#2}\fi%
 }
 \newcommand*{\@Iac}[2][\AC@linebreakpenalty]{%
-  \@firstupper{\@iaci{#2}}\space%
-  \ifAC@starred\ac*[#1]{#2}\else\ac[#1]{#2}\fi%
+   \@firstupper{\@iaci{#2}} \ifAC@starred\ac*[#1]{#2}\else\ac[#1]{#2}\fi%
 }
 \newcommand*{\acsp}{\AC@starredfalse\protect\acspa}%
 \WithSuffix\newcommand\acsp*{\AC@starredtrue\protect\acspa}%
@@ -667,7 +595,7 @@
   \ifAC@dua
      \ifAC@starred\aclp*{#2}\else\aclp{#2}\fi%
   \else
-   \expandafter\ifx\csname AC@\AC@prefix#2\endcsname\AC@used
+   \expandafter\ifx\csname AC@#2\endcsname\AC@used
       \ifAC@starred\acsp*{#2}\else\acsp{#2}\fi%
    \else
       \ifAC@starred\acfp*[#1]{#2}\else\acfp[#1]{#2}\fi%
@@ -677,7 +605,7 @@
   \ifAC@dua
      \ifAC@starred\Aclp*{#2}\else\Aclp{#2}\fi%
   \else
-   \expandafter\ifx\csname AC@\AC@prefix#2\endcsname\AC@used
+   \expandafter\ifx\csname AC@#2\endcsname\AC@used
       \ifAC@starred\acsp*{#2}\else\acsp{#2}\fi%
    \else
       \ifAC@starred\Acfp*[#1]{#2}\else\Acfp[#1]{#2}\fi%
@@ -706,7 +634,7 @@
      }%
      \ifAC@starred\else\AC@logged{#2}\fi}
 \newcommand{\acused}[1]{%
-\global\expandafter\let\csname AC@\AC@prefix#1\endcsname\AC@used%
+\global\expandafter\let\csname AC@#1\endcsname\AC@used%
 \AC@addtoAC@clearlist{#1}}
 \newcommand*{\acsu}{\AC@starredfalse\protect\acsua}%
 \WithSuffix\newcommand\acsu*{\AC@starredtrue\protect\acsua}%
