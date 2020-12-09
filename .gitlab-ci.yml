@@ -7,13 +7,17 @@ compile_thesis:
     stage: build
     script:
         - latexmk -xelatex -latexoption="--shell-escape" thesis.tex
-        - cd cv
-        - latexmk -xelatex cv.tex
-        - mv cv.pdf ..
-        - cv ..
     artifacts:
         paths:
             - thesis.pdf
+            
+compile_cv:
+    stage: build
+    script:
+        - cd cv && latexmk -xelatex cv.tex && cd ..
+        - mv cv/cv.pdf cv.pdf
+    artifacts:
+        paths:
             - cv.pdf
 
 #compile_talk:
