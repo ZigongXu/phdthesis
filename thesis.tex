@@ -81,8 +81,10 @@ rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
 \newcommand{\const}{\ensuremath\textrm{const.}}
 
 \usetikzlibrary{calc}
+\usetikzlibrary{shapes}
 \usetikzlibrary{shapes.misc}
-\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.pathmorphing,decorations.markings}
+\usetikzlibrary{pgfplots.fillbetween}
 \tikzset{cross/.style={cross out, draw=black, fill=none, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer 
 		sep=0pt}, cross/.default={2pt}}
 

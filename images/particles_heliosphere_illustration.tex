@@ -1,0 +1,91 @@
+%\documentclass{standalone}
+%\usepackage{tikz}
+%\usepackage{pgfplots}
+%\usepackage{amsmath}
+%
+%\usetikzlibrary{calc}
+%\usetikzlibrary{decorations.pathmorphing,decorations.markings,pgfplots.fillbetween,shapes}
+%
+%\definecolor{light-gray}{gray}{0.9}
+%
+%\begin{document}
+\tikzset{
+	mark position/.style args={#1(#2)}{
+		postaction={
+			decorate,
+			decoration={
+				markings,
+				mark=at position #1 with \coordinate (#2);
+			}
+		}
+	}
+}
+
+\begin{tikzpicture}[scale=0.65]
+	\def\sunradius{1}
+	
+	\def\ra{(\sunradius+10*\t)}
+	\def\pa{(-\t r + 55)}
+	\def\rb{(\sunradius+60*\t*0.15)}
+	\def\pb{(-\t*0.15 r)}
+
+	\foreach \i in {0,1,2} {
+		\draw[blue,domain=0:0.9,variable=\t,samples=100,smooth] plot ({\pa + \i*10}: {\ra});
+	}
+	\foreach \i in {0,1,2} {
+		\draw[red,domain=0:0.8,variable=\t,samples=100,smooth] plot ({\pb - \i*10}: {\rb});
+	}
+
+	{
+		\def\t{0.5}
+		\node[blue, fill=white] at ({\pa + 10}: {\ra}) {Slow wind};
+		\node[red, fill=white] at ({\pb - 10}: {\ra}) {Fast wind};
+	}
+
+	\draw[mark position=0.85(a),thick,domain=0:1,variable=\t,samples=100] plot ({(\ra * cos(\pa) + \rb * cos(\pb))/2}, {(\ra * sin(\pa) + \rb * sin(\pb))/2}) node[right, rotate=-38] {\small Stream interface};
+	\draw[name path=FS,thick,blue,dashed,domain=0:1.04,variable=\t,samples=100,rotate=5] plot ({(\ra * cos(\pa) + \rb * cos(\pb))/2}, {(\ra * sin(\pa) + \rb * sin(\pb))/2}) node[right,rotate=-33] {\small Forward shock};
+	\draw[name path=RS,thick,red,dashed,domain=0:0.96,variable=\t,samples=100,rotate=-5] plot ({(\ra * cos(\pa) + \rb * cos(\pb))/2}, {(\ra * sin(\pa) + \rb * sin(\pb))/2}) node[right,rotate=-43] {\small Reverse shock};
+	
+	\tikzfillbetween[of=FS and RS]{gray, opacity=0.1};
+	\node[above,rotate=-30] at (a) {\small SIR};
+	
+	\draw[fill=yellow] (0, 0) circle (\sunradius);
+	
+	% CME
+	\def\cmeangle{-120}		
+	\draw[name path=CMEin] (\cmeangle-30:\sunradius) % inner edge
+	.. controls (\cmeangle-45:\sunradius*3) and +(\cmeangle - 90:\sunradius*0.7) ..
+	(\cmeangle:\sunradius*3)
+	.. controls +(\cmeangle + 90:\sunradius*0.7) and (\cmeangle+45:\sunradius*3) ..
+	(\cmeangle+30:\sunradius);
+	
+	\draw[name path=CMEout] (\cmeangle-40:\sunradius) % outer edge
+	.. controls (\cmeangle-55:\sunradius*3) and +(\cmeangle - 90:\sunradius*2) ..
+	(\cmeangle:\sunradius*4)
+	.. controls +(\cmeangle + 90:\sunradius*2) and (\cmeangle+55:\sunradius*3) ..
+	(\cmeangle+40:\sunradius);
+	
+	\tikzfillbetween[of=CMEout and CMEin]{orange, opacity=0.1};
+	
+	%\draw[decorate, decoration={snake,segment length=1cm, amplitude=0.75mm}] (\cmeangle-35:\sunradius) % middle
+	%.. controls (\cmeangle-50:\sunradius*3) and +(\cmeangle - 90:\sunradius*1.3) ..
+	%(\cmeangle:\sunradius*3.5)
+	%.. controls +(\cmeangle + 90:\sunradius*1.3) and (\cmeangle+50:\sunradius*3) ..
+	%(\cmeangle+35:\sunradius);
+	
+	\draw[thick] (\cmeangle-50:\sunradius*2.8) % shock
+	.. controls (\cmeangle-45:\sunradius*3.5) and +(\cmeangle - 90:\sunradius*2) ..
+	(\cmeangle:\sunradius*4.5)
+	.. controls +(\cmeangle + 90:\sunradius*2) and (\cmeangle+45:\sunradius*3.5) ..
+	(\cmeangle+50:\sunradius*2.8) node[midway,below,yshift=-3mm] {shock};
+	
+	\node[rotate=\cmeangle+90] at (\cmeangle:\sunradius * 3.5) {\small CME};
+	
+	%GCR
+	\node[align=center, draw, ellipse] at (-\sunradius * 4, \sunradius * 1.5) {\small GCR\\ (isotropic)};
+	
+	% SEP
+	\draw[decorate,decoration={coil,aspect=0.7,segment length=4mm, amplitude=1.5mm},domain=0:0.4,variable=\t,samples=300] plot ({\pa + 60}: {\ra}) node[right] {SEPs};
+	\draw[blue,domain=0:0.5,variable=\t,samples=100,smooth] plot ({\pa + 60}: {\ra});
+\end{tikzpicture}
+%\end{document}
