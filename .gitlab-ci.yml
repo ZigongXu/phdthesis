@@ -20,6 +20,15 @@ compile_cv:
         paths:
             - cv.pdf
 
+compile_eigenanteil:
+    stage: build
+    script:
+        - cd eigenanteil && latexmk -xelatex eigenanteil.tex && cd ..
+        - mv eigenanteil/eigenanteil.pdf eigenanteil.pdf
+    artifacts:
+        paths:
+            - eigenanteil.pdf
+
 #compile_talk:
 #    stage: build
 #    script:
