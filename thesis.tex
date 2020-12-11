@@ -3,6 +3,7 @@
 footinclude=true,cleardoublepage=empty,abstractoff, % <--- obsolete, remove (todo)
 BCOR=12mm,paper=a4,fontsize=11pt,%11pt,a4paper,%
 ngerman,american]{scrreprt} %,pdftex, xcolor=dvipsnames
+
 \usepackage{acronym} %printonlyused,withpage
 \usepackage{amsmath,amssymb}
 \usepackage[ngerman,american]{babel}
@@ -22,6 +23,7 @@ rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
 \tikzstyle{fancytitle} =[fill=red, text=white]
 %
 \usepackage[final]{pdfpages}
+\includepdfset{offset=8mm 0mm}
 \usepackage[titles]{tocloft}
 \hypersetup{linktocpage=true,bookmarksnumbered=true,pageanchor=true,hypertexnames=false,naturalnames=true,plainpages=false}
 \usepackage{tabto} % for tabbing
