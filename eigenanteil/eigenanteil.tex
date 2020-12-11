@@ -1,0 +1,79 @@
+\documentclass{scrartcl}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures=TeX,Numbers=OldStyle]{TeX Gyre Pagella}
+\setmonofont[Scale=0.85]{DejaVu Sans Mono}
+
+\usepackage[margin=3cm]{geometry}
+\usepackage[style=authoryear-comp,natbib=true,backend=biber,uniquename=false,uniquelist=false,sortcites=false,maxcitenames=2,maxbibnames=3,date=year,firstinits=true]{biblatex}
+\usepackage{xpatch}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{parskip}
+\usepackage{supertabular}
+\usepackage{tabularx}
+
+\setkomafont{title}{\normalfont}
+
+\ExecuteBibliographyOptions{sortcase=false,babel=other,abbreviate=false}
+\ExecuteBibliographyOptions{isbn=false,url=true,eprint=false}
+\bibliography{../bibliography.bib}
+
+\input{../header/bibtextweaks}
+
+\title{\vspace{-2cm} Erklärung zum Eigenanteil der Publikationen \vspace{-2ex}}
+\author{Johan L. Freiherr von Forstner --- eingereicht am 11.12.2020}
+\date{\vspace{-1ex} Multipoint observations of ICMEs in the inner heliosphere ---\\ Forbush decreases and remote sensing}
+
+\begin{document}
+	\maketitle
+	\vspace{-1ex}
+	Die von mir eingereichte Dissertation beruht im Wesentlichen auf den darin abgedruckten Publikationen, an denen ich geschätzt den folgenden Anteil hatte:
+	
+	\noindent\pubcite{Forstner-2018} \hfill \textbf{Eigenanteil: 90\%}
+	
+	\noindent\pubcite{Forstner-2019} \hfill \textbf{Eigenanteil: 90\%}
+	
+	\noindent\pubcite{Forstner-2020} \hfill \textbf{Eigenanteil: 80\%}
+	
+	\noindent\pubcite{Zeitlin-2018}\\ \strut\hfill \textbf{Eigenanteil: 10\%}
+	
+	\noindent\pubcite{Guo-2018} \hfill \textbf{Eigenanteil: 10\%}
+	
+	\noindent\pubcite{Forstner-2021-SolO} \hfill \textbf{Eigenanteil: 80\%}
+	
+	Zudem sind im Rahmen meiner Promotionsarbeit folgende Arbeiten veröffentlicht worden, zu denen ich beigetragen habe, die aber keinen direkten Zusammenhang zum in der Dissertation behandelten Thema hatten:
+	
+	\noindent\fullcite{Annex-2020-SpiceyPy}
+	
+	\noindent\fullcite{Wimmer-2020-LND}
+	
+	\noindent\fullcite{Zhang-2020-LND-firstresults}
+	
+	\noindent\fullcite{Xu-2020-LND-SEP}
+	
+	\noindent\fullcite{Mason-2021-SolO}
+	
+	\noindent\fullcite{GomezHerrero-2021-SolO}
+	
+	\noindent\fullcite{Allen-2021-SolO}
+	
+	\bigskip
+	
+	\noindent\textit{Kiel, den 11.12.2020}
+	
+	\smallskip
+	
+	\begin{flushright}
+		\begin{tabular}{m{8cm}}
+			\\ \hline
+			\centering Johan L. Freiherr von Forstner \\
+		\end{tabular}
+	\end{flushright}
+	\bigskip
+	\begin{flushright}
+		\begin{tabular}{m{8cm}}
+			\\ \hline
+			\centering Robert F. Wimmer-Schweingruber \\
+		\end{tabular}
+	\end{flushright}
+\end{document}

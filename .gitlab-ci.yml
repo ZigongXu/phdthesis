@@ -10,6 +10,14 @@ compile_thesis:
     artifacts:
         paths:
             - thesis.pdf
+
+compile_thesis_online:
+    stage: build
+    script:
+        - latexmk -xelatex -latexoption="--shell-escape" thesis_online.tex
+    artifacts:
+        paths:
+            - thesis_online.pdf
             
 compile_cv:
     stage: build
