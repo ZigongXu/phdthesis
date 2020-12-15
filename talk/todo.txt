@@ -1,0 +1,10 @@
+- schön, aber auch Tiefe
+- Überblick: Frage wie CMEs im Sonnensystem ausbreiten - wie dehnen sie sich aus, wie entwickelt sich die Geschwindigket, Messmethoden - FD
+    - In situ signaturen, Forbush
+    - Plasmainstrumente gibt es nicht auf jedem Spacecraft, auf vielen gibt es radiation monitors -> constellation im Sonnensystem (z.B. Witasse et al.)
+    - Instrumente: was verwende ich.
+    - Remote sensing: HI-Rekonstruktion detailliert erklären, evtl. GCS
+- 1-2 Paper in der Tiefe
+    - z.B. MSL/RAD Forbush decrease properties + Case study Solar Orbiter
+- Was haben wir gelernt/Zusammenfassung
+    - schnelle CMEs verlangsamen auch außerhalb der Erdbahn (frühere Annahme widerlegt)
