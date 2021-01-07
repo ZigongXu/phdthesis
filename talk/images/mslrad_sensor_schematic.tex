@@ -1,0 +1,100 @@
+%\documentclass{standalone}
+%\usepackage{tikz}
+%\usepackage{amsmath}
+
+%\usetikzlibrary{calc}
+%\usetikzlibrary{decorations.pathmorphing}
+
+%\definecolor{light-gray}{gray}{0.9}
+
+%\begin{document}
+\begin{tikzpicture}[scale=0.5]
+    \tikzset{%
+        add/.style args={#1 and #2}{
+            to path={%
+                ($(\tikztostart)!-#1!(\tikztotarget)$)--($(\tikztotarget)!-#2!(\tikztostart)$)%
+                \tikztonodes},add/.default={.2 and .2}}
+    }  
+    
+    \def\bottomwidth{3.25}
+    \def\midwidth{1.8}
+    \def\topwidth{1.65}
+    \def\bottomheight{2.5}
+    \def\midheight{4.375}
+    \def\Fthickness{1}
+    \def\Sithickness{0.1}
+    \def\BCdistance{0.15}
+    \def\topheight{8.375}
+    
+    % FOV
+    \draw[add=0 and 0.3, dashed] (\midwidth - \Fthickness, \midheight) to (-\topwidth, \topheight);
+    \draw[add=0 and 0.3, dashed] (-\midwidth + \Fthickness, \midheight) to (\topwidth, \topheight);
+    
+    \draw[|<->|] (-\topwidth, \topheight) ++ (90+30:0.5) arc (90+30:90-30:{\topheight-\midheight-0.2}) node[pos=0.4, above] {\footnotesize\SI{60}{\degree}};
+
+    % A
+    \draw[fill=light-gray] (-\topwidth, \topheight - \Sithickness) rectangle (\topwidth, \topheight);
+    \draw (-\midwidth + \Fthickness, \topheight - \Sithickness) --  (-\midwidth + \Fthickness, \topheight);
+    \draw (-\midwidth + \Fthickness, \topheight - \Sithickness) --  (-\midwidth + \Fthickness, \topheight);
+    \draw (\midwidth - \Fthickness, \topheight - \Sithickness) --  (\midwidth - \Fthickness, \topheight);
+    \draw (\midwidth - \Fthickness, \topheight - \Sithickness) --  (\midwidth - \Fthickness, \topheight);
+    \draw[latex-] (-\topwidth, \topheight - \Sithickness / 2) -- (-\topwidth - 0.5, \topheight - \Sithickness / 2) node[left] {A};
+    
+    % B
+    \draw[fill=light-gray] (-\topwidth, \midheight + \BCdistance) rectangle (\topwidth, \midheight + \BCdistance + \Sithickness);
+    \draw (-\midwidth + \Fthickness, \midheight + \BCdistance) --  (-\midwidth + \Fthickness, \midheight + \BCdistance + \Sithickness);
+    \draw (-\midwidth + \Fthickness, \midheight + \BCdistance) --  (-\midwidth + \Fthickness, \midheight + \BCdistance + \Sithickness);
+    \draw (\midwidth - \Fthickness, \midheight + \BCdistance) --  (\midwidth - \Fthickness, \midheight + \BCdistance + \Sithickness);
+    \draw (\midwidth - \Fthickness, \midheight + \BCdistance) --  (\midwidth - \Fthickness, \midheight + \BCdistance + \Sithickness);
+    \draw[latex-] (-\topwidth, \midheight + \BCdistance + \Sithickness / 2) -- (-\topwidth - 0.5, \midheight + \BCdistance + \Sithickness / 2 + 0.5) node[left] {B};
+    
+    % C
+    \draw[fill=light-gray] (-\topwidth, \midheight) rectangle (\topwidth, \midheight + \Sithickness);
+    \draw (-\midwidth + \Fthickness, \midheight) --  (-\midwidth + \Fthickness, \midheight + \Sithickness);
+    \draw (-\midwidth + \Fthickness, \midheight) --  (-\midwidth + \Fthickness, \midheight + \Sithickness);
+    \draw (\midwidth - \Fthickness, \midheight) --  (\midwidth - \Fthickness, \midheight + \Sithickness);
+    \draw (\midwidth - \Fthickness, \midheight) --  (\midwidth - \Fthickness, \midheight + \Sithickness);
+    \draw[latex-] (-\topwidth, \midheight + \Sithickness / 2) -- (-\topwidth - 0.5, \midheight + \Sithickness / 2) node[left] {C};
+    
+    % border of ABC
+    \draw (-\topwidth, \midheight) -- (-\topwidth, \topheight);
+    \draw (\topwidth, \midheight) -- (\topwidth, \topheight);
+    
+    % D
+    \draw[fill=light-gray] (\bottomwidth - \Fthickness, \bottomheight) --  (-\bottomwidth + \Fthickness, \bottomheight) -- (-\midwidth + \Fthickness, \midheight) -- (\midwidth - \Fthickness, \midheight) -- (\bottomwidth - \Fthickness, \bottomheight);   
+    \node at (0, {\bottomheight + (\midheight - \bottomheight) / 2}) {D};   
+    
+    % E
+    \draw[fill=green!50] (\bottomwidth - \Fthickness, \bottomheight) -- (\bottomwidth - \Fthickness, \Fthickness) --
+    (-\bottomwidth + \Fthickness, \Fthickness) --  (-\bottomwidth + \Fthickness, \bottomheight) -- (\bottomwidth - \Fthickness, \bottomheight);  
+    \node at (0, {\Fthickness + (\bottomheight - \Fthickness) * 0.4}) {E};   
+    
+    % F
+    \draw[fill=Dandelion!50] (-\bottomwidth, 0) -- (\bottomwidth, 0) -- (\bottomwidth, \bottomheight) -- (\midwidth, \midheight) --
+    (\midwidth - \Fthickness, \midheight) -- (\bottomwidth - \Fthickness, \bottomheight) -- (\bottomwidth - \Fthickness, \Fthickness) --
+    (-\bottomwidth + \Fthickness, \Fthickness) --  (-\bottomwidth + \Fthickness, \bottomheight) -- (-\midwidth + \Fthickness, \midheight) --
+    (-\midwidth, \midheight) -- (-\bottomwidth, \bottomheight) -- (-\bottomwidth, 0);     
+    \node at (0, \Fthickness / 2) {F};
+    
+    % trajectories of ions
+    \draw[thick, green, -latex] (-\topwidth*0.7, \topheight*1.25) node[above, align=center, xshift=-5] {\footnotesize Ion\\ \footnotesize (accepted)}
+     -- ({-(\midwidth - \Fthickness) * 0.5}, \midheight + \Sithickness / 2);
+    \draw[thick, green, -latex] (\topwidth*0.65, \topheight*1.25) node[above, align=center, xshift=5] {\footnotesize Ion\\ \footnotesize (accepted)}
+     -- ({-(\midwidth - \Fthickness) * 0.5}, {\bottomheight +  (\midheight - \bottomheight) / 2});
+    \draw[thick, red, -latex] (0, \topheight*1.45) node[above, align=center] {\footnotesize Ion\\ \footnotesize (rejected)}
+     -- (0, \topheight - \Sithickness / 2);
+    \draw[thick, red, -latex] (\bottomwidth, \midheight) node[above right, align=center] {\footnotesize Ion\\ \footnotesize (rejected)}
+    -- (\bottomwidth * 0.4, {\bottomheight + (\midheight - \bottomheight) * 0.2});
+    
+    % trajectory of neutron
+    \draw[thick, gray, -latex] (-\bottomwidth*0.3, -0.5) node[below] {\footnotesize Neutron (accepted)}
+    -- (-\bottomwidth*0.3, {\Fthickness + \bottomheight * 0.2});
+    \draw[thick, gray, -latex]  (-\bottomwidth*0.3, {\Fthickness + \bottomheight * 0.2}) -- (-\bottomwidth * 1.1, \bottomheight * 1.3);
+    \draw[thick, blue, -latex]  (-\bottomwidth*0.3, {\Fthickness + \bottomheight * 0.2}) -- (0, \bottomheight * 1.1) node[midway, right, xshift=1mm] {\scriptsize Recoil proton};
+    
+    % trajectory of gamma
+    \draw[thick, gray, decorate, decoration=snake] (-\bottomwidth*1.2, \bottomheight * 0.8) node[below, align=center, xshift=-4mm] {\footnotesize $\gamma$-ray\\ \footnotesize (accepted)} -- (-\bottomwidth * 0.3, \bottomheight * 1.4);
+    \draw[thick, gray, -latex] (-\bottomwidth * 0.3, \bottomheight * 1.4) -- ++ (\bottomwidth * 0.03, \bottomheight * 0.02);
+    
+\end{tikzpicture}
+%\end{document}

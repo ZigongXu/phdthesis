@@ -7,7 +7,8 @@
 \usepackage{siunitx}
 \usepackage{fontspec}
 \defaultfontfeatures{Extension = .otf}
-\usepackage{fontawesome}
+\usepackage{fontawesome5}
+\usepackage{pgfplots}
 
 \title{Multipoint observations of ICMEs\\in the inner heliosphere}
 \subtitle{Forbush decreases and remote sensing}
@@ -32,7 +33,14 @@
 \setbeamercolor{framesource}{fg=gray}
 \setbeamerfont{framesource}{size=\tiny}
 
-
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathmorphing,decorations.markings,pgfplots.fillbetween}
+\definecolor{red}{HTML}{d62728}
+\definecolor{orange}{HTML}{ff7f0e}
+\definecolor{green}{HTML}{2ca02c}
+\definecolor{blue}{HTML}{1f77b4}
+\definecolor{purple}{HTML}{9467bd}
+\definecolor{light-gray}{gray}{0.9}
 
 % siunitx setup
 \sisetup{detect-family=true, mode=text, range-units=single, separate-uncertainty=true}
@@ -53,10 +61,202 @@
     Inhalt...
 \end{frame}
 
+\begin{frame}{Observation of (I)CMEs}
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+            \textbf{In situ}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            \textbf{Remote sensing}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Ideal constellations for multipoint (I)CME observations}
+    \vspace{3mm}
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+            \textbf{In situ:} \uncover<2->{regular grid of observers}\\[0.2cm]
+            \centering
+            \begin{tikzpicture}
+                \def\earthorbitradius{2.5}
+                \def\sunradius{0.2}
+                
+                % CME
+                \def\cmeangle{45}	
+                \def\cmeheight{2}	
+                \draw[name path=CMEin] (\cmeangle-30:\sunradius) % inner edge
+                .. controls (\cmeangle-45:\sunradius*3*\cmeheight) and +(\cmeangle - 90:\sunradius*0.7*\cmeheight) ..
+                (\cmeangle:\sunradius*3*\cmeheight)
+                .. controls +(\cmeangle + 90:\sunradius*0.7*\cmeheight) and (\cmeangle+45:\sunradius*3*\cmeheight) ..
+                (\cmeangle+30:\sunradius);
+                
+                \draw[name path=CMEout] (\cmeangle-40:\sunradius) % outer edge
+                .. controls (\cmeangle-55:\sunradius*3*\cmeheight) and +(\cmeangle - 90:\sunradius*2*\cmeheight) ..
+                (\cmeangle:\sunradius*4*\cmeheight)
+                .. controls +(\cmeangle + 90:\sunradius*2*\cmeheight) and (\cmeangle+55:\sunradius*3*\cmeheight) ..
+                (\cmeangle+40:\sunradius);
+                
+                \tikzfillbetween[of=CMEout and CMEin]{orange, opacity=0.1};
+                           
+                % sun
+                \draw[fill=yellow] (0, 0) circle (\sunradius);
+                
+                % Earth
+                \draw[dashed] (0, 0) circle (\earthorbitradius);
+                \draw[fill=blue] (45:\earthorbitradius) circle (0.1);
+                
+                % satellites
+                \uncover<2->{
+                    \node at (45:0.25*\earthorbitradius) {\faSatellite};
+                    \node at (45:0.5*\earthorbitradius) {\faSatellite};
+                    \node at (45:0.75*\earthorbitradius) {\faSatellite};
+                }
+                
+                \uncover<3->{
+                \foreach \angle in {0,90,135,180,225,270,315,360} {
+                    \node[rotate={\angle-45}] at (\angle:0.25*\earthorbitradius) {\faSatellite};
+                    \node[rotate={\angle-45}] at (\angle:0.5*\earthorbitradius) {\faSatellite};
+                    \node[rotate={\angle-45}] at (\angle:0.75*\earthorbitradius) {\faSatellite};
+                    \node[rotate={\angle-45}] at (\angle:\earthorbitradius) {\faSatellite};
+                }}
+            \end{tikzpicture}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            \textbf{Remote sensing:} \uncover<4->{from the side}\\[0.2cm]
+            \centering
+            \begin{tikzpicture}
+                \def\earthorbitradius{2.5}
+                \def\sunradius{0.2}
+                
+                % CME
+                \def\cmeangle{45}	
+                \def\cmeheight{2}	
+                \draw[name path=CMEin] (\cmeangle-30:\sunradius) % inner edge
+                .. controls (\cmeangle-45:\sunradius*3*\cmeheight) and +(\cmeangle - 90:\sunradius*0.7*\cmeheight) ..
+                (\cmeangle:\sunradius*3*\cmeheight)
+                .. controls +(\cmeangle + 90:\sunradius*0.7*\cmeheight) and (\cmeangle+45:\sunradius*3*\cmeheight) ..
+                (\cmeangle+30:\sunradius);
+                
+                \draw[name path=CMEout] (\cmeangle-40:\sunradius) % outer edge
+                .. controls (\cmeangle-55:\sunradius*3*\cmeheight) and +(\cmeangle - 90:\sunradius*2*\cmeheight) ..
+                (\cmeangle:\sunradius*4*\cmeheight)
+                .. controls +(\cmeangle + 90:\sunradius*2*\cmeheight) and (\cmeangle+55:\sunradius*3*\cmeheight) ..
+                (\cmeangle+40:\sunradius);
+                
+                \tikzfillbetween[of=CMEout and CMEin]{orange, opacity=0.1};
+                
+                % sun
+                \draw[fill=yellow] (0, 0) circle (\sunradius);
+                
+                % Earth
+                \draw[dashed] (0, 0) circle (\earthorbitradius);
+                \draw[fill=blue] (45:\earthorbitradius) circle (0.1);
+                
+                % satellites
+                \uncover<4->{
+                    \node[rotate=90] at (135:\earthorbitradius) {\faSatellite};
+                    \node[rotate=-90] at (-45:\earthorbitradius) {\faSatellite};
+                    \draw (135:\earthorbitradius) -- ++(-9:3.5);
+                    \draw (-45:\earthorbitradius) -- ++(99:3.5);
+                }
+                    
+                \uncover<5->{
+                \foreach \angle in {0,45,90,180,225,270,360} {
+                    \node[rotate={\angle-45}] at (\angle:\earthorbitradius) {\faSatellite};
+                }}
+            \end{tikzpicture}
+        \end{column}
+    \end{columns}
+    \centering
+    \uncover<6->{\textbf{Unrealistic.} So what can we do with existing spacecraft?}
+    \begin{flushright}
+        \footnotesize not to scale
+    \end{flushright}
+    
+\end{frame}
+
+\begin{frame}{Fleet of heliophysics missions}
+    \vspace{3mm}
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+            \textbf{In situ}\\[0.2cm]
+            \centering
+            \begin{tikzpicture}
+                \def\earthorbitradius{2.5}
+                \def\sunradius{0.2}
+                
+                % sun
+                \draw[fill=yellow] (0, 0) circle (\sunradius);
+                
+                % Earth
+                \draw[dashed] (0, 0) circle (\earthorbitradius);
+                \draw[fill=blue] (45:\earthorbitradius) circle (0.1);
+                
+                % satellites
+                \draw[fill=Blue] ({45+54}:1.05*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[above] {STEREO-B};
+                \draw[fill=Red] ({45-54}:0.95*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[left, xshift=-4pt] {STEREO-A};
+                
+                \draw[fill=green] (45:0.8*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, yshift=-2pt, align=center] {L1\\[-1mm]\footnotesize (SOHO, ACE,\\[-1mm]\footnotesize Wind, DSCOVR)};
+                
+                \draw[fill=orange] (245:0.5*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, yshift=-2pt] {SolO};
+                \draw[fill=black] (210:0.7*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, yshift=-4pt] {PSP};
+                
+            \end{tikzpicture}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            \textbf{Remote sensing}\\[0.2cm]
+            \centering
+            \begin{tikzpicture}
+                \def\earthorbitradius{2.5}
+                \def\sunradius{0.2}
+                
+                % sun
+                \draw[fill=yellow] (0, 0) circle (\sunradius);
+                
+                % Earth
+                \draw[dashed] (0, 0) circle (\earthorbitradius);
+                \draw[fill=blue] (45:\earthorbitradius) circle (0.1);
+                
+                \draw[fill=Blue] ({45+54}:1.05*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[above] {STEREO-B};
+                \draw[fill=Red] ({45-54}:0.95*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[left, xshift=-4pt] {STEREO-A};
+                
+                \draw[fill=Magenta] (45:0.9*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[above left,yshift=-2pt] {SDO};
+                \draw[fill=green] (45:0.8*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below,yshift=-2pt] {SOHO};
+                
+                \draw[fill=orange,opacity=0.5] (245:0.5*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, yshift=-2pt] {\small SolO (not yet active)};
+                \draw[fill=black] (210:0.7*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[left, xshift=-2pt] {\small PSP*};
+               
+            \end{tikzpicture}
+        \end{column}
+    \end{columns}
+    \begin{flushright}
+        \footnotesize not to scale
+    \end{flushright}
+\end{frame}
+
 \section{Instrumentation}
 
-\begin{frame}
-    Inhalt...
+\begin{frame}{MSL/RAD}
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+            
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            \input{images/mslrad_sensor_schematic.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Solar Orbiter HET}
+    \begin{columns}
+        \begin{column}{0.25\textwidth}
+            
+        \end{column}
+        \begin{column}{0.65\textwidth}
+            \input{images/solohet_sensor_schematic.tex}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \section{Statistical study of Forbush decreases at MSL/RAD}
