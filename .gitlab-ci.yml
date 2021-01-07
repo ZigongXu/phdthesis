@@ -37,12 +37,12 @@ compile_eigenanteil:
         paths:
             - eigenanteil.pdf
 
-#compile_talk:
-#    stage: build
-#    script:
-#        - cd talks
-#        - latexmk -xelatex master_thesis_talk.tex
-#        - mv master_thesis_talk.pdf ../
-#    artifacts:
-#        paths:
-#            - master_thesis_talk.pdf
+compile_talk:
+    stage: build
+    script:
+        - cd talk
+        - latexmk -xelatex talk.tex
+        - mv talk.pdf ../
+    artifacts:
+        paths:
+            - talk.pdf
