@@ -9,6 +9,7 @@
 \defaultfontfeatures{Extension = .otf}
 \usepackage{fontawesome5}
 \usepackage{pgfplots}
+\usepackage{animate}
 
 \title{Multipoint observations of ICMEs\\in the inner heliosphere}
 \subtitle{Forbush decreases and remote sensing}
@@ -57,17 +58,33 @@
 
 \section{Introduction}
 
-\begin{frame}
-    Inhalt...
+\begin{frame}{CMEs and ICMEs}
+    \begin{columns}[t]
+        \begin{column}{0.45\textwidth}
+            \begin{itemize}
+                \item \textbf{C}oronal \textbf{M}ass \textbf{E}jections
+                \item ...
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{Observation of (I)CMEs}
-    \begin{columns}
+    \vskip3mm
+    \begin{columns}[t]
         \begin{column}{0.45\textwidth}
-            \textbf{In situ}
+            \textbf{Remote sensing:} CME
+            
+            \vskip-5mm\hskip-4mm
+            \animategraphics[poster=19]{30}{plots/lightbulb_cme_anim/}{000}{048}
         \end{column}
         \begin{column}{0.45\textwidth}
-            \textbf{Remote sensing}
+            \textbf{In situ:} ICME
+
+            \input{plots/cme_insitu.pgf}
         \end{column}
     \end{columns}
 \end{frame}
@@ -76,7 +93,7 @@
     \vspace{3mm}
     \begin{columns}
         \begin{column}{0.45\textwidth}
-            \textbf{In situ:} \uncover<2->{regular grid of observers}\\[0.2cm]
+            \textbf{Remote sensing:} \uncover<2->{from the side}\\[0.2cm]
             \centering
             \begin{tikzpicture}
                 \def\earthorbitradius{2.5}
@@ -98,7 +115,7 @@
                 (\cmeangle+40:\sunradius);
                 
                 \tikzfillbetween[of=CMEout and CMEin]{orange, opacity=0.1};
-                           
+                
                 % sun
                 \draw[fill=yellow] (0, 0) circle (\sunradius);
                 
@@ -108,22 +125,20 @@
                 
                 % satellites
                 \uncover<2->{
-                    \node at (45:0.25*\earthorbitradius) {\faSatellite};
-                    \node at (45:0.5*\earthorbitradius) {\faSatellite};
-                    \node at (45:0.75*\earthorbitradius) {\faSatellite};
+                    \node[rotate=90] at (135:\earthorbitradius) {\faSatellite};
+                    \node[rotate=-90] at (-45:\earthorbitradius) {\faSatellite};
+                    \draw (135:\earthorbitradius) -- ++(-9:3.5);
+                    \draw (-45:\earthorbitradius) -- ++(99:3.5);
                 }
-                
+                    
                 \uncover<3->{
-                \foreach \angle in {0,90,135,180,225,270,315,360} {
-                    \node[rotate={\angle-45}] at (\angle:0.25*\earthorbitradius) {\faSatellite};
-                    \node[rotate={\angle-45}] at (\angle:0.5*\earthorbitradius) {\faSatellite};
-                    \node[rotate={\angle-45}] at (\angle:0.75*\earthorbitradius) {\faSatellite};
+                \foreach \angle in {0,45,90,180,225,270,360} {
                     \node[rotate={\angle-45}] at (\angle:\earthorbitradius) {\faSatellite};
                 }}
             \end{tikzpicture}
         \end{column}
         \begin{column}{0.45\textwidth}
-            \textbf{Remote sensing:} \uncover<4->{from the side}\\[0.2cm]
+            \textbf{In situ:} \uncover<4->{regular grid of observers}\\[0.2cm]
             \centering
             \begin{tikzpicture}
                 \def\earthorbitradius{2.5}
@@ -155,15 +170,17 @@
                 
                 % satellites
                 \uncover<4->{
-                    \node[rotate=90] at (135:\earthorbitradius) {\faSatellite};
-                    \node[rotate=-90] at (-45:\earthorbitradius) {\faSatellite};
-                    \draw (135:\earthorbitradius) -- ++(-9:3.5);
-                    \draw (-45:\earthorbitradius) -- ++(99:3.5);
+                    \node at (45:0.25*\earthorbitradius) {\faSatellite};
+                    \node at (45:0.5*\earthorbitradius) {\faSatellite};
+                    \node at (45:0.75*\earthorbitradius) {\faSatellite};
                 }
-                    
+                
                 \uncover<5->{
-                \foreach \angle in {0,45,90,180,225,270,360} {
-                    \node[rotate={\angle-45}] at (\angle:\earthorbitradius) {\faSatellite};
+                    \foreach \angle in {75,105,135,165,195,225,255,285,315,345,15} {
+                        \node[rotate={\angle-45}] at (\angle:0.25*\earthorbitradius) {\faSatellite};
+                        \node[rotate={\angle-45}] at (\angle:0.5*\earthorbitradius) {\faSatellite};
+                        \node[rotate={\angle-45}] at (\angle:0.75*\earthorbitradius) {\faSatellite};
+                        \node[rotate={\angle-45}] at (\angle:\earthorbitradius) {\faSatellite};
                 }}
             \end{tikzpicture}
         \end{column}
@@ -180,6 +197,31 @@
     \vspace{3mm}
     \begin{columns}
         \begin{column}{0.45\textwidth}
+            \textbf{Remote sensing}\\[0.2cm]
+            \centering
+            \begin{tikzpicture}
+                \def\earthorbitradius{2.5}
+                \def\sunradius{0.2}
+                
+                % sun
+                \draw[fill=yellow] (0, 0) circle (\sunradius);
+                
+                % Earth
+                \draw[dashed] (0, 0) circle (\earthorbitradius);
+                \draw[fill=blue] (45:\earthorbitradius) circle (0.1);
+                
+                \draw[fill=Blue] ({45+54}:1.02*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[above] {STEREO-B};
+                \draw[fill=Red] ({45-54}:0.98*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[left, xshift=-4pt] {STEREO-A};
+                
+                \draw[fill=Magenta] (45:0.9*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[above left,yshift=-2pt] {SDO};
+                \draw[fill=green] (45:0.8*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below,yshift=-2pt] {SOHO};
+                
+                \draw[fill=orange,opacity=0.5] (245:0.5*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, yshift=-2pt, align=center] {\small SolO\\[-2mm]\scriptsize (Nov 2021)};
+                \draw[fill=black] (210:0.7*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[left, xshift=-2pt] {\small PSP*};
+               
+            \end{tikzpicture}
+        \end{column}
+        \begin{column}{0.45\textwidth}
             \textbf{In situ}\\[0.2cm]
             \centering
             \begin{tikzpicture}
@@ -194,39 +236,13 @@
                 \draw[fill=blue] (45:\earthorbitradius) circle (0.1);
                 
                 % satellites
-                \draw[fill=Blue] ({45+54}:1.05*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[above] {STEREO-B};
-                \draw[fill=Red] ({45-54}:0.95*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[left, xshift=-4pt] {STEREO-A};
+                \draw[fill=Blue] ({45+54}:1.02*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[above] {STEREO-B};
+                \draw[fill=Red] ({45-54}:0.98*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[left, xshift=-4pt] {STEREO-A};
                 
-                \draw[fill=green] (45:0.8*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, yshift=-2pt, align=center] {L1\\[-1mm]\footnotesize (SOHO, ACE,\\[-1mm]\footnotesize Wind, DSCOVR)};
-                
+                \draw[fill=green] (45:0.8*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, yshift=-2pt, align=center] {L1\\[-2mm]\scriptsize (SOHO, ACE,\\[-2mm]\scriptsize Wind, DSCOVR)};                
                 \draw[fill=orange] (245:0.5*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, yshift=-2pt] {SolO};
                 \draw[fill=black] (210:0.7*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, yshift=-4pt] {PSP};
                 
-            \end{tikzpicture}
-        \end{column}
-        \begin{column}{0.45\textwidth}
-            \textbf{Remote sensing}\\[0.2cm]
-            \centering
-            \begin{tikzpicture}
-                \def\earthorbitradius{2.5}
-                \def\sunradius{0.2}
-                
-                % sun
-                \draw[fill=yellow] (0, 0) circle (\sunradius);
-                
-                % Earth
-                \draw[dashed] (0, 0) circle (\earthorbitradius);
-                \draw[fill=blue] (45:\earthorbitradius) circle (0.1);
-                
-                \draw[fill=Blue] ({45+54}:1.05*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[above] {STEREO-B};
-                \draw[fill=Red] ({45-54}:0.95*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[left, xshift=-4pt] {STEREO-A};
-                
-                \draw[fill=Magenta] (45:0.9*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[above left,yshift=-2pt] {SDO};
-                \draw[fill=green] (45:0.8*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below,yshift=-2pt] {SOHO};
-                
-                \draw[fill=orange,opacity=0.5] (245:0.5*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, yshift=-2pt] {\small SolO (not yet active)};
-                \draw[fill=black] (210:0.7*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[left, xshift=-2pt] {\small PSP*};
-               
             \end{tikzpicture}
         \end{column}
     \end{columns}
@@ -235,12 +251,34 @@
     \end{flushright}
 \end{frame}
 
+\begin{frame}{Forbush decreases}
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+            \begin{itemize}
+                \item Short-term decrases of GCR intensity
+                \item Discovered 1937 by Scott E. Forbush
+                \item Turbulent or closed magnetic structures (ICMEs/SIRs) = barrier for GCRs
+            \end{itemize}
+            \uncover<2->{$\Rightarrow$ Another way to observe ICMEs in situ. Particle detectors are available at Earth, but also on many spacecraft (e.g. planetary missions)}
+        \end{column}
+        \begin{column}{0.35\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{../images/richardson_cane_2011_icme_enhanced.png}
+            \footnotesize Cane (2000)
+        \end{column}
+    \end{columns}
+\end{frame}
+
 \section{Instrumentation}
 
-\begin{frame}{MSL/RAD}
+\begin{frame}{Radiation Assessment Detector}
     \begin{columns}
         \begin{column}{0.45\textwidth}
-            
+            \begin{itemize}
+                \item Onboard Mars Science Laboratory rover
+                \item cruise phase: 2011--2012 + surface phase
+                \item Dosimetry + \textcolor{green}{charged} and \textcolor{gray}{neutral} particle spectra
+            \end{itemize}
         \end{column}
         \begin{column}{0.45\textwidth}
             \input{images/mslrad_sensor_schematic.tex}
@@ -248,13 +286,18 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}{Solar Orbiter HET}
+\begin{frame}{High Energy Telescope}
+    \centering
+    \input{images/solohet_sensor_schematic.tex}
     \begin{columns}
-        \begin{column}{0.25\textwidth}
-            
+        \begin{column}{0.45\textwidth}
+            \begin{itemize}
+                \item Part of Solar Orbiter's EPD suite 
+                \item Operating since February 2020
+            \end{itemize}
         \end{column}
-        \begin{column}{0.65\textwidth}
-            \input{images/solohet_sensor_schematic.tex}
+        \begin{column}{0.45\textwidth}
+            
         \end{column}
     \end{columns}
 \end{frame}
