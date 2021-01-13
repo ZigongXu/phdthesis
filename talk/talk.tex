@@ -27,7 +27,7 @@
 \setbeamercolor{frametitle}{bg=mOrange, fg=black}
 \setbeamercolor{alerted text}{fg=mOrange}
 \setbeamercolor{example text}{fg=mGreen}
-\setbeamercolor{progress bar}{fg=mBlue,bg=black!10}
+\setbeamercolor{progress bar}{fg=mBlue,bg=black!20}
 
 \usepackage[absolute,overlay]{textpos}
 
@@ -58,16 +58,20 @@
 
 \section{Introduction}
 
-\begin{frame}{CMEs and ICMEs}
-    \begin{columns}[t]
-        \begin{column}{0.45\textwidth}
+\begin{frame}{Coronal mass ejections}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
             \begin{itemize}
-                \item \textbf{C}oronal \textbf{M}ass \textbf{E}jections
-                \item ...
+                \item \textbf{C}oronal \textbf{M}ass \textbf{E}jections: Magnetized plasma ejected from the Sun, propagating into interplanetary space ($\rightarrow$ \textbf{ICMEs})
+                \item Structure: magnetic ejecta, shock, sheath
+                \item Can cause disruptions to terrestrial infrastructure and spacecraft, shocks can                accelerate dangerous solar energetic particles (SEPs)\\
+                $\rightarrow$ one of the main drivers of ``space weather''
             \end{itemize}
         \end{column}
-        \begin{column}{0.45\textwidth}
-            
+        \begin{column}{0.4\textwidth}
+        	\centering
+            \includegraphics[width=\textwidth]{images/ZurbuchenRichardson-adapted.pdf}\\
+            \footnotesize adapted from Zurbuchen and Richardson (2006)
         \end{column}
     \end{columns}
 \end{frame}
@@ -264,9 +268,54 @@
         \begin{column}{0.35\textwidth}
             \centering
             \includegraphics[width=\textwidth]{../images/richardson_cane_2011_icme_enhanced.png}
-            \footnotesize Cane (2000)
+            \footnotesize Richardson and Cane (2011)
         \end{column}
     \end{columns}
+\end{frame}
+
+\begin{frame}{FDs as additional in situ observations}
+	\begin{columns}
+		\begin{column}{0.45\textwidth}
+			
+		\end{column}
+		\begin{column}{0.45\textwidth}
+			\textbf{In situ + FDs}\\[0.2cm]
+			\centering
+			\begin{tikzpicture}[scale=0.8]
+			\def\earthorbitradius{2.5}
+			\def\sunradius{0.2}
+			
+			% sun
+			\draw[fill=yellow] (0, 0) circle (\sunradius);
+			
+			% Earth
+			\draw[dashed] (0, 0) circle (\earthorbitradius);
+			\draw[fill=blue] (45:\earthorbitradius) circle (0.1) node[left] {Earth};
+			
+			% Mars
+			\draw[dashed, opacity=0.3] (0, 0) circle (\earthorbitradius*1.5);
+			\draw[fill=orange] ({45-54}:\earthorbitradius*1.5) circle (0.1) node[right] {Mars};
+			
+			% Venus
+			\draw[dashed, opacity=0.3] (0, 0) circle (\earthorbitradius*0.72);
+			\draw[fill=gray] ({245+30}:\earthorbitradius*0.72) circle (0.1) node[right] {Venus};
+			
+			% Mercury
+			\draw[dashed, opacity=0.3] (0, 0) circle (\earthorbitradius*0.38);
+			\draw[fill=gray] ({45+26}:\earthorbitradius*0.38) circle (0.1) node[left] {Mercury};
+			
+			% satellites
+			\draw[fill=Blue] ({45+54}:1.02*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[above] {STEREO-B};
+			\draw[fill=Red] ({45-54}:0.98*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[left, xshift=-4pt] {STEREO-A};
+			
+			\draw[fill=green] (45:0.8*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, yshift=-2pt, align=center] {L1};                
+			\draw[fill=orange] (245:0.5*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, yshift=-2pt] {SolO};
+			\draw[fill=black] (210:0.7*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, yshift=-4pt] {PSP};
+			
+			\end{tikzpicture}
+			+ many others
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \section{Instrumentation}
@@ -275,9 +324,10 @@
     \begin{columns}
         \begin{column}{0.45\textwidth}
             \begin{itemize}
-                \item Onboard Mars Science Laboratory rover
-                \item cruise phase: 2011--2012 + surface phase
-                \item Dosimetry + \textcolor{green}{charged} and \textcolor{gray}{neutral} particle spectra
+                \item Onboard Mars Science Laboratory (\emph{Curiosity} rover)
+                \item cruise phase: 2011--2012 + surface phase since August 2012
+                \item Data products: \textcolor{green}{charged} and \textcolor{gray}{neutral} particle spectra + Dosimetric measurements (TID, LET)
+                \item TID in E has best statistics to observe FDs
             \end{itemize}
         \end{column}
         \begin{column}{0.45\textwidth}
@@ -287,17 +337,27 @@
 \end{frame}
 
 \begin{frame}{High Energy Telescope}
-    \centering
-    \input{images/solohet_sensor_schematic.tex}
+    \begin{columns}
+    	\begin{column}{0.7\textwidth}
+    		\centering
+		    \input{images/solohet_sensor_schematic.tex}
+		\end{column}
+		\begin{column}{0.25\textwidth}
+			\footnotesize \textcolor{red}{stopping in B}\\ \textcolor{green}{stopping in C} \\ \textcolor{blue}{penetrating}\\ \textcolor{Aquamarine}{GCR channel} \\ \textcolor{orange}{C single counter}
+		\end{column}
+	\end{columns}
     \begin{columns}
         \begin{column}{0.45\textwidth}
             \begin{itemize}
                 \item Part of Solar Orbiter's EPD suite 
                 \item Operating since February 2020
+                \item Nominal data products: Charged particle spectra above \SI{7}{\mega\electronvolt\per nuc} (ions) and \SI{600}{\kilo\electronvolt} (electrons)
             \end{itemize}
         \end{column}
         \begin{column}{0.45\textwidth}
-            
+            \begin{itemize}
+            	\item Additional data products with higher statistics suitable for FDs
+            \end{itemize}
         \end{column}
     \end{columns}
 \end{frame}
