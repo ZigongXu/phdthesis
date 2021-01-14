@@ -5086,8 +5086,8 @@
 \definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{0.773849in}{1.707388in}}%
-\pgfpathlineto{\pgfqpoint{0.773849in}{2.347404in}}%
+\pgfpathmoveto{\pgfqpoint{0.747605in}{1.707388in}}%
+\pgfpathlineto{\pgfqpoint{0.747605in}{2.347404in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
@@ -6978,8 +6978,8 @@
 \definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{0.773849in}{1.067373in}}%
-\pgfpathlineto{\pgfqpoint{0.773849in}{1.707388in}}%
+\pgfpathmoveto{\pgfqpoint{0.747605in}{1.067373in}}%
+\pgfpathlineto{\pgfqpoint{0.747605in}{1.707388in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
@@ -7142,7 +7142,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=0.618772in,y=0.352358in,,top]{\color{textcolor}\rmfamily\fontsize{8.000000}{9.600000}\selectfont \liningnums{06}}%
+\pgftext[x=0.618772in,y=0.352358in,,top]{\color{textcolor}\rmfamily\fontsize{8.000000}{9.600000}\selectfont 06}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -7167,7 +7167,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=0.790549in,y=0.352358in,,top]{\color{textcolor}\rmfamily\fontsize{8.000000}{9.600000}\selectfont \liningnums{12}}%
+\pgftext[x=0.790549in,y=0.352358in,,top]{\color{textcolor}\rmfamily\fontsize{8.000000}{9.600000}\selectfont 12}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -7192,7 +7192,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=0.962326in,y=0.352358in,,top]{\color{textcolor}\rmfamily\fontsize{8.000000}{9.600000}\selectfont \liningnums{18}}%
+\pgftext[x=0.962326in,y=0.352358in,,top]{\color{textcolor}\rmfamily\fontsize{8.000000}{9.600000}\selectfont 18}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -7217,7 +7217,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=1.305880in,y=0.352358in,,top]{\color{textcolor}\rmfamily\fontsize{8.000000}{9.600000}\selectfont \liningnums{06}}%
+\pgftext[x=1.305880in,y=0.352358in,,top]{\color{textcolor}\rmfamily\fontsize{8.000000}{9.600000}\selectfont 06}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -7242,7 +7242,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=1.477657in,y=0.352358in,,top]{\color{textcolor}\rmfamily\fontsize{8.000000}{9.600000}\selectfont \liningnums{12}}%
+\pgftext[x=1.477657in,y=0.352358in,,top]{\color{textcolor}\rmfamily\fontsize{8.000000}{9.600000}\selectfont 12}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -7267,7 +7267,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=1.649434in,y=0.352358in,,top]{\color{textcolor}\rmfamily\fontsize{8.000000}{9.600000}\selectfont \liningnums{18}}%
+\pgftext[x=1.649434in,y=0.352358in,,top]{\color{textcolor}\rmfamily\fontsize{8.000000}{9.600000}\selectfont 18}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -8914,8 +8914,8 @@
 \definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{0.773849in}{0.427358in}}%
-\pgfpathlineto{\pgfqpoint{0.773849in}{1.067373in}}%
+\pgfpathmoveto{\pgfqpoint{0.747605in}{0.427358in}}%
+\pgfpathlineto{\pgfqpoint{0.747605in}{1.067373in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
