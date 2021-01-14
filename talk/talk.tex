@@ -50,6 +50,11 @@
 \DeclareSIUnit\astronomicalunit{AU}
 \DeclareSIUnit\solarradius{\ensuremath{R_{\astrosun}}}
 
+\makeatletter
+\let\pgfimageWithoutPath\pgfimage 
+\renewcommand{\pgfimage}[2][]{\pgfimageWithoutPath[#1]{plots/#2}}
+\makeatother
+
 \begin{document}
 \maketitle
 
@@ -405,14 +410,13 @@
 \end{frame}
 
 \begin{frame}{STEREO SECCHI}
-    \input{plots/secchi_fov.pgf}
     \begin{columns}
-        \begin{column}{0.45\textwidth}
-            \begin{itemize}
-                \item test
-            \end{itemize}
+        \begin{column}{0.6\textwidth}
+            \centering
+            \input{plots/secchi_fov.pgf}
         \end{column}
-        \begin{column}{0.45\textwidth}
+        \begin{column}{0.3\textwidth}
+            \textbf{S}un \textbf{E}arth \textbf{C}onnection \textbf{C}oronal and \textbf{H}eliospheric \textbf{I}nvestigation\\[0.5cm]
             \begin{tabular}{ll}
                 \toprule
                 Telescope & Field of view                   \\
