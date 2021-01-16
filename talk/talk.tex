@@ -36,7 +36,9 @@
 \setbeamerfont{framesource}{size=\tiny}
 
 \usetikzlibrary{calc}
-\usetikzlibrary{decorations.pathmorphing,decorations.markings,pgfplots.fillbetween}
+\usetikzlibrary{decorations.pathmorphing,decorations.markings,pgfplots.fillbetween,shapes.misc}
+\tikzset{cross/.style={cross out, draw=black, fill=none, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer 
+        sep=0pt}, cross/.default={2pt}}
 \definecolor{red}{HTML}{d62728}
 \definecolor{orange}{HTML}{ff7f0e}
 \definecolor{green}{HTML}{2ca02c}
@@ -428,6 +430,132 @@
                 HI2       & \SIrange{18.7}{88.7}{\degree}       \\
                 \bottomrule
             \end{tabular}
+        \end{column}
+    \end{columns}
+    \centering
+    CMEs appear in white-light images (COR, HI) due to \textbf{Thomson scattering}.
+\end{frame}
+
+\begin{frame}{J-Maps}
+    \begin{columns}
+        \begin{column}{0.35\textwidth}
+            \begin{itemize}
+                \item Take \textbf{running difference} of HI images
+                \item Cut out a \textbf{horizontal slice}
+                \item Rotate by \SI{90}{\degree} and \textbf{stack slices} over time
+                \item ICMEs can now be tracked as bright features
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.65\textwidth}
+            \includegraphics[width=\textwidth]{images/HCME_A__20120123_01.png}
+            \small Source: HELCATS project
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Geometric reconstruction}
+    \begin{columns}[t]
+        \begin{column}{0.32\textwidth}
+            \centering
+            \textbf{COR: 3D reconstruction}\\[2mm]
+            
+            \includegraphics[height=0.8\textheight]{plots/gcs.pdf}
+            
+            {\footnotesize GCS, Thernisien 2012}
+        \end{column}
+        \begin{column}{0.32\textwidth}
+            \centering
+            \textbf{HI: Single-spacecraft fitting}\\[2mm]
+            
+            \begin{tikzpicture}[scale=0.85]
+                \coordinate (center) at (0,0);
+                \def\earthorbitradius{4cm}
+                
+                \draw (center) -- node[below]{\small$d_0$} (\earthorbitradius,0) node {\large\reflectbox{\faVideo}};
+                
+                \draw (center) -- node[pos=0.5, right] {\small $r_\text{FP}$} ++ (45:1.5cm) node[cross] {};% node[below left] {ICME};
+                
+                \draw (center) ++ (0:0.7cm) arc (0:45:0.7cm);
+                \node at (22.5:0.4cm) {\small$\phi$};
+                
+                \draw[dashed] (center) ++ (45:1.5cm) -- (\earthorbitradius,0);
+                
+                \draw (\earthorbitradius,0) ++ (180:1cm) arc (180:161:1cm);
+                \draw (\earthorbitradius,0) ++(170.5:0.7cm) node {\footnotesize$\epsilon$};
+                
+                
+                \draw[fill=yellow] (center) circle (0.2cm); % sun	
+                
+            \end{tikzpicture}
+            {\footnotesize FP, Kahler and Webb, 2007}\\[2mm]
+        
+            \begin{tikzpicture}[scale=0.85]
+                \coordinate (center) at (0,0);
+                \def\earthorbitradius{4cm}
+                
+                \draw (center) -- node[below]{\small$d_0$} (\earthorbitradius,0) node {\large\reflectbox{\faVideo}};
+                
+                \draw[opacity=0.25] (center) ++ (30:1.8cm) circle (0.72cm);
+                \draw[opacity=0.5] (center) ++ (30:1.6cm) circle (0.64cm);
+                \draw(center) ++ (30:1.4cm) circle (0.56cm);
+                \draw[opacity=0.5] (center) ++ (30:1.2cm) circle (0.48cm);
+                \draw[opacity=0.25] (center) ++ (30:1cm) circle (0.4cm);
+                
+                
+                \draw[dashed] (center) -- ++ (54:2.5cm);
+                \draw (center) -- ++ (30:1.96cm) node[pos=0.7,below,xshift=0.2cm] {\small$r_\text{SSE}$};
+                
+                \draw (center) ++ (0:0.8cm) arc (0:30:0.8cm);
+                \node at (15:0.6cm) {\small$\phi$};
+                
+                \draw (center) ++ (30:0.6cm) arc (30:54:0.6cm);
+                \node at (42:0.5cm) {\footnotesize$\lambda$};
+                
+                \draw[dashed] (center) ++ (30:1.4cm) ++ (64:0.56cm) -- (\earthorbitradius,0);
+                \draw (center) ++ (30:1.4cm) -- ++ (64:0.56cm) node[cross] {};
+                \draw (center) ++ (30:1.4cm) ++ (64:0.56cm) ++ (-26:0.2cm) arc (-26:-116:0.2cm);
+                \fill (center) ++ (30:1.4cm) ++ (64:0.56cm) ++ (-71:0.1cm) circle (0.5pt);
+                
+                \draw (\earthorbitradius,0) ++ (180:1cm) arc (180:155:1cm);
+                \draw (\earthorbitradius,0) ++(170:0.7cm) node {\footnotesize$\epsilon$};
+                
+                
+                \draw[fill=yellow] (center) circle (0.2cm); % sun	
+                
+            \end{tikzpicture}
+            {\footnotesize SSE, Davies et al. 2012}\\[2mm]
+            
+            \small $\phi$ (and $\lambda$) determined by fitting J-Map, assuming $v = \text{const.}$
+        \end{column}
+        \begin{column}{0.32\textwidth}
+            \centering
+            \textbf{HI: Stereoscopic fitting}\\[2mm]
+            
+            \begin{tikzpicture}[scale=0.7]
+                \coordinate (center) at (0,0);
+                \def\earthorbitradius{4cm}
+                
+                \draw (center) -- node[above right]{\small$d_A$} (-50:\earthorbitradius) node 
+                {\large\rotatebox{130}{\faVideo}} coordinate (STA);
+                
+                \draw (center) -- node[above left]{\small$d_B$} (-130:\earthorbitradius) node 
+                {\large\rotatebox{50}{\faVideo}} coordinate (STB);
+                
+                \draw (center) -- node[pos=0.7,right]{\footnotesize$r$} (-85:0.5*\earthorbitradius) coordinate (ICME) node[cross] {};
+                
+                \draw (center) ++ (-50:1cm) arc (-50:-85:1cm) node[midway,above,xshift=-0.5mm] {\footnotesize$\phi_A$};
+                \draw (center) ++ (-85:1cm) arc (-85:-130:1cm) node[midway,above,xshift=0.7mm] {\footnotesize$\phi_B$};
+                
+                \draw[dashed] (STA) -- (ICME) -- (STB);
+                
+                \draw[fill=yellow] (center) circle (0.2cm); % sun	
+                
+                \draw (STA) ++ (130:1cm) arc (130:155:1cm) node[midway,above left] {\footnotesize$\epsilon_A$};
+                \draw (STB) ++ (50:1cm) arc (50:22:1cm) node[midway,above right] {\footnotesize$\epsilon_B$};
+            \end{tikzpicture}
+            {\footnotesize GT, Liu et al. 2010}
+            
+            \small $\phi$ can be calculated directly through triangulation
         \end{column}
     \end{columns}
 \end{frame}
