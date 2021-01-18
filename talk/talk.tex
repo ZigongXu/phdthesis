@@ -57,6 +57,8 @@
 \renewcommand{\pgfimage}[2][]{\pgfimageWithoutPath[#1]{plots/#2}}
 \makeatother
 
+\urlstyle{sf}
+
 \begin{document}
 \maketitle
 
@@ -444,6 +446,7 @@
                 \item Cut out a \textbf{horizontal slice}
                 \item Rotate by \SI{90}{\degree} and \textbf{stack slices} over time
                 \item ICMEs can now be tracked as bright features
+                \item remaining: conversion of elongation ($\epsilon(t)$) to radial distance $r(t)$
             \end{itemize}
         \end{column}
         \begin{column}{0.65\textwidth}
@@ -455,13 +458,13 @@
 
 \begin{frame}{Geometric reconstruction}
     \begin{columns}[t]
-        \begin{column}{0.32\textwidth}
+        \begin{column}{0.35\textwidth}
             \centering
-            \textbf{COR: 3D reconstruction}\\[2mm]
+            \textbf{COR: 3D reconstruction}\\
             
-            \includegraphics[height=0.8\textheight]{plots/gcs.pdf}
-            
-            {\footnotesize GCS, Thernisien 2012}
+            \includegraphics[height=0.7\textheight]{plots/gcs.pdf}\\[-2mm]
+            {\footnotesize GCS, Thernisien 2012}\\
+            {\footnotesize Python implementation:\\[-1mm] \scriptsize\url{https://github.com/johan12345/gcs_python}}
         \end{column}
         \begin{column}{0.32\textwidth}
             \centering
@@ -486,7 +489,7 @@
                 
                 \draw[fill=yellow] (center) circle (0.2cm); % sun	
                 
-            \end{tikzpicture}
+            \end{tikzpicture}\\
             {\footnotesize FP, Kahler and Webb, 2007}\\[2mm]
         
             \begin{tikzpicture}[scale=0.85]
@@ -527,7 +530,7 @@
             
             \small $\phi$ (and $\lambda$) determined by fitting J-Map, assuming $v = \text{const.}$
         \end{column}
-        \begin{column}{0.32\textwidth}
+        \begin{column}{0.3\textwidth}
             \centering
             \textbf{HI: Stereoscopic fitting}\\[2mm]
             
