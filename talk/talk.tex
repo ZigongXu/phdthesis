@@ -59,6 +59,14 @@
 
 \urlstyle{sf}
 
+% blind footnote (footnote without number)
+\newcommand\blfootnote[1]{%
+	\begingroup
+	\renewcommand\thefootnote{}\footnote{#1}%
+	\addtocounter{footnote}{-1}%
+	\endgroup
+}
+
 \begin{document}
 \maketitle
 
@@ -565,8 +573,118 @@
 
 \section{Statistical study of Forbush decreases at MSL/RAD}
 
-\begin{frame}
-    Inhalt...
+\begin{frame}{Multi-spacecraft observations at 1 AU and Mars}
+\begin{columns}
+	\begin{column}{0.45\textwidth}
+		\centering
+		\begin{tikzpicture}[scale=1.2]
+		\coordinate (center) at (0,0); 
+		\def\earthorbitradius{2cm}
+		\def\marsorbitradius{3cm}
+		
+		\draw[thick] (center) -- (-57:\marsorbitradius*1.2);
+		
+		\draw[dashed] (center) ++ (15:\earthorbitradius) arc 
+		(15:-129:\earthorbitradius); %earth orbit
+		
+		\draw[fill=blue] (center) ++(-57:\earthorbitradius) circle (0.2cm);
+		
+		\draw[dashed] (center) ++ (10:\marsorbitradius) arc 
+		(10:-124:\marsorbitradius); %mars orbit
+		
+		\draw[fill=orange] (center) ++(-57:\marsorbitradius) circle (0.2cm); % mars
+		
+		\draw[fill=yellow] (center) circle (0.3cm); % sun	
+		
+		\draw[ultra thick] (center) ++ (-40:1.25*\earthorbitradius) node[above]{ICME} arc 
+		(-40:-74:1.25*\earthorbitradius); %ICME
+		\end{tikzpicture}
+		In situ at \SI{1}{\AU} and Mars close to oppositions (von Forstner et al. 2018)
+	\end{column}
+	\begin{column}{0.45\textwidth}
+		\centering
+		\begin{tikzpicture}[scale=1.2]
+		\coordinate (center) at (0,0); 
+		\def\earthorbitradius{2cm}
+		\def\marsorbitradius{3cm}
+		
+		\draw[dashed] (center) ++ (15:\earthorbitradius) arc (15:-129:\earthorbitradius); % 
+		%earth orbit
+		
+		\draw[thick,green] (\earthorbitradius, 0) -- ++(-179.63:0.7*\earthorbitradius) 
+		arc 
+		(-179.63:-175.8:0.7*\earthorbitradius);
+		\draw[thick,green] (\earthorbitradius, 0) -- ++(-175.8:0.7*\earthorbitradius);
+		\draw[thick,blue] (\earthorbitradius, 0) -- ++(-176:0.8*\earthorbitradius) arc 
+		(-176:-156:0.8*\earthorbitradius);
+		\draw[thick,blue] (\earthorbitradius, 0) -- ++(-156:0.8*\earthorbitradius);
+		\draw[thick,red] (\earthorbitradius, 0) -- ++(-161.3:0.9*\earthorbitradius) arc 
+		(-161.3:-91.3:0.9*\earthorbitradius);
+		\draw[thick,red] (\earthorbitradius, 0) -- ++(-91.3:0.9*\earthorbitradius);
+		\draw (\earthorbitradius, 0) node {\rotatebox{-135}{\faVideo}} 
+		node[right,align=left,xshift=1mm]{\textcolor{green}{COR1/COR2}\\ \textcolor{blue}{HI1}\\ 
+			\textcolor{red}{HI2}};
+		
+		\draw[dashed] (center) ++ (10:\marsorbitradius) arc 
+		(10:-124:\marsorbitradius); %mars orbit
+		
+		\draw[fill=orange] (center) ++(-90:\marsorbitradius) circle (0.2cm); % mars
+		
+		\draw[fill=yellow] (center) circle (0.3cm); % sun
+		
+		\draw[ultra thick] (center) ++ (-70:1.25*\earthorbitradius) node[above]{ICME} arc 
+		(-70:-104:1.25*\earthorbitradius); %ICME	
+		\end{tikzpicture}
+		Remote sensing  + In situ at Mars (von Forstner et al. 2019)
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Catalogs of Forbush decreases at Mars}
+    \begin{columns}
+    	\begin{column}{0.45\textwidth}
+    		\begin{itemize}
+    			\item \textbf{von Forstner et al. 2019}: 45 ICMEs observed with STEREO-HI which caused a FD at Mars
+    				\begin{itemize}
+    					\item Identified based on comparison of arrival times
+    					\item Excludes events with CME-CME interaction
+    					\item 19 events also seen in situ at Earth
+    				\end{itemize}
+    			\item \textbf{Papaioannou et al. 2019}: 424 FDs at Mars
+    				\begin{itemize}
+    					\item Identified using semi-automatic method
+    					\item Not all associated with ICMEs
+    				\end{itemize}
+    		\end{itemize}
+    	\end{column}
+    	\begin{column}{0.45\textwidth}
+    	\end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Observations closer to the Sun}
+\newcommand{\tikzAU}{8cm}
+\newcommand{\tikzRe}{0.4cm}
+\centering
+\begin{tikzpicture}
+\draw[fill=yellow] (0,0) circle (1cm) node[yshift=1.3cm]{Sun};
+\draw[fill=gray] (0.38*\tikzAU,0) circle (0.38*\tikzRe) node[yshift=0.7cm]{Mercury};
+\draw[fill=gray] (0.72*\tikzAU,0) circle (0.94*\tikzRe) node[yshift=0.7cm]{Venus};
+\draw[fill=blue] (\tikzAU,0) circle (\tikzRe) node[yshift=0.7cm]{Earth};
+\draw[fill=orange] (1.52*\tikzAU,0) circle (0.53*\tikzRe) node[yshift=0.7cm]{Mars};
+
+\draw[decorate, decoration={brace,amplitude=10pt}] (0.72*\tikzAU,-0.6) -- (0.38*\tikzAU,-0.6) node[midway,below,yshift=-0.5cm,align=center]{$E\approx3$\\(Janvier+ 2019)};
+\draw[decorate, decoration={brace,amplitude=10pt}] (\tikzAU,-0.6) -- (0.72*\tikzAU,-0.6) node[midway,below,yshift=-0.5cm,align=center]{$E\approx1.7$\\(Janvier+ 2019)};
+\draw[decorate, decoration={brace,amplitude=10pt}] (1.52*\tikzAU,-0.6) -- (\tikzAU,-0.6) node[midway,below,yshift=-0.5cm,align=center]{$E \approx\ $\numrange{1.5}{1.9}\\(this study)};
+
+\uncover<2>{
+	\begin{axis}[at={(0, -4.25cm)}, axis x line=bottom, axis y line=left, x=\tikzAU, height=3cm, xmin=0, ymin=0, ymax=10, xmax=1.52, xlabel={Radial distance / \si{\AU}}, ylabel={$E/\Delta r$ / \si{\per\AU}}, ytick={0,5,10}]
+	\addplot[only marks, mark=*] coordinates {(0.55,9.375) (0.86,6.07) (1.26,3.17)};
+	\end{axis}
+}
+\end{tikzpicture}
+
+\blfootnote{distances are to scale, sizes are not}
 \end{frame}
 
 \section{Case study of the first CME observed at Solar Orbiter}
