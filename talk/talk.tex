@@ -663,7 +663,7 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}{Deriving CME expansion from FD data}
+\begin{frame}{Deriving CME expansion from FD data (von Forstner et al. 2020)}
     \only<1>{\def\step{1}}%
     \only<2>{\def\step{2}}%
     \only<3>{\def\step{3}}%
@@ -696,7 +696,7 @@
 
 \draw[decorate, decoration={brace,amplitude=10pt}] (0.72*\tikzAU,-0.6) -- (0.38*\tikzAU,-0.6) node[midway,below,yshift=-0.5cm,align=center]{$E\approx3$\\(Janvier+ 2019)};
 \draw[decorate, decoration={brace,amplitude=10pt}] (\tikzAU,-0.6) -- (0.72*\tikzAU,-0.6) node[midway,below,yshift=-0.5cm,align=center]{$E\approx1.7$\\(Janvier+ 2019)};
-\draw[decorate, decoration={brace,amplitude=10pt}] (1.52*\tikzAU,-0.6) -- (\tikzAU,-0.6) node[midway,below,yshift=-0.5cm,align=center]{$E \approx\ $\numrange{1.5}{1.9}\\(this study)};
+\draw[decorate, decoration={brace,amplitude=10pt}] (1.52*\tikzAU,-0.6) -- (\tikzAU,-0.6) node[midway,below,yshift=-0.5cm,align=center]{$E \approx\ $\numrange{1.5}{1.9}\\(von Forstner+ 2020)};
 
 \uncover<2>{
 	\begin{axis}[at={(0, -4.25cm)}, axis x line=bottom, axis y line=left, x=\tikzAU, height=3cm, xmin=0, ymin=0, ymax=10, xmax=1.52, xlabel={Radial distance / \si{\AU}}, ylabel={$E/\Delta r$ / \si{\per\AU}}, ytick={0,5,10}]
@@ -710,8 +710,20 @@
 
 \section{Case study of the first CME observed at Solar Orbiter}
 
-\begin{frame}
-    Inhalt...
+\begin{frame}{Overview}
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+            \begin{itemize}
+                \item First CME at SolO, April 19 2020
+                \item Also seen at Earth and BepiColombo on April 20
+                \item Very slow CME, $v_\maxt \approx \SI{370}{\kilo\meter\per\second}$
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            \includegraphics[width=\textwidth]{plots/3dcore_visual_davies_new_panela.pdf}
+        \end{column}
+    \end{columns}
+    
 \end{frame}
 
 \section{Conclusions and Outlook}
