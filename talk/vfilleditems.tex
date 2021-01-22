@@ -1,0 +1,7 @@
+\def\itemsymbol{\textbullet}
+\let\svitem\item
+\newenvironment{vfilleditems}{%
+    \begin{itemize} %
+        \let\olditem\item
+        \renewcommand\item[1][\itemsymbol]{\vfill\svitem[##1]}}%
+    {\end{itemize}\vfill}

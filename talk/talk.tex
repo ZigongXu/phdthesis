@@ -12,20 +12,22 @@
 \usepackage{animate}
 \usepackage{wasysym}
 
-\title{Multipoint observations of ICMEs\\in the inner heliosphere}
+\title{Multipoint observations of ICMEs in the inner heliosphere}
 \subtitle{Forbush decreases and remote sensing}
 \author{Johan L. Freiherr von Forstner\\IEAP, Christian-Albrechts-Universität zu Kiel}
 \date{Disputation --- 16.02.2020}
-\titlegraphic{\hfill\includegraphics[height=3.6cm]{../images/oldcme3_inverted.png}}
+\titlegraphic{
+    \hfill\includegraphics[height=1.2cm]{images/ieap-logo-orange.pdf}\\[2.8cm] \strut\hfill\includegraphics[height=3.6cm]{../images/oldcme3_inverted.png}
+}
 
 % Color scheme
 \definecolor{mOrange}{HTML}{FF9400} % Math-Nat-Fakultät
-\definecolor{mBlue}{HTML}{0B5FA5}
-\definecolor{mBlueDark}{HTML}{053964}
+\definecolor{mBlue}{HTML}{003247}
+\definecolor{mBlueDark}{HTML}{0B1D26}
 \definecolor{mGreen}{HTML}{00AE68}
 \setbeamercolor{normal text}{fg=black, bg=white}
 \setbeamercolor{palette primary}{bg=mBlueDark, fg=white}
-\setbeamercolor{frametitle}{bg=mOrange, fg=black}
+\setbeamercolor{frametitle}{bg=mOrange, fg=white}
 \setbeamercolor{alerted text}{fg=mOrange}
 \setbeamercolor{example text}{fg=mGreen}
 \setbeamercolor{progress bar}{fg=mBlue,bg=black!20}
@@ -69,6 +71,10 @@
 
 \newcommand{\maxt}{\ensuremath\text{max}}
 \newcommand{\mint}{\ensuremath\text{min}}
+\newcommand{\summary}{\textcolor{mOrange}{\faArrowCircleRight}\;}
+\newcommand{\textarrow}{\,\small\faLongArrowAltRight\,}
+
+\input{vfilleditems.tex}
 
 \begin{document}
 \maketitle
@@ -82,27 +88,42 @@
 \begin{frame}{Coronal mass ejections}
     \begin{columns}
         \begin{column}{0.54\textwidth}
-            \begin{itemize}
-                \item \textbf{C}oronal \textbf{M}ass \textbf{E}jections: Magnetized plasma ejected from the Sun, propagating into interplanetary space ($\rightarrow$ \textbf{ICMEs})
-                \item magnetic ejecta, shock, sheath
-                \item One of the main drivers of ``space weather''
-            \end{itemize}
+            \vbox to .8\textheight{%
+            \begin{vfilleditems}
+                \item \textbf{C}oronal \textbf{M}ass \textbf{E}jections: Magnetized plasma ejected from the Sun, propagating into interplanetary space (\textarrow \textbf{ICMEs})
+                \item Large variability:
+                    \begin{itemize}
+                        \item frequency: every few days -- a few per day
+                        \item speed: 10s to 1000s of \si{\kilo\meter\per\second}
+                        \item angular extent: $\sim\SI{5}{\degree}$ -- \SI{120}{\degree}
+                    \end{itemize}
+                \item \textbf{Structure:} shock, sheath, magnetic ejecta
+                \item One of the main drivers of \textbf{space weather} in the heliosphere
+            \end{vfilleditems}
+            }
         \end{column}
         \begin{column}{0.36\textwidth}
         	\centering
             \includegraphics[width=\textwidth]{images/ZurbuchenRichardson-adapted.pdf}\\
-            \scriptsize adapted from Zurbuchen and Richardson (2006)
+            \scriptsize adapted from\\Zurbuchen and Richardson (2006)
         \end{column}
     \end{columns}
 \end{frame}
 
+\begin{frame}[standout]          
+    \includegraphics[height=\paperheight]{images/Space_weather_effects.jpg}
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[xshift=-5cm,yshift=2cm] at (current page.south east){%
+            \textbf{Space weather effects}};
+    \end{tikzpicture}
+\end{frame}
+
 \begin{frame}{Observation of (I)CMEs}
-    \vskip3mm
     \begin{columns}[t]
         \begin{column}{0.45\textwidth}
             \textbf{Remote sensing:} CME
             
-            \vskip-5mm\hskip-4mm
+            \hskip-4mm
             \animategraphics[poster=19]{30}{plots/lightbulb_cme_anim/}{000}{048}
         \end{column}
         \begin{column}{0.45\textwidth}
@@ -111,11 +132,11 @@
             \input{plots/cme_insitu.pgf}
         \end{column}
     \end{columns}
+    \uncover<2->{\centering\summary Combination of \textbf{remote sensing and in situ} observations at \textbf{multiple\\ viewpoints} is key for the better understanding of ICME propagation.}
 \end{frame}
 
 \begin{frame}{Ideal constellations for multipoint (I)CME observations}
-    \vspace{3mm}
-    \begin{columns}
+    \begin{columns}[t]
         \begin{column}{0.45\textwidth}
             \textbf{Remote sensing:} \uncover<2->{from the side}\\[0.2cm]
             \centering
@@ -210,7 +231,7 @@
         \end{column}
     \end{columns}
     \centering
-    \uncover<6->{\textbf{Unrealistic.} So what can we do with existing spacecraft?}
+    \uncover<6->{\summary \textbf{Unrealistic.} So what can we do with existing spacecraft?}
     \begin{flushright}
         \footnotesize not to scale
     \end{flushright}
@@ -218,7 +239,7 @@
 \end{frame}
 
 \begin{frame}{Fleet of heliophysics missions}
-    \vspace{3mm}
+    \vspace{1.5mm}
     \begin{columns}
         \begin{column}{0.45\textwidth}
             \textbf{Remote sensing}\\[0.2cm]
@@ -234,7 +255,7 @@
                 \draw[dashed] (0, 0) circle (\earthorbitradius);
                 \draw[fill=blue] (45:\earthorbitradius) circle (0.1);
                 
-                \draw[fill=Blue] ({45+54}:1.02*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[above] {STEREO-B};
+                \draw[fill=Blue, opacity=0.5] ({45+54}:1.02*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, align=center, yshift=-6pt] {STEREO-B\\[-2mm]\scriptsize (until Oct 2014)};
                 \draw[fill=Red] ({45-54}:0.98*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[left, xshift=-4pt] {STEREO-A};
                 
                 \draw[fill=Magenta] (45:0.9*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[above left,yshift=-2pt] {SDO};
@@ -260,7 +281,7 @@
                 \draw[fill=blue] (45:\earthorbitradius) circle (0.1);
                 
                 % satellites
-                \draw[fill=Blue] ({45+54}:1.02*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[above] {STEREO-B};
+                \draw[fill=Blue, opacity=0.5] ({45+54}:1.02*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, align=center, yshift=-6pt] {STEREO-B\\[-2mm]\scriptsize (until Oct 2014)};
                 \draw[fill=Red] ({45-54}:0.98*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[left, xshift=-4pt] {STEREO-A};
                 
                 \draw[fill=green] (45:0.8*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, yshift=-2pt, align=center] {L1\\[-2mm]\scriptsize (SOHO, ACE,\\[-2mm]\scriptsize Wind, DSCOVR)};                
@@ -270,25 +291,33 @@
             \end{tikzpicture}
         \end{column}
     \end{columns}
+    \vspace{2mm}
+    \uncover<2->{\centering\summary Multispacecraft observations are \textbf{relatively rare}, especially in situ}
     \begin{flushright}
         \footnotesize not to scale
     \end{flushright}
 \end{frame}
 
 \begin{frame}{Forbush decreases}
-    \begin{columns}
+    \begin{columns}[T]
         \begin{column}{0.55\textwidth}
-            \begin{itemize}
-                \item Short-term decrases of GCR intensity
+            \vbox to .8\textheight{%
+            \vfill
+            \begin{vfilleditems}
+                \item \textbf{Short-term decrases} of GCR intensity
                 \item Discovered 1937 by Scott E. Forbush
-                \item Turbulent or closed magnetic structures (ICMEs/SIRs) = barrier for GCRs
-            \end{itemize}
-            \uncover<2->{$\Rightarrow$ Another way to observe ICMEs in situ. Particle detectors are available at Earth, but also on many spacecraft (e.g. planetary missions)}
+                \item Turbulent or closed \textbf{magnetic structures} (ICMEs/SIRs) = barrier for GCRs
+                \item Both ICME \textbf{shock/sheath} and \textbf{ejecta} modulate the GCRs
+            \end{vfilleditems}
+            \vfill
+            \uncover<2->{\summary FDs extend the available in situ observations with \textbf{additional viewpoints} at Earth, but also on many spacecraft (e.g. planetary missions)}
+            \vfill
+            }
         \end{column}
         \begin{column}{0.35\textwidth}
             \centering
-            \includegraphics[width=\textwidth]{../images/richardson_cane_2011_icme_enhanced.png}
-            \footnotesize Richardson and Cane (2011)
+            \includegraphics[width=\textwidth]{images/RichardsonCane-adapted.pdf}
+            \scriptsize adapted from Richardson and Cane (2011)
         \end{column}
     \end{columns}
 \end{frame}
@@ -365,7 +394,7 @@
 	\end{columns}
 \end{frame}
 
-\begin{frame}{Multipoint observations}
+\begin{frame}{Multipoint observations of FDs}
     \vskip0.2cm
     \begin{center}
         \includegraphics[width=0.8\linewidth]{images/witasse2017.png}\\
@@ -373,7 +402,7 @@
     \end{center}
     \uncover<2->{
         \begin{quote}
-            ``More information on ICME properties can probably be obtained [from] these data sets. For example, we suspect that the evolution of the radial extension of the ICME could be inferred from the Forbush decrease data.''
+            ``\textbf{More information on ICME properties} can probably be obtained [from] these data sets. For example, we suspect that the \textbf{evolution of the radial extension} of the ICME could be inferred from the Forbush decrease data.''
         \end{quote}
     }
 \end{frame}
@@ -384,42 +413,40 @@
     \begin{columns}
         \begin{column}{0.50\textwidth}
             \begin{itemize}
-                \item Onboard Mars Science Laboratory (\emph{Curiosity} rover)
-                \item \textbf{Cruise phase:} 12/2011--07/2012\\
-                \textbf{surface phase} since 08/2012
+                \item Onboard \textbf{Mars Science Laboratory} (\emph{Curiosity} rover)
+                \item \textbf{Cruise phase:} 12/2011 -- 07/2012\\
+                \textbf{Surface phase:} 08/2012 -- today
                 \item Data products: \textcolor{green}{charged} and \textcolor{gray}{neutral} \textbf{particle spectra} + \textbf{dosimetry} (TID, LET)
-                \item \textbf{TID in E}: best statistics to observe FDs
-            \end{itemize}
+            \end{itemize}            
+            \uncover<2->{
+            \centering
             \input{plots/msl_dose.pgf}
-            
+            }            
         \end{column}
         \begin{column}{0.40\textwidth}
             \input{images/mslrad_sensor_schematic.tex}
         \end{column}
     \end{columns}
+    \vskip-6mm
+    \uncover<2->{\centering\summary Best statistics to observe FDs: \textbf{TID in E}}
 \end{frame}
 
 \begin{frame}{High Energy Telescope}
     \begin{columns}
-    	\begin{column}{0.7\textwidth}
-    		\centering
-		    \input{images/solohet_sensor_schematic.tex}
-		\end{column}
-		\begin{column}{0.25\textwidth}
-			\footnotesize \textcolor{red}{stopping in B}\\ \textcolor{green}{stopping in C} \\ \textcolor{blue}{penetrating}\\ \textcolor{Aquamarine}{GCR channel} \\ \textcolor{orange}{C single counter}
-		\end{column}
-	\end{columns}
-    \begin{columns}
-        \begin{column}{0.45\textwidth}
+        \begin{column}{0.50\textwidth}
             \begin{itemize}
-                \item Part of Solar Orbiter's EPD suite 
+                \item Part of Solar Orbiter's \textbf{EPD} suite 
                 \item Operating since February 2020
-                \item Nominal data products: Charged particle spectra above \SI{7}{\mega\electronvolt\per nuc} (ions) and \SI{600}{\kilo\electronvolt} (electrons)
-                \item Additional data products with higher statistics suitable for FDs
+                \item Nominal data products: \textbf{Charged particle spectra} above \SI{7}{\mega\electronvolt\per nuc} (ions) and \SI{600}{\kilo\electronvolt} (electrons)
             \end{itemize}
+            \vskip1cm
+            \uncover<2->{\summary Best statistics to observe FDs: \textbf{Single-detector counters}}
         \end{column}
-        \begin{column}{0.45\textwidth}
-            \input{plots/het_gcr.pgf}
+        \begin{column}{0.40\textwidth}
+            \centering
+            \input{images/solohet_sensor_schematic.tex}
+            \footnotesize \textcolor{red}{stopping in B} \quad \textcolor{green}{stopping in C} \quad \textcolor{blue}{penetrating} \\ \uncover<2->{\textcolor{Aquamarine}{GCR channel} \quad \textcolor{orange}{C single counter}}\\
+            \uncover<2->{\input{plots/het_gcr.pgf}}
         \end{column}
     \end{columns}
 \end{frame}
@@ -436,9 +463,9 @@
                 \toprule
                 Telescope & Field of view                   \\
                 \midrule
-                EUVI      & \SIrange{0}{1.7}{\solarradius}  \\
-                COR1      & \SIrange{1.4}{4}{\solarradius}  \\
-                COR2      & \SIrange{2.5}{15}{\solarradius} \\
+                \textcolor{blue}{EUVI}      & \SIrange{0}{1.7}{\solarradius}  \\
+                \textcolor{green}{COR1}      & \SIrange{1.4}{4}{\solarradius}  \\
+                \textcolor{red}{COR2}      & \SIrange{2.5}{15}{\solarradius} \\
                 HI1       & \SIrange{4}{24}{\degree}        \\
                 HI2       & \SIrange{18.7}{88.7}{\degree}       \\
                 \bottomrule
@@ -469,18 +496,18 @@
 
 \begin{frame}{Geometric reconstruction}
     \begin{columns}[t]
-        \begin{column}{0.35\textwidth}
-            \centering
-            \textbf{COR: 3D reconstruction}\\
+        \begin{column}{0.32\textwidth}
+            \begin{block}{COR: 3D reconstruction}
+                \centering
+                \includegraphics[height=0.65\textheight]{plots/gcs.pdf}\\[-1.5mm]
+                {\footnotesize GCS, Thernisien 2012}\\
+                {\scriptsize Python implementation:\\[-2mm] \tiny\url{https://github.com/johan12345/gcs_python}}
+            \end{block} 
             
-            \includegraphics[height=0.7\textheight]{plots/gcs.pdf}\\[-2mm]
-            {\footnotesize GCS, Thernisien 2012}\\
-            {\footnotesize Python implementation:\\[-1mm] \scriptsize\url{https://github.com/johan12345/gcs_python}}
         \end{column}
         \begin{column}{0.32\textwidth}
-            \centering
-            \textbf{HI: Single-spacecraft fitting}\\[2mm]
-            
+            \begin{block}{HI: Single S/C fitting}     
+                            \centering       
             \begin{tikzpicture}[scale=0.85]
                 \coordinate (center) at (0,0);
                 \def\earthorbitradius{4cm}
@@ -539,12 +566,12 @@
             \end{tikzpicture}
             {\footnotesize SSE, Davies et al. 2012}\\[2mm]
             
-            \small $\phi$ (and $\lambda$) determined by fitting J-Map, assuming $v = \text{const.}$
+            \small $\phi$ (and $\lambda$) determined by fitting, assuming $v = \text{const.}$
+            \end{block} 
         \end{column}
-        \begin{column}{0.3\textwidth}
+        \begin{column}{0.32\textwidth}
+            \begin{block}{HI: Stereoscopic fitting}     
             \centering
-            \textbf{HI: Stereoscopic fitting}\\[2mm]
-            
             \begin{tikzpicture}[scale=0.7]
                 \coordinate (center) at (0,0);
                 \def\earthorbitradius{4cm}
@@ -569,7 +596,8 @@
             \end{tikzpicture}
             {\footnotesize GT, Liu et al. 2010}
             
-            \small $\phi$ can be calculated directly through triangulation
+            \small $\phi$ calculated by triangulation
+            \end{block}
         \end{column}
     \end{columns}
 \end{frame}
