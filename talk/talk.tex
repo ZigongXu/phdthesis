@@ -49,7 +49,7 @@
 \definecolor{light-gray}{gray}{0.9}
 
 % siunitx setup
-\sisetup{detect-family=true, mode=text, range-units=single, separate-uncertainty=true}
+\sisetup{detect-family=true, mode=text, range-units=single, separate-uncertainty=true, per-mode=symbol}
 \DeclareSIUnit\AU{AU}
 \DeclareSIUnit\astronomicalunit{AU}
 \DeclareSIUnit\solarradius{\ensuremath{R_{\astrosun}}}
@@ -76,6 +76,9 @@
 
 \input{vfilleditems.tex}
 
+\settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
+\addtolength{\leftmargini}{\labelsep}
+
 \begin{document}
 \maketitle
 
@@ -91,14 +94,14 @@
             \vbox to .8\textheight{%
             \begin{vfilleditems}
                 \item \textbf{C}oronal \textbf{M}ass \textbf{E}jections: Magnetized plasma ejected from the Sun, propagating into interplanetary space (\textarrow \textbf{ICMEs})
-                \item Large variability:
+                \item \textbf{Large variability:}
                     \begin{itemize}
                         \item frequency: every few days -- a few per day
                         \item speed: 10s to 1000s of \si{\kilo\meter\per\second}
                         \item angular extent: $\sim\SI{5}{\degree}$ -- \SI{120}{\degree}
                     \end{itemize}
                 \item \textbf{Structure:} shock, sheath, magnetic ejecta
-                \item One of the main drivers of \textbf{space weather} in the heliosphere
+                \item One of the main drivers of \textbf{space weather} effects in the heliosphere
             \end{vfilleditems}
             }
         \end{column}
@@ -113,7 +116,7 @@
 \begin{frame}[standout]          
     \includegraphics[height=\paperheight]{images/Space_weather_effects.jpg}
     \begin{tikzpicture}[remember picture,overlay]
-        \node[xshift=-5cm,yshift=2cm] at (current page.south east){%
+        \node[xshift=-5cm,yshift=1.6cm] at (current page.south east){%
             \textbf{Space weather effects}};
     \end{tikzpicture}
 \end{frame}
@@ -292,7 +295,7 @@
         \end{column}
     \end{columns}
     \vspace{2mm}
-    \uncover<2->{\centering\summary Multispacecraft observations are \textbf{relatively rare}, especially in situ}
+    \uncover<2->{\centering\summary Multispacecraft observations are \textbf{relatively rare}, especially in situ.}
     \begin{flushright}
         \footnotesize not to scale
     \end{flushright}
@@ -301,13 +304,17 @@
 \begin{frame}{Forbush decreases}
     \begin{columns}[T]
         \begin{column}{0.55\textwidth}
-            \vbox to .8\textheight{%
+            \vbox to .9\textheight{%
             \vfill
             \begin{vfilleditems}
-                \item \textbf{Short-term decrases} of GCR intensity
-                \item Discovered 1937 by Scott E. Forbush
-                \item Turbulent or closed \textbf{magnetic structures} (ICMEs/SIRs) = barrier for GCRs
-                \item Both ICME \textbf{shock/sheath} and \textbf{ejecta} modulate the GCRs
+                \item \textbf{Short-term decrases} of GCR intensity, discovered 1937 by Scott E. Forbush
+                \item Turbulent or closed \textbf{magnetic structures} act as a barrier for the GCRs:
+                \begin{itemize}
+                    \item ICME \textbf{shock/sheath} and \textbf{ejecta} (flux rope)
+                    \item Stream interaction regions (\textbf{SIRs})
+                \end{itemize}
+                \item \textbf{Onset time} corresponds well to arrival of interplanetary structure
+                \item FD amplitude is \textbf{energy-dependent} (lower energies modulated more easily)
             \end{vfilleditems}
             \vfill
             \uncover<2->{\summary FDs extend the available in situ observations with \textbf{additional viewpoints} at Earth, but also on many spacecraft (e.g. planetary missions)}
@@ -433,16 +440,20 @@
 
 \begin{frame}{High Energy Telescope}
     \begin{columns}
-        \begin{column}{0.50\textwidth}
-            \begin{itemize}
+        \begin{column}{0.45\textwidth}
+            \vbox to .8\textheight{%
+            \vfill
+            \begin{vfilleditems}
                 \item Part of Solar Orbiter's \textbf{EPD} suite 
                 \item Operating since February 2020
                 \item Nominal data products: \textbf{Charged particle spectra} above \SI{7}{\mega\electronvolt\per nuc} (ions) and \SI{600}{\kilo\electronvolt} (electrons)
-            \end{itemize}
-            \vskip1cm
+            \end{vfilleditems}
+            \vfill
             \uncover<2->{\summary Best statistics to observe FDs: \textbf{Single-detector counters}}
+            \vfill
+            }
         \end{column}
-        \begin{column}{0.40\textwidth}
+        \begin{column}{0.45\textwidth}
             \centering
             \input{images/solohet_sensor_schematic.tex}
             \footnotesize \textcolor{red}{stopping in B} \quad \textcolor{green}{stopping in C} \quad \textcolor{blue}{penetrating} \\ \uncover<2->{\textcolor{Aquamarine}{GCR channel} \quad \textcolor{orange}{C single counter}}\\
@@ -476,22 +487,27 @@
     CMEs appear in white-light images (COR, HI) due to \textbf{Thomson scattering}.
 \end{frame}
 
-\begin{frame}{J-Maps}
+\begin{frame}{Time-elongation maps / J-maps}
+    \vskip2mm
     \begin{columns}
-        \begin{column}{0.35\textwidth}
-            \begin{itemize}
-                \item Take \textbf{running difference} of HI images
-                \item Cut out a \textbf{horizontal slice}
-                \item Rotate by \SI{90}{\degree} and \textbf{stack slices} over time
-                \item ICMEs can now be tracked as bright features
-                \item remaining: conversion of elongation ($\epsilon(t)$) to radial distance $r(t)$
-            \end{itemize}
+        \begin{column}{0.4\textwidth}
+            \centering
+            \begin{tikzpicture}[every node/.style={rectangle, rounded corners, draw=black, minimum width=4cm, minimum height=0.8cm}]
+                \node (step1) at (0, 0) {Take running difference};
+                \node (step2) at (0, -1.5) {Cut out horizontal slice};
+                \node (step3) at (0, -3) {Rotate by \SI{90}{\degree}};
+                \node (step4) at (0, -4.5) {Stack slices over time};
+                \draw[thick, -latex] (step1) -- (step2);
+                \draw[thick, -latex] (step2) -- (step3);
+                \draw[thick, -latex] (step3) -- (step4);
+            \end{tikzpicture}
         \end{column}
-        \begin{column}{0.65\textwidth}
+        \begin{column}{0.6\textwidth}
             \includegraphics[width=\textwidth]{images/HCME_A__20120123_01.png}
             \small Source: HELCATS project
         \end{column}
     \end{columns}
+    \summary ICMEs can now be tracked as bright features. How to convert elongation to distance?
 \end{frame}
 
 \begin{frame}{Geometric reconstruction}
@@ -743,7 +759,7 @@
         \begin{column}{0.4\textwidth}
             \begin{itemize}
                 \item First CME at SolO, April 19 2020
-                \item Also seen at Earth and BepiColombo on April 20
+                \item Also hit Earth and BepiColombo on April 20
                 \item Ideal radial alignment ($\sim\SI{4}{\degree}$)
                 \item Slow stealth CME, $v_\maxt \approx \SI{370}{\kilo\meter\per\second}$
             \end{itemize}
@@ -752,6 +768,26 @@
         \end{column}
         \begin{column}{0.5\textwidth}
             \includegraphics[width=\textwidth]{plots/3dcore_visual_davies_new_panela.pdf}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{In situ data}
+    \vskip3mm
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \centering
+            \textbf{Solar Orbiter}\\
+            \scalebox{0.5}{
+                \input{plots/cme_data_at_solo.pgf}
+            }
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \centering
+            \textbf{Earth}\\
+            \scalebox{0.5}{
+                \input{plots/cme_data_at_1au.pgf}
+            }
         \end{column}
     \end{columns}
 \end{frame}
