@@ -46,6 +46,8 @@
 \definecolor{green}{HTML}{2ca02c}
 \definecolor{blue}{HTML}{1f77b4}
 \definecolor{purple}{HTML}{9467bd}
+\definecolor{lightgreen}{HTML}{bcbd22}
+\definecolor{teal}{HTML}{17becf}
 \definecolor{light-gray}{gray}{0.9}
 
 % siunitx setup
@@ -122,6 +124,24 @@
 \end{frame}
 
 \begin{frame}{Observation of (I)CMEs}
+\centering
+\textbf{Observation during eclipses --- 2 times in 160 years}
+\vskip2mm
+\begin{columns}
+	\begin{column}{0.35\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/oldcme3.png}\\
+		F. A. Oom --- Spain, July 1860
+	\end{column}
+	\begin{column}{0.6\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{images/druckmueller_2020_eclipse_enhanced.png}\\
+		M. Druckmüller, A. Möller --- Argentina, December 2020
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Observation of (I)CMEs}
     \begin{columns}[t]
         \begin{column}{0.45\textwidth}
             \textbf{Remote sensing:} CME
@@ -136,6 +156,31 @@
         \end{column}
     \end{columns}
     \uncover<2->{\centering\summary Combination of \textbf{remote sensing and in situ} observations at \textbf{multiple\\ viewpoints} is key for the better understanding of ICME propagation.}
+\end{frame}
+
+\begin{frame}{Modeling of (I)CMEs}
+	\begin{columns}
+		\begin{column}{0.55\textwidth}
+			\begin{itemize}
+				\item Main questions:
+				\begin{itemize}
+					\item Hit or miss? \uncover<2>{\textcolor{red}{$\sim\SI{50}{\percent}$, \SI{10}{\percent} false alarm}}
+					\item Arrival time? \uncover<2>{\textcolor{red}{$\sim\SI{10}{\hour}$}}
+					\item Geoeffectiveness -- $B_z$?
+				\end{itemize}
+				\item Approaches
+				\begin{itemize}
+					\item Analytical empirical models (DBM)
+					\item MHD simulations (ENLIL, EUHFORIA)
+					\item Machine Learning
+				\end{itemize}
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.35\textwidth}
+			\centering
+			\includegraphics[width=0.8\textwidth]{images/enlil-20140212-185100-earth.png}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}{Ideal constellations for multipoint (I)CME observations}
@@ -708,6 +753,22 @@
 \end{frame}
 
 \begin{frame}{Deriving CME expansion from FD data (von Forstner et al. 2020)}
+    \begin{columns}
+		\begin{column}{0.45\textwidth}
+			\centering
+			\input{plots/fd_properties.tex}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\centering
+			\scalebox{0.7}{\input{plots/fd_slope_correlation.pgf}}
+		\end{column}
+	\end{columns}
+	\vskip-2mm
+	\centering
+	\summary Maximum hourly decrease $m_\text{max}$ and relative amplitude $\Delta y$ are correlated, with different proportionality factors $A$ at Earth and Mars.
+\end{frame}
+
+\begin{frame}{Deriving CME expansion from FD data (von Forstner et al. 2020)}
     \only<1>{\def\step{1}}%
     \only<2>{\def\step{2}}%
     \only<3>{\def\step{3}}%
@@ -767,13 +828,14 @@
             \includegraphics[width=\textwidth]{plots/gcs_reconstruction.pdf}
         \end{column}
         \begin{column}{0.5\textwidth}
+        	\vskip2mm
             \includegraphics[width=\textwidth]{plots/3dcore_visual_davies_new_panela.pdf}
         \end{column}
     \end{columns}
 \end{frame}
 
 \begin{frame}{In situ data}
-    \vskip3mm
+    \vskip2mm
     \begin{columns}
         \begin{column}{0.5\textwidth}
             \centering
@@ -790,13 +852,93 @@
             }
         \end{column}
     \end{columns}
+	\vskip-2mm
+	\centering\summary HET provides high-resolution measurement of $\sim\SI{3}{\percent}$ FD at Solar Orbiter.
+\end{frame}
+
+\begin{frame}{Modeling --- ForbMod}
+	\centering\includegraphics[width=0.8\textwidth]{images/forbmod_schematic.jpg}\\[-3mm]
+	{\footnotesize\flushright Dumbović et al., 2018, 2020}
+	
+	\begin{itemize}
+		\item Analytical physics-based \textbf{diffusion-expansion} model for FDs caused by \textbf{flux ropes}
+		\item FD \textbf{energy dependence} modeled through empirical GCR spectra and detector response
+		\item \textbf{Input parameters} determined from in situ magnetic field and coronagraph GCS fit
+		\item Additional parameters: expansion power law indices $n_a, n_B$ 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{ForbMod results}
+	\begin{columns}
+		\begin{column}{0.4\textwidth}
+			\begin{itemize}
+				\item Expansion factors $n_a, n_B$ \textbf{inconsistent} between Sun--Earth, SolO--Earth, in situ @ Earth\\
+				\small \textarrow Possible influence of SIR
+				\item All measured values of $n_a, n_B$ lead to \textbf{FDs smaller} than measured
+				\item Best fit ($n_a = 1.08, n_B = 2.00$) can reproduce FDs at SolO and CRaTER, but not at neutron monitors
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.55\textwidth}
+			\centering
+			\scalebox{0.5}{\input{plots/forbmod.pgf}}
+			\footnotesize ForbMod results for best fit values of $n_a, n_B$
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \section{Conclusions and Outlook}
 
-\begin{frame}
-    Inhalt...
+\begin{frame}{Conclusions}
+    \begin{itemize}
+    	\item \textbf{Multipoint observations} are essential for the better understanding and modeling of ICME propagation and space weather impacts
+    	\item \textbf{Forbush decreases} provide additional viewpoints for in situ observations and can be used to derive additional ICME properties, such as the expansion
+    	\item This allowed us to study ICMEs arriving at Mars statistically for the first time, finding:
+    	\begin{itemize}
+    		\item Fast ICMEs \textbf{continue to decelerate} between \SI{1}{\AU} and Mars (von Forstner et al. 2018)
+    		\item \textbf{Heliospheric imager observations} can be used predict ICME arrivals at Mars, with similar performance as at other locations in the inner heliosphere (von Forstner et al. 2019)
+    		\item \textbf{ICME expansion} between Earth and Mars can be derived from properties of FD profiles and is in line with evolution closer to the Sun (von Forstner et al. 2020)
+    	\end{itemize}
+    	\item HET provided observations of the first ICME observed at \textbf{Solar Orbiter} in April 2020, and the multi-spacecraft data can be used to validate FD models (von Forstner et al. 2021).
+    \end{itemize}
 \end{frame}
 
+\begin{frame}{Outlook}
+	\begin{itemize}
+		\item Further studies of the \textbf{April 2020 ICME} are in preparation:
+			\begin{itemize}
+				\item E. Davies et al. (submitted to \textit{A\&A}): Further details of the SolO MAG observations
+				\item J. O'Kane et al. (in preparation for \textit{A\&A}): Detection of CME source region
+				\item M. Dumbović et al. (planned): Investigation of the ForbMod discrepancies
+			\end{itemize}
+		\item Solar Orbiter and PSP, as well as \SI{1}{\AU} missions, can serve as an \textbf{upstream monitor} of space weather events that later hit Earth or human space missions. These data, including FD observations, should be exploited for modeling and forecasting efforts.
+		\item Future alignments of spacecraft and planets in the inner heliosphere and the availability of remote sensing data from Solar Orbiter later this year will provide more interesting opportunities for \textbf{multipoint studies}.
+	\end{itemize}
+\end{frame}
+
+\appendix
+\begin{frame}[standout]
+	Backup slides
+\end{frame}
+
+\begin{frame}{ForbMod equations}
+Flux rope radius $a(t)$ and central magnetic field $B_c(t)$ follow power laws:
+\[
+a(t) = a_0 \left(\frac{R(t)}{R_0}\right)^{n_a}, \qquad B_\text{c}(t) = B_0 \left(\frac{R(t)}{R_0}\right)^{-n_B},
+\]
+
+Decrease of GCR intensity $U$ at distance $r(t)$ from flux rope center:
+\[
+U(r, t) = U_0 \left(1 - J_0\mathopen{}\left(\alpha_1 \frac{r(t)}{a(t)}\right)\mathclose{} \; e^{-\alpha_1^2 f(t)} \right)
+\quad
+f(t) = \frac{D_0}{a_0^2} \left(\frac{v}{R_0}\right)^x \frac{t^{x+1}}{x+1}
+\]
+Diffusion coefficient $D_0$ is energy-dependent, see Potgieter et al. 2013, 2014.
+
+Expansion type $x$ describes evolution of magnetic flux:
+\[
+x = n_B - 2n_a \neq -1
+\]
+(special case $x = -1$ requires different form of $f(t)$)
+\end{frame}
 
 \end{document}
