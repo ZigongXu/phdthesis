@@ -164,22 +164,28 @@
 			\begin{itemize}
 				\item Main questions:
 				\begin{itemize}
-					\item Hit or miss? \uncover<2>{\textcolor{red}{$\sim\SI{50}{\percent}$, \SI{10}{\percent} false alarm}}
-					\item Arrival time? \uncover<2>{\textcolor{red}{$\sim\SI{10}{\hour}$}}
+					\item Hit or miss? \uncover<2->{\textcolor{red}{$\sim\SI{50}{\percent}$, \SI{10}{\percent} false alarm}}
+					\item Arrival time? \uncover<2->{\textcolor{red}{$\sim\SI{10}{\hour}$}}
 					\item Geoeffectiveness -- $B_z$?
 				\end{itemize}
-				\item Approaches
+				\item<3-> Approaches
 				\begin{itemize}
-					\item Analytical empirical models (DBM)
-					\item MHD simulations (ENLIL, EUHFORIA)
-					\item Machine Learning
+					\item<alert@3> Analytical empirical models (DBM)
+					\item<alert@4> MHD simulations (WSA-ENLIL+Cone, EUHFORIA)
+					\item Machine Learning algorithms etc.
 				\end{itemize}
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.35\textwidth}
 			\centering
-			\animategraphics[poster=53,width=0.7\textwidth]{30}{plots/enlil_anim/enlil_anim}{00024}{00147}
-			\footnotesize Guo et al. 2018
+			\only<4>{
+				\animategraphics[poster=53,width=0.85\textwidth]{30}{plots/enlil_anim/enlil_anim}{00024}{00147}\\
+				\footnotesize WSA-ENLIL+Cone (Odstrcil et al. 2004)\\ event from Guo et al. 2018
+			}
+			\only<3>{
+				\animategraphics[poster=20,width=\textwidth]{10}{plots/dbm_anim/dbm_anim}{000}{025}\\
+				\footnotesize DBM, Vrsnak et al. 2013
+			}
 		\end{column}
 	\end{columns}
 \end{frame}
@@ -628,7 +634,7 @@
             \end{tikzpicture}
             {\footnotesize SSE, Davies et al. 2012}\\[2mm]
             
-            \small $\phi$ (and $\lambda$) determined by fitting, assuming $v = \text{const.}$
+            \footnotesize $\phi$ (and $\lambda$) determined by fitting, assuming $v = \text{const.}$
             \end{block} 
         \end{column}
         \begin{column}{0.32\textwidth}
@@ -658,7 +664,7 @@
             \end{tikzpicture}
             {\footnotesize GT, Liu et al. 2010}
             
-            \small $\phi$ calculated by triangulation
+            \footnotesize $\phi$ calculated through triangulation
             \end{block}
         \end{column}
     \end{columns}
@@ -761,12 +767,12 @@
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			\centering
-			\scalebox{0.7}{\input{plots/fd_slope_correlation.pgf}}
+			\uncover<2>{\scalebox{0.7}{\input{plots/fd_slope_correlation.pgf}}}
 		\end{column}
 	\end{columns}
 	\vskip-2mm
 	\centering
-	\summary Maximum hourly decrease $m_\text{max}$ and relative amplitude $\Delta y$ are correlated, with different proportionality factors $A$ at Earth and Mars.
+	\uncover<2>{\summary Maximum hourly decrease $m_\text{max}$ and relative amplitude $\Delta y$ are correlated, with different proportionality factors $A$ at Earth and Mars.}
 \end{frame}
 
 \begin{frame}{Deriving CME expansion from FD data (von Forstner et al. 2020)}
@@ -780,7 +786,7 @@
     \only<1>{3 FDs at Earth, observed at GCR energy $E_0$}%
     \only<2>{Same events at Mars, expanded ICME, same GCR energy $E_0$}%
     \only<3->{Same events at Mars, lower GCR energy $E_1$ + expanded ICME}\\[2mm]
-    \uncover<4->{\textbf{Confirmed by analytical modeling} {\small (PDB, Wibberenz et al. 1998 \& ForbMod, Dumbović et al. 2018)}:
+    \uncover<4->{\textbf{Confirmed by analytical modeling} {\footnotesize¸ (PDB, Wibberenz et al. 1998 \& ForbMod, Dumbović et al. 2018)}:
         \[
             \textbf{Sheath: }\frac{\Delta y_s}{m_{\text{max},s}} = \ldots = T_\text{sheath} \qquad
             \textbf{Ejecta: }\frac{\Delta y_e}{m_{\maxt,e}} = \ldots \approx 0.36 \cdot T_\text{ICME}
@@ -820,9 +826,9 @@
     \begin{columns}
         \begin{column}{0.4\textwidth}
             \begin{itemize}
-                \item First CME at SolO, April 19 2020
+                \item \textbf{First CME} at SolO, April 19 2020
                 \item Also hit Earth and BepiColombo on April 20
-                \item Ideal radial alignment ($\sim\SI{4}{\degree}$)
+                \item Ideal \textbf{radial alignment} ($\sim\SI{4}{\degree}$)
                 \item Slow stealth CME, $v_\maxt \approx \SI{370}{\kilo\meter\per\second}$
             \end{itemize}
             \vspace{2mm}
@@ -942,4 +948,56 @@ x = n_B - 2n_a \neq -1
 (special case $x = -1$ requires different form of $f(t)$)
 \end{frame}
 
+\begin{frame}{Combination of ForbMod and PDB}
+\begin{columns}
+	\begin{column}{0.48\textwidth}
+		\centering
+		\scalebox{0.8}{\input{plots/fd_modelling_example.pgf}}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\small
+		Combine 2 analytical models:
+		\begin{itemize}
+			\item \textbf{Sheath:} PDB (Wibberenz+ 1998)\\
+			\textit{Propagating diffusive barrier}
+			\[y_s(x_s) = \frac{v_\text{sheath}}{K'} x_s\]
+			{\footnotesize $x_e$: Distance observer to shock\\ 
+				$K'$: Diffusion coefficient}
+			\item \textbf{Ejecta:} ForbMod (Dumbović+ 2018)\\
+			\textit{Analytical diffusion-expansion model for FDs caused by flux ropes}
+			\[y_e(r_e, t_E) = J_0\mathopen{}\left(\alpha_1 \frac{r_e}{a}\right)\mathclose{} \; e^{-\alpha_1^2\ f(t_E)}\]
+			{\footnotesize $r_e$: Distance observer to FR center\\
+				$J_0$: Bessel function,
+				$a$: FR radius}
+		\end{itemize}
+	\end{column}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}{Calculation of $\Delta y/m_\maxt$ from analytical models}
+\vskip0.4cm
+\begin{columns}
+\begin{column}{0.5\textwidth}
+	For each model, calculate $\Delta y/m_\maxt$. Diffusion coefficient cancels out $\Rightarrow$ No energy dependence!
+	\begin{align*}
+	\textbf{Sheath: }\frac{\Delta y_s}{m_{\text{max},s}} &= \ldots = T_\text{sheath}\\
+	\textbf{Ejecta: }\frac{\Delta y_e}{m_{\maxt,e}} &= \ldots \approx 0.36 \cdot T_\text{ICME}
+	\end{align*}
+	However, sheath and ejecta effects can often not be clearly separated.
+	\[A = \frac{\Delta y}{m_\maxt} = \frac{\Delta y_s + \Delta y_e}{\max(m_{\maxt,s}, m_{\maxt,e})}\]
+	$\Rightarrow$ We need to assume $\Delta y \approx \Delta y_s$ (more probable!) or $\Delta y \approx \Delta y_e$.
+\end{column}
+\begin{column}{0.48\textwidth}
+	\centering
+	\scalebox{0.8}{\input{plots/region_of_mmax.pgf}}\\
+	Location of $m_\maxt$ within FDs at Earth
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{HET C counters response function}
+\centering
+\scalebox{0.8}{\input{../plots/het_c_response_function.pgf}}
+\end{frame}
 \end{document}
