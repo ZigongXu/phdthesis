@@ -8,3 +8,10 @@
     - z.B. MSL/RAD Forbush decrease properties + Case study Solar Orbiter
 - Was haben wir gelernt/Zusammenfassung
     - schnelle CMEs verlangsamen auch außerhalb der Erdbahn (frühere Annahme widerlegt)
+    
+    
+Ideen basierend auf Martin's Vortrag:
+ganz kurze Zusammenfassung vor dem Inhalt?
+33 Folien
+Zusammenfassung: kleine Plots zur Erinnerung
+weniger Ausblick???

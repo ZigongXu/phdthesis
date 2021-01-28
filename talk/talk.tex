@@ -96,6 +96,7 @@
             \vbox to .8\textheight{%
             \begin{vfilleditems}
                 \item \textbf{C}oronal \textbf{M}ass \textbf{E}jections: Magnetized plasma ejected from the Sun, propagating into interplanetary space (\textarrow \textbf{ICMEs})
+                \item Driven by magnetic reconnection at the Sun
                 \item \textbf{Large variability:}
                     \begin{itemize}
                         \item frequency: every few days -- a few per day
@@ -103,7 +104,8 @@
                         \item angular extent: $\sim\SI{5}{\degree}$ -- \SI{120}{\degree}
                     \end{itemize}
                 \item \textbf{Structure:} shock, sheath, magnetic ejecta
-                \item One of the main drivers of \textbf{space weather} effects in the heliosphere
+                \item \textbf{Interaction} with solar wind, SIRs and other CMEs
+                \item One of the main drivers of \textbf{space weather} effects
             \end{vfilleditems}
             }
         \end{column}
@@ -164,25 +166,26 @@
 			\begin{itemize}
 				\item Main questions:
 				\begin{itemize}
-					\item Hit or miss? \uncover<2->{\textcolor{red}{$\sim\SI{50}{\percent}$, \SI{10}{\percent} false alarm}}
-					\item Arrival time? \uncover<2->{\textcolor{red}{$\sim\SI{10}{\hour}$}}
-					\item Geoeffectiveness -- $B_z$?
+					\item \textbf{Hit or miss?} \uncover<5->{\textcolor{red}{$\sim\SI{50}{\percent}$, \SI{10}{\percent} false alarm}}
+					\item \textbf{Arrival time?} \uncover<5->{\textcolor{red}{$\pm\sim\SI{10}{\hour}$}}
+					\item \textbf{Geoeffectiveness} -- $B_z$?
 				\end{itemize}
-				\item<3-> Approaches
+				\item<2-> Approaches
 				\begin{itemize}
-					\item<alert@3> Analytical empirical models (DBM)
-					\item<alert@4> MHD simulations (WSA-ENLIL+Cone, EUHFORIA)
-					\item Machine Learning algorithms etc.
+					\item<alert@2> Analytical \textbf{empirical models} (DBM)
+					\item<alert@3> \textbf{MHD} simulations (WSA-ENLIL+Cone, EUHFORIA)
+					\item<alert@4> Machine Learning algorithms etc.
 				\end{itemize}
 			\end{itemize}
+            \uncover<6>{\summary Models need to be supported with in situ and remote sensing data to improve forecasting capabilities.}
 		\end{column}
 		\begin{column}{0.35\textwidth}
 			\centering
-			\only<4>{
+			\only<3->{
 				\animategraphics[poster=53,width=0.85\textwidth]{30}{plots/enlil_anim/enlil_anim}{00024}{00147}\\
 				\footnotesize WSA-ENLIL+Cone (Odstrcil et al. 2004)\\ event from Guo et al. 2018
 			}
-			\only<3>{
+			\only<2>{
 				\animategraphics[poster=20,width=\textwidth]{10}{plots/dbm_anim/dbm_anim}{000}{025}\\
 				\footnotesize DBM, Vrsnak et al. 2013
 			}
@@ -193,7 +196,8 @@
 \begin{frame}{Ideal constellations for multipoint (I)CME observations}
     \begin{columns}[t]
         \begin{column}{0.45\textwidth}
-            \textbf{Remote sensing:} \uncover<2->{from the side}\\[0.2cm]
+            \textbf{Remote sensing:} \uncover<2->{from the side}\\
+            \uncover<4->{or even from the poles?}\\[0.2cm]
             \centering
             \begin{tikzpicture}
                 \def\earthorbitradius{2.5}
@@ -235,10 +239,15 @@
                 \foreach \angle in {0,45,90,180,225,270,360} {
                     \node[rotate={\angle-45}] at (\angle:\earthorbitradius) {\faSatellite};
                 }}
+            
+                \uncover<4->{
+                    \node[rotate=-45] at (0, 0) {\scriptsize\faSquare};
+                }
             \end{tikzpicture}
         \end{column}
         \begin{column}{0.45\textwidth}
-            \textbf{In situ:} \uncover<4->{regular grid of observers}\\[0.2cm]
+            \textbf{In situ:} \uncover<5->{regular grid of observers}\\
+            \strut\\[0.2cm]
             \centering
             \begin{tikzpicture}
                 \def\earthorbitradius{2.5}
@@ -269,13 +278,13 @@
                 \draw[fill=blue] (45:\earthorbitradius) circle (0.1);
                 
                 % satellites
-                \uncover<4->{
+                \uncover<5->{
                     \node at (45:0.25*\earthorbitradius) {\faSatellite};
                     \node at (45:0.5*\earthorbitradius) {\faSatellite};
                     \node at (45:0.75*\earthorbitradius) {\faSatellite};
                 }
                 
-                \uncover<5->{
+                \uncover<6->{
                     \foreach \angle in {75,105,135,165,195,225,255,285,315,345,15} {
                         \node[rotate={\angle-45}] at (\angle:0.25*\earthorbitradius) {\faSatellite};
                         \node[rotate={\angle-45}] at (\angle:0.5*\earthorbitradius) {\faSatellite};
@@ -286,18 +295,20 @@
         \end{column}
     \end{columns}
     \centering
-    \uncover<6->{\summary \textbf{Unrealistic.} So what can we do with existing spacecraft?}
+    \vspace{-0.7cm}
     \begin{flushright}
         \footnotesize not to scale
     \end{flushright}
+    \vspace{-0.3cm}
+    \uncover<6->{\summary \textbf{Unrealistic.} So what can we do with existing spacecraft?}
     
 \end{frame}
 
 \begin{frame}{Fleet of heliophysics missions}
-    \vspace{1.5mm}
-    \begin{columns}
+    \begin{columns}[t]
         \begin{column}{0.45\textwidth}
-            \textbf{Remote sensing}\\[0.2cm]
+            \textbf{Remote sensing}\\
+            \strut\\[0.4cm]
             \centering
             \begin{tikzpicture}
                 \def\earthorbitradius{2.5}
@@ -322,7 +333,8 @@
             \end{tikzpicture}
         \end{column}
         \begin{column}{0.45\textwidth}
-            \textbf{In situ}\\[0.2cm]
+            \textbf{In situ}\\
+            \strut\\[0.4cm]
             \centering
             \begin{tikzpicture}
                 \def\earthorbitradius{2.5}
@@ -346,11 +358,12 @@
             \end{tikzpicture}
         \end{column}
     \end{columns}
-    \vspace{2mm}
-    \uncover<2->{\centering\summary Multispacecraft observations are \textbf{relatively rare}, especially in situ.}
+    \vspace{-0.22cm}
     \begin{flushright}
         \footnotesize not to scale
     \end{flushright}
+    \vspace{-0.3cm}
+    \uncover<2->{\centering\summary Multispacecraft observations are \textbf{relatively rare}, especially in situ.}
 \end{frame}
 
 \begin{frame}{Forbush decreases}
@@ -827,9 +840,10 @@
         \begin{column}{0.4\textwidth}
             \begin{itemize}
                 \item \textbf{First CME} at SolO, April 19 2020
-                \item Also hit Earth and BepiColombo on April 20
+                \item Also hit Earth and BepiColombo
+                \item Remote sensing from STEREO-A
                 \item Ideal \textbf{radial alignment} ($\sim\SI{4}{\degree}$)
-                \item Slow stealth CME, $v_\maxt \approx \SI{370}{\kilo\meter\per\second}$
+                \item Slow \textit{stealth} CME, $v_\maxt \approx \SI{370}{\kilo\meter\per\second}$
             \end{itemize}
             \vspace{2mm}
             \includegraphics[width=\textwidth]{plots/gcs_reconstruction.pdf}

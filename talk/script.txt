@@ -1,0 +1,46 @@
+- Thank you for coming
+- I'm going to present the results of my PhD thesis, which is titled "Multipoint observations of Interplanetary Coronal Mass Ejections (ICMEs) in the inner heliosphere - Forbush decreases and remote sensing"
+
+----
+
+- This talk is structured into five sections: First, I'm going to give an introduction to the topic and explain the instruments that I am using in the studies.
+- I will not be presenting all contents of the thesis, but I will mainly go into two of the studies within the thesis: These are the statistical study of Forbush decreases at MSL/RAD, and the case study of the first CME observed at Solar Orbiter
+- Finally, I will give some conclusions and an outlook on future developments.
+
+----
+
+- So, what are Coronal mass ejections? CMEs are large clouds of magnetized plasma ejected from the Sun, which propagate into interplanetary space, and are then called interplanetary CMEs, ICMEs.
+- These events are driven by the reconnection of the solar magnetic field, and they are often associated with solar flares, in which energy from the Sun is released in a sudden flash of light
+- The properties of these events can vary a lot: For example, the frequency at which they occur can vary from once every few days at solar minimum to multiple events per day at solar maximum. The speeds vary between tens and thousands of km/s, but most are at a couple of hundreds of km/s, which means they are faster than the ambient solar wind. Of course they can also propagate in different directions, and they typically have an angular width on the order of 50°, but there are also very narrow and very wide cases between 5 and 120°.
+- The magnetic ejecta itself, which is often also called a magnetic cloud if it has a clear flux rope structure, can also drive a ahead of it if it is faster than the magnetosonic speed. Inbetween these structures we then find a region of turbulent plasma called the sheath.
+- CMEs can also interact with the ambient solar wind, which typically causes them to decelerate on their way towards Earth, and with other magnetic structures such as stream interaction regions and other CMEs.
+- CMEs are one the main drives of so-called space weather effects in the heliosphere
+
+---
+
+- Space weather includes any heliospheric conditions that can impact spacecraft electronics, astronauts or humans and infrastructure on Earth. For example, this includes dangerous energetic particles that can be accelerated at the Sun or at CME shocks, and disturbances of the geomagnetic field caused by CMEs that can induce currents in power grids.
+- This is why it is important to study space weather events to be able to better predict when they occur and what their effects will be, especially also for future human space missions to the Moon and Mars.
+
+---
+
+- So, how can we observe CMEs? The first likely observation of a CME that we know of was during the solar eclipse in July 1860, in this case in a drawing of the corona where we can see this round structure on the bottom right.
+- For a very long time, this seems to have been the only time where a CME was observed during an eclipse, until there was another one December 2020, which you can see in this beautiful photo by Miroslav Druckmüller.
+
+---
+
+- But nowadays, we of course have other methods to observe CMEs more routinely. We separate these into remote sensing observations, such as by the LASCO coronagraph onboard the Solar and Heliospheric observatory (SOHO) spacecraft, and in situ observations, where the CME directly hits the observer and we can measure its magnetic field and plasma data.
+- In the magnetic field in the top panel, we can see a shock and turbulent sheath, followed by a strong and smoothly rotating field in the magnetic cloud. The plasma velocity, temperature and density also show significant jumps at the shock and a linear velocity profile and low temperature in the ejecta.
+- So to gain more information about the propagation and evolution of ICMEs, it is very important to combine both remote sensing and in situ measurements
+
+---
+
+- In addition to observations, modeling is the second main focus of space weather studies. In the case of CMEs, the main questions that need to be answered by models are:
+    - Will a CME hit or miss a certain target, e.g. Earth?
+    - When will the CME arrive at this target?
+    - And how geoeffective will it be - in this case, the most relevant parameter is the north-south component of the magnetic field, as this is most effective in disturbing the Earth's magnetic field
+- The current modeling approaches include simple empirical models, such as the drag-based model
+- And more sophisticated magnetohydronamic simulations of the heliosphere, such as the WSA-ENLIL+Cone model shown in this animation
+- Recently there have also been some novel approaches using machine learning techniques to predict CME arrivals
+- At the moment, the state of the art models still produce quite large uncertainties when trying to answer these questions. For example, the hit-or-miss question is only correctly answered in about 50% of cases, and produces a false alarm with 10% probability
+- The arrival time can also only be predicted with uncertainties of about 10 hours, and the Bz prediction is still being worked on very actively
+- So, one key point to improve these forecasting capabilities is to supply the models with as many in situ and remote sensing data as possible, e.g. to better calibrate free parameters.
