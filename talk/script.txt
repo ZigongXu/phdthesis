@@ -44,3 +44,39 @@
 - At the moment, the state of the art models still produce quite large uncertainties when trying to answer these questions. For example, the hit-or-miss question is only correctly answered in about 50% of cases, and produces a false alarm with 10% probability
 - The arrival time can also only be predicted with uncertainties of about 10 hours, and the Bz prediction is still being worked on very actively
 - So, one key point to improve these forecasting capabilities is to supply the models with as many in situ and remote sensing data as possible, e.g. to better calibrate free parameters.
+
+---
+
+- So, what would be the ideal setup to get good measurements of a CME?
+- In the case of remote sensing measurements, we want to be well separated in longitude from the propagation direction so that we can follow the CME in the plane of sky. This could be done for example with two viewpoints like this.
+- But of course if we want to follow ICMEs in other directions, not only towards Earth but for example towards Mars, we also need more observation locations at other longitudes.
+- Another alternative would be to observe the CME from the poles, this might be even more favorable as we can observe all CMEs in the ecliptic plane well from one viewpoint
+
+- For in situ data, we need observations on the trajectory of the CME, so that we can measure how it evolves. Also in that case it would be preferable to not only cover the Sun-Earth line, but also other directions.
+- But such constellations with so many satellites are quite unrealistic, at least in the near future. So what can we do with the existing missions in the inner solar system?
+
+---
+
+- For remote sensing observations, we have a few missions close to the Earth that look directly at the Sun, such as SOHO at the Lagrange point L1 and SDO in orbit around Earth. In situ measurements are also available from SOHO, as well as the ACE, Wind and DSCOVR missions also at the L1 point.
+- Then, we have the STEREO mission with two spacecraft that orbit the Sun slightly closer and slightly further away than Earth so that they slowly drifted away and are now coming back towards Earth. Unfortunately, contact to STEREO-B was lost in 2014, so since then we only have data from STEREO-A.
+- And finally, we have two missions that will come very close to the Sun, these are Parker Solar Probe, launched by NASA in 2018, and Solar Orbiter launched by ESA last year. Because of the high temperatures near the Sun, PSP is mainly focusing on in situ measurements, and has only remote sensing instrument that looks towards one side of the Sun. On the other hand, SolO stays a bit further away from the Sun and therefore can have a full suite of remote sensing instrumens, but most of those will only be continuously operating with the beginning of the full science mission phase in November of this year.
+- So while we have a good suite of spacecraft available, it is still relatively rare to have good alignments for multispacecraft observations, especially in terms of in situ observations on the trajectory of an ICME.
+
+---
+
+- In addition to the in situ measurements that I already showed, there is another way to detect ICMEs in situ: The so-called Forbush decreases, which are short-term decreases of the intensity of galactic cosmic rays. These were discovered by Scott Forbush in 1937 and later named after him.
+- The reason why those decreases are caused by CMEs is that the closed magnetic structure of the flux rope, as well as the turbulent magnetic field of the shock and sheath act as a barrier through which the charged GCR particles cannot penetrate as easily. Such decreases can also be caused by stream interaction regions in the solar wind, which are also associated with shocks.
+- The onset time of a Forbush decrease typically corresponds well with the arrival time of the interplanetary structure measured by other in situ instruments. In the case of a CME driving a shock, we can sometimes clearly separate the two structures in a two-step Forbush decrease (as seen in the picture here), but this of course depends on the resolution of the GCR measurements.
+- Amplitudes of Forbush decreases are typically on the order of a few percent, but this depends on the energy of GCRs that we measure. Lower energies are modulated more easily by the magnetic field, so they show larger Forbush decreases.
+- So, Forbush decreases can be used to extend the number of locations where we can have in situ observations. This is because particle detectors or radiation monitors are available not only on Earth, but also on some additional spacecraft such as planetary missions, which typically don't carry a full suite of in situ plasma and magnetic field instruments.
+
+---
+
+- So for example, FDs have been measured at Mercury with the MESSENGER spacecraft, at the Moon with the Lunar Reconnaissance Orbiter's CRaTER instrument and Chang'E 4 LND, as well as at Mars with the Mars Science Laboratory Radiation Assessment Detector. Also, many of the spacecraft we already talked about, like STEREO, SOHO and Solar Orbiter, also have particle detectors that can be used for measuring FDs, and we can measure them on the surface of the Earth with neutron monitors.
+
+---
+
+- In addition to using FDs to determine the ICME arrival time, one of the main motivations in my PhD thesis was also to get additional information about the CME from the FD measurements. This plot from a case study by Olivier Witasse in 2017 illustrates very nicely that the FD profiles can look completely different at different locations in the heliosphere (here: Mars, Comet 67P, and Saturn). Witassse already noted that this could be used for example to derive the radial extension of the ICME as it expands during its propagation.
+- This is something that I have more thoroughly investigate in my thesis with statistical studies and theoretical modeling.
+
+---
