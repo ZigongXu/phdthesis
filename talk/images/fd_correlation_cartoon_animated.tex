@@ -3,8 +3,8 @@
 	color(60bp)=(pgftransparent!100); color(100bp)=(pgftransparent!100)}%
 \pgfdeclarefading{fdfading}{\pgfuseshading{fdshading}}%
 
-\begin{animateinline}[autoplay]{50}%
-\multiframe{101}{rAnim=0.0+0.01}{
+\begin{animateinline}[autoplay]{30}%
+\multiframe{61}{rAnim=0.0+0.01667}{
 \begin{tikzpicture}[scale=1, fd/.style={very thick, path fading=fdfading}]
 	\begin{scope} % FD
 		\draw [<-,thick] (0,0.5) node (yaxis) [above] {$y/y_\maxt$} -- (0, -3);

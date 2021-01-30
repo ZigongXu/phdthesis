@@ -132,12 +132,12 @@
 \begin{columns}
 	\begin{column}{0.35\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{../images/oldcme3.png}\\
+		\includegraphics[height=0.32\paperwidth]{../images/oldcme3.png}\\
 		F. A. Oom --- Spain, July 1860
 	\end{column}
 	\begin{column}{0.6\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{images/druckmueller_2020_eclipse_enhanced.png}\\
+		\includegraphics[height=0.32\paperwidth]{images/druckmueller_2020_eclipse_enhanced.png}\\
 		M. Druckmüller, A. Möller --- Argentina, December 2020
 	\end{column}
 \end{columns}
@@ -164,13 +164,13 @@
 	\begin{columns}
 		\begin{column}{0.55\textwidth}
 			\begin{itemize}
-				\item Main questions:
+				\item \textbf{Main questions:}
 				\begin{itemize}
 					\item \textbf{Hit or miss?} \uncover<5->{\textcolor{red}{$\sim\SI{50}{\percent}$, \SI{10}{\percent} false alarm}}
 					\item \textbf{Arrival time?} \uncover<5->{\textcolor{red}{$\pm\sim\SI{10}{\hour}$}}
 					\item \textbf{Geoeffectiveness} -- $B_z$?
 				\end{itemize}
-				\item<2-> Approaches
+				\item<2-> \textbf{Approaches:}
 				\begin{itemize}
 					\item<alert@2> Analytical \textbf{empirical models} (DBM)
 					\item<alert@3> \textbf{MHD} simulations (WSA-ENLIL+Cone, EUHFORIA)
@@ -373,13 +373,13 @@
             \vfill
             \begin{vfilleditems}
                 \item \textbf{Short-term decrases} of GCR intensity, discovered 1937 by Scott E. Forbush
-                \item Turbulent or closed \textbf{magnetic structures} act as a barrier for the GCRs:
+                \item Turbulent or closed \textbf{magnetic structures}\\act as a barrier for the GCRs:
                 \begin{itemize}
                     \item ICME \textbf{shock/sheath} and \textbf{ejecta} (flux rope)
                     \item Stream interaction regions (\textbf{SIRs})
                 \end{itemize}
-                \item \textbf{Onset time} corresponds well to arrival of interplanetary structure
-                \item FD amplitude is \textbf{energy-dependent} (lower energies modulated more easily)
+                \item \textbf{Onset time} corresponds to ICME arrival
+                \item FD amplitude is \textbf{energy-dependent}
             \end{vfilleditems}
             \vfill
             \uncover<2->{\summary FDs extend the available in situ observations with \textbf{additional viewpoints} at Earth, but also on many spacecraft (e.g. planetary missions)}
@@ -531,7 +531,8 @@
     \begin{columns}
         \begin{column}{0.6\textwidth}
             \centering
-            \input{plots/secchi_fov.pgf}
+            \scalebox{0.8}{\input{plots/secchi_fov.pgf}}\\[-1mm]
+            CMEs appear in white-light images (COR, HI) due to \textbf{Thomson scattering}.
         \end{column}
         \begin{column}{0.3\textwidth}
             \textbf{S}un \textbf{E}arth \textbf{C}onnection \textbf{C}oronal and \textbf{H}eliospheric \textbf{I}nvestigation\\[0.5cm]
@@ -548,8 +549,9 @@
             \end{tabular}
         \end{column}
     \end{columns}
+    \vskip2mm
     \centering
-    CMEs appear in white-light images (COR, HI) due to \textbf{Thomson scattering}.
+    \summary SECCHI can directly track CMEs from the Sun out to beyond Earth
 \end{frame}
 
 \begin{frame}{Time-elongation maps / J-maps}
@@ -810,27 +812,33 @@
 
 \begin{frame}{Observations closer to the Sun}
 \newcommand{\tikzAU}{8cm}
-\newcommand{\tikzRe}{0.4cm}
+\newcommand{\tikzRe}{0.2cm}
 \centering
-\begin{tikzpicture}
-\draw[fill=yellow] (0,0) circle (1cm) node[yshift=1.3cm]{Sun};
-\draw[fill=gray] (0.38*\tikzAU,0) circle (0.38*\tikzRe) node[yshift=0.7cm]{Mercury};
-\draw[fill=gray] (0.72*\tikzAU,0) circle (0.94*\tikzRe) node[yshift=0.7cm]{Venus};
-\draw[fill=blue] (\tikzAU,0) circle (\tikzRe) node[yshift=0.7cm]{Earth};
-\draw[fill=orange] (1.52*\tikzAU,0) circle (0.53*\tikzRe) node[yshift=0.7cm]{Mars};
+\begin{tikzpicture}[every tick label/.append style={font=\scriptsize}]
+\draw[fill=yellow] (0,0) circle (0.5cm) node[yshift=0.75cm]{Sun};
+\draw[fill=gray] (0.38*\tikzAU,0) circle (0.38*\tikzRe) node[yshift=0.45cm]{Mercury};
+\draw[fill=gray] (0.72*\tikzAU,0) circle (0.94*\tikzRe) node[yshift=0.45cm]{Venus};
+\draw[fill=blue] (\tikzAU,0) circle (\tikzRe) node[yshift=0.45cm]{Earth};
+\draw[fill=orange] (1.52*\tikzAU,0) circle (0.53*\tikzRe) node[yshift=0.45cm]{Mars};
 
-\draw[decorate, decoration={brace,amplitude=10pt}] (0.72*\tikzAU,-0.6) -- (0.38*\tikzAU,-0.6) node[midway,below,yshift=-0.5cm,align=center]{$E\approx3$\\(Janvier+ 2019)};
-\draw[decorate, decoration={brace,amplitude=10pt}] (\tikzAU,-0.6) -- (0.72*\tikzAU,-0.6) node[midway,below,yshift=-0.5cm,align=center]{$E\approx1.7$\\(Janvier+ 2019)};
-\draw[decorate, decoration={brace,amplitude=10pt}] (1.52*\tikzAU,-0.6) -- (\tikzAU,-0.6) node[midway,below,yshift=-0.5cm,align=center]{$E \approx\ $\numrange{1.5}{1.9}\\(von Forstner+ 2020)};
+\draw[decorate, decoration={brace,amplitude=10pt}] (0.72*\tikzAU,-0.3) -- (0.38*\tikzAU,-0.3) node[midway,below,yshift=-0.4cm,align=center]{$E\approx3$\\(Janvier+ 2019)};
+\draw[decorate, decoration={brace,amplitude=10pt}] (\tikzAU,-0.3) -- (0.72*\tikzAU,-0.3) node[midway,below,yshift=-0.4cm,align=center]{$E\approx1.7$\\(Janvier+ 2019)};
+\draw[decorate, decoration={brace,amplitude=10pt}] (1.52*\tikzAU,-0.3) -- (\tikzAU,-0.3) node[midway,below,yshift=-0.4cm,align=center]{$E \approx\ $\numrange{1.5}{1.9}\\(von Forstner+ 2020)};
 
 \uncover<2>{
-	\begin{axis}[at={(0, -4.25cm)}, axis x line=bottom, axis y line=left, x=\tikzAU, height=3cm, xmin=0, ymin=0, ymax=10, xmax=1.52, xlabel={Radial distance / \si{\AU}}, ylabel={$E/\Delta r$ / \si{\per\AU}}, ytick={0,5,10}]
+	\begin{axis}[at={(0.3*\tikzAU, -3.3cm)}, axis x line=bottom, axis y line=left, x=\tikzAU, height=3cm, xmin=0.3, ymin=0, ymax=10, xmax=1.52, xlabel={\footnotesize Radial distance / \si{\AU}}, ylabel={\footnotesize $E/\Delta r$ / \si{\per\AU}}, ytick={0,5,10}]
 	\addplot[only marks, mark=*] coordinates {(0.55,9.375) (0.86,6.07) (1.26,3.17)};
 	\end{axis}
 }
 \end{tikzpicture}
 
-\blfootnote{distances are to scale, sizes are not}
+\vskip3mm
+\uncover<3>{\centering\summary Expansion rate decreases, in line with previous results within \SI{1}{\AU}.}
+
+\vskip2mm
+\begin{flushright}
+    \footnotesize planet sizes not to scale
+\end{flushright}
 \end{frame}
 
 \section{Case study of the first CME observed at Solar Orbiter}
@@ -914,26 +922,26 @@
         \begin{column}{0.85\textwidth}
             \vbox to .9\textheight{%
             \begin{vfilleditems}
-            	\item \textbf{Multipoint observations} are essential for the better understanding and modeling of ICME propagation and space weather impacts
-            	\item \textbf{Forbush decreases} provide additional viewpoints for in situ observations and can also provide additional information about the ICME
-            	\item For the first time, we studied ICMEs arriving at Mars statistically, finding:
+            	\item<1-> \textbf{Multipoint observations} are essential for the better understanding and modeling of ICME propagation and space weather impacts
+            	\item<2-> \textbf{Forbush decreases} provide additional viewpoints for in situ observations and can also provide additional information about the ICME
+            	\item<3-> For the first time, we studied ICMEs arriving at Mars statistically, finding:
             	\begin{itemize}
-            		\item Fast ICMEs \textbf{continue to decelerate} beyond \SI{1}{\AU} (von Forstner et al. 2018)
-            		\item \textbf{Heliospheric imager observations} can be used predict ICME arrivals at Mars, with similar performance as in previous studies (von Forstner et al. 2019)
-            		\item \textbf{ICME expansion} between Earth and Mars can be derived from the FD profiles and is in line with measurements closer to the Sun (von Forstner et al. 2020)
+            		\item<3-> Fast ICMEs \textbf{continue to decelerate} beyond \SI{1}{\AU} (von Forstner et al. 2018)
+            		\item<4-> \textbf{Heliospheric imager observations} can be used predict ICME arrivals at Mars, with similar performance as in previous studies (von Forstner et al. 2019)
+            		\item<5-> \textbf{ICME expansion} between Earth and Mars can be derived from the FD profiles and is in line with measurements closer to the Sun (von Forstner et al. 2020)
             	\end{itemize}
-            	\item HET provided observations of the first ICME observed at \textbf{Solar Orbiter} in April 2020, and the multi-spacecraft data can be used to validate FD models (von Forstner et al. 2021).
+            	\item<6-> HET provided observations of the first ICME observed at \textbf{Solar Orbiter} in April 2020, and the multi-spacecraft data can be used to validate FD models (von Forstner et al. 2021).
             \end{vfilleditems}
             }
         \end{column}
         \begin{column}{0.1\textwidth}
             \centering
-            \includegraphics[width=0.7\textwidth]{images/summary_pics/01_multispacecraft.PNG}\\[2mm]
-            \includegraphics[width=\textwidth]{images/summary_pics/02_fd.PNG}\\[2mm]
-            \includegraphics[width=\textwidth]{images/summary_pics/03_decelerate.PNG}\\
-            \includegraphics[width=\textwidth]{images/summary_pics/04_hi.PNG}\\
-            \includegraphics[width=\textwidth]{images/summary_pics/05_expand.PNG}\\[2mm]
-            \includegraphics[width=0.9\textwidth]{images/summary_pics/06_solo.PNG}
+            \uncover<1->{\includegraphics[width=0.7\textwidth]{images/summary_pics/01_multispacecraft.PNG}}\\[2mm]
+            \uncover<2->{\includegraphics[width=\textwidth]{images/summary_pics/02_fd.PNG}}\\[2mm]
+            \uncover<3->{\includegraphics[width=\textwidth]{images/summary_pics/03_decelerate.PNG}}\\
+            \uncover<4->{\includegraphics[width=\textwidth]{images/summary_pics/04_hi.PNG}}\\
+            \uncover<5->{\includegraphics[width=\textwidth]{images/summary_pics/05_expand.PNG}}\\[2mm]
+            \uncover<6->{\includegraphics[width=0.9\textwidth]{images/summary_pics/06_solo.PNG}}
         \end{column}
     \end{columns}
 \end{frame}
@@ -951,7 +959,7 @@
 		\item Future alignments of spacecraft and planets in the inner heliosphere and the availability of remote sensing data from Solar Orbiter later this year will provide more interesting opportunities for \textbf{multipoint studies}.
 	\end{vfilleditems}
     \begin{center}
-        \summary Thank you for your attention!
+        \uncover<2->{\summary Thank you for your attention!}
     \end{center}
     }
 \end{frame}
