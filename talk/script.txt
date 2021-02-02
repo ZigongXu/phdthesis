@@ -1,3 +1,4 @@
+- sehr geehrte Kommissionsmitglieder, lieber Zuhörer
 - Thank you for coming
 - I'm going to present the results of my PhD thesis, which is titled "Multipoint observations of Interplanetary Coronal Mass Ejections (ICMEs) in the inner heliosphere - Forbush decreases and remote sensing"
 
@@ -179,6 +180,17 @@ But before going into my results, I will describe the main instruments that I ha
 
 ---
 
+- To better understand the FDs at the different locations, I applied the ForbMod model
+- ForbMod, developed by Mateja Dumbovic, is an analytical physics-based diffusion-expansion model for flux rope CMEs. It doesn't model the shock/sheath effect, but that is very small in this case as we have seen in the in situ data.
+- It is called a diffusion-expansion model, because it is based on two effects: The gradual diffusion of GCRs into the flux rope perpendicular to the magnetic field, which increases the GCR density inside the flux rope, and the expansion of the flux rope, which decreases the density.
+- There is also an energy-dependent version of ForbMod, which takes empirical GCR spectra and the detector response as an input to predict the FD amplitude as measured with that detector
+- The remaining input parameters for ForbMod are determined from the in situ magnetic field and a fit with the Graduated Cylindrical Shell model to the coronagraph observations.
+- Additionally, the expansion power law indices n_a and n_B are needed for the model, which describe how the flux rope size as well as the magnetic field evolve over time.
+
+---
+
+- In this case, we have a problem with these parameters: Based on the in situ measurements and the GCS fit, we get inconsistent results for n_a and n_B for the different time periods between the Sun and SolO and between SolO and Earth. The main reason for this is probably the influence of the SIR, which caught up with the CME and limited its ability to expand freely. ForbMod on the other hand assumes these paramters to be constant.
+- Based on the values of n_a and n_B we derive, we always get smaller FD amplitudes than expected - in most cases the flux rope is already fully filled with GCRs by the time it arrives at SolO or Earth.
 
 
 ---
