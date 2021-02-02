@@ -74,7 +74,8 @@
 \newcommand{\maxt}{\ensuremath\text{max}}
 \newcommand{\mint}{\ensuremath\text{min}}
 \newcommand{\summary}{\textcolor{mOrange}{\faArrowCircleRight}\;}
-\newcommand{\textarrow}{\,\small\faLongArrowAltRight\,}
+\newcommand{\textarrow}{\,{\small\faLongArrowAltRight}\,}
+\newcommand{\textarrowfootnotesize}{\,{\scriptsize\faLongArrowAltRight}\,}
 
 \input{vfilleditems.tex}
 
@@ -196,9 +197,9 @@
 \begin{frame}{Ideal constellations for multipoint (I)CME observations}
     \begin{columns}[t]
         \begin{column}{0.45\textwidth}
+            \centering
             \textbf{Remote sensing:} \uncover<2->{from the side}\\
             \uncover<4->{or even from the poles?}\\[0.2cm]
-            \centering
             \begin{tikzpicture}
                 \def\earthorbitradius{2.5}
                 \def\sunradius{0.2}
@@ -245,10 +246,12 @@
                 }
             \end{tikzpicture}
         \end{column}
+        \hspace{-50pt}
+        \textcolor{black!40}{\vrule{}}
         \begin{column}{0.45\textwidth}
+            \centering
             \textbf{In situ:} \uncover<5->{regular grid of observers}\\
             \strut\\[0.2cm]
-            \centering
             \begin{tikzpicture}
                 \def\earthorbitradius{2.5}
                 \def\sunradius{0.2}
@@ -307,9 +310,9 @@
 \begin{frame}{Fleet of heliophysics missions}
     \begin{columns}[t]
         \begin{column}{0.45\textwidth}
-            \textbf{Remote sensing}\\
-            \strut\\[0.4cm]
             \centering
+            \textbf{Remote sensing}\\
+            \strut\\[0.45cm]
             \begin{tikzpicture}
                 \def\earthorbitradius{2.5}
                 \def\sunradius{0.2}
@@ -332,10 +335,12 @@
                
             \end{tikzpicture}
         \end{column}
+        \hspace{-50pt}
+        \textcolor{black!40}{\vrule{}}
         \begin{column}{0.45\textwidth}
-            \textbf{In situ}\\
-            \strut\\[0.4cm]
             \centering
+            \textbf{In situ}\\
+            \strut\\[0.42cm]
             \begin{tikzpicture}
                 \def\earthorbitradius{2.5}
                 \def\sunradius{0.2}
@@ -355,10 +360,11 @@
                 \draw[fill=orange] (245:0.5*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, yshift=-2pt] {SolO};
                 \draw[fill=black] (210:0.7*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, yshift=-4pt] {PSP};
                 
-            \end{tikzpicture}
+            \end{tikzpicture}\\[-0.2cm]
+            \strut
         \end{column}
     \end{columns}
-    \vspace{-0.22cm}
+    \vspace{-0.7cm}
     \begin{flushright}
         \footnotesize not to scale
     \end{flushright}
@@ -501,6 +507,10 @@
     \end{columns}
     \vskip-6mm
     \uncover<2->{\centering\summary Best statistics to observe FDs: \textbf{TID in E}}
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[xshift=-6.5cm,yshift=-3cm] at (current page.north east){%
+            \includegraphics[width=2cm]{images/mslrad.jpg}};
+    \end{tikzpicture}
 \end{frame}
 
 \begin{frame}{High Energy Telescope}
@@ -509,7 +519,7 @@
             \vbox to .8\textheight{%
             \vfill
             \begin{vfilleditems}
-                \item Part of Solar Orbiter's \textbf{EPD} suite 
+                \item Part of Solar Orbiter's \textbf{Energetic Particle Detector} suite 
                 \item Operating since February 2020
                 \item Nominal data products: \textbf{Charged particle spectra} above \SI{7}{\mega\electronvolt\per nuc} (ions) and \SI{600}{\kilo\electronvolt} (electrons)
             \end{vfilleditems}
@@ -578,6 +588,7 @@
 \end{frame}
 
 \begin{frame}{Geometric reconstruction}
+    \vskip-2mm
     \begin{columns}[t]
         \begin{column}{0.32\textwidth}
             \begin{block}{COR: 3D reconstruction}
@@ -590,7 +601,8 @@
         \end{column}
         \begin{column}{0.32\textwidth}
             \begin{block}{HI: Single S/C fitting}     
-                            \centering       
+            \centering
+            \vskip1mm
             \begin{tikzpicture}[scale=0.85]
                 \coordinate (center) at (0,0);
                 \def\earthorbitradius{4cm}
@@ -649,12 +661,14 @@
             \end{tikzpicture}
             {\footnotesize SSE, Davies et al. 2012}\\[2mm]
             
-            \footnotesize $\phi$ (and $\lambda$) determined by fitting, assuming $v = \text{const.}$
+            \footnotesize $\phi$ determined by fitting,\\assuming $v = \text{const.}$
+            \vskip1mm
             \end{block} 
         \end{column}
         \begin{column}{0.32\textwidth}
             \begin{block}{HI: Stereoscopic fitting}     
             \centering
+            \vskip4mm
             \begin{tikzpicture}[scale=0.7]
                 \coordinate (center) at (0,0);
                 \def\earthorbitradius{4cm}
@@ -679,13 +693,16 @@
             \end{tikzpicture}
             {\footnotesize GT, Liu et al. 2010}
             
-            \footnotesize $\phi$ calculated through triangulation
+            {\footnotesize $\phi$ calculated through triangulation}\\[4mm]
+            
+            {\footnotesize \textarrowfootnotesize Allows for $v, \phi \neq \text{const.}$,\\ but only if two viewpoints\\[-1.25mm] are available}
+            \vskip4mm
             \end{block}
         \end{column}
     \end{columns}
 \end{frame}
 
-\section{Statistical study of Forbush decreases at MSL/RAD}
+\section{Statistical studies of Forbush decreases at MSL/RAD}
 
 \begin{frame}{Catalogs of Forbush decreases at Mars}
     \begin{columns}
@@ -693,17 +710,18 @@
     		\begin{itemize}
                 \item<1-> \textbf{von Forstner et al. 2018}: 15 ICMEs with in situ FDs at 1 AU (STEREO or Earth) and Mars
                     \begin{itemize}
-                        \item 6 at STEREO-B, 4 at STEREO-A, 5 at Earth
+                        \item 6 at STEREO-B (2012), 4 at STEREO-A (2013),\\5 at Earth (2014, 2016)
                         \item Travel time from cross-correlation method
                     \end{itemize}
-    			\item<2-> \textbf{von Forstner et al. 2019}: 45 ICMEs observed with STEREO-HI which caused a FD at Mars
+    			\item<2-> \textbf{von Forstner et al. 2019}: 45 ICMEs observed with STEREO-HI which caused a FD at MSL
     				\begin{itemize}
+                        \item 2011--2017 (including cruise phase)
     					\item Excludes CME-CME interaction events
     					\item 19 events also seen in situ at Earth
     				\end{itemize}
     			\item<3-> \textbf{Papaioannou et al. 2019}: 424 FDs at Mars
     				\begin{itemize}
-    					\item Semi-automatic identification
+    					\item 2012--2016, Semi-automatic identification
     					\item Not all associated with ICMEs
     				\end{itemize}
     		\end{itemize}
@@ -787,7 +805,7 @@
 	\end{columns}
 	\vskip-2mm
 	\centering
-	\uncover<2>{\summary Maximum hourly decrease $m_\text{max}$ and relative amplitude $\Delta y$ are correlated, with different proportionality factors $A$ at Earth and Mars.}
+	\uncover<2>{\summary Maximum hourly decrease $m_\text{max}$ and relative amplitude $\Delta y$ are correlated, with different proportionality factors at Earth and Mars.}
 \end{frame}
 
 \begin{frame}{Deriving CME expansion from FD data (von Forstner et al. 2020)}
@@ -833,11 +851,11 @@
 \end{tikzpicture}
 
 \vskip3mm
-\uncover<3>{\centering\summary Expansion rate decreases, in line with previous results within \SI{1}{\AU}.}
+\uncover<2>{\centering\summary Expansion rate decreases, in line with previous results within \SI{1}{\AU}.}
 
 \vskip2mm
 \begin{flushright}
-    \footnotesize planet sizes not to scale
+    \footnotesize planet \& Sun sizes not to scale
 \end{flushright}
 \end{frame}
 
@@ -1040,6 +1058,13 @@ x = n_B - 2n_a \neq -1
 
 \begin{frame}{HET C counters response function}
 \centering
-\scalebox{0.8}{\input{../plots/het_c_response_function.pgf}}
+\scalebox{0.75}{\input{../plots/het_c_response_function.pgf}}\\
+HET C single counters response functions for high-gain and low-gain channels, with and without the spacecraft dummy.
+\end{frame}
+
+\begin{frame}{Solar Orbiter CME source region}
+    \centering
+    \includegraphics[width=0.45\textwidth]{plots/P3_AIAcavity.eps}\\   
+    MGN-processed SDO/AIA 171 \AA\ image at 19:00~UT 7 April 2020, showing the cavity structure observed on the limb  $\sim$6 days before the eruption.
 \end{frame}
 \end{document}

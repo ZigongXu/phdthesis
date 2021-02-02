@@ -77,6 +77,108 @@
 ---
 
 - In addition to using FDs to determine the ICME arrival time, one of the main motivations in my PhD thesis was also to get additional information about the CME from the FD measurements. This plot from a case study by Olivier Witasse in 2017 illustrates very nicely that the FD profiles can look completely different at different locations in the heliosphere (here: Mars, Comet 67P, and Saturn). Witassse already noted that this could be used for example to derive the radial extension of the ICME as it expands during its propagation.
-- This is something that I have more thoroughly investigate in my thesis with statistical studies and theoretical modeling.
+- This is something that I have more thoroughly investigated in my thesis with statistical studies and theoretical modeling.
+
+---
+
+But before going into my results, I will describe the main instruments that I have used for my measurements.
+
+---
+
+- First, we have the Radiation Assessment Detector, which is part of the Mars Science Laboratory mission.
+- It has been operating onboard the Curiosity rover on the surface of Mars for 8.5 years (or more than 3000 Martian days) now, as well as during the flight to Mars from 2011 to 2012
+- Its main data products are spectra of charged and neutral particles, as well as dosimetric measurements, such as the total ionizing dose rate and linear energy transfer spectra.
+- Ions enter RAD through the charged particle telescope, which consists of the Silicon solid state detectors A, B and C. They can then stop in C or one of the scintillators D, or E or penetrate the whole detector stack.
+- The D and E detectors are also suitable for neutral particle detection. D, which is made of cesium iodide can effectively detect gamma rays, while the plastic scintillator E can detect neutrons, as they generate recoil protons when interacting with the hydrogen atoms in the plastic.
+- To detect Forbush decreases, which are on the order of a few percent, we need high statistics, so the small field of view created by the charged particle telescope is not enough. Thus, we typically use the total ionizing dose measured in the E detector.
+- You can see a time series of this dose rate here. The general trend is going upwards due to the solar modulation of the GCR, but short-term decreases and SEP events can be seen as well.
+
+---
+
+- Next, we have the High Energy Telescope onboard Solar Orbiter, which was launched in February 2020.
+- HET is part of the Energetic Particle Detector suite of Solar Orbiter and is responsible for covering the highest energies of charged particles, such as ions above 7 MeV/nuc.
+- The two HET telescopes are double-ended and consist of four silicon solid state detectors and one BiGeO scintillator. They measure charged particles using the combinations "stopping in B", "stopping in C" and "penetrating".
+- But also in this case, the count rates for these data products are not high enough to detect GCR decreases on the order of a few percent. Instead, there is a so-called GCR channel which increases the FOV by only using the B and C detectors. For even better statistics, one can use the single-detector counter for the C detector, which includes all particles entering C from any direction, even through the housing.
+- A time series of this single-detector counter is seen in this plot, there are multiple decreases due to CMEs and SIRs, as well as a large decrease due to the Venus flyby in December, where Venus covered a significant portion of the sky and blocked the GCRs.
+
+---
+
+- In terms of remote sensing observations, I have made extensive use of the SECCHI suite onboard the STEREO spacecraft, which stands for Sun Earth Connection Coronal and Heliospheric Investigation.
+- In addition to the extreme ultraviolet observations of the solar disk and the two coronagraphs, it also provides two so-called heliospheric imagers, which are telescopes with a very wide field of view that cat track CMEs out to Earth and even beyond.
+- As you can see, it can also see planets when they are in its field of view, as well as the Milky Way.
+- Coronagraphs and HIs produce white-light images (as opposed to EUVI with narrow wavelength bands). CMEs appear in these images due to Thomson scattering of sunlight at electrons in the CME plasma. This of course means that they become more faint as the density as well as the intensity of the sunlight decrease farther away from the sun.
+- It needs to be noted that the HIs only look at one side of the Sun, in contrast to the coronagraphs with their circular field of view. This means that only ICMEs in one hemisphere can be tracked.
+
+---
+
+- To derive the propagation of ICMEs in coronagraphs and especially heliospheric imagers, a very common method is to use so-called time-elongation maps or J-maps.
+- To produce these, a horizontal slice is cut out of the HI images (e.g. along the ecliptic plane), rotated by 90° and then stacked over time, as seen in this plot.
+- Then, ICMEs can be tracked as bright features in the plot. But how can we convert this elongation angle to the actual radial distance of the CME?
+
+---
+
+- In the case of coronagraphs, it is often still possible to directly observe the CME structure directly in the images, so in that case we can reconstruct the CME using a 3D model. This is often done using the graduated cylindrical shell model (GCS), of which I have developed a new Open Source Python implementation.
+- However, for the heliospheric imagers, this is often not really possible due to the more faint images.
+- Therefore, we take the J-map data and apply different fitting techniques that assume a certain geometry to reconstruct the trajectory.
+- This can be done with data from just a single spacecraft. In this case, a certain assumption about the geometry is made, e.g. a point source in the fixed phi method, or a self-similarly expanding circular front in the SSE method. The unknown input parameter of the propagation direction phi is typically determined using a fitting algorithm assuming a constant propagation speed.
+- Alternatively, if two spacecraft are available, stereoscopic fitting methods can be used. The simplest one is this triangulation technique based on a point source, but more sophisticated geometries are also available. This has the advantage that it allows for a non-constant velocity and propagation direction, but it is of course only possible if both STEREO spacecraft are operational and observe the CME.
+
+---
+
+- So, now to the first part of our study, the statistical studies of Forbush decreases at MSL/RAD
+
+---
+
+- For these studies, we have assembled and worked with multiple catalogs of Forbush decreases at Mars, and during the flight of the MSL spacecraft to Mars.
+- The first one from von Forstner et al. 2018 includes ICMEs during oppositions of Earth and Mars, or of one of the STEREO spacecraft and Mars. In this case, radially propagating ICMEs are seen at both locations. We have collected a total of 15 events between 2012 and 2016 with the oppositions of STEREO-B, STEREO-A and Earth.
+- In that study we have derived the travel time by cross-correlating the FDs at 1 AU and Mars, and found that fast ICMEs continue to decelerate due to their interaction with the surrounding solar wind, even beyond the Earth orbit
+- In the second study in 2019, we assembled a catalog 45 of ICMEs observed with the STEREO HIs that then caused a FD at MSL on Mars or during its cruise phase. We used this catalog to validate the accuracy of the arrival times predicted with HI data, and therefore excluded CME-CME interaction events where it is difficult to unambiguously connect the CMEs to the in situ FDs. 19 of these events were also seen in situ at Earth.
+- Finally, Athanasios Papaioannou has published a catalog of 424 FDs observed at Mars with MSL/RAD between 2012 and 2017. In this case, the events were identified semi-automatically based on just the RAD measurements, and not all of them are associated with ICMEs.
+
+---
+
+- While these three studies were mainly concerning the ICME arrival time, we have then used the catalog from the 2019 study to investigate further properties of the FD profile.
+- In this profile we can define the total amplitude and the duration from onset to minimum of the FD. We can also define m_max, the maximum slope. This is typically defined based on hourly data as the maximum hourly decrease.
+- There is a correlation between m_max and the total amplitude Delta y, which has already been shown at Earth in previous studies. But it seems that the slope of this correlation is different at Earth (blue) and Mars (orange). We also confirmed this using larger FD catalogs at both locations.
+
+---
+
+- To understand this difference, we have made this visualization. This plot shows 3 FDs at Earth with different amplitudes but similar durations. The recovery phase is faded out as it is not relevant for this study.
+- On the right hand side, we see that m_max and Delta y are correlated in this case.
+- When we now move to Mars, the CME expands, which should intuitively increase the FD duration. This changes the slope of the correlation, as a FD with the same amplitude has a lower maximum slope.
+- The additional difference between the observations at Earth and Mars is that we use different instruments observing different GCR energies. This also changes the amplitude, but not the duration of the FD. At a lower energy we expect a higher amplitude.
+- But this doesn't affect the slope of the correlation. So we have found that the different slope is related to the expansion of the ICME.
+- We have confirmed this with analytical modeling using the propagating diffusive barrier model for the sheath and ForbMod for a flux rope ejecta. In both cases, we find that the slope of the regression is directly proportional to the duration of the respective region.
+- As the maximum slope is typically found in the sheath region, our result allows us to approximate the expansion of the sheath between Earth and Mars
+
+---
+
+- Based on our results, the expansion factor between Earth and Mars is between 1.5 and 1.9. This extends the results of a previous study by Janvier et al., who have directly measured the sheath duration at Mercury, Venus and Earth, and derived the corresponding expansion factors.
+- When we divide these factors by the respective radial separations and plot them over the distance, we see the expected trend that the expansion becomes slower with larger distances.
+
+---
+
+- Finally, I will present a case study of the first CME observed in situ at Solar Orbiter.
+
+---
+
+- You can see an overview of the spacecraft positions in this plot. Thes CME arrived at SolO on April 19, 2020.
+- At this time, SolO was in almost perfect alignment with Earth and the BepiColombo spacecraft, where the CME was seen the next day. It probably also hit Venus, but there are no in situ measurements available to confirm this.
+- STEREO-A provided good coronagraph and HI observations of this CME, as it was well separated by 70°.
+- What is also particularly interesting about this CME is that it is a so-called stealth CME, which means that there were no clear signatures, such as flares, dimmings or waves in the EUV observations from the Earth point of view that would give a clue about the source region.
+- Its speed measured near Earth was also very slow at 370 km/s, which is typical for stealth CMEs.
+
+---
+
+- In the in situ data at SolO on the left, you can see the magnetic field observations by SolO MAG as well as the HET observations of the Forbush decrease. The middle panel shows the C detector single counter data, while the bottom panel shows the GCR channel.
+- The solar wind plasma instrument SWA on Solar Orbiter was not yet commissioned at this time, so MAG and HET are the only two instruments observing the CME signatures.
+- The FD amplitude is about 3% in both of the channels, and you can see the high time resolution that can be achieved in the C detector counter due to the good statistics.
+- At Earth on the right hand side, we have magnetic field and plasma velocity, temperature and density measurements from the Wind spacecraft, as well as the Forbush decrease measurements from neutron monitors on Earth and the CRaTER instrument onboard the Lunar Reconnaissance Orbiter. Neutron monitors see a FD amplitude of just 1%, while the amplitude at CRaTER is about 2%.
+- At both locations, the CME drives a relatively weak shock, but has a strong magnetic field of up to 20 nT in the ejecta.  The southward field at the beginning of the flux rope caused a moderate geomagnetic storm at Earth.
+- The CME was directly followed by a stream interaction region, in this case I have marked the forward shock, stream interface, and reverse shock with vertical lines. The region between the CME and SIR is highly compressed, which suggests that the SIR may have interacted with the CME.
+
+---
+
+
 
 ---
