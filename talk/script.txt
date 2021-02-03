@@ -1,6 +1,5 @@
-- sehr geehrte Kommissionsmitglieder, lieber Zuhörer
-- Thank you for coming
-- I'm going to present the results of my PhD thesis, which is titled "Multipoint observations of Interplanetary Coronal Mass Ejections (ICMEs) in the inner heliosphere - Forbush decreases and remote sensing"
+- Dear members of the examination committee, dear colleagues,
+- Thank you for coming to my defence talk, in which I'm going to present the results of my PhD thesis. The thesis is titled "Multipoint observations of Interplanetary Coronal Mass Ejections (ICMEs) in the inner heliosphere - Forbush decreases and remote sensing".
 
 ----
 
@@ -13,7 +12,7 @@
 - So, what are Coronal mass ejections? CMEs are large clouds of magnetized plasma ejected from the Sun, which propagate into interplanetary space, and are then called interplanetary CMEs, ICMEs.
 - These events are driven by the reconnection of the solar magnetic field, and they are often associated with solar flares, in which energy from the Sun is released in a sudden flash of light
 - The properties of these events can vary a lot: For example, the frequency at which they occur can vary from once every few days at solar minimum to multiple events per day at solar maximum. The speeds vary between tens and thousands of km/s, but most are at a couple of hundreds of km/s, which means they are faster than the ambient solar wind. Of course they can also propagate in different directions, and they typically have an angular width on the order of 50°, but there are also very narrow and very wide cases between 5 and 120°.
-- The magnetic ejecta itself, which is often also called a magnetic cloud if it has a clear flux rope structure, can also drive a ahead of it if it is faster than the magnetosonic speed. Inbetween these structures we then find a region of turbulent plasma called the sheath.
+- The magnetic ejecta itself, which is often also called a magnetic cloud if it has a clear flux rope structure, can also drive a shock ahead of it if it is faster than the magnetosonic speed. Inbetween these structures we then find a region of turbulent plasma called the sheath.
 - CMEs can also interact with the ambient solar wind, which typically causes them to decelerate on their way towards Earth, and with other magnetic structures such as stream interaction regions and other CMEs.
 - CMEs are one the main drives of so-called space weather effects in the heliosphere
 
@@ -42,7 +41,7 @@
 - The current modeling approaches include simple empirical models, such as the drag-based model
 - And more sophisticated magnetohydronamic simulations of the heliosphere, such as the WSA-ENLIL+Cone model shown in this animation
 - Recently there have also been some novel approaches using machine learning techniques to predict CME arrivals
-- At the moment, the state of the art models still produce quite large uncertainties when trying to answer these questions. For example, the hit-or-miss question is only correctly answered in about 50% of cases, and produces a false alarm with 10% probability
+- At the moment, the state of the art models still produce quite large uncertainties when trying to answer these questions. For example, for the hit-or-miss question, current models typically only predict 50% of the CME arrivals correctly, and produce a false alarm with 10% probability
 - The arrival time can also only be predicted with uncertainties of about 10 hours, and the Bz prediction is still being worked on very actively
 - So, one key point to improve these forecasting capabilities is to supply the models with as many in situ and remote sensing data as possible, e.g. to better calibrate free parameters.
 
@@ -60,7 +59,7 @@
 
 - For remote sensing observations, we have a few missions close to the Earth that look directly at the Sun, such as SOHO at the Lagrange point L1 and SDO in orbit around Earth. In situ measurements are also available from SOHO, as well as the ACE, Wind and DSCOVR missions also at the L1 point.
 - Then, we have the STEREO mission with two spacecraft that orbit the Sun slightly closer and slightly further away than Earth so that they slowly drifted away and are now coming back towards Earth. Unfortunately, contact to STEREO-B was lost in 2014, so since then we only have data from STEREO-A.
-- And finally, we have two missions that will come very close to the Sun, these are Parker Solar Probe, launched by NASA in 2018, and Solar Orbiter launched by ESA last year. Because of the high temperatures near the Sun, PSP is mainly focusing on in situ measurements, and has only remote sensing instrument that looks towards one side of the Sun. On the other hand, SolO stays a bit further away from the Sun and therefore can have a full suite of remote sensing instrumens, but most of those will only be continuously operating with the beginning of the full science mission phase in November of this year.
+- And finally, we have two missions that will come very close to the Sun, these are Parker Solar Probe, launched by NASA in 2018, and Solar Orbiter launched by ESA last year. Because of the high temperatures near the Sun, PSP is mainly focusing on in situ measurements, and has only one remote sensing instrument that looks towards one side of the Sun. On the other hand, SolO stays a bit further away from the Sun and therefore can have a full suite of remote sensing instruments, but most of those will only be continuously operating with the beginning of the full science mission phase in November of this year.
 - So while we have a good suite of spacecraft available, it is still relatively rare to have good alignments for multispacecraft observations, especially in terms of in situ observations on the trajectory of an ICME.
 
 ---
@@ -73,7 +72,7 @@
 
 ---
 
-- So for example, FDs have been measured at Mercury with the MESSENGER spacecraft, at the Moon with the Lunar Reconnaissance Orbiter's CRaTER instrument and Chang'E 4 LND, as well as at Mars with the Mars Science Laboratory Radiation Assessment Detector. Also, many of the spacecraft we already talked about, like STEREO, SOHO and Solar Orbiter, also have particle detectors that can be used for measuring FDs, and we can measure them on the surface of the Earth with neutron monitors.
+- So for example, FDs have been measured at Mercury with the MESSENGER spacecraft, at the Moon with the Lunar Reconnaissance Orbiter's CRaTER instrument and Chang'E 4 Lunar Neutrons and Dosimetry, as well as at Mars with the Mars Science Laboratory Radiation Assessment Detector. Also, many of the spacecraft we already talked about, like STEREO, SOHO and Solar Orbiter, have particle detectors that can be used for measuring FDs, and we can measure them on the surface of the Earth with neutron monitors.
 
 ---
 
@@ -105,7 +104,7 @@ But before going into my results, I will describe the main instruments that I ha
 ---
 
 - In terms of remote sensing observations, I have made extensive use of the SECCHI suite onboard the STEREO spacecraft, which stands for Sun Earth Connection Coronal and Heliospheric Investigation.
-- In addition to the extreme ultraviolet observations of the solar disk and the two coronagraphs, it also provides two so-called heliospheric imagers, which are telescopes with a very wide field of view that cat track CMEs out to Earth and even beyond.
+- In addition to the extreme ultraviolet observations of the solar disk and the two coronagraphs, it also provides two so-called heliospheric imagers, which are telescopes with a very wide field of view that can track CMEs out to Earth and even beyond.
 - As you can see, it can also see planets when they are in its field of view, as well as the Milky Way.
 - Coronagraphs and HIs produce white-light images (as opposed to EUVI with narrow wavelength bands). CMEs appear in these images due to Thomson scattering of sunlight at electrons in the CME plasma. This of course means that they become more faint as the density as well as the intensity of the sunlight decrease farther away from the sun.
 - It needs to be noted that the HIs only look at one side of the Sun, in contrast to the coronagraphs with their circular field of view. This means that only ICMEs in one hemisphere can be tracked.
@@ -113,12 +112,12 @@ But before going into my results, I will describe the main instruments that I ha
 ---
 
 - To derive the propagation of ICMEs in coronagraphs and especially heliospheric imagers, a very common method is to use so-called time-elongation maps or J-maps.
-- To produce these, a horizontal slice is cut out of the HI images (e.g. along the ecliptic plane), rotated by 90° and then stacked over time, as seen in this plot.
+- To produce these, a horizontal slice is cut out of the running-difference HI images (e.g. along the ecliptic plane), rotated by 90° and then stacked over time, as seen in this plot.
 - Then, ICMEs can be tracked as bright features in the plot. But how can we convert this elongation angle to the actual radial distance of the CME?
 
 ---
 
-- In the case of coronagraphs, it is often still possible to directly observe the CME structure directly in the images, so in that case we can reconstruct the CME using a 3D model. This is often done using the graduated cylindrical shell model (GCS), of which I have developed a new Open Source Python implementation.
+- In the case of coronagraphs, it is often still possible to directly observe the CME structure in the images, so in that case we can reconstruct the CME using a 3D model. This is often done using the graduated cylindrical shell model (GCS), of which I have developed a new Open Source Python implementation.
 - However, for the heliospheric imagers, this is often not really possible due to the more faint images.
 - Therefore, we take the J-map data and apply different fitting techniques that assume a certain geometry to reconstruct the trajectory.
 - This can be done with data from just a single spacecraft. In this case, a certain assumption about the geometry is made, e.g. a point source in the fixed phi method, or a self-similarly expanding circular front in the SSE method. The unknown input parameter of the propagation direction phi is typically determined using a fitting algorithm assuming a constant propagation speed.
@@ -134,7 +133,7 @@ But before going into my results, I will describe the main instruments that I ha
 - The first one from von Forstner et al. 2018 includes ICMEs during oppositions of Earth and Mars, or of one of the STEREO spacecraft and Mars. In this case, radially propagating ICMEs are seen at both locations. We have collected a total of 15 events between 2012 and 2016 with the oppositions of STEREO-B, STEREO-A and Earth.
 - In that study we have derived the travel time by cross-correlating the FDs at 1 AU and Mars, and found that fast ICMEs continue to decelerate due to their interaction with the surrounding solar wind, even beyond the Earth orbit
 - In the second study in 2019, we assembled a catalog 45 of ICMEs observed with the STEREO HIs that then caused a FD at MSL on Mars or during its cruise phase. We used this catalog to validate the accuracy of the arrival times predicted with HI data, and therefore excluded CME-CME interaction events where it is difficult to unambiguously connect the CMEs to the in situ FDs. 19 of these events were also seen in situ at Earth.
-- Finally, Athanasios Papaioannou has published a catalog of 424 FDs observed at Mars with MSL/RAD between 2012 and 2017. In this case, the events were identified semi-automatically based on just the RAD measurements, and not all of them are associated with ICMEs.
+- Finally, Athanasios Papaioannou has published a catalog of 424 FDs observed at Mars with MSL/RAD between 2012 and 2016. In this case, the events were identified semi-automatically based on just the RAD measurements, and not all of them are associated with ICMEs.
 
 ---
 
@@ -191,6 +190,16 @@ But before going into my results, I will describe the main instruments that I ha
 
 - In this case, we have a problem with these parameters: Based on the in situ measurements and the GCS fit, we get inconsistent results for n_a and n_B for the different time periods between the Sun and SolO and between SolO and Earth. The main reason for this is probably the influence of the SIR, which caught up with the CME and limited its ability to expand freely. ForbMod on the other hand assumes these paramters to be constant.
 - Based on the values of n_a and n_B we derive, we always get smaller FD amplitudes than expected - in most cases the flux rope is already fully filled with GCRs by the time it arrives at SolO or Earth.
-
+- With a best fit of the two parameters to the data, we can reproduce the FDs at SolO and CRaTER, but not at the higher energies of neutron monitors at Earth. This may also be the result of the SIR interaction, which invalidates some of the assumptions taken in the model. But it could also mean that the energy dependence is overestimated by ForbMod in this case.
 
 ---
+
+- So, to conclude:
+-> read points on the slide
+
+---
+
+Outlook
+-> read points on the slide
+
+Thank you for your attention!

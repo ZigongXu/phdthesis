@@ -487,7 +487,7 @@
 
 \section{Instrumentation}
 
-\begin{frame}{Radiation Assessment Detector}
+\begin{frame}{Radiation Assessment Detector (MSL/RAD)}
     \begin{columns}
         \begin{column}{0.50\textwidth}
             \begin{itemize}
@@ -513,7 +513,7 @@
     \end{tikzpicture}
 \end{frame}
 
-\begin{frame}{High Energy Telescope}
+\begin{frame}{High Energy Telescope (HET)}
     \begin{columns}
         \begin{column}{0.45\textwidth}
             \vbox to .8\textheight{%
@@ -590,15 +590,6 @@
 \begin{frame}{Geometric reconstruction}
     \vskip-2mm
     \begin{columns}[t]
-        \begin{column}{0.32\textwidth}
-            \begin{block}{COR: 3D reconstruction}
-                \centering
-                \includegraphics[height=0.65\textheight]{plots/gcs.pdf}\\[-1.5mm]
-                {\footnotesize GCS, Thernisien 2012}\\
-                {\scriptsize Python implementation:\\[-2mm] \tiny\url{https://github.com/johan12345/gcs_python}}
-            \end{block} 
-            
-        \end{column}
         \begin{column}{0.32\textwidth}
             \begin{block}{HI: Single S/C fitting}     
             \centering
@@ -698,6 +689,15 @@
             {\footnotesize \textarrowfootnotesize Allows for $v, \phi \neq \text{const.}$,\\ but only if two viewpoints\\[-1.25mm] are available}
             \vskip4mm
             \end{block}
+        \end{column}
+        \begin{column}{0.32\textwidth}
+            \begin{block}{COR: 3D reconstruction}
+                \centering
+                \includegraphics[height=0.65\textheight]{plots/gcs.pdf}\\[-1.5mm]
+                {\footnotesize GCS, Thernisien 2012}\\
+                {\scriptsize Python implementation:\\[-2mm] \tiny\url{https://github.com/johan12345/gcs_python}}
+            \end{block} 
+            
         \end{column}
     \end{columns}
 \end{frame}
