@@ -160,11 +160,13 @@
 		\begin{column}{0.55\textwidth}
 			\begin{itemize}
 				\item \textbf{Main questions:}
+                \faStyle{regular}
 				\begin{itemize}
-					\item \textbf{Hit or miss?} \uncover<5->{\textcolor{red}{Hit rate $\approx\SI{50}{\percent}$, FAR $\approx\SI{10}{\percent}$}}
-					\item \textbf{Arrival time?} \uncover<5->{\textcolor{red}{$\pm\sim\SI{10}{\hour}$}}
-					\item \textbf{Geoeffectiveness?} -- $B_z$
+					\item \faMeteor\ \textbf{Hit or miss?} \uncover<5->{\textcolor{red}{Hit rate $\approx\SI{50}{\percent}$, FAR $\approx\SI{10}{\percent}$}}
+					\item \faClock\ \textbf{Arrival time?} \uncover<5->{\textcolor{red}{$\pm\sim\SI{10}{\hour}$}}
+					\item \faGlobe\ \textbf{Geoeffectiveness?} -- $B_z$
 				\end{itemize}
+                \faStyle{solid}
 				\item<2-> \textbf{Approaches:}
 				\begin{itemize}
 					\item<alert@2> Analytical \textbf{empirical models} (DBM)
@@ -186,6 +188,7 @@
 			}
 		\end{column}
 	\end{columns}
+
 \end{frame}
 
 \begin{frame}{Ideal constellations for multipoint (I)CME observations}
@@ -516,54 +519,35 @@
     }
 \end{frame}
 
-\section{Instrumentation}
+\section{Statistical studies of Forbush decreases at MSL/RAD}
 
 \begin{frame}{Radiation Assessment Detector (MSL/RAD)}
     \begin{columns}
-        \begin{column}{0.50\textwidth}
-            \begin{itemize}
-                \item Onboard \textbf{Mars Science Laboratory} (\emph{Curiosity} rover)
-                \item \textbf{Cruise phase:} 12/2011 -- 07/2012\\
-                \textbf{Surface phase:} 08/2012 -- today
-                \item Data products: \textcolor{green}{charged} and \textcolor{gray}{neutral} \textbf{particle spectra} + \textbf{dosimetry} (TID, LET)
-            \end{itemize}            
-            \uncover<2->{
-            \centering
-            \input{plots/msl_dose.pgf}
-            }            
-        \end{column}
-        \begin{column}{0.40\textwidth}
-            \input{images/mslrad_sensor_schematic.tex}
-        \end{column}
-    \end{columns}
-    \vskip-6mm
-    \uncover<2->{\centering\summary Best statistics to observe FDs: \textbf{TID in E}}
-    \begin{tikzpicture}[remember picture,overlay]
-        \node[xshift=-6.5cm,yshift=-3cm] at (current page.north east){%
-            \includegraphics[width=2cm]{images/mslrad.jpg}};
-    \end{tikzpicture}
-\end{frame}
-
-\begin{frame}{High Energy Telescope (HET)}
-    \begin{columns}
-        \begin{column}{0.45\textwidth}
+        \begin{column}{0.4\textwidth}
             \vbox to .8\textheight{%
             \vfill
-            \begin{vfilleditems}
-                \item Part of Solar Orbiter's \textbf{Energetic Particle Detector} suite 
-                \item Operating since February 2020
-                \item Nominal data products: \textbf{Charged particle spectra} above \SI{7}{\mega\electronvolt\per nuc} (ions) and \SI{600}{\kilo\electronvolt} (electrons)
-            \end{vfilleditems}
-            \vfill
-            \uncover<2->{\summary Best statistics to observe FDs: \textbf{Single-detector counters}}
-            \vfill
+                \begin{vfilleditems}
+                    \item Onboard \textbf{Mars Science Laboratory} (\emph{Curiosity} rover)
+                    \item \textbf{Cruise phase:} 12/2011 -- 07/2012\\
+                    \textbf{Surface phase:} 08/2012 -- today
+                    \item Data products: charged \& neutral \textbf{particle spectra}, \textbf{dosimetry}
+              \end{vfilleditems}
+                \vfill      
+                \uncover<2->{\centering\summary Best statistics to observe FDs: \textbf{total ionizing dose in E}}
+                \vfill
             }
         \end{column}
-        \begin{column}{0.45\textwidth}
+        \begin{column}{0.55\textwidth}
             \centering
-            \input{images/solohet_sensor_schematic.tex}
-            \footnotesize \textcolor{red}{stopping in B} \quad \textcolor{green}{stopping in C} \quad \textcolor{blue}{penetrating} \\ \uncover<2->{\textcolor{Aquamarine}{GCR channel} \quad \textcolor{orange}{C single counter}}\\
-            \uncover<2->{\input{plots/het_gcr.pgf}}
+            \newboolean{msltrajectories}
+            \setboolean{msltrajectories}{false}
+            \raisebox{-0.5\height}{\input{images/mslrad_sensor_schematic.tex}}
+            \hspace{3mm}
+            \raisebox{-0.5\height}{\includegraphics[width=0.35\textwidth]{images/mslrad.jpg}}\\
+            \uncover<2->{
+                \centering
+                \input{plots/msl_dose.pgf}
+            }    
         \end{column}
     \end{columns}
 \end{frame}
@@ -572,7 +556,8 @@
     \begin{columns}
         \begin{column}{0.6\textwidth}
             \centering
-            \scalebox{0.8}{\input{plots/secchi_fov.pgf}}\\[-1mm]
+            \scalebox{0.85}{\input{plots/secchi_fov.pgf}}\\[-1mm]
+            {\raggedright\scriptsize 2020-04-15 22:00 UT}\\
             CMEs appear in white-light images (COR, HI) due to \textbf{Thomson scattering}.
         \end{column}
         \begin{column}{0.3\textwidth}
@@ -732,8 +717,6 @@
         \end{column}
     \end{columns}
 \end{frame}
-
-\section{Statistical studies of Forbush decreases at MSL/RAD}
 
 \begin{frame}{Catalogs of Forbush decreases at Mars}
     \begin{columns}
@@ -912,6 +895,30 @@
     \end{columns}
 \end{frame}
 
+
+\begin{frame}{High Energy Telescope (HET)}
+    \begin{columns}
+        \begin{column}{0.4\textwidth}
+            \vbox to .8\textheight{%
+                \vfill
+                \begin{vfilleditems}
+                    \item Part of Solar Orbiter's \textbf{Energetic Particle Detector} suite
+                    \item Nominal data products: \textbf{Charged particle spectra} above \SI{7}{\mega\electronvolt\per nuc} (ions) and \SI{600}{\kilo\electronvolt} (electrons)
+                \end{vfilleditems}
+                \vfill
+                \uncover<2->{\summary Best statistics to observe FDs: \textbf{Single-detector counters}}
+                \vfill
+            }
+        \end{column}
+        \begin{column}{0.55\textwidth}
+            \centering
+            \input{images/solohet_sensor_schematic.tex}
+            \footnotesize \textcolor{red}{stopping in B} \quad \textcolor{green}{stopping in C} \quad \textcolor{blue}{penetrating} \\ \uncover<2->{\textcolor{Aquamarine}{GCR channel} \quad \textcolor{orange}{C single counter}}\\
+            \uncover<2->{\input{plots/het_gcr.pgf}}
+        \end{column}
+    \end{columns}
+\end{frame}
+
 \begin{frame}{In situ data}
     \vskip2mm
     \begin{columns}
@@ -964,12 +971,13 @@
 	\end{columns}
 \end{frame}
 
-\section{Conclusions and Outlook}
+\metroset{sectionpage=none}
+\section{Conclusions}
 
 \begin{frame}{Conclusions}
     \begin{columns}[T]
         \begin{column}{0.85\textwidth}
-            \vbox to .9\textheight{%
+            \vbox to .95\textheight{%
             \begin{vfilleditems}
             	\item<1-> \textbf{Multipoint observations} are essential for the better understanding and modeling of ICME propagation and space weather impacts
             	\item<2-> \textbf{Forbush decreases} provide additional viewpoints for in situ observations and can also provide additional information about the ICME
@@ -979,8 +987,11 @@
             		\item<4-> \textbf{Heliospheric imager observations} can be used predict ICME arrivals at Mars, with similar performance as closer to the Sun (von Forstner et al. 2019)
             		\item<5-> \textbf{ICME expansion} between Earth and Mars can be derived from the FD profiles and is in line with measurements closer to the Sun (von Forstner et al. 2020)
             	\end{itemize}
-            	\item<6-> HET provided observations of the first ICME observed at \textbf{Solar Orbiter} in April 2020, and the multi-spacecraft data can be used to validate FD models (von Forstner et al. 2021).
+            	\item<6-> HET provided observations of the first ICME observed at \textbf{Solar Orbiter} in April 2020, serving as an \textbf{upstream monitor} for Earth. Data were used to validate FD models (von Forstner et al. 2021).
             \end{vfilleditems}
+            \begin{center}
+                \uncover<7->{\summary Thank you for your attention!}
+            \end{center}
             }
         \end{column}
         \begin{column}{0.1\textwidth}
@@ -995,22 +1006,8 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}{Outlook}
-	\vbox to .9\textheight{%
-    \begin{vfilleditems}
-		\item Further studies of the \textbf{April 2020 ICME} are in preparation:
-			\begin{itemize}
-				\item E. Davies et al. (submitted to \textit{A\&A}): Further details of the SolO MAG observations
-				\item J. O'Kane et al. (in preparation for \textit{A\&A}): Detection of CME source region
-				\item M. Dumbović et al. (planned): Investigation of the ForbMod discrepancies
-			\end{itemize}
-		\item Solar Orbiter and PSP, as well as \SI{1}{\AU} missions, can serve as an \textbf{upstream monitor} of space weather events that later hit Earth or human space missions. These data, including FD observations, should be exploited for modeling and forecasting efforts.
-		\item Future alignments of spacecraft and planets in the inner heliosphere and the availability of remote sensing data from Solar Orbiter later this year will provide more interesting opportunities for \textbf{multipoint studies}.
-	\end{vfilleditems}
-    \begin{center}
-        \uncover<2->{\summary Thank you for your attention!}
-    \end{center}
-    }
+\begin{frame}
+
 \end{frame}
 
 \appendix
@@ -1097,5 +1094,12 @@ HET C single counters response functions for high-gain and low-gain channels, wi
     \centering
     \includegraphics[width=0.45\textwidth]{plots/P3_AIAcavity.eps}\\   
     MGN-processed SDO/AIA 171 \AA\ image at 19:00~UT 7 April 2020, showing the cavity structure observed on the limb  $\sim$6 days before the eruption.
+\end{frame}
+
+\begin{frame}{MSL sensor head}
+    \centering
+    \newboolean{msltrajectories}
+    \setboolean{msltrajectories}{true}
+    \input{images/mslrad_sensor_schematic.tex}
 \end{frame}
 \end{document}
