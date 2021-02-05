@@ -15,7 +15,7 @@
 \title{Multipoint observations of ICMEs in the inner heliosphere}
 \subtitle{Forbush decreases and remote sensing}
 \author{Johan L. Freiherr von Forstner\\IEAP, Christian-Albrechts-Universität zu Kiel}
-\date{Disputation --- 16.02.2020}
+\date{Vortrag zur Disputation --- 16.02.2020}
 \titlegraphic{
     \hfill\includegraphics[height=1.2cm]{images/ieap-logo-orange.pdf}\\[2.8cm] \strut\hfill\includegraphics[height=3.6cm]{../images/oldcme3_inverted.png}
 }
@@ -82,6 +82,8 @@
 \settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
 \addtolength{\leftmargini}{\labelsep}
 
+\newfontfamily\extraboldfont[ItalicFont={FiraSans-BoldItalic.otf},BoldFont={FiraSans-ExtraBold.otf},BoldItalicFont={FiraSans-ExtraBoldItalic.otf}]{FiraSans-Bold.otf}
+
 \begin{document}
 \maketitle
 
@@ -89,28 +91,15 @@
     \tableofcontents
 \end{frame}
 
-\section{Introduction}
+\section{Coronal Mass Ejections and Forbush decreases}
 
-\begin{frame}{Coronal mass ejections}
+\begin{frame}{(Interplanetary) coronal mass ejections}
     \begin{columns}
-        \begin{column}{0.54\textwidth}
-            \vbox to .8\textheight{%
-            \begin{vfilleditems}
-                \item \textbf{C}oronal \textbf{M}ass \textbf{E}jections: Magnetized plasma ejected from the Sun, propagating into interplanetary space (\textarrow \textbf{ICMEs})
-                \item Driven by magnetic reconnection at the Sun
-                \item \textbf{Large variability:}
-                    \begin{itemize}
-                        \item frequency: every few days -- a few per day
-                        \item speed: 10s to 1000s of \si{\kilo\meter\per\second}
-                        \item angular extent: $\sim\SI{5}{\degree}$ -- \SI{120}{\degree}
-                    \end{itemize}
-                \item \textbf{Structure:} shock, sheath, magnetic ejecta
-                \item \textbf{Interaction} with solar wind, SIRs and other CMEs
-                \item One of the main drivers of \textbf{space weather} effects
-            \end{vfilleditems}
-            }
+        \begin{column}{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{images/20000227_0742_c3_1024.jpg}
         \end{column}
-        \begin{column}{0.36\textwidth}
+        \begin{column}{0.45\textwidth}
         	\centering
             \includegraphics[width=\textwidth]{images/ZurbuchenRichardson-adapted.pdf}\\
             \scriptsize adapted from\\Zurbuchen and Richardson (2006)
@@ -122,7 +111,10 @@
     \includegraphics[height=\paperheight]{images/Space_weather_effects.jpg}
     \begin{tikzpicture}[remember picture,overlay]
         \node[xshift=-5cm,yshift=1.6cm] at (current page.south east){%
-            \textbf{Space weather effects}};
+            % white text with black outline
+            \special{pdf:bcolor [1 1 1] [0 0 0]}\special{pdf:literal direct .4 w 2 Tr}
+            \extraboldfont Space weather effects
+            \special{pdf:ecolor}};
     \end{tikzpicture}
 \end{frame}
 
@@ -147,12 +139,14 @@
 \begin{frame}{Observation of (I)CMEs}
     \begin{columns}[t]
         \begin{column}{0.45\textwidth}
+            \centering
             \textbf{Remote sensing:} CME
             
             \hskip-4mm
-            \animategraphics[poster=19]{30}{plots/lightbulb_cme_anim/}{000}{048}
+            \animategraphics[poster=19]{30}{plots/lightbulb_cme_anim/}{000}{069}
         \end{column}
         \begin{column}{0.45\textwidth}
+            \centering
             \textbf{In situ:} ICME
 
             \input{plots/cme_insitu.pgf}
@@ -161,15 +155,15 @@
     \uncover<2->{\centering\summary Combination of \textbf{remote sensing and in situ} observations at \textbf{multiple\\ viewpoints} is key for the better understanding of ICME propagation.}
 \end{frame}
 
-\begin{frame}{Modeling of (I)CMEs}
+\begin{frame}{Modeling of CME propagation}
 	\begin{columns}
 		\begin{column}{0.55\textwidth}
 			\begin{itemize}
 				\item \textbf{Main questions:}
 				\begin{itemize}
-					\item \textbf{Hit or miss?} \uncover<5->{\textcolor{red}{$\sim\SI{50}{\percent}$, \SI{10}{\percent} false alarm}}
+					\item \textbf{Hit or miss?} \uncover<5->{\textcolor{red}{Hit rate $\approx\SI{50}{\percent}$, FAR $\approx\SI{10}{\percent}$}}
 					\item \textbf{Arrival time?} \uncover<5->{\textcolor{red}{$\pm\sim\SI{10}{\hour}$}}
-					\item \textbf{Geoeffectiveness} -- $B_z$?
+					\item \textbf{Geoeffectiveness?} -- $B_z$
 				\end{itemize}
 				\item<2-> \textbf{Approaches:}
 				\begin{itemize}
@@ -198,8 +192,8 @@
     \begin{columns}[t]
         \begin{column}{0.45\textwidth}
             \centering
-            \textbf{Remote sensing:} \uncover<2->{from the side}\\
-            \uncover<4->{or even from the poles?}\\[0.2cm]
+            \textbf{Remote sensing:} from the side\\
+            or even from the poles?\\[0.2cm]
             \begin{tikzpicture}
                 \def\earthorbitradius{2.5}
                 \def\sunradius{0.2}
@@ -229,28 +223,28 @@
                 \draw[fill=blue] (45:\earthorbitradius) circle (0.1);
                 
                 % satellites
-                \uncover<2->{
-                    \node[rotate=90] at (135:\earthorbitradius) {\faSatellite};
-                    \node[rotate=-90] at (-45:\earthorbitradius) {\faSatellite};
+                %\uncover<2->{
+                    \node[rotate=-45] at (135:\earthorbitradius) {\faVideo};
+                    \node[rotate=135] at (-45:\earthorbitradius) {\faVideo};
                     \draw (135:\earthorbitradius) -- ++(-9:3.5);
                     \draw (-45:\earthorbitradius) -- ++(99:3.5);
-                }
+                %}
                     
-                \uncover<3->{
+                %\uncover<3->{
                 \foreach \angle in {0,45,90,180,225,270,360} {
-                    \node[rotate={\angle-45}] at (\angle:\earthorbitradius) {\faSatellite};
-                }}
+                    \node[rotate={\angle-180}] at (\angle:\earthorbitradius) {\faVideo};
+                }%}
             
-                \uncover<4->{
+                %\uncover<4->{
                     \node[rotate=-45] at (0, 0) {\scriptsize\faSquare};
-                }
+                %}
             \end{tikzpicture}
         \end{column}
         \hspace{-50pt}
         \textcolor{black!40}{\vrule{}}
         \begin{column}{0.45\textwidth}
             \centering
-            \textbf{In situ:} \uncover<5->{regular grid of observers}\\
+            \textbf{In situ:} regular grid of observers\\
             \strut\\[0.2cm]
             \begin{tikzpicture}
                 \def\earthorbitradius{2.5}
@@ -281,19 +275,19 @@
                 \draw[fill=blue] (45:\earthorbitradius) circle (0.1);
                 
                 % satellites
-                \uncover<5->{
+                %\uncover<5->{
                     \node at (45:0.25*\earthorbitradius) {\faSatellite};
                     \node at (45:0.5*\earthorbitradius) {\faSatellite};
                     \node at (45:0.75*\earthorbitradius) {\faSatellite};
-                }
+                %}
                 
-                \uncover<6->{
+                %\uncover<6->{
                     \foreach \angle in {75,105,135,165,195,225,255,285,315,345,15} {
                         \node[rotate={\angle-45}] at (\angle:0.25*\earthorbitradius) {\faSatellite};
                         \node[rotate={\angle-45}] at (\angle:0.5*\earthorbitradius) {\faSatellite};
                         \node[rotate={\angle-45}] at (\angle:0.75*\earthorbitradius) {\faSatellite};
                         \node[rotate={\angle-45}] at (\angle:\earthorbitradius) {\faSatellite};
-                }}
+                }%}
             \end{tikzpicture}
         \end{column}
     \end{columns}
@@ -303,7 +297,7 @@
         \footnotesize not to scale
     \end{flushright}
     \vspace{-0.3cm}
-    \uncover<6->{\summary \textbf{Unrealistic.} So what can we do with existing spacecraft?}
+    \summary \textbf{Unrealistic.} So what can we do with existing spacecraft?
     
 \end{frame}
 
@@ -324,14 +318,20 @@
                 \draw[dashed] (0, 0) circle (\earthorbitradius);
                 \draw[fill=blue] (45:\earthorbitradius) circle (0.1);
                 
-                \draw[fill=Blue, opacity=0.5] ({45+54}:1.02*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, align=center, yshift=-6pt] {STEREO-B\\[-2mm]\scriptsize (until Oct 2014)};
-                \draw[fill=Red] ({45-54}:0.98*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[left, xshift=-4pt] {STEREO-A};
+                \node[rotate={45+54-180},opacity=0.5] at ({45+54}:1.02*\earthorbitradius) {\textcolor{Blue}{\footnotesize\faVideo}};
+                \node[below, align=center, yshift=-2mm,opacity=0.5] at ({45+54}:1.02*\earthorbitradius) {STEREO-B\\[-2mm]\scriptsize (until Oct 2014)};
+                \node[rotate={45-54-180}] at ({45-54}:0.98*\earthorbitradius) {\textcolor{Red}{\footnotesize\faVideo}};
+                \node[left, xshift=-4pt] at ({45-54}:0.98*\earthorbitradius) {STEREO-A};
                 
-                \draw[fill=Magenta] (45:0.9*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[above left,yshift=-2pt] {SDO};
-                \draw[fill=green] (45:0.8*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below,yshift=-2pt] {SOHO};
+                \node[rotate={45-180}] at (45:0.875*\earthorbitradius) {\textcolor{Magenta}{\footnotesize\faVideo}};
+                \node[above left,yshift=-2pt] at (45:0.875*\earthorbitradius) {SDO};
+                \node[rotate={45-180}] at (45:0.7*\earthorbitradius) {\textcolor{green}{\footnotesize\faVideo}};
+                \node[below,yshift=-2pt] at (45:0.7*\earthorbitradius) {SOHO};
                 
-                \draw[fill=orange,opacity=0.5] (245:0.5*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, yshift=-2pt, align=center] {\small SolO\\[-2mm]\scriptsize (Nov 2021)};
-                \draw[fill=black] (210:0.7*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[left, xshift=-2pt] {\small PSP*};
+                \node[rotate={245-180},opacity=0.5] at (245:0.5*\earthorbitradius) {\textcolor{orange}{\small\faVideo}};
+                \node[below, yshift=-2pt, align=center,opacity=0.5] at (245:0.5*\earthorbitradius) {\footnotesize SolO\\[-2mm]\scriptsize (Nov 2021)};
+                \node[rotate={210-180}] at (210:0.7*\earthorbitradius) {\textcolor{black}{\footnotesize\faVideo}};
+                \node[left, xshift=-2pt] at (210:0.7*\earthorbitradius) {\small PSP*};
                
             \end{tikzpicture}
         \end{column}
@@ -353,12 +353,18 @@
                 \draw[fill=blue] (45:\earthorbitradius) circle (0.1);
                 
                 % satellites
-                \draw[fill=Blue, opacity=0.5] ({45+54}:1.02*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, align=center, yshift=-6pt] {STEREO-B\\[-2mm]\scriptsize (until Oct 2014)};
-                \draw[fill=Red] ({45-54}:0.98*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[left, xshift=-4pt] {STEREO-A};
+                \node[rotate={45+54-45},opacity=0.5] at ({45+54}:1.02*\earthorbitradius) {\textcolor{Blue}{\faSatellite}};
+                \node[below, align=center, yshift=-2mm,opacity=0.5] at ({45+54}:1.02*\earthorbitradius) {STEREO-B\\[-2mm]\scriptsize (until Oct 2014)};
+                \node[rotate={45-54-45}] at ({45-54}:0.98*\earthorbitradius) {\textcolor{Red}{\faSatellite}};
+                \node[left, xshift=-4pt] at ({45-54}:0.98*\earthorbitradius) {STEREO-A};
                 
-                \draw[fill=green] (45:0.8*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, yshift=-2pt, align=center] {L1\\[-2mm]\scriptsize (SOHO, ACE,\\[-2mm]\scriptsize Wind, DSCOVR)};                
-                \draw[fill=orange] (245:0.5*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, yshift=-2pt] {SolO};
-                \draw[fill=black] (210:0.7*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, yshift=-4pt] {PSP};
+                \node[rotate={45-45}] at (45:0.7*\earthorbitradius) {\textcolor{green}{\faSatellite}};
+                \node[below,yshift=-2pt,align=center] at (45:0.7*\earthorbitradius) {L1\\[-2mm]\scriptsize (SOHO, ACE,\\[-2mm]\scriptsize Wind, DSCOVR)};           
+                
+                \node[rotate={245-45}] at (245:0.5*\earthorbitradius) {\textcolor{orange}{\faSatellite}};
+                \node[below, yshift=-2pt, align=center] at (245:0.5*\earthorbitradius) {\small SolO};
+                \node[rotate={210-45}] at (210:0.7*\earthorbitradius) {\textcolor{black}{\faSatellite}};
+                \node[left, xshift=-2pt] at (210:0.7*\earthorbitradius) {\small PSP};
                 
             \end{tikzpicture}\\[-0.2cm]
             \strut
@@ -372,30 +378,39 @@
     \uncover<2->{\centering\summary Multispacecraft observations are \textbf{relatively rare}, especially in situ.}
 \end{frame}
 
-\begin{frame}{Forbush decreases}
-    \begin{columns}[T]
+\begin{frame}{Forbush decreases (FDs)}
+    \vskip2mm
+    \begin{columns}
         \begin{column}{0.55\textwidth}
-            \vbox to .9\textheight{%
+            \vbox to .8\textheight{%
             \vfill
             \begin{vfilleditems}
-                \item \textbf{Short-term decrases} of GCR intensity, discovered 1937 by Scott E. Forbush
+                \item Short-term decreases of \textbf{galactic cosmic ray (GCR)} intensity --- Amplitude: few \si{\percent}
                 \item Turbulent or closed \textbf{magnetic structures}\\act as a barrier for the GCRs:
                 \begin{itemize}
                     \item ICME \textbf{shock/sheath} and \textbf{ejecta} (flux rope)
                     \item Stream interaction regions (\textbf{SIRs})
                 \end{itemize}
-                \item \textbf{Onset time} corresponds to ICME arrival
-                \item FD amplitude is \textbf{energy-dependent}
             \end{vfilleditems}
             \vfill
-            \uncover<2->{\summary FDs extend the available in situ observations with \textbf{additional viewpoints} at Earth, but also on many spacecraft (e.g. planetary missions)}
+            \uncover<2->{\summary FDs extend the in situ viewpoints for CMEs (e.g. planetary missions)}
             \vfill
             }
         \end{column}
         \begin{column}{0.35\textwidth}
             \centering
-            \includegraphics[width=\textwidth]{images/RichardsonCane-adapted.pdf}
-            \scriptsize adapted from Richardson and Cane (2011)
+            \only<1>{
+                \includegraphics[width=\textwidth]{plots/cane2000-classical-fd-adapted.png}
+                \scriptsize adapted from Cane (2000)    
+            }
+            \only<2, 4->{
+                \includegraphics[width=\textwidth]{images/RichardsonCane-adapted.pdf}
+                \scriptsize adapted from Richardson and Cane (2011)    
+            }
+            \only<3>{
+                \includegraphics[width=\textwidth]{images/Owens-Forsyth-adapted.pdf}
+                \scriptsize adapted from Owens and Forsyth (2013)    
+            }
         \end{column}
     \end{columns}
 \end{frame}
@@ -416,14 +431,20 @@
                 \draw[dashed] (0, 0) circle (\earthorbitradius);
                 \draw[fill=blue] (45:\earthorbitradius) circle (0.1);
                 
-                \draw[fill=Blue] ({45+54}:1.02*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[above] {STEREO-B};
-                \draw[fill=Red] ({45-54}:0.98*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[left, xshift=-4pt] {STEREO-A};
+                \node[rotate={45+54-180},opacity=0.5] at ({45+54}:1.02*\earthorbitradius) {\textcolor{Blue}{\scriptsize\faVideo}};
+                \node[above, align=center, yshift=2mm,opacity=0.5] at ({45+54}:1.02*\earthorbitradius) {STEREO-B\\[-2mm]\scriptsize (until Oct 2014)};
+                \node[rotate={45-54-180}] at ({45-54}:0.98*\earthorbitradius) {\textcolor{Red}{\scriptsize\faVideo}};
+                \node[left, xshift=-4pt] at ({45-54}:0.98*\earthorbitradius) {STEREO-A};
                 
-                \draw[fill=Magenta] (45:0.9*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[above left,yshift=-2pt] {SDO};
-                \draw[fill=green] (45:0.8*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below,yshift=-2pt] {SOHO};
+                \node[rotate={45-180}] at (45:0.875*\earthorbitradius) {\textcolor{Magenta}{\scriptsize\faVideo}};
+                \node[above left,yshift=-2pt] at (45:0.875*\earthorbitradius) {SDO};
+                \node[rotate={45-180}] at (45:0.7*\earthorbitradius) {\textcolor{green}{\scriptsize\faVideo}};
+                \node[below,yshift=-2pt] at (45:0.7*\earthorbitradius) {SOHO};
                 
-                \draw[fill=orange,opacity=0.5] (245:0.5*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, yshift=-2pt, align=center] {\small SolO\\[-2mm]\scriptsize (Nov 2021)};
-                \draw[fill=black] (210:0.7*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, yshift=-4pt] {PSP*};
+                \node[rotate={245-180},opacity=0.5] at (245:0.5*\earthorbitradius) {\textcolor{orange}{\small\faVideo}};
+                \node[below, yshift=-2pt, align=center,opacity=0.5] at (245:0.5*\earthorbitradius) {\scriptsize SolO\\[-2mm]\scriptsize (Nov 2021)};
+                \node[rotate={210-180}] at (210:0.7*\earthorbitradius) {\textcolor{black}{\scriptsize\faVideo}};
+                \node[left, xshift=-2pt] at (210:0.7*\earthorbitradius) {\small PSP*};
                 
                 \draw[dashed, opacity=0.3] (0, 0) circle (\earthorbitradius*1.5);
                 
@@ -434,20 +455,37 @@
 			\centering
 			\begin{tikzpicture}[scale=0.8]
 			\def\earthorbitradius{2.5}
-			\def\sunradius{0.2}
-			
-			% sun
-			\draw[fill=yellow] (0, 0) circle (\sunradius);
-			
-			% Earth
-			\draw[dashed] (0, 0) circle (\earthorbitradius);
-			\draw[fill=blue] (45:\earthorbitradius) circle (0.1) node[left] {Earth};
+            \def\sunradius{0.2}
             
+            % sun
+            \draw[fill=yellow] (0, 0) circle (\sunradius);
+            
+            % Earth
+            \draw[dashed] (0, 0) circle (\earthorbitradius);
+            \draw[fill=blue] (45:\earthorbitradius) circle (0.1);
+            
+            % satellites
+            \node[rotate={45+54-45},opacity=0.5] at ({45+54}:1.02*\earthorbitradius) {\textcolor{Blue}{\faSatellite}};
+            \node[above, align=center, yshift=2mm,opacity=0.5] at ({45+54}:1.02*\earthorbitradius) {STEREO-B\\[-2mm]\scriptsize (until Oct 2014)};
+            \node[rotate={45-54-45}] at ({45-54}:0.98*\earthorbitradius) {\textcolor{Red}{\faSatellite}};
+            \node[left, xshift=-4pt] at ({45-54}:0.98*\earthorbitradius) {STEREO-A};
+            
+            \node[rotate={45-45}] at (45:0.7*\earthorbitradius) {\textcolor{green}{\faSatellite}};
+            \node[below,yshift=-2pt,align=center] at (45:0.7*\earthorbitradius) {L1\\[-2mm]\scriptsize (SOHO, ACE,\\[-2mm]\scriptsize Wind, DSCOVR)};           
+            
+            \node[rotate={245-45}] at (245:0.5*\earthorbitradius) {\textcolor{orange}{\faSatellite}};
+            \node[below, yshift=-2pt, align=center] at (245:0.5*\earthorbitradius) {\small SolO};
+            \node[rotate={210-45}] at (210:0.7*\earthorbitradius) {\textcolor{black}{\faSatellite}};
+            \node[left, xshift=-2pt] at (210:0.7*\earthorbitradius) {\small PSP};
+            
+            % Mars orbit
+            \draw[dashed, opacity=0.3] (0, 0) circle (\earthorbitradius*1.5);
+            
+            \only<2>{
             % Moon
             \draw[fill=gray] (45:\earthorbitradius) ++ (0:\earthorbitradius*0.1) circle (0.05) node[right] {\small Moon};
 			
 			% Mars
-			\draw[dashed, opacity=0.3] (0, 0) circle (\earthorbitradius*1.5);
 			\draw[fill=orange] ({45-54}:\earthorbitradius*1.5) circle (0.1) node[right] {Mars};
 			
 			% Venus
@@ -457,17 +495,10 @@
 			% Mercury
 			\draw[dashed, opacity=0.3] (0, 0) circle (\earthorbitradius*0.38);
 			\draw[fill=gray] ({45+26}:\earthorbitradius*0.38) circle (0.1) node[left] {Mercury};
-			
-			% satellites
-			\draw[fill=Blue] ({45+54}:1.02*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[above] {STEREO-B};
-			\draw[fill=Red] ({45-54}:0.98*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[left, xshift=-4pt] {STEREO-A};
-			
-			\draw[fill=green] (45:0.8*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, yshift=-2pt, align=center] {L1};                
-			\draw[fill=orange] (245:0.5*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, yshift=-2pt] {SolO};
-			\draw[fill=black] (210:0.7*\earthorbitradius) +(-2pt,-2pt) rectangle +(2pt,2pt) node[below, yshift=-4pt] {PSP};
+            }
 			
 			\end{tikzpicture}
-			+ many others
+			\uncover<2>{+ many others}
 		\end{column}
 	\end{columns}
 \end{frame}

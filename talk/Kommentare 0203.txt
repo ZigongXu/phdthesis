@@ -1,0 +1,31 @@
+Spacecraft in der inneren Heliosphäre nutzen für Mars.
+Outlook streichen / in Backup?
+Conclusions Bilder größer, weniger Text?, in Space Weather context bringen
+Instrumente Theorie nicht erklären -> kann ganz viel, brauchen wir alles nicht
+Cursor nicht so viel bewegen
+zweimal einloggen zum Zeichnen
+leere Folie hinten vor Backup slides
+HI movie
+
+Folie 12: Abbildungen größer
+
+HET verschieben zu SolO-Kapitel - dann kein Instrumentation kapitel.
+
+Folie 13: HI Movie? Oder das Bild nehmen und Datum erwähnen.
+Folie 14: Labels ersetzen (Jahr klar machen) + nicht alle weißen Strukturen sind CMEs.
+Folie 15: raus? Oder mehr zu GCS zeigen
+Folie 16: mit Papaioannou anfangen. -> deceleration, prediction
+Folie 17: Erst visualization (mit Definition), dann Ergebnisse. Ergebnisse - Achsen besser erklären?
+Folie 18: Mars dranschreiben an die Gerade.
+Folie 19: E/Delta r einführen
+Folie 20: Sonne einzeichnen, Markieren SolO+STEREO-A+Erde. GCS auch erst hier einführen, Plot erklären.
+Folie 21: Titel - Multipoint in situ data of April 2020 CME
+Folie 22: ForbMod -> weniger sagen (nur Diffusion+Expansion) + expansion power law. Evtl. Flowchart der Parameter
+Folie 23: Text reduzieren (hauptsächlich: Annahmen passen nicht), Plot größer
+
+Vielleicht keine Titelfolie für Conclusions
+
+Instrumente: zuerst remote sensing
+
+keine Zeit mehr? Conclusions nur zeigen.
+Kamera über den Bildschirm
