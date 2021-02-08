@@ -556,8 +556,8 @@
     \begin{columns}
         \begin{column}{0.6\textwidth}
             \centering
-            \scalebox{0.85}{\input{plots/secchi_fov.pgf}}\\[-1mm]
-            {\raggedright\scriptsize 2020-04-15 22:00 UT}\\
+            \vskip2mm
+            \scalebox{0.85}{\animategraphics[poster=22]{10}{plots/secchi_fov_anim/secchi_fov_anim_}{0}{80}}\\[-1mm]
             CMEs appear in white-light images (COR, HI) due to \textbf{Thomson scattering}.
         \end{column}
         \begin{column}{0.3\textwidth}
@@ -587,162 +587,54 @@
             \centering
             \begin{tikzpicture}[every node/.style={rectangle, rounded corners, draw=black, minimum width=4cm, minimum height=0.8cm}]
                 \node (step1) at (0, 0) {Take running difference};
-                \node (step2) at (0, -1.5) {Cut out horizontal slice};
-                \node (step3) at (0, -3) {Rotate by \SI{90}{\degree}};
-                \node (step4) at (0, -4.5) {Stack slices over time};
-                \draw[thick, -latex] (step1) -- (step2);
-                \draw[thick, -latex] (step2) -- (step3);
-                \draw[thick, -latex] (step3) -- (step4);
+                \uncover<2->{
+                    \node (step2) at (0, -1.5) {Cut out horizontal slice};
+                    \draw[thick, -latex] (step1) -- (step2);
+                }
+                \uncover<3->{
+                    \node (step3) at (0, -3) {Rotate by \SI{90}{\degree}};
+                    \node (step4) at (0, -4.5) {Stack slices over time};
+                    \draw[thick, -latex] (step2) -- (step3);
+                    \draw[thick, -latex] (step3) -- (step4);
+                }                
             \end{tikzpicture}
         \end{column}
         \begin{column}{0.6\textwidth}
-            \includegraphics[width=\textwidth]{images/HCME_A__20120123_01.png}
-            \small Source: HELCATS project
+            \centering%
+            \only<1>{\includegraphics[width=0.58\textwidth]{images/HCME_A__20120123_01-runndiff.pdf}}%
+            \only<2>{\includegraphics[width=0.58\textwidth]{images/HCME_A__20120123_01-runndiff-slice.pdf}}%
+            \only<3>{\includegraphics[width=\textwidth]{images/HCME_A__20120123_01.pdf}}\\
+            {\raggedright\scriptsize Source: HELCATS project (\url{https://www.helcats-fp7.eu}, adapted)}
         \end{column}
     \end{columns}
-    \summary ICMEs can now be tracked as bright features. How to convert elongation to distance?
-\end{frame}
-
-\begin{frame}{Geometric reconstruction}
-    \vskip-2mm
-    \begin{columns}[t]
-        \begin{column}{0.32\textwidth}
-            \begin{block}{HI: Single S/C fitting}     
-            \centering
-            \vskip1mm
-            \begin{tikzpicture}[scale=0.85]
-                \coordinate (center) at (0,0);
-                \def\earthorbitradius{4cm}
-                
-                \draw (center) -- node[below]{\small$d_0$} (\earthorbitradius,0) node {\large\reflectbox{\faVideo}};
-                
-                \draw (center) -- node[pos=0.5, right] {\small $r_\text{FP}$} ++ (45:1.5cm) node[cross] {};% node[below left] {ICME};
-                
-                \draw (center) ++ (0:0.7cm) arc (0:45:0.7cm);
-                \node at (22.5:0.4cm) {\small$\phi$};
-                
-                \draw[dashed] (center) ++ (45:1.5cm) -- (\earthorbitradius,0);
-                
-                \draw (\earthorbitradius,0) ++ (180:1cm) arc (180:161:1cm);
-                \draw (\earthorbitradius,0) ++(170.5:0.7cm) node {\footnotesize$\epsilon$};
-                
-                
-                \draw[fill=yellow] (center) circle (0.2cm); % sun	
-                
-            \end{tikzpicture}\\
-            {\footnotesize FP, Kahler and Webb, 2007}\\[2mm]
-        
-            \begin{tikzpicture}[scale=0.85]
-                \coordinate (center) at (0,0);
-                \def\earthorbitradius{4cm}
-                
-                \draw (center) -- node[below]{\small$d_0$} (\earthorbitradius,0) node {\large\reflectbox{\faVideo}};
-                
-                \draw[opacity=0.25] (center) ++ (30:1.8cm) circle (0.72cm);
-                \draw[opacity=0.5] (center) ++ (30:1.6cm) circle (0.64cm);
-                \draw(center) ++ (30:1.4cm) circle (0.56cm);
-                \draw[opacity=0.5] (center) ++ (30:1.2cm) circle (0.48cm);
-                \draw[opacity=0.25] (center) ++ (30:1cm) circle (0.4cm);
-                
-                
-                \draw[dashed] (center) -- ++ (54:2.5cm);
-                \draw (center) -- ++ (30:1.96cm) node[pos=0.7,below,xshift=0.2cm] {\small$r_\text{SSE}$};
-                
-                \draw (center) ++ (0:0.8cm) arc (0:30:0.8cm);
-                \node at (15:0.6cm) {\small$\phi$};
-                
-                \draw (center) ++ (30:0.6cm) arc (30:54:0.6cm);
-                \node at (42:0.5cm) {\footnotesize$\lambda$};
-                
-                \draw[dashed] (center) ++ (30:1.4cm) ++ (64:0.56cm) -- (\earthorbitradius,0);
-                \draw (center) ++ (30:1.4cm) -- ++ (64:0.56cm) node[cross] {};
-                \draw (center) ++ (30:1.4cm) ++ (64:0.56cm) ++ (-26:0.2cm) arc (-26:-116:0.2cm);
-                \fill (center) ++ (30:1.4cm) ++ (64:0.56cm) ++ (-71:0.1cm) circle (0.5pt);
-                
-                \draw (\earthorbitradius,0) ++ (180:1cm) arc (180:155:1cm);
-                \draw (\earthorbitradius,0) ++(170:0.7cm) node {\footnotesize$\epsilon$};
-                
-                
-                \draw[fill=yellow] (center) circle (0.2cm); % sun	
-                
-            \end{tikzpicture}
-            {\footnotesize SSE, Davies et al. 2012}\\[2mm]
-            
-            \footnotesize $\phi$ determined by fitting,\\assuming $v = \text{const.}$
-            \vskip1mm
-            \end{block} 
-        \end{column}
-        \begin{column}{0.32\textwidth}
-            \begin{block}{HI: Stereoscopic fitting}     
-            \centering
-            \vskip4mm
-            \begin{tikzpicture}[scale=0.7]
-                \coordinate (center) at (0,0);
-                \def\earthorbitradius{4cm}
-                
-                \draw (center) -- node[above right]{\small$d_A$} (-50:\earthorbitradius) node 
-                {\large\rotatebox{130}{\faVideo}} coordinate (STA);
-                
-                \draw (center) -- node[above left]{\small$d_B$} (-130:\earthorbitradius) node 
-                {\large\rotatebox{50}{\faVideo}} coordinate (STB);
-                
-                \draw (center) -- node[pos=0.7,right]{\footnotesize$r$} (-85:0.5*\earthorbitradius) coordinate (ICME) node[cross] {};
-                
-                \draw (center) ++ (-50:1cm) arc (-50:-85:1cm) node[midway,above,xshift=-0.5mm] {\footnotesize$\phi_A$};
-                \draw (center) ++ (-85:1cm) arc (-85:-130:1cm) node[midway,above,xshift=0.7mm] {\footnotesize$\phi_B$};
-                
-                \draw[dashed] (STA) -- (ICME) -- (STB);
-                
-                \draw[fill=yellow] (center) circle (0.2cm); % sun	
-                
-                \draw (STA) ++ (130:1cm) arc (130:155:1cm) node[midway,above left] {\footnotesize$\epsilon_A$};
-                \draw (STB) ++ (50:1cm) arc (50:22:1cm) node[midway,above right] {\footnotesize$\epsilon_B$};
-            \end{tikzpicture}
-            {\footnotesize GT, Liu et al. 2010}
-            
-            {\footnotesize $\phi$ calculated through triangulation}\\[4mm]
-            
-            {\footnotesize \textarrowfootnotesize Allows for $v, \phi \neq \text{const.}$,\\ but only if two viewpoints\\[-1.25mm] are available}
-            \vskip4mm
-            \end{block}
-        \end{column}
-        \begin{column}{0.32\textwidth}
-            \begin{block}{COR: 3D reconstruction}
-                \centering
-                \includegraphics[height=0.65\textheight]{plots/gcs.pdf}\\[-1.5mm]
-                {\footnotesize GCS, Thernisien 2012}\\
-                {\scriptsize Python implementation:\\[-2mm] \tiny\url{https://github.com/johan12345/gcs_python}}
-            \end{block} 
-            
-        \end{column}
-    \end{columns}
+    \centering
+    \uncover<3>{\summary ICMEs can now be tracked as bright features. $\epsilon(t) \rightarrow r(t)$: geometric models.}
 \end{frame}
 
 \begin{frame}{Catalogs of Forbush decreases at Mars}
     \begin{columns}
     	\begin{column}{0.55\textwidth}
     		\begin{itemize}
-                \item<1-> \textbf{von Forstner et al. 2018}: 15 ICMEs with in situ FDs at 1 AU (STEREO or Earth) and Mars
+                \item<1-> \textbf{Papaioannou et al. 2019}: 424 FDs at Mars
                     \begin{itemize}
-                        \item 6 at STEREO-B (2012), 4 at STEREO-A (2013),\\5 at Earth (2014, 2016)
-                        \item Travel time from cross-correlation method
+                        \item 2012--2016, Semi-automatic identification
+                        \item Not all associated with ICMEs
                     \end{itemize}
-    			\item<2-> \textbf{von Forstner et al. 2019}: 45 ICMEs observed with STEREO-HI which caused a FD at MSL
+                \item<2-> \textbf{von Forstner et al. 2018}: 15 ICMEs with in situ FDs at 1 AU (STEREO or Earth) and Mars
+                    \begin{itemize}
+                        \item Travel time from cross-correlation method
+                        \item Fast ICMEs decelerate beyond 1 AU
+                    \end{itemize}
+    			\item<3-> \textbf{von Forstner et al. 2019}: 45 ICMEs observed with STEREO-HI which caused a FD at MSL
     				\begin{itemize}
-                        \item 2011--2017 (including cruise phase)
-    					\item Excludes CME-CME interaction events
     					\item 19 events also seen in situ at Earth
-    				\end{itemize}
-    			\item<3-> \textbf{Papaioannou et al. 2019}: 424 FDs at Mars
-    				\begin{itemize}
-    					\item 2012--2016, Semi-automatic identification
-    					\item Not all associated with ICMEs
+                        \item Validated HI-predicted arrival times
     				\end{itemize}
     		\end{itemize}
     	\end{column}
     	\begin{column}{0.35\textwidth}
             \centering
-            \only<1>{
+            \only<2>{
                 \begin{tikzpicture}[scale=1]
                     \coordinate (center) at (0,0); 
                     \def\earthorbitradius{2cm}
@@ -766,7 +658,7 @@
                     (-40:-74:1.25*\earthorbitradius); %ICME
                 \end{tikzpicture}
             }
-            \only<2>{
+            \only<3>{
                 \begin{tikzpicture}[scale=1]
                     \coordinate (center) at (0,0); 
                     \def\earthorbitradius{2cm}
@@ -800,46 +692,46 @@
                     (-70:-104:1.25*\earthorbitradius); %ICME	
                 \end{tikzpicture}
             }
-            \only<3>{\includegraphics[trim=0 0 500 0, clip,width=\textwidth]{images/papaioannou_etal_fig2.png}}
+            \only<1>{\includegraphics[trim=0 0 500 0, clip,width=\textwidth]{images/papaioannou_etal_fig2.png}}
             
     	\end{column}
     \end{columns}
 \end{frame}
 
 \begin{frame}{Deriving CME expansion from FD data (von Forstner et al. 2020)}
-    \begin{columns}
-		\begin{column}{0.45\textwidth}
-			\centering
-			\input{plots/fd_properties.tex}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\centering
-			\uncover<2>{\scalebox{0.7}{\input{plots/fd_slope_correlation.pgf}}}
-		\end{column}
-	\end{columns}
-	\vskip-2mm
-	\centering
-	\uncover<2>{\summary Maximum hourly decrease $m_\text{max}$ and relative amplitude $\Delta y$ are correlated, with different proportionality factors at Earth and Mars.}
-\end{frame}
-
-\begin{frame}{Deriving CME expansion from FD data (von Forstner et al. 2020)}
-    \only<1>{\def\step{1}}%
-    \only<2>{\def\step{2}}%
-    \only<3>{\def\step{3}}%
-    \only<4>{\def\step{4}}%
+    \only<1>{\def\step{0}}%
+    \only<2>{\def\step{1}}%
+    \only<3>{\def\step{2}}%
+    \only<4>{\def\step{3}}%
+    \only<5>{\def\step{4}}%
     \textbf{Cartoon visualization:}
     \centering%
     \input{images/fd_correlation_cartoon_animated.tex}\\
-    \only<1>{3 FDs at Earth, observed at GCR energy $E_0$}%
-    \only<2>{Same events at Mars, expanded ICME, same GCR energy $E_0$}%
-    \only<3->{Same events at Mars, lower GCR energy $E_1$ + expanded ICME}\\[2mm]
-    \uncover<4->{\textbf{Confirmed by analytical modeling} {\footnotesize¸ (PDB, Wibberenz et al. 1998 \& ForbMod, Dumbović et al. 2018)}:
+    \only<1-2>{\uncover<2>{3 FDs at Earth, observed at GCR energy $E_0$}}%
+    \only<3>{Same events at Mars, expanded ICME, same GCR energy $E_0$}%
+    \only<4->{Same events at Mars, lower GCR energy $E_1$ + expanded ICME}\\[2mm]
+    \uncover<5->{\textbf{Confirmed by analytical modeling} {\footnotesize¸ (PDB, Wibberenz et al. 1998 \& ForbMod, Dumbović et al. 2018)}:
         \[
             \textbf{Sheath: }\frac{\Delta y_s}{m_{\text{max},s}} = \ldots = T_\text{sheath} \qquad
             \textbf{Ejecta: }\frac{\Delta y_e}{m_{\maxt,e}} = \ldots \approx 0.36 \cdot T_\text{ICME}
         \] 
     }
 
+\end{frame}
+
+\begin{frame}{Deriving CME expansion from FD data (von Forstner et al. 2020)}
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            \centering
+            \scalebox{0.85}{\input{plots/fd_slope_correlation.pgf}}
+        \end{column}
+        \begin{column}{0.35\textwidth}            
+            \summary Expansion factor:
+            \[E = \frac{A_\text{Mars}}{A_\text{Earth}} \approx 1.9\]
+            
+            Larger catalog\\(Papaioannou et al. 2019): \[E \approx 1.5\]
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{Observations closer to the Sun}
@@ -853,19 +745,18 @@
 \draw[fill=blue] (\tikzAU,0) circle (\tikzRe) node[yshift=0.45cm]{Earth};
 \draw[fill=orange] (1.52*\tikzAU,0) circle (0.53*\tikzRe) node[yshift=0.45cm]{Mars};
 
-\draw[decorate, decoration={brace,amplitude=10pt}] (0.72*\tikzAU,-0.3) -- (0.38*\tikzAU,-0.3) node[midway,below,yshift=-0.4cm,align=center]{$E\approx3$\\(Janvier+ 2019)};
-\draw[decorate, decoration={brace,amplitude=10pt}] (\tikzAU,-0.3) -- (0.72*\tikzAU,-0.3) node[midway,below,yshift=-0.4cm,align=center]{$E\approx1.7$\\(Janvier+ 2019)};
-\draw[decorate, decoration={brace,amplitude=10pt}] (1.52*\tikzAU,-0.3) -- (\tikzAU,-0.3) node[midway,below,yshift=-0.4cm,align=center]{$E \approx\ $\numrange{1.5}{1.9}\\(von Forstner+ 2020)};
+\draw[decorate, decoration={brace,amplitude=10pt}] (0.72*\tikzAU,-0.3) -- (0.38*\tikzAU,-0.3) node[midway,below,yshift=-0.4cm,align=center]{$E\approx3$\\\footnotesize (Janvier+ 2019)\only<2->{\\$\Delta r = \SI{0.34}{\AU}$}};
+\draw[decorate, decoration={brace,amplitude=10pt}] (\tikzAU,-0.3) -- (0.72*\tikzAU,-0.3) node[midway,below,yshift=-0.4cm,align=center]{$E\approx1.7$\\\footnotesize (Janvier+ 2019)\only<2->{\\$\Delta r = \SI{0.28}{\AU}$}};
+\draw[decorate, decoration={brace,amplitude=10pt}] (1.52*\tikzAU,-0.3) -- (\tikzAU,-0.3) node[midway,below,yshift=-0.4cm,align=center]{$E \approx\ $\numrange{1.5}{1.9}\\\footnotesize (von Forstner+ 2020)\only<2->{\\$\Delta r = \SI{0.5}{\AU}$}};
 
-\uncover<2>{
-	\begin{axis}[at={(0.3*\tikzAU, -3.3cm)}, axis x line=bottom, axis y line=left, x=\tikzAU, height=3cm, xmin=0.3, ymin=0, ymax=10, xmax=1.52, xlabel={\footnotesize Radial distance / \si{\AU}}, ylabel={\footnotesize $E/\Delta r$ / \si{\per\AU}}, ytick={0,5,10}]
+\uncover<3>{
+	\begin{axis}[at={(0.3*\tikzAU, -3.8cm)}, axis x line=bottom, axis y line=left, x=\tikzAU, height=3cm, xmin=0.3, ymin=0, ymax=10, xmax=1.52, xlabel={\footnotesize Radial distance / \si{\AU}}, ylabel={\footnotesize $E/\Delta r$ / \si{\per\AU}}, ytick={0,5,10}]
 	\addplot[only marks, mark=*] coordinates {(0.55,9.375) (0.86,6.07) (1.26,3.17)};
 	\end{axis}
 }
 \end{tikzpicture}
 
-\vskip3mm
-\uncover<2>{\centering\summary Expansion rate decreases, in line with previous results within \SI{1}{\AU}.}
+\uncover<3>{\centering\summary Expansion rate decreases, in line with previous results within \SI{1}{\AU}.}
 
 \vskip2mm
 \begin{flushright}
@@ -885,12 +776,27 @@
                 \item Ideal \textbf{radial alignment} ($\sim\SI{4}{\degree}$)
                 \item Slow \textit{stealth} CME, $v_\maxt \approx \SI{370}{\kilo\meter\per\second}$
             \end{itemize}
-            \vspace{2mm}
-            \includegraphics[width=\textwidth]{plots/gcs_reconstruction.pdf}
         \end{column}
         \begin{column}{0.5\textwidth}
         	\vskip2mm
             \includegraphics[width=\textwidth]{plots/3dcore_visual_davies_new_panela.pdf}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{GCS reconstruction}
+    \begin{columns}
+        \begin{column}{0.4\textwidth}
+            \begin{itemize}
+                \item \textbf{Graduated Cylindrical Shell} (Thernisien 2012), ``Croissant''
+                \item New Python implementation:\\ {\scriptsize\url{https://github.com/johan12345/gcs_python}}
+            \end{itemize}
+            \centering
+            \input{images/gcs_schematic.tex}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{plots/gcs_reconstruction.pdf}
         \end{column}
     \end{columns}
 \end{frame}
@@ -911,6 +817,7 @@
             }
         \end{column}
         \begin{column}{0.55\textwidth}
+            \vskip3mm
             \centering
             \input{images/solohet_sensor_schematic.tex}
             \footnotesize \textcolor{red}{stopping in B} \quad \textcolor{green}{stopping in C} \quad \textcolor{blue}{penetrating} \\ \uncover<2->{\textcolor{Aquamarine}{GCR channel} \quad \textcolor{orange}{C single counter}}\\
@@ -919,7 +826,7 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}{In situ data}
+\begin{frame}{April 20 CME: Multipoint in situ data}
     \vskip2mm
     \begin{columns}
         \begin{column}{0.5\textwidth}
@@ -947,26 +854,30 @@
 	
 	\begin{itemize}
 		\item Analytical physics-based \textbf{diffusion-expansion} model for FDs caused by \textbf{flux ropes}
-		\item FD \textbf{energy dependence} modeled through empirical GCR spectra and detector response
-		\item \textbf{Input parameters} determined from in situ magnetic field and coronagraph GCS fit
-		\item Additional parameters: expansion power law indices $n_a, n_B$ 
+		\item Input parameters:\\[2mm]
+        \centering
+        \begin{tikzpicture}[node distance=1.5cm,every node/.style={rectangle, rounded corners, draw=black}]
+            \node (gcs) {GCS fit};
+            \node[anchor=west, xshift=2mm] at (gcs.east) (insitu) {in situ data};
+            \node[anchor=west, xshift=2mm] at (insitu.east) (response) {detector responses};
+            \node[anchor=west, xshift=2mm] at (response.east) {expansion power laws $n_a, n_B$};
+        \end{tikzpicture}
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{ForbMod results}
 	\begin{columns}
-		\begin{column}{0.4\textwidth}
+		\begin{column}{0.28\textwidth}
 			\begin{itemize}
-				\item Expansion factors $n_a, n_B$ \textbf{inconsistent} between Sun--Earth, SolO--Earth, in situ @ Earth\\
-				\small \textarrow Possible influence of SIR
-				\item All measured values of $n_a, n_B$ lead to \textbf{FDs smaller} than measured
-				\item Best fit ($n_a = 1.08, n_B = 2.00$) can reproduce FDs at SolO and CRaTER, but not at neutron monitors
+				\item $n_a, n_B$ inconsistent\\
+				{\small (Possible influence of SIR \textarrow assumptions invalid)}
+				\item Best fit values reproduce FDs at SolO \& CRaTER, but not at neutron monitors
 			\end{itemize}
 		\end{column}
-		\begin{column}{0.55\textwidth}
+		\begin{column}{0.7\textwidth}
 			\centering
-			\scalebox{0.5}{\input{plots/forbmod.pgf}}
-			\footnotesize ForbMod results for best fit values of $n_a, n_B$
+            \textbf{ForbMod best fit results}
+			\scalebox{0.65}{\input{plots/forbmod.pgf}}
 		\end{column}
 	\end{columns}
 \end{frame}
@@ -1013,6 +924,121 @@
 \appendix
 \begin{frame}[standout]
 	Backup slides
+\end{frame}
+
+\begin{frame}{Geometric reconstruction}
+    \vskip-2mm
+    \begin{columns}[t]
+        \begin{column}{0.32\textwidth}
+            \begin{block}{HI: Single S/C fitting}     
+                \centering
+                \vskip1mm
+                \begin{tikzpicture}[scale=0.85]
+                    \coordinate (center) at (0,0);
+                    \def\earthorbitradius{4cm}
+                    
+                    \draw (center) -- node[below]{\small$d_0$} (\earthorbitradius,0) node {\large\reflectbox{\faVideo}};
+                    
+                    \draw (center) -- node[pos=0.5, right] {\small $r_\text{FP}$} ++ (45:1.5cm) node[cross] {};% node[below left] {ICME};
+                    
+                    \draw (center) ++ (0:0.7cm) arc (0:45:0.7cm);
+                    \node at (22.5:0.4cm) {\small$\phi$};
+                    
+                    \draw[dashed] (center) ++ (45:1.5cm) -- (\earthorbitradius,0);
+                    
+                    \draw (\earthorbitradius,0) ++ (180:1cm) arc (180:161:1cm);
+                    \draw (\earthorbitradius,0) ++(170.5:0.7cm) node {\footnotesize$\epsilon$};
+                    
+                    
+                    \draw[fill=yellow] (center) circle (0.2cm); % sun	
+                    
+                \end{tikzpicture}\\
+                {\footnotesize FP, Kahler and Webb, 2007}\\[2mm]
+                
+                \begin{tikzpicture}[scale=0.85]
+                    \coordinate (center) at (0,0);
+                    \def\earthorbitradius{4cm}
+                    
+                    \draw (center) -- node[below]{\small$d_0$} (\earthorbitradius,0) node {\large\reflectbox{\faVideo}};
+                    
+                    \draw[opacity=0.25] (center) ++ (30:1.8cm) circle (0.72cm);
+                    \draw[opacity=0.5] (center) ++ (30:1.6cm) circle (0.64cm);
+                    \draw(center) ++ (30:1.4cm) circle (0.56cm);
+                    \draw[opacity=0.5] (center) ++ (30:1.2cm) circle (0.48cm);
+                    \draw[opacity=0.25] (center) ++ (30:1cm) circle (0.4cm);
+                    
+                    
+                    \draw[dashed] (center) -- ++ (54:2.5cm);
+                    \draw (center) -- ++ (30:1.96cm) node[pos=0.7,below,xshift=0.2cm] {\small$r_\text{SSE}$};
+                    
+                    \draw (center) ++ (0:0.8cm) arc (0:30:0.8cm);
+                    \node at (15:0.6cm) {\small$\phi$};
+                    
+                    \draw (center) ++ (30:0.6cm) arc (30:54:0.6cm);
+                    \node at (42:0.5cm) {\footnotesize$\lambda$};
+                    
+                    \draw[dashed] (center) ++ (30:1.4cm) ++ (64:0.56cm) -- (\earthorbitradius,0);
+                    \draw (center) ++ (30:1.4cm) -- ++ (64:0.56cm) node[cross] {};
+                    \draw (center) ++ (30:1.4cm) ++ (64:0.56cm) ++ (-26:0.2cm) arc (-26:-116:0.2cm);
+                    \fill (center) ++ (30:1.4cm) ++ (64:0.56cm) ++ (-71:0.1cm) circle (0.5pt);
+                    
+                    \draw (\earthorbitradius,0) ++ (180:1cm) arc (180:155:1cm);
+                    \draw (\earthorbitradius,0) ++(170:0.7cm) node {\footnotesize$\epsilon$};
+                    
+                    
+                    \draw[fill=yellow] (center) circle (0.2cm); % sun	
+                    
+                \end{tikzpicture}
+                {\footnotesize SSE, Davies et al. 2012}\\[2mm]
+                
+                \footnotesize $\phi$ determined by fitting,\\assuming $v = \text{const.}$
+                \vskip1mm
+            \end{block} 
+        \end{column}
+        \begin{column}{0.32\textwidth}
+            \begin{block}{HI: Stereoscopic fitting}     
+                \centering
+                \vskip4mm
+                \begin{tikzpicture}[scale=0.7]
+                    \coordinate (center) at (0,0);
+                    \def\earthorbitradius{4cm}
+                    
+                    \draw (center) -- node[above right]{\small$d_A$} (-50:\earthorbitradius) node 
+                    {\large\rotatebox{130}{\faVideo}} coordinate (STA);
+                    
+                    \draw (center) -- node[above left]{\small$d_B$} (-130:\earthorbitradius) node 
+                    {\large\rotatebox{50}{\faVideo}} coordinate (STB);
+                    
+                    \draw (center) -- node[pos=0.7,right]{\footnotesize$r$} (-85:0.5*\earthorbitradius) coordinate (ICME) node[cross] {};
+                    
+                    \draw (center) ++ (-50:1cm) arc (-50:-85:1cm) node[midway,above,xshift=-0.5mm] {\footnotesize$\phi_A$};
+                    \draw (center) ++ (-85:1cm) arc (-85:-130:1cm) node[midway,above,xshift=0.7mm] {\footnotesize$\phi_B$};
+                    
+                    \draw[dashed] (STA) -- (ICME) -- (STB);
+                    
+                    \draw[fill=yellow] (center) circle (0.2cm); % sun	
+                    
+                    \draw (STA) ++ (130:1cm) arc (130:155:1cm) node[midway,above left] {\footnotesize$\epsilon_A$};
+                    \draw (STB) ++ (50:1cm) arc (50:22:1cm) node[midway,above right] {\footnotesize$\epsilon_B$};
+                \end{tikzpicture}
+                {\footnotesize GT, Liu et al. 2010}
+                
+                {\footnotesize $\phi$ calculated through triangulation}\\[4mm]
+                
+                {\footnotesize \textarrowfootnotesize Allows for $v, \phi \neq \text{const.}$,\\ but only if two viewpoints\\[-1.25mm] are available}
+                \vskip4mm
+            \end{block}
+        \end{column}
+        \begin{column}{0.32\textwidth}
+            \begin{block}{COR: 3D reconstruction}
+                \centering
+                \includegraphics[height=0.65\textheight]{plots/gcs.pdf}\\[-1.5mm]
+                {\footnotesize GCS, Thernisien 2012}\\
+                {\scriptsize Python implementation:\\[-2mm] \tiny\url{https://github.com/johan12345/gcs_python}}
+            \end{block} 
+            
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{ForbMod equations}
