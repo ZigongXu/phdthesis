@@ -97,10 +97,12 @@
     \begin{columns}
         \begin{column}{0.45\textwidth}
             \centering
-            \includegraphics[width=\textwidth]{images/20000227_0742_c3_1024.jpg}
+            \includegraphics[width=\textwidth]{images/20000227_0742_c3_1024.jpg}\\
+            \scriptsize ESA/NASA/SOHO
         \end{column}
         \begin{column}{0.45\textwidth}
         	\centering
+            \vskip2mm
             \includegraphics[width=\textwidth]{images/ZurbuchenRichardson-adapted.pdf}\\
             \scriptsize adapted from\\Zurbuchen and Richardson (2006)
         \end{column}
@@ -143,7 +145,7 @@
             \textbf{Remote sensing:} CME
             
             \hskip-4mm
-            \animategraphics[poster=19]{30}{plots/lightbulb_cme_anim/}{000}{069}
+            \animategraphics[poster=48]{30}{plots/lightbulb_cme_anim/}{000}{069}
         \end{column}
         \begin{column}{0.45\textwidth}
             \centering
@@ -383,7 +385,7 @@
 
 \begin{frame}{Forbush decreases (FDs)}
     \vskip2mm
-    \begin{columns}
+    \begin{columns}[t]
         \begin{column}{0.55\textwidth}
             \vbox to .8\textheight{%
             \vfill
@@ -396,24 +398,25 @@
                 \end{itemize}
             \end{vfilleditems}
             \vfill
-            \uncover<2->{\summary FDs extend the in situ viewpoints for CMEs (e.g. planetary missions)}
+            \uncover<4->{\centering\summary FDs extend the in situ viewpoints for CMEs (e.g. planetary missions)}
             \vfill
             }
         \end{column}
         \begin{column}{0.35\textwidth}
             \centering
-            \only<1>{
+            \begin{overprint}
+            \onslide<1>
+                \vskip1cm
                 \includegraphics[width=\textwidth]{plots/cane2000-classical-fd-adapted.png}
                 \scriptsize adapted from Cane (2000)    
-            }
-            \only<2, 4->{
+            \onslide<2, 4->
                 \includegraphics[width=\textwidth]{images/RichardsonCane-adapted.pdf}
                 \scriptsize adapted from Richardson and Cane (2011)    
-            }
-            \only<3>{
+            \onslide<3>
+                \vskip1cm
                 \includegraphics[width=\textwidth]{images/Owens-Forsyth-adapted.pdf}
                 \scriptsize adapted from Owens and Forsyth (2013)    
-            }
+            \end{overprint}
         \end{column}
     \end{columns}
 \end{frame}
@@ -558,7 +561,7 @@
             \centering
             \vskip2mm
             \scalebox{0.85}{\animategraphics[poster=22]{10}{plots/secchi_fov_anim/secchi_fov_anim_}{0}{80}}\\[-1mm]
-            CMEs appear in white-light images (COR, HI) due to \textbf{Thomson scattering}.
+            CMEs appear in white-light images\\ due to \textbf{Thomson scattering}.
         \end{column}
         \begin{column}{0.3\textwidth}
             \textbf{S}un \textbf{E}arth \textbf{C}onnection \textbf{C}oronal and \textbf{H}eliospheric \textbf{I}nvestigation\\[0.5cm]
@@ -593,22 +596,31 @@
                 }
                 \uncover<3->{
                     \node (step3) at (0, -3) {Rotate by \SI{90}{\degree}};
-                    \node (step4) at (0, -4.5) {Stack slices over time};
                     \draw[thick, -latex] (step2) -- (step3);
+                }
+                \uncover<4->{
+                    \node (step4) at (0, -4.5) {Stack slices over time};
                     \draw[thick, -latex] (step3) -- (step4);
                 }                
             \end{tikzpicture}
         \end{column}
         \begin{column}{0.6\textwidth}
             \centering%
-            \only<1>{\includegraphics[width=0.58\textwidth]{images/HCME_A__20120123_01-runndiff.pdf}}%
-            \only<2>{\includegraphics[width=0.58\textwidth]{images/HCME_A__20120123_01-runndiff-slice.pdf}}%
-            \only<3>{\includegraphics[width=\textwidth]{images/HCME_A__20120123_01.pdf}}\\
+            \begin{overprint}
+                \onslide<1>
+                    \centerline{\includegraphics[width=0.58\textwidth]{images/HCME_A__20120123_01-runndiff.pdf}}%
+                \onslide<2>
+                    \centerline{\includegraphics[width=0.58\textwidth]{images/HCME_A__20120123_01-runndiff-slice.pdf}}%
+                \onslide<3>
+                    \centerline{\includegraphics[width=0.58\textwidth,angle=90,origin=c]{images/HCME_A__20120123_01-runndiff-slice.pdf}}%
+                \onslide<4>
+                    \centerline{\includegraphics[width=\textwidth]{images/HCME_A__20120123_01.pdf}}
+            \end{overprint}
             {\raggedright\scriptsize Source: HELCATS project (\url{https://www.helcats-fp7.eu}, adapted)}
         \end{column}
     \end{columns}
     \centering
-    \uncover<3>{\summary ICMEs can now be tracked as bright features. $\epsilon(t) \rightarrow r(t)$: geometric models.}
+    \uncover<4>{\summary ICMEs can now be tracked as bright features. $\epsilon(t) \rightarrow r(t)$: geometric models.}
 \end{frame}
 
 \begin{frame}{Catalogs of Forbush decreases at Mars}
@@ -627,8 +639,8 @@
                     \end{itemize}
     			\item<3-> \textbf{von Forstner et al. 2019}: 45 ICMEs observed with STEREO-HI which caused a FD at MSL
     				\begin{itemize}
-    					\item 19 events also seen in situ at Earth
                         \item Validated HI-predicted arrival times
+                        \item 19 events also seen in situ at Earth
     				\end{itemize}
     		\end{itemize}
     	\end{column}
@@ -710,7 +722,7 @@
     \only<1-2>{\uncover<2>{3 FDs at Earth, observed at GCR energy $E_0$}}%
     \only<3>{Same events at Mars, expanded ICME, same GCR energy $E_0$}%
     \only<4->{Same events at Mars, lower GCR energy $E_1$ + expanded ICME}\\[2mm]
-    \uncover<5->{\textbf{Confirmed by analytical modeling} {\footnotesize¸ (PDB, Wibberenz et al. 1998 \& ForbMod, Dumbović et al. 2018)}:
+    \uncover<5->{\textbf{Confirmed by analytical modeling} {\footnotesize (PDB, Wibberenz et al. 1998 \& ForbMod, Dumbović et al. 2018)}:
         \[
             \textbf{Sheath: }\frac{\Delta y_s}{m_{\text{max},s}} = \ldots = T_\text{sheath} \qquad
             \textbf{Ejecta: }\frac{\Delta y_e}{m_{\maxt,e}} = \ldots \approx 0.36 \cdot T_\text{ICME}
@@ -750,7 +762,7 @@
 \draw[decorate, decoration={brace,amplitude=10pt}] (1.52*\tikzAU,-0.3) -- (\tikzAU,-0.3) node[midway,below,yshift=-0.4cm,align=center]{$E \approx\ $\numrange{1.5}{1.9}\\\footnotesize (von Forstner+ 2020)\only<2->{\\$\Delta r = \SI{0.5}{\AU}$}};
 
 \uncover<3>{
-	\begin{axis}[at={(0.3*\tikzAU, -3.8cm)}, axis x line=bottom, axis y line=left, x=\tikzAU, height=3cm, xmin=0.3, ymin=0, ymax=10, xmax=1.52, xlabel={\footnotesize Radial distance / \si{\AU}}, ylabel={\footnotesize $E/\Delta r$ / \si{\per\AU}}, ytick={0,5,10}]
+	\begin{axis}[at={(0.3*\tikzAU, -3.8cm)}, axis x line=bottom, axis y line=left, x=\tikzAU, height=3cm, xmin=0.3, ymin=0, ymax=10, xmax=1.52, xlabel={\footnotesize Radial distance / \si{\AU}}, ylabel={\footnotesize $E/\Delta r$ / \si[per-mode=reciprocal]{\per\AU}}, ytick={0,5,10}]
 	\addplot[only marks, mark=*] coordinates {(0.55,9.375) (0.86,6.07) (1.26,3.17)};
 	\end{axis}
 }
@@ -784,12 +796,12 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}{GCS reconstruction}
+\begin{frame}{Remote sensing data: GCS reconstruction}
     \begin{columns}
         \begin{column}{0.4\textwidth}
             \begin{itemize}
                 \item \textbf{Graduated Cylindrical Shell} (Thernisien 2012), ``Croissant''
-                \item New Python implementation:\\ {\scriptsize\url{https://github.com/johan12345/gcs_python}}
+                \item New Python implementation:\\[-1mm] {\scriptsize\url{https://github.com/johan12345/gcs_python}}
             \end{itemize}
             \centering
             \input{images/gcs_schematic.tex}
@@ -812,7 +824,7 @@
                     \item Nominal data products: \textbf{Charged particle spectra} above \SI{7}{\mega\electronvolt\per nuc} (ions) and \SI{600}{\kilo\electronvolt} (electrons)
                 \end{vfilleditems}
                 \vfill
-                \uncover<2->{\summary Best statistics to observe FDs: \textbf{Single-detector counters}}
+                \uncover<3->{\summary Best statistics to observe FDs: \textbf{Single-detector counters}}
                 \vfill
             }
         \end{column}
@@ -821,7 +833,7 @@
             \centering
             \input{images/solohet_sensor_schematic.tex}
             \footnotesize \textcolor{red}{stopping in B} \quad \textcolor{green}{stopping in C} \quad \textcolor{blue}{penetrating} \\ \uncover<2->{\textcolor{Aquamarine}{GCR channel} \quad \textcolor{orange}{C single counter}}\\
-            \uncover<2->{\input{plots/het_gcr.pgf}}
+            \uncover<3->{\input{plots/het_gcr.pgf}}
         \end{column}
     \end{columns}
 \end{frame}
@@ -1127,7 +1139,7 @@ HET C single counters response functions for high-gain and low-gain channels, wi
     MGN-processed SDO/AIA 171 \AA\ image at 19:00~UT 7 April 2020, showing the cavity structure observed on the limb  $\sim$6 days before the eruption.
 \end{frame}
 
-\begin{frame}{MSL sensor head}
+\begin{frame}{MSL/RAD sensor head}
     \centering
     \newboolean{msltrajectories}
     \setboolean{msltrajectories}{true}

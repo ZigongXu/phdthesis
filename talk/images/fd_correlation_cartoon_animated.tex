@@ -55,9 +55,9 @@
 		\node[below left] at (0, 0) {0};
 		
         \ifthenelse{\step=0}{
-            \node at (3.5, 1.75) [below right] {Earth};
+            \node at (26.565:4) [below right] {Earth};
         }{\ifthenelse{\step=1}{
-			\node at (3.5, 1.75) [below right] {Earth};
+			\node at (26.565:4) [below right] {Earth};
 		}{
 			\begin{scope}[opacity=0.4]
 			\draw[thick, dashed] (0, 0) -- (26.565:4) node[below right] {Earth};
