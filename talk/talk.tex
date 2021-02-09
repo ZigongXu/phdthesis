@@ -164,7 +164,7 @@
 				\item \textbf{Main questions:}
                 \faStyle{regular}
 				\begin{itemize}
-					\item \faMeteor\ \textbf{Hit or miss?} \uncover<5->{\textcolor{red}{Hit rate $\approx\SI{50}{\percent}$, FAR $\approx\SI{10}{\percent}$}}
+					\item \faMeteor\ \textbf{Hit or miss?} \uncover<5->{\textcolor{red}{POD $\approx\SI{50}{\percent}$, FAR $\approx\SI{10}{\percent}$}}
 					\item \faClock\ \textbf{Arrival time?} \uncover<5->{\textcolor{red}{$\pm\sim\SI{10}{\hour}$}}
 					\item \faGlobe\ \textbf{Geoeffectiveness?} -- $B_z$
 				\end{itemize}
@@ -422,91 +422,56 @@
 \end{frame}
 
 \begin{frame}{FDs as additional in situ observations}
-	\begin{columns}[t]
-		\begin{column}{0.45\textwidth}
-			\textbf{Remote sensing}\\[0.2cm]
-            \centering
-            \begin{tikzpicture}[scale=0.8]
-                \def\earthorbitradius{2.5}
-                \def\sunradius{0.2}
-                
-                % sun
-                \draw[fill=yellow] (0, 0) circle (\sunradius);
-                
-                % Earth
-                \draw[dashed] (0, 0) circle (\earthorbitradius);
-                \draw[fill=blue] (45:\earthorbitradius) circle (0.1);
-                
-                \node[rotate={45+54-180},opacity=0.5] at ({45+54}:1.02*\earthorbitradius) {\textcolor{Blue}{\scriptsize\faVideo}};
-                \node[above, align=center, yshift=2mm,opacity=0.5] at ({45+54}:1.02*\earthorbitradius) {STEREO-B\\[-2mm]\scriptsize (until Oct 2014)};
-                \node[rotate={45-54-180}] at ({45-54}:0.98*\earthorbitradius) {\textcolor{Red}{\scriptsize\faVideo}};
-                \node[left, xshift=-4pt] at ({45-54}:0.98*\earthorbitradius) {STEREO-A};
-                
-                \node[rotate={45-180}] at (45:0.875*\earthorbitradius) {\textcolor{Magenta}{\scriptsize\faVideo}};
-                \node[above left,yshift=-2pt] at (45:0.875*\earthorbitradius) {SDO};
-                \node[rotate={45-180}] at (45:0.7*\earthorbitradius) {\textcolor{green}{\scriptsize\faVideo}};
-                \node[below,yshift=-2pt] at (45:0.7*\earthorbitradius) {SOHO};
-                
-                \node[rotate={245-180},opacity=0.5] at (245:0.5*\earthorbitradius) {\textcolor{orange}{\small\faVideo}};
-                \node[below, yshift=-2pt, align=center,opacity=0.5] at (245:0.5*\earthorbitradius) {\scriptsize SolO\\[-2mm]\scriptsize (Nov 2021)};
-                \node[rotate={210-180}] at (210:0.7*\earthorbitradius) {\textcolor{black}{\scriptsize\faVideo}};
-                \node[left, xshift=-2pt] at (210:0.7*\earthorbitradius) {\small PSP*};
-                
-                \draw[dashed, opacity=0.3] (0, 0) circle (\earthorbitradius*1.5);
-                
-            \end{tikzpicture}
-		\end{column}
-		\begin{column}{0.45\textwidth}
-			\textbf{In situ + FDs}\\[0.2cm]
-			\centering
-			\begin{tikzpicture}[scale=0.8]
-			\def\earthorbitradius{2.5}
-            \def\sunradius{0.2}
-            
-            % sun
-            \draw[fill=yellow] (0, 0) circle (\sunradius);
-            
-            % Earth
-            \draw[dashed] (0, 0) circle (\earthorbitradius);
-            \draw[fill=blue] (45:\earthorbitradius) circle (0.1);
-            
-            % satellites
-            \node[rotate={45+54-45},opacity=0.5] at ({45+54}:1.02*\earthorbitradius) {\textcolor{Blue}{\faSatellite}};
-            \node[above, align=center, yshift=2mm,opacity=0.5] at ({45+54}:1.02*\earthorbitradius) {STEREO-B\\[-2mm]\scriptsize (until Oct 2014)};
-            \node[rotate={45-54-45}] at ({45-54}:0.98*\earthorbitradius) {\textcolor{Red}{\faSatellite}};
-            \node[left, xshift=-4pt] at ({45-54}:0.98*\earthorbitradius) {STEREO-A};
-            
-            \node[rotate={45-45}] at (45:0.7*\earthorbitradius) {\textcolor{green}{\faSatellite}};
-            \node[below,yshift=-2pt,align=center] at (45:0.7*\earthorbitradius) {L1\\[-2mm]\scriptsize (SOHO, ACE,\\[-2mm]\scriptsize Wind, DSCOVR)};           
-            
-            \node[rotate={245-45}] at (245:0.5*\earthorbitradius) {\textcolor{orange}{\faSatellite}};
-            \node[below, yshift=-2pt, align=center] at (245:0.5*\earthorbitradius) {\small SolO};
-            \node[rotate={210-45}] at (210:0.7*\earthorbitradius) {\textcolor{black}{\faSatellite}};
-            \node[left, xshift=-2pt] at (210:0.7*\earthorbitradius) {\small PSP};
-            
-            % Mars orbit
-            \draw[dashed, opacity=0.3] (0, 0) circle (\earthorbitradius*1.5);
-            
-            \only<2>{
-            % Moon
-            \draw[fill=gray] (45:\earthorbitradius) ++ (0:\earthorbitradius*0.1) circle (0.05) node[right] {\small Moon};
-			
-			% Mars
-			\draw[fill=orange] ({45-54}:\earthorbitradius*1.5) circle (0.1) node[right] {Mars};
-			
-			% Venus
-			%\draw[dashed, opacity=0.3] (0, 0) circle (\earthorbitradius*0.72);
-			%\draw[fill=gray] ({245+30}:\earthorbitradius*0.72) circle (0.1) node[right] {Venus};
-			
-			% Mercury
-			\draw[dashed, opacity=0.3] (0, 0) circle (\earthorbitradius*0.38);
-			\draw[fill=gray] ({45+26}:\earthorbitradius*0.38) circle (0.1) node[left] {Mercury};
-            }
-			
-			\end{tikzpicture}
-			\uncover<2>{+ many others}
-		\end{column}
-	\end{columns}
+	\centering
+	\begin{tikzpicture}[scale=0.9]
+	\def\earthorbitradius{2.5}
+    \def\sunradius{0.2}
+    
+    % sun
+    \draw[fill=yellow] (0, 0) circle (\sunradius);
+    
+    % Earth
+    \draw[dashed] (0, 0) circle (\earthorbitradius);
+    \draw[fill=blue] (45:\earthorbitradius) circle (0.1);
+    
+    % satellites
+    \node[rotate={45+54-45},opacity=0.5] at ({45+54}:1.02*\earthorbitradius) {\textcolor{Blue}{\faSatellite}};
+    \node[above, align=center, yshift=2mm,opacity=0.5] at ({45+54}:1.02*\earthorbitradius) {STEREO-B\\[-2mm]\scriptsize (until Oct 2014)};
+    \node[rotate={45-54-45}] at ({45-54}:0.98*\earthorbitradius) {\textcolor{Red}{\faSatellite}};
+    \node[left, xshift=-4pt] at ({45-54}:0.98*\earthorbitradius) {STEREO-A};
+    
+    \node[rotate={45-45}] at (45:0.7*\earthorbitradius) {\textcolor{green}{\faSatellite}};
+    \node[below,yshift=-2pt,align=center] at (45:0.7*\earthorbitradius) {L1\\[-2mm]\scriptsize (SOHO, ACE,\\[-2mm]\scriptsize Wind, DSCOVR)};           
+    
+    \node[rotate={245-45}] at (245:0.5*\earthorbitradius) {\textcolor{orange}{\faSatellite}};
+    \node[below, yshift=-2pt, align=center] at (245:0.5*\earthorbitradius) {\small SolO};
+    \node[rotate={210-45}] at (210:0.7*\earthorbitradius) {\textcolor{black}{\faSatellite}};
+    \node[left, xshift=-2pt] at (210:0.7*\earthorbitradius) {\small PSP};
+    
+    % Mars orbit
+    \draw[dashed, opacity=0.3] (0, 0) circle (\earthorbitradius*1.5);
+    
+    \only<2>{
+    % Moon
+    \draw[fill=gray] (45:\earthorbitradius) ++ (0:\earthorbitradius*0.1) circle (0.05) node[right] {\small Moon};
+	
+	% Mars
+	\draw[fill=orange] ({45-54}:\earthorbitradius*1.5) circle (0.1) node[right] {Mars};
+	
+	% Venus
+	%\draw[dashed, opacity=0.3] (0, 0) circle (\earthorbitradius*0.72);
+	%\draw[fill=gray] ({245+30}:\earthorbitradius*0.72) circle (0.1) node[right] {Venus};
+	
+	% Mercury
+	\draw[dashed, opacity=0.3] (0, 0) circle (\earthorbitradius*0.38);
+	\draw[fill=gray] ({45+26}:\earthorbitradius*0.38) circle (0.1) node[left] {Mercury};
+    }
+
+    \uncover<2>{
+        \node[right] at (-45:\earthorbitradius*2) {\& many others};
+    }
+	
+	\end{tikzpicture}
 \end{frame}
 
 \begin{frame}{Multipoint observations of FDs}
@@ -522,7 +487,7 @@
     }
 \end{frame}
 
-\section{Statistical studies of Forbush decreases at MSL/RAD}
+\section{Statistical studies of Forbush decreases at Mars}
 
 \begin{frame}{Radiation Assessment Detector (MSL/RAD)}
     \begin{columns}
@@ -589,16 +554,14 @@
         \begin{column}{0.4\textwidth}
             \centering
             \begin{tikzpicture}[every node/.style={rectangle, rounded corners, draw=black, minimum width=4cm, minimum height=0.8cm}]
-                \node (step1) at (0, 0) {Take running difference};
+                \node (step1) at (0, 0) {Running difference};
                 \uncover<2->{
                     \node (step2) at (0, -1.5) {Cut out horizontal slice};
                     \draw[thick, -latex] (step1) -- (step2);
                 }
-                \uncover<3->{
+                \uncover<5->{
                     \node (step3) at (0, -3) {Rotate by \SI{90}{\degree}};
                     \draw[thick, -latex] (step2) -- (step3);
-                }
-                \uncover<4->{
                     \node (step4) at (0, -4.5) {Stack slices over time};
                     \draw[thick, -latex] (step3) -- (step4);
                 }                
@@ -606,21 +569,26 @@
         \end{column}
         \begin{column}{0.6\textwidth}
             \centering%
-            \begin{overprint}
-                \onslide<1>
-                    \centerline{\includegraphics[width=0.58\textwidth]{images/HCME_A__20120123_01-runndiff.pdf}}%
-                \onslide<2>
-                    \centerline{\includegraphics[width=0.58\textwidth]{images/HCME_A__20120123_01-runndiff-slice.pdf}}%
-                \onslide<3>
-                    \centerline{\includegraphics[width=0.58\textwidth,angle=90,origin=c]{images/HCME_A__20120123_01-runndiff-slice.pdf}}%
-                \onslide<4>
-                    \centerline{\includegraphics[width=\textwidth]{images/HCME_A__20120123_01.pdf}}
-            \end{overprint}
-            {\raggedright\scriptsize Source: HELCATS project (\url{https://www.helcats-fp7.eu}, adapted)}
+            \only<1>{
+                \includegraphics[width=0.8\textwidth]{plots/jmap_anim/HCME_B__20120116_01_diff_00012.jpg}
+            }%
+            \only<2>{
+                \animategraphics[autoplay,width=0.8\textwidth]{20}{plots/jmap_anim/HCME_B__20120116_01_diff_}{00012}{00044}
+            }%
+            \only<3>{
+                \animategraphics[autoplay,width=0.8\textwidth]{20}{plots/jmap_anim/HCME_B__20120116_01_diff_}{00083}{00097}
+            }%
+            \only<4>{
+                \animategraphics[autoplay,width=0.8\textwidth]{20}{plots/jmap_anim/HCME_B__20120116_01_diff_}{00105}{00126}
+            }%
+            \only<5>{
+                \animategraphics[autoplay,width=0.8\textwidth]{20}{plots/jmap_anim/HCME_B__20120116_01_diff_}{00164}{00222} 
+            }\\
+            {\raggedright\scriptsize Images: HELCATS project (\url{https://www.helcats-fp7.eu})}
         \end{column}
     \end{columns}
     \centering
-    \uncover<4>{\summary ICMEs can now be tracked as bright features. $\epsilon(t) \rightarrow r(t)$: geometric models.}
+    \uncover<5>{\summary ICMEs can now be tracked as bright features. $\epsilon(t) \rightarrow r(t)$: geometric models.}
 \end{frame}
 
 \begin{frame}{Catalogs of Forbush decreases at Mars}
@@ -739,7 +707,7 @@
         \end{column}
         \begin{column}{0.35\textwidth}            
             \summary Expansion factor:
-            \[E = \frac{A_\text{Mars}}{A_\text{Earth}} \approx 1.9\]
+            \[E = \frac{\textcolor{orange}{A_\text{Mars}}}{\textcolor{blue}{A_\text{Earth}}} \approx 1.9\]
             
             Larger catalog\\(Papaioannou et al. 2019): \[E \approx 1.5\]
         \end{column}

@@ -61,7 +61,7 @@
 \definecolor{currentfill}{HTML}{f29400}%
 \pgfsetfillcolor{currentfill}%
 \pgfsetlinewidth{1.003750pt}%
-\definecolor{currentstroke}{rgb}{0.121569,0.466667,0.705882}%
+\definecolor{currentstroke}{HTML}{f29400}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{2.794431in}{2.950607in}}%
@@ -84,7 +84,7 @@
 \definecolor{currentfill}{HTML}{f29400}%
 \pgfsetfillcolor{currentfill}%
 \pgfsetlinewidth{1.003750pt}%
-\definecolor{currentstroke}{rgb}{0.121569,0.466667,0.705882}%
+\definecolor{currentstroke}{HTML}{f29400}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{2.141415in}{1.797721in}}%
@@ -107,7 +107,7 @@
 \definecolor{currentfill}{HTML}{f29400}%
 \pgfsetfillcolor{currentfill}%
 \pgfsetlinewidth{1.003750pt}%
-\definecolor{currentstroke}{rgb}{0.121569,0.466667,0.705882}%
+\definecolor{currentstroke}{HTML}{f29400}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{2.376027in}{1.710059in}}%
@@ -130,7 +130,7 @@
 \definecolor{currentfill}{HTML}{f29400}%
 \pgfsetfillcolor{currentfill}%
 \pgfsetlinewidth{1.003750pt}%
-\definecolor{currentstroke}{rgb}{0.121569,0.466667,0.705882}%
+\definecolor{currentstroke}{HTML}{f29400}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{1.899650in}{2.192204in}}%
@@ -153,7 +153,7 @@
 \definecolor{currentfill}{HTML}{f29400}%
 \pgfsetfillcolor{currentfill}%
 \pgfsetlinewidth{1.003750pt}%
-\definecolor{currentstroke}{rgb}{0.121569,0.466667,0.705882}%
+\definecolor{currentstroke}{HTML}{f29400}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{2.221205in}{2.386395in}}%
@@ -176,7 +176,7 @@
 \definecolor{currentfill}{HTML}{f29400}%
 \pgfsetfillcolor{currentfill}%
 \pgfsetlinewidth{1.003750pt}%
-\definecolor{currentstroke}{rgb}{0.121569,0.466667,0.705882}%
+\definecolor{currentstroke}{HTML}{f29400}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{1.241859in}{1.215073in}}%
@@ -199,7 +199,7 @@
 \definecolor{currentfill}{HTML}{f29400}%
 \pgfsetfillcolor{currentfill}%
 \pgfsetlinewidth{1.003750pt}%
-\definecolor{currentstroke}{rgb}{0.121569,0.466667,0.705882}%
+\definecolor{currentstroke}{HTML}{f29400}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{1.293137in}{1.232377in}}%
@@ -222,7 +222,7 @@
 \definecolor{currentfill}{HTML}{f29400}%
 \pgfsetfillcolor{currentfill}%
 \pgfsetlinewidth{1.003750pt}%
-\definecolor{currentstroke}{rgb}{0.121569,0.466667,0.705882}%
+\definecolor{currentstroke}{HTML}{f29400}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{1.557652in}{2.122681in}}%
@@ -245,7 +245,7 @@
 \definecolor{currentfill}{HTML}{f29400}%
 \pgfsetfillcolor{currentfill}%
 \pgfsetlinewidth{1.003750pt}%
-\definecolor{currentstroke}{rgb}{0.121569,0.466667,0.705882}%
+\definecolor{currentstroke}{HTML}{f29400}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{1.367002in}{1.085305in}}%
@@ -268,7 +268,7 @@
 \definecolor{currentfill}{HTML}{f29400}%
 \pgfsetfillcolor{currentfill}%
 \pgfsetlinewidth{1.003750pt}%
-\definecolor{currentstroke}{rgb}{0.121569,0.466667,0.705882}%
+\definecolor{currentstroke}{HTML}{f29400}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{1.190306in}{1.296864in}}%
@@ -291,7 +291,7 @@
 \definecolor{currentfill}{HTML}{f29400}%
 \pgfsetfillcolor{currentfill}%
 \pgfsetlinewidth{1.003750pt}%
-\definecolor{currentstroke}{rgb}{0.121569,0.466667,0.705882}%
+\definecolor{currentstroke}{HTML}{f29400}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{1.294733in}{1.960366in}}%
@@ -314,7 +314,7 @@
 \definecolor{currentfill}{HTML}{f29400}%
 \pgfsetfillcolor{currentfill}%
 \pgfsetlinewidth{1.003750pt}%
-\definecolor{currentstroke}{rgb}{0.121569,0.466667,0.705882}%
+\definecolor{currentstroke}{HTML}{f29400}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{1.058577in}{0.979422in}}%
@@ -337,7 +337,7 @@
 \definecolor{currentfill}{HTML}{f29400}%
 \pgfsetfillcolor{currentfill}%
 \pgfsetlinewidth{1.003750pt}%
-\definecolor{currentstroke}{rgb}{0.121569,0.466667,0.705882}%
+\definecolor{currentstroke}{HTML}{f29400}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{2.013867in}{2.202565in}}%
@@ -360,7 +360,7 @@
 \definecolor{currentfill}{HTML}{f29400}%
 \pgfsetfillcolor{currentfill}%
 \pgfsetlinewidth{1.003750pt}%
-\definecolor{currentstroke}{rgb}{0.121569,0.466667,0.705882}%
+\definecolor{currentstroke}{HTML}{f29400}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{1.436414in}{1.068059in}}%
@@ -1910,76 +1910,7 @@
 \pgfpathlineto{\pgfqpoint{3.880000in}{3.580000in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
-\begin{pgfscope}%
-\pgfsetbuttcap%
-\pgfsetmiterjoin%
-\definecolor{currentfill}{rgb}{1.000000,1.000000,1.000000}%
-\pgfsetfillcolor{currentfill}%
-\pgfsetfillopacity{0.500000}%
-\pgfsetlinewidth{1.003750pt}%
-\definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
-\pgfsetstrokecolor{currentstroke}%
-\pgfsetstrokeopacity{0.500000}%
-\pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{0.585563in}{2.807870in}}%
-\pgfpathlineto{\pgfqpoint{1.701130in}{2.807870in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{1.734464in}{2.807870in}}{\pgfqpoint{1.734464in}{2.841203in}}%
-\pgfpathlineto{\pgfqpoint{1.734464in}{3.083314in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{1.734464in}{3.116648in}}{\pgfqpoint{1.701130in}{3.116648in}}%
-\pgfpathlineto{\pgfqpoint{0.585563in}{3.116648in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{0.552229in}{3.116648in}}{\pgfqpoint{0.552229in}{3.083314in}}%
-\pgfpathlineto{\pgfqpoint{0.552229in}{2.841203in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{0.552229in}{2.807870in}}{\pgfqpoint{0.585563in}{2.807870in}}%
-\pgfpathclose%
-\pgfusepath{stroke,fill}%
-\end{pgfscope}%
-\begin{pgfscope}%
-\definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
-\pgfsetstrokecolor{textcolor}%
-\pgfsetfillcolor{textcolor}%
-\pgftext[x=0.585563in,y=3.006253in,left,base]{\color{textcolor}\fontsize{8.000000}{9.600000}\selectfont \(\displaystyle r_{\text{Mars}} = \num{0.77}\)}%
-\end{pgfscope}%
-\begin{pgfscope}%
-\definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
-\pgfsetstrokecolor{textcolor}%
-\pgfsetfillcolor{textcolor}%
-\pgftext[x=0.585563in,y=2.862808in,left,base]{\color{textcolor}\fontsize{8.000000}{9.600000}\selectfont \(\displaystyle p_{\text{Mars}}=\SI{5.2e-05}{\percent}\)}%
-\end{pgfscope}%
-\begin{pgfscope}%
-\pgfsetbuttcap%
-\pgfsetmiterjoin%
-\definecolor{currentfill}{rgb}{1.000000,1.000000,1.000000}%
-\pgfsetfillcolor{currentfill}%
-\pgfsetfillopacity{0.500000}%
-\pgfsetlinewidth{1.003750pt}%
-\definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
-\pgfsetstrokecolor{currentstroke}%
-\pgfsetstrokeopacity{0.500000}%
-\pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{2.646876in}{0.535299in}}%
-\pgfpathlineto{\pgfqpoint{3.795527in}{0.535299in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{3.828861in}{0.535299in}}{\pgfqpoint{3.828861in}{0.568632in}}%
-\pgfpathlineto{\pgfqpoint{3.828861in}{0.810743in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{3.828861in}{0.844076in}}{\pgfqpoint{3.795527in}{0.844076in}}%
-\pgfpathlineto{\pgfqpoint{2.646876in}{0.844076in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{2.613543in}{0.844076in}}{\pgfqpoint{2.613543in}{0.810743in}}%
-\pgfpathlineto{\pgfqpoint{2.613543in}{0.568632in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{2.613543in}{0.535299in}}{\pgfqpoint{2.646876in}{0.535299in}}%
-\pgfpathclose%
-\pgfusepath{stroke,fill}%
-\end{pgfscope}%
-\begin{pgfscope}%
-\definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
-\pgfsetstrokecolor{textcolor}%
-\pgfsetfillcolor{textcolor}%
-\pgftext[x=3.112439in,y=0.733682in,left,base]{\color{textcolor}\fontsize{8.000000}{9.600000}\selectfont \(\displaystyle r_{\text{Earth}} = \num{0.89}\)}%
-\end{pgfscope}%
-\begin{pgfscope}%
-\definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
-\pgfsetstrokecolor{textcolor}%
-\pgfsetfillcolor{textcolor}%
-\pgftext[x=2.646876in,y=0.590237in,left,base]{\color{textcolor}\fontsize{8.000000}{9.600000}\selectfont \(\displaystyle p_{\text{Earth}}=\SI{2.2e-03}{\percent}\)}%
-\end{pgfscope}%
+
 \begin{pgfscope}%
 \pgfsetbuttcap%
 \pgfsetmiterjoin%
@@ -1992,10 +1923,10 @@
 \pgfsetstrokeopacity{0.800000}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{0.578868in}{3.176127in}}%
-\pgfpathlineto{\pgfqpoint{3.549527in}{3.176127in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{3.571749in}{3.176127in}}{\pgfqpoint{3.571749in}{3.198349in}}%
-\pgfpathlineto{\pgfqpoint{3.571749in}{3.502222in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{3.571749in}{3.524444in}}{\pgfqpoint{3.549527in}{3.524444in}}%
+\pgfpathlineto{\pgfqpoint{2.049527in}{3.176127in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{2.071749in}{3.176127in}}{\pgfqpoint{2.071749in}{3.198349in}}%
+\pgfpathlineto{\pgfqpoint{2.071749in}{3.502222in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{2.071749in}{3.524444in}}{\pgfqpoint{2.049527in}{3.524444in}}%
 \pgfpathlineto{\pgfqpoint{0.578868in}{3.524444in}}%
 \pgfpathquadraticcurveto{\pgfqpoint{0.556646in}{3.524444in}}{\pgfqpoint{0.556646in}{3.502222in}}%
 \pgfpathlineto{\pgfqpoint{0.556646in}{3.198349in}}%
@@ -2018,7 +1949,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=0.839979in,y=3.413333in,left,base]{\color{textcolor}\fontsize{8.000000}{9.600000}\selectfont \(\displaystyle \Delta y_{\text{Mars}} = \SI{7.0+-0.9}{\hour} \cdot m_{\text{max, Mars}} + \SI{0.5+-0.6}{\percent}\)}%
+\pgftext[x=0.839979in,y=3.413333in,left,base]{\color{textcolor}\fontsize{8.000000}{9.600000}\selectfont \(\displaystyle A_{\text{Mars}} = \SI{7.0+-0.9}{\hour}\)}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetrectcap%
@@ -2035,7 +1966,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=0.839979in,y=3.239633in,left,base]{\color{textcolor}\fontsize{8.000000}{9.600000}\selectfont \(\displaystyle \Delta y_{\text{Earth}} = \SI{3.7+-0.7}{\hour} \cdot m_{\text{max, Earth}} - \SI{0.5+-0.7}{\percent}\)}%
+\pgftext[x=0.839979in,y=3.239633in,left,base]{\color{textcolor}\fontsize{8.000000}{9.600000}\selectfont \(\displaystyle A_{\text{Earth}} = \SI{3.7+-0.7}{\hour}\)}%
 \end{pgfscope}%
 \end{pgfpicture}%
 \makeatother%
