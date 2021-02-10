@@ -1,23 +1,10 @@
 - 1870 event -> auch auf der Titelfolie
 
-- Folie 6+7 kürzen. SolO ausschreiben, starting Nov 2021.
-- Folie 7 PSP* -> erklären. PSP nicht mit Kreis überlappend.
-- Folie 6+7 gestrichelten Kreis drehen sodass kaputter Strich verschwindet
 - Positionen von heute
 - Abstände von oben verbessern
 
-- Folie 9: Remote sensing weglassen, "In situ + FDs" weg, "& many others" nach rechts, Grafik bisschen größer
-
-- Folie 10: Grafik Labels neu machen, "Mars, 67P, Saturn", Zitat über Grafik setzen
-- Folie 11: B und C weiter auseinander, etwas nach links
-- Folie 12: Bild größer?, zweites und drittes Bild alignen
-- Folie 14: Zeiträume angeben, erstes Bild größer
-
-- Folie 16: Legende: A_mars = 7.0, A_earth = 3.7, Gleichung Blau und Orange einfärben, restliche Legende weg, blaue Kreise weg. Originale Grafik in den Anhang
-
 - Pause zwischen den Teilen
 
-- Folie 21: 19./20 April
 - Legende v/T Umkreisen mit Stift?
 
 -Kürzen:
