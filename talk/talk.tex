@@ -84,6 +84,17 @@
 
 \newfontfamily\extraboldfont[ItalicFont={FiraSans-BoldItalic.otf},BoldFont={FiraSans-ExtraBold.otf},BoldItalicFont={FiraSans-ExtraBoldItalic.otf}]{FiraSans-Bold.otf}
 
+% slide numbering with overlays
+\newcounter{slideinframe}
+
+\defbeamertemplate{frame numbering}{subcounter}{
+    \setcounter{slideinframe}{\insertpagenumber}%
+    \addtocounter{slideinframe}{-\insertframestartpage}%
+    \addtocounter{slideinframe}{1}%
+    \insertframenumber%
+    \ifthenelse{\equal{\insertframestartpage}{\insertframeendpage}}{}{\alph{slideinframe}}}
+\setbeamertemplate{frame numbering}[subcounter]
+
 \begin{document}
 \maketitle
 
@@ -171,9 +182,11 @@
                 \faStyle{solid}
 				\item<2-> \textbf{Approaches:}
 				\begin{itemize}
-					\item<alert@2> Analytical \textbf{empirical models} (DBM)
-					\item<alert@3> \textbf{MHD} simulations (WSA-ENLIL+Cone, EUHFORIA)
-					\item Machine Learning algorithms etc.
+					\item<alert@2> Analytical \textbf{empirical models}\\
+                        \hspace{4mm}\scriptsize e.g.: Drag-based model (DBM)
+					\item<alert@3> \textbf{MHD} simulations\\
+                        \hspace{4mm}\scriptsize e.g.: Wang-Sheeley-Arge (WSA)-ENLIL+Cone, EUHFORIA
+					\item Machine learning algorithms etc.
 				\end{itemize}
 			\end{itemize}
             \uncover<6>{\centering\summary Models need to be supported with in situ and remote sensing data to improve forecasting capabilities.}
@@ -185,8 +198,8 @@
 				\footnotesize WSA-ENLIL+Cone (Odstrcil et al. 2004)\\ event from Guo et al. 2018
 			}
 			\only<2>{
-				\animategraphics[poster=20,width=\textwidth]{10}{plots/dbm_anim/dbm_anim}{000}{025}\\
-				\footnotesize DBM, Vrsnak et al. 2013
+				\animategraphics[poster=20,width=\textwidth, trim=0cm 0.5cm 0cm 0cm]{10}{plots/dbm_anim/dbm_anim}{000}{025}\\
+				\footnotesize DBM, Vr\v{s}nak et al. 2013
 			}
 		\end{column}
 	\end{columns}
@@ -198,7 +211,7 @@
         \begin{column}{0.45\textwidth}
             \centering
             \textbf{Remote sensing:} from the side\\
-            or even from the poles?\\[0.2cm]
+            or even from the poles?\\
             \begin{tikzpicture}
                 \def\earthorbitradius{2.5}
                 \def\sunradius{0.2}
@@ -250,7 +263,7 @@
         \begin{column}{0.45\textwidth}
             \centering
             \textbf{In situ:} regular grid of observers\\
-            \strut\\[0.2cm]
+            \strut
             \begin{tikzpicture}
                 \def\earthorbitradius{2.5}
                 \def\sunradius{0.2}
@@ -306,12 +319,12 @@
     
 \end{frame}
 
-\begin{frame}{Fleet of heliophysics missions}
+\begin{frame}{Fleet of relevant heliophysics missions}
     \begin{columns}[t]
         \begin{column}{0.45\textwidth}
             \centering
             \textbf{Remote sensing}\\
-            \strut\\[0.1cm]
+            \strut\\[-0.1cm]
             \begin{tikzpicture}
                 \def\earthorbitradius{2.5}
                 \def\sunradius{0.2}
@@ -345,7 +358,7 @@
         \textcolor{black!40}{\vrule{}}
         \begin{column}{0.45\textwidth}
             \centering
-            \textbf{In situ}\\[0.08cm]
+            \textbf{In situ}\\[-0.12cm]
             \strut\\
             \begin{tikzpicture}
                 \def\earthorbitradius{2.5}
@@ -381,7 +394,9 @@
         \footnotesize not to scale
     \end{flushright}
     \vspace{-0.3cm}
-    \uncover<2->{\centering\summary Multispacecraft observations are \textbf{relatively rare}, especially in situ.}
+    \centering
+    \tiny SOHO: Solar and Heliospheric Observatory \quad SDO: Solar Dynamics Observatory \quad STEREO: Solar TErrestrial RElations Observatory \\ ACE: Advanced Composition Explorer \quad DSCOVR: Deep Space Climate Observatory \quad PSP: Parker Solar Probe\\
+    \uncover<2->{\normalsize\summary Multispacecraft observations are \textbf{relatively rare}, especially in situ.}
 \end{frame}
 
 \begin{frame}{Forbush decreases (FDs)}
@@ -409,14 +424,20 @@
             \onslide<1>
                 \vskip1cm
                 \includegraphics[width=\textwidth]{plots/cane2000-classical-fd-adapted.png}
-                \scriptsize adapted from Cane (2000)    
+                \begin{flushright}
+                    \scriptsize adapted from Cane (2000)
+                \end{flushright}    
             \onslide<2, 4->
                 \includegraphics[width=\textwidth]{images/RichardsonCane-adapted.pdf}
-                \scriptsize adapted from Richardson and Cane (2011)    
+                \begin{flushright}
+                    \scriptsize adapted from Richardson and Cane (2011)
+                \end{flushright}    
             \onslide<3>
                 \vskip1cm
                 \includegraphics[width=\textwidth]{images/Owens-Forsyth-adapted.pdf}
-                \scriptsize adapted from Owens and Forsyth (2013)    
+                \begin{flushright}
+                    \scriptsize adapted from Owens and Forsyth (2013)
+                \end{flushright}    
             \end{overprint}
         \end{column}
     \end{columns}
@@ -476,16 +497,20 @@
 \end{frame}
 
 \begin{frame}{Multipoint observations of FDs}
-    \vskip0.2cm
-    \begin{center}
-        \includegraphics[width=0.8\linewidth]{images/witasse2017.pdf}\\
-        \footnotesize Witasse et al. (2017, adapted)
-    \end{center}
+    \vskip2mm
     \uncover<2->{
         \begin{quote}
             ``\textbf{More information on ICME properties} can probably be obtained [from] these data sets. For example, we suspect that the \textbf{evolution of the radial extension} of the ICME could be inferred from the Forbush decrease data.''
         \end{quote}
     }
+    \vspace{-2mm}
+    \begin{center}
+        \includegraphics[width=0.8\linewidth]{images/witasse2017.pdf}
+    \end{center}
+    \vspace{-2mm}
+    \begin{flushright}
+        \footnotesize Witasse et al. (2017, adapted)
+    \end{flushright}
 \end{frame}
 
 \section{Statistical studies of Forbush decreases at Mars}
@@ -500,7 +525,7 @@
                     \item \textbf{Cruise phase:} 12/2011 -- 07/2012\\
                     \textbf{Surface phase:} 08/2012 -- today
                     \item Data products: charged \& neutral \textbf{particle spectra}, \textbf{dosimetry}
-              \end{vfilleditems}
+                \end{vfilleditems}
                 \vfill      
                 \uncover<2->{\centering\summary Best statistics to observe FDs: \textbf{total ionizing dose in E}}
                 \vfill
@@ -513,6 +538,11 @@
             \raisebox{-0.5\height}{\input{images/mslrad_sensor_schematic.tex}}
             \hspace{3mm}
             \raisebox{-0.5\height}{\includegraphics[width=0.35\textwidth]{images/mslrad.jpg}}\\
+            \vspace{-7mm}
+            \begin{flushright}
+                \scriptsize NASA/JPL-Caltech/SwRI
+            \end{flushright}
+            \vspace{-2mm}
             \uncover<2->{
                 \centering
                 \input{plots/msl_dose.pgf}
@@ -583,9 +613,11 @@
                 \animategraphics[autoplay,width=0.8\textwidth]{20}{plots/jmap_anim/HCME_B__20120116_01_diff_}{00105}{00126}
             }%
             \only<5>{
-                \animategraphics[autoplay,width=0.8\textwidth]{20}{plots/jmap_anim/HCME_B__20120116_01_diff_}{00164}{00222} 
-            }\\
-            {\raggedright\scriptsize Images: HELCATS project (\url{https://www.helcats-fp7.eu})}
+                \animategraphics[autoplay,width=0.8\textwidth]{20}{plots/jmap_anim/HCME_B__20120116_01_diff_}{00164}{00259} 
+            }
+            \begin{flushright}
+                \scriptsize Images: HELCATS project (\url{https://www.helcats-fp7.eu})
+            \end{flushright}
         \end{column}
     \end{columns}
     \centering
@@ -673,7 +705,11 @@
                     (-70:-104:1.25*\earthorbitradius); %ICME	
                 \end{tikzpicture}
             }
-            \only<1>{\includegraphics[trim=0 0 500 0, clip,width=\textwidth]{images/papaioannou_etal_fig2.png}}
+            \only<1>{\includegraphics[trim=0 0 500 0, clip,width=\textwidth]{images/papaioannou_etal_fig2.png}
+                \begin{flushright}
+                    \scriptsize adapted from Papaioannou et al. (2019)
+                \end{flushright}
+            }
             
     	\end{column}
     \end{columns}
@@ -685,7 +721,6 @@
     \only<3>{\def\step{2}}%
     \only<4>{\def\step{3}}%
     \only<5>{\def\step{4}}%
-    \textbf{Cartoon visualization:}
     \centering%
     \input{images/fd_correlation_cartoon_animated.tex}\\
     \only<1-2>{\uncover<2>{3 FDs at Earth, observed at GCR energy $E_0$}}%
@@ -696,8 +731,8 @@
             \textbf{Sheath: }\frac{\Delta y_s}{m_{\text{max},s}} = \ldots = T_\text{sheath} \qquad
             \textbf{Ejecta: }\frac{\Delta y_e}{m_{\maxt,e}} = \ldots \approx 0.36 \cdot T_\text{ICME}
         \] 
+        \centering\summary $\Delta y/m_\text{max}$ only depends on duration of sheath/ICME, not on energy
     }
-
 \end{frame}
 
 \begin{frame}{Deriving CME expansion from FD data (von Forstner et al. 2020)}
@@ -708,9 +743,9 @@
         \end{column}
         \begin{column}{0.35\textwidth}            
             \summary Expansion factor:
-            \[E = \frac{\textcolor{orange}{A_\text{Mars}}}{\textcolor{blue}{A_\text{Earth}}} \approx 1.9\]
+            \[E = \frac{\textcolor{orange}{A_\text{Mars}}}{\textcolor{blue}{A_\text{Earth}}} = \num{1.9+-0.4}\]
             
-            Larger catalog\\(Papaioannou et al. 2019): \[E \approx 1.5\]
+            Larger catalog\\(Papaioannou et al. 2019): \[E = \num{1.5+-0.2}\]
         \end{column}
     \end{columns}
 \end{frame}
@@ -728,11 +763,16 @@
 
 \draw[decorate, decoration={brace,amplitude=10pt}] (0.72*\tikzAU,-0.3) -- (0.38*\tikzAU,-0.3) node[midway,below,yshift=-0.4cm,align=center]{$E\approx3$\\\footnotesize (Janvier+ 2019)\only<2->{\\$\Delta r = \SI{0.34}{\AU}$}};
 \draw[decorate, decoration={brace,amplitude=10pt}] (\tikzAU,-0.3) -- (0.72*\tikzAU,-0.3) node[midway,below,yshift=-0.4cm,align=center]{$E\approx1.7$\\\footnotesize (Janvier+ 2019)\only<2->{\\$\Delta r = \SI{0.28}{\AU}$}};
-\draw[decorate, decoration={brace,amplitude=10pt}] (1.52*\tikzAU,-0.3) -- (\tikzAU,-0.3) node[midway,below,yshift=-0.4cm,align=center]{$E \approx\ $\numrange{1.5}{1.9}\\\footnotesize (von Forstner+ 2020)\only<2->{\\$\Delta r = \SI{0.5}{\AU}$}};
+\draw[decorate, decoration={brace,amplitude=10pt}] (1.52*\tikzAU,-0.3) -- (\tikzAU,-0.3) node[midway,below,yshift=-0.4cm,align=center]{$E \approx\ $\numrange{1.5}{1.9}\\\footnotesize (von Forstner+ 2020)\only<2->{\\$\Delta r = \SI{0.52}{\AU}$}};
 
 \uncover<3>{
 	\begin{axis}[at={(0.3*\tikzAU, -3.8cm)}, axis x line=bottom, axis y line=left, x=\tikzAU, height=3cm, xmin=0.3, ymin=0, ymax=10, xmax=1.52, xlabel={\footnotesize Radial distance / \si{\AU}}, ylabel={\footnotesize $E/\Delta r$ / \si[per-mode=reciprocal]{\per\AU}}, ytick={0,5,10}]
-	\addplot[only marks, mark=*] coordinates {(0.55,9.375) (0.86,6.07) (1.26,3.17)};
+	\addplot[only marks, mark=*, mark size=1.5pt, error bars/.cd,
+    y dir=both,y explicit,error mark=none,error bar style={thick}] coordinates {
+        (0.55,9.375) +- (0, 0)
+        (0.86,6.07) +- (0, 0)
+        (1.26,3.27) +- (0, 0.7)
+    };
 	\end{axis}
 }
 \end{tikzpicture}
@@ -751,7 +791,7 @@
     \begin{columns}
         \begin{column}{0.4\textwidth}
             \begin{itemize}
-                \item \textbf{First CME} at SolO, April 19 2020
+                \item \textbf{First CME} at SolO, April 19\textsuperscript{th} 2020
                 \item Also hit Earth and BepiColombo
                 \item Remote sensing from STEREO-A
                 \item Ideal \textbf{radial alignment} ($\sim\SI{4}{\degree}$)
@@ -769,7 +809,7 @@
     \begin{columns}
         \begin{column}{0.4\textwidth}
             \begin{itemize}
-                \item \textbf{Graduated Cylindrical Shell} (Thernisien 2012), ``Croissant''
+                \item \textbf{Graduated Cylindrical Shell (GCS)} (Thernisien 2012), ``Croissant''
                 \item New Python implementation:\\[-1mm] {\scriptsize\url{https://github.com/johan12345/gcs_python}}
             \end{itemize}
             \centering

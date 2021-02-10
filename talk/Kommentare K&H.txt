@@ -1,7 +1,4 @@
-- 1870 event -> auch auf der Titelfolie
-
 - Positionen von heute
-- Abstände von oben verbessern
 
 - Pause zwischen den Teilen
 

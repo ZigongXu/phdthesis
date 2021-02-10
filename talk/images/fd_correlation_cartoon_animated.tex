@@ -90,7 +90,8 @@
         \draw[thick, dashed] (0, 0) -- ++(\angle:4);
         \ifthenelse{\step=0}{}{
         \ifthenelse{\step=1}{}{
-            \draw (0, 0) ++(\angle:4) node[below right,align=center] {Mars};
+            \ifthenelse{\step=2}{\def\marstextalpha{max(0,\rAnim*3-2)}}{\def\marstextalpha{1}}
+            \draw (0, 0) ++(\angle:4) node[below right,align=center,opacity=\marstextalpha] {Mars};
         }}
 		\fill[blue] (\angle:2.0*\distance) circle (0.08cm);
         \ifthenelse{\step=0}{}{
