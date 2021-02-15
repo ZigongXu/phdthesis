@@ -184,7 +184,7 @@
 				\begin{itemize}
 					\item<alert@2> Analytical \textbf{empirical models}\\
                         \hspace{4mm}\scriptsize e.g.: Drag-based model (DBM)
-					\item<alert@3> \textbf{MHD} simulations\\
+					\item<alert@3> Magnetohydrodynamic (\textbf{MHD}) simulations\\
                         \hspace{4mm}\scriptsize e.g.: Wang-Sheeley-Arge (WSA)-ENLIL+Cone, EUHFORIA
 					\item Machine learning algorithms etc.
 				\end{itemize}
@@ -263,7 +263,7 @@
         \begin{column}{0.45\textwidth}
             \centering
             \textbf{In situ:} regular grid of observers\\
-            \strut
+            \strut\\
             \begin{tikzpicture}
                 \def\earthorbitradius{2.5}
                 \def\sunradius{0.2}
@@ -314,7 +314,6 @@
     \begin{flushright}
         \footnotesize not to scale
     \end{flushright}
-    \vspace{-0.3cm}
     \summary \textbf{Unrealistic.} So what can we do with existing spacecraft?
     
 \end{frame}
@@ -393,7 +392,7 @@
     \begin{flushright}
         \footnotesize not to scale
     \end{flushright}
-    \vspace{-0.3cm}
+    \vspace{-0.2cm}
     \centering
     \tiny SOHO: Solar and Heliospheric Observatory \quad SDO: Solar Dynamics Observatory \quad STEREO: Solar TErrestrial RElations Observatory \\ ACE: Advanced Composition Explorer \quad DSCOVR: Deep Space Climate Observatory \quad PSP: Parker Solar Probe\\
     \uncover<2->{\normalsize\summary Multispacecraft observations are \textbf{relatively rare}, especially in situ.}
@@ -409,8 +408,8 @@
                 \item Short-term decreases of \textbf{galactic cosmic ray (GCR)} intensity --- Amplitude: few \si{\percent}
                 \item Turbulent or closed \textbf{magnetic structures}\\act as a barrier for the GCRs:
                 \begin{itemize}
-                    \item ICME \textbf{shock/sheath} and \textbf{ejecta} (flux rope)
-                    \item Stream interaction regions (\textbf{SIRs})
+                    \item<alert@2> ICME \textbf{shock/sheath} and \textbf{ejecta} (flux rope)
+                    \item<alert@3> Stream interaction regions (\textbf{SIRs})
                 \end{itemize}
             \end{vfilleditems}
             \vfill
@@ -640,7 +639,7 @@
                     \end{itemize}
     			\item<3-> \textbf{von Forstner et al. 2019}: 45 ICMEs observed with STEREO-HI which caused a FD at MSL
     				\begin{itemize}
-                        \item 2011--2018
+                        \item 2011--2018 (including cruise phase)
                         \item Validated HI-predicted arrival times
     				\end{itemize}
     		\end{itemize}
@@ -841,8 +840,8 @@
             \vskip3mm
             \centering
             \input{images/solohet_sensor_schematic.tex}
-            \footnotesize \textcolor{red}{stopping in B} \quad \textcolor{green}{stopping in C} \quad \textcolor{blue}{penetrating} \\ \uncover<2->{\textcolor{Aquamarine}{GCR channel} \quad \textcolor{orange}{C single counter}}\\
-            \uncover<3->{\input{plots/het_gcr.pgf}}
+            \footnotesize \textcolor{red}{stopping in B} \quad \textcolor{green}{stopping in C} \quad \textcolor{blue}{penetrating} \\ \uncover<2->{\textcolor{Aquamarine}{GCR channel}} \quad \uncover<3->{\textcolor{orange}{C single counter}}\\
+            \uncover<4->{\input{plots/het_gcr.pgf}}
         \end{column}
     \end{columns}
 \end{frame}
