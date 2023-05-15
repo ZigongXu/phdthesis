@@ -62,27 +62,26 @@ The problem of SEP studies
 	\centering
 	\includegraphics[width = 0.5\textwidth]{images/oxygen_cosmic-ray spectrum.png}
 	
-	\caption{The cosmic spectra of all particles and ACR oxygens observed at 1 AU. This figure is from Giacalone 2021, 2012, and also originally from Jokipii 1990.
-	The spectrum is displayed in more than 15 orders magnitude on the energy scale and about 30 orders of magnitude on the intensity scale, much broader than Fig.\ref{Fig:Oxygen_spectra_heliosphere}.}
+	\caption{The cosmic spectra of all particles and ACR oxygens observed at 1 AU. This figure is from Giacalone 2021, 2012, and originally from Jokipii 1990.
+	The spectrum is plotted in more than 15 orders of magnitude on the energy scale and about 30 orders of magnitude on the intensity scale, extend the high energy end of Fig.\ref{Fig:Oxygen_spectra_heliosphere}.}
 	\label{Fig:Oxygen_spectra_cosmic_ray}
 \end{figure}
+%https://timeline.web.cern.ch/victor-hess-discovers-cosmic-rays-0
+The first discovery of the galactic cosmic rays was made by the Victor Hess in 1912 when he carried on a ballon experiement. The initial purpose of the experiement was to find the source of ionizing radiation in Earth's atmosphere using the electroscope. However, as the ballon climb-up in the experiment, he found that ionization rate measured in the electroscope showed less signicant decrease than anticipated. Such a discrepancy was attributed to the existence of the cosmic rays which increase the radiation in the atmoshphere.
 
-The first discovery of the galactic cosmic rays was made by the Victor Hess in 1912 in a ballon experiement, in order to find the source of ionizing radiation in the atmosphere. In the experiment, as the ballon climb-up, he measured the radiation in earth atmosphere in a balloon experiement, finding an enhancement of the ionizing radiation in an electroscope.  
+\acs{GCR} consist of multiple energetic particle species span a wide range of energy, which mostly are dominated by the proton, about 89\%  and the remain share are 10\% helium and a small portal of heavier ions (1\%), electron, positron and antiproton. 
+It is believed that \acs{GC} are mainly originated from the supernova remanent very far from the sun[citation] and obtain the energy from the shock waves which is genereated from the explosion of supernova. When the shock wave travel through the surrounding interstellar gas, the kinetic energy of shock are tranfer to the  (neutral gas?) by the (Fermi-acceleration, ciataion and the acceleration process), Utilimatly, the energetic particle with energy up to 10$^12$ eV are created.
 
-
-Cosmic rays, first discovered by physicist Victor Hess during a daring hot-air balloon flight in 1912, are subatomic particles moving at nearly the speed of light. These particles, primarily composed of protons, helium nuclei, and high-energy electrons, originate from a variety of sources both inside and outside our galaxy. GCRs, as the name suggests, are predominantly sourced from within the Milky Way.
-
-
-
-GCRs consist of wide range of energetic particles,  which mostly are dominated by the proton, about 89\%  and the remain share are 10\% helium and a small portal of heavier ions (1\%), electron, positron and antiproton. The dominated energy of gcr, as shown in the Fig.\ref{Fig:Oxygen_spectra_heliosphere} is above 100MeV/nuc. Below that, the other component are more common than GCR and it is hard to seperated those particles.
-
-Figure \ref{Fig:Oxyge_spectra_cosmic_ray} are the full spectrum of the all cosmic particles observed at 1 AU which includes the ACR and GCR components.  The GCR
+In figure \ref{Fig:Oxyge_spectra_cosmic_ray}, the full spectrum of the all cosmic particles observed at 1 AU which includes both the \ac{ACR} and \ac{GCR} components is shown. The \acs{GCR} are indicated as the empty squares. In the higher energy end above 1 GeV, the spectrum could be simply fitted by power a law spectrum with index of about -2.6. The knee of GCR spectra are around [] energy and reflect what mechanism[citation]. The lower energy spectra which also show as a turn over below 1 GeV are more complicated and could not be fitted by a signel power law.
 
 
-Currently it is believed that those GCR are main originated from the supernova explosion and derived the energy from the shock waves which is genereate from the explosion. When the shock wave travel through the surrounding interstellar gas, the kinetic energy of shock are tranfer to the  (neutral gas?) by the (Fermi-acceleration, ciataion and the acceleration process), Utilimatly, causing the galactic cosmic ray up to 10$^12$ eV.
 
+% As shown in the Fig.\ref{Fig:Oxygen_spectra_heliosphere}, the dominated energy of \acs{GCR} is above 100MeV/nuc.  
+% ---- To do
+% [Describe the GCR spectra]
+% Below that, the other component are more common than GCR and it is hard to seperated those particles.
+%  ---
 Because cosmic rays are fully charged, they are deflected by the magnetic field when they propagation in the interstellar space after speeding up. The directions of those particle are normalized by the strong magnetic field. Hence when they arrived at the local bubble of solar system, we obtained an nearly isotropic and constant intensity profile [citaion of the LSTM,]
-
 
 To model the solar modulation on the particle transportation of GCR spectra, an input particle spectra need to be specifield, which is the so-call LSTM [ citaion of LSTM]. LSTM is the modulation boundary and will be modulatined as the change of the position, energy, and time after those particle diffusion into the heliosphere. Such a spectra have been observed by the voyeger after then cross the boundary of solar system and enter the interstellar medium
 
@@ -90,7 +89,7 @@ To model the solar modulation on the particle transportation of GCR spectra, an 
 A paragraph of local intersteallar spectra ?
 
 
-After enter the heliosphere, those high energetic particle are modulated the solar wind and its embedding magnetic field  which change in a 11 year or 22 year period,
+After enter the heliosphere, those high energetic particle are modulated the solar wind and its embedding magnetic field  which changes in a 11 year or 22 year period.
 The relavant process of the solar modulations could be described by a basic transport equation (TPE) which is first derived by Parker (1965). The same equations was also derived by Gleeson and Axford (1967) in the more rigorous ways. This equation is based on the motion of charged and particle in the high frequently changed magnetic field and averages over the pitch angle of particle moving in the magnetic field. The precondition of this equation is the reasonable assumption of the isotropically distributed GCRs. The TPE give the phase-space distribution function, $f$ as the function of positions, time  and momentum magnetitude. In Potgieter (2013), the helispheric TPE, based on Parker (1965) is rewritten in the following form:
 
 	\begin{equation}
@@ -100,15 +99,19 @@ The relavant process of the solar modulations could be described by a basic tran
 
 where $f(r, P, t)$ is the cosmic ray distribution as the function of the time t, particle rigidity P and 3-dimension position in the space. Compared with the $\sim$ 11 years solar cycle, the periodcally solar rotation ($\sim$ 27 days) and  the time of the solar wind traveling to the edge of helipshere ($\sim$ 1 years) are short-term variation and can be neglected. Hence the steady-state solution with  $\frac{\partial f}{\partial t} = 0$ (part a of Eq.\ref{Eq:Transportation_equation}) is a reasonable assumption and also considered. Terms in the right parts include four effects that are used to describe the variation of the cosmic rays: (b) convection due to the solar wind velocity $\boldsymbol{V}$; (c) drift effects caused by the gradient and curvature of the large-scale \ac{HMF}, which is estimated by a 3D Archimedean spiral (Parker 1978), $\langle v_d \rangle$ represents the averaged drift velocity; (d) diffusion effects caused by the turbulent mangetic field, with the $\boldsymbol{K}_s$ the symmetrical diffusion tenser; (e)adiabatic energy change and deceleration due to the expansion of the solar wind. 
 
-Since TPE is a high non-linear partial differential equation, only a simplified solution of the GCR spectra is the Force-field Solution (FFS), which is first derived by Gleeson and Axford [1967, 1968b]. Later, a reasonable GCR spectra of the particle with energy above 150 MeV were given by Gleeson and Urch 1973.
+Since TPE is a high non-linear partial differential equation, only a simplified solution of the GCR spectra is derived which is called the Force-field Solution (FFS). The FFS was first derived by Gleeson and Axford [1967, 1968b]. Later, a reasonable GCR spectra of the particle with energy above 150 MeV were given by Gleeson and Urch 1973.
+With the development of computer technque and numerical studies, simulation are becoming more and more important in studying the tranporation and solar modulation of the cosmic rays. [Jokippi and Kopriva 1979, Le Roux and Potgieter 1995, Manuel et al 2011, and Potgieter 2013, Vos & Potgieter 2015, 2016; Boschini et al. 2019;
+Corti et al. 2019; Shen et al. 2019 \url{https://iopscience.iop.org/article/10.3847/2041-8213/acbea7/pdf}]. 
+Several popular used model like BON14, 2020, CREME 96 and HELMOD based the solar modulation and sunspot numbers could easily reproduce the GCR intemnsity and spectra consistent with the measurement from ACE in 1 AU and Voyager probes in the different regions of helisophere [Boschini et al 2019- Model]
 
-With the development of computer technque and numerical studies, simulation are becoming more and more important in studying the tranporation and solar modulation of the cosmic rays. [Jokippi and Kopriva 1979, Le Roux and Potgieter 1995, Manuel et al 2011, and Potgieter 2013]. 
-Several model like BON14, 2020, CREME 96 and [Find the paper give the name]. 
 
 
+GCR flux time variation - solar modulation
+
+As ** indicating the solar minimum of SC 23/24 was quite unusual, with a much weaker \ac{HMF} compared with the history record and a higher then ever GCRn intensity. Further more, The recent solar minimum is even mroe 
 
 	
-2 Temperal and spatial variation
+
 
 \begin{figure}
 	\centering
@@ -116,6 +119,8 @@ Several model like BON14, 2020, CREME 96 and [Find the paper give the name].
 	\caption{The solar modulation potential \cite{Usoskin 2011}, data are downloaded from \url{https://cosmicrays.oulu.fi/phi/phi.html}, and the monthly averaged sunspot number from Solar Influences Data analysis Center (SIDC), Royal Observatory of Belgium, Brussels, \url{https://www.sidc.be/silso/datafiles}}
 	\label{Fig:Solar_modulation}
 \end{figure}
+
+Temperal and spatial variation
 
 
 3.  temperal variation and GCR solar modulation 
@@ -130,8 +135,11 @@ Several model like BON14, 2020, CREME 96 and [Find the paper give the name].
 
 
 
-\subsection{ACR}
+\subsection{Anomalous Cosmic Ray}
+
+
  - discovery 1970's found the ACR, by analysie the spectrum of GCR, increase of the flux in the spectrum, 
+ ACR are the enhancements of the flux in the spectra of helium, oxygen, neon, protons [citation]with energy between few MeV/nuc to $\sim$ 100 MeV/nuc for the 
  Explain Figure \ref{Fig:Oxygen_spectra_cosmic_ray}, based on the description of Giacalone 2021
 
  Soon after the discovery, 
@@ -143,15 +151,14 @@ Several model like BON14, 2020, CREME 96 and [Find the paper give the name].
  The possible acceleration mechanisam of the ACR include ?？?？ (citaion)
 
 ACR enter the heliosphere and diffuse in the heliosphere, interacting with solar wind, and magnetic field. The transport process of ACR is similar to the GCR, which could both describe by the equation \ref{Eq:TPE}, which contain four main tranposrt effect: 
-
 Similar to GCR, ACR flux also have solar cycle dependence, and transportation process is also the same as GCR, but the different energy particles.
 with charge sign different
-,
 
 Previous study and observation of the ACR gradient
 	Radial and latitudian ACR gradient outside of 1AU
 
 	Below 1 AU, New observation of ACR by PSP, the study of ACR gradient in the innner heliosephere
+Gradient change with time.
 
 
 \subsection{Radiation hazard of energetic particle and the interaction with the planet for instance Moon and Mars}
