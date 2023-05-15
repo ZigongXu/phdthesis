@@ -1,75 +1,72 @@
 \section{Chang\'E-4 and Lunar Lander Neutron and Dosimetry Experiment}
 \label{sec:change_4_LND}
 
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.4\textwidth]{images/LND_2018-11-13.JPG}
 
-\missingfigure[options]{LND out image}
-\missingfigure[options]{LND position in the Change'4 Lander
+    \caption{The photographs of LND instrument, including the sensor head (SH, front), and electronics box (EB, rear), and 1-meters data and powver harness that connects the SH and EB. The figure was from \cite{Wimmer-2020-LND} which is actually the flight spare model of LND and wass token on 2018-11-23 for the instrument paper}
+    \label{Fig:LND_instrument}
+\end{figure}
 
-Explain change'4 mission.
-Relay sattellite
-including 4 internation     al payloads and 4 domestic payloads.
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.4\textwidth]{images/change4_lnd-c9_trigger-cones-colored.pdf}
+    \caption{The skeptical view of the inner structure of the sensor head. Ten 500 $\mu$m silicon \acs{SSD} are assembly in order from A to J. The figure was from \cite{Wimmer-2020-LND}. More detailes could be found in the instrument paper.}
+\end{figure}
+Chang'E-4 is a chinese lunar exploration mission to the lunar far-side surface, which is also the first human mission sofely landed on the lunar far-side surface. The whole mission consists of a lander, a rover (Yutu-2, citaion) and a relay sattellite (Queqiao, citaion) which is working in the lunar orbit and responsible for the communication between the lunar far-side surface and the ground. The mission was launched on December 7, 2018 and successfully landed on January 3, 2019 in the Von K\`arm\`an crater near the south pole of Moon. 
+
+There four 
+
+
+including 4 international     al payloads and 4 domestic payloads.
 Environment, 
 Up to now.
 
-As one of the four internation payload, LND is designed by  Kiel and who.
-Which is a instrument
+As one of the four internation payload, LND is designed by  Kiel University
+Which is a  instrument 
 Aim at 
-The scientific object.
-And technical experimental object
-
-The current status of the LND, 
-HET is a inherit instrument of HET, share the same designe logical.
-Due to the limited design and limited budgetm, compare to the similar instrument`1'
-Instrument bug, and the design of the LND is not perfect,
-Beside, malfunction of the LND lid.
-The change of the configuration and the change of the corresponding code (if you have time to track it)
-Raise the threshold:code of L3
-Disable A2: L2 whic branch 
+The main scientific objects of LND, as indicated in the instrument paper, are the following:
+\begin{itemize}
+    \item Dosimetry for human exploration of the Moon
+    \item Contribution to the heliospheric science
+\end{itemize}
+And LND also has two technological demonstration objects which are \textit{Determine the subsurface water content in the South-Pole Aitken Basin} and \textit{Determine the FeO content in the South-Pole Aitken Basin} 
+To achieve the above scientific objects, LND measure and provide the data products including up to 1-minute charged and neutral particle dose rate measured in Si, up to 1 minute cadence LET spectra, 1 minute neutral particle deposition energy spectra, 10 minute count rates of thermal neutrons and high time resolution (1-min, 10-min) flux and high energy resolution charged particle spectra including the electron and ions from proton to iron.
 
 
+LND only working on the local day time of lunar farside. One of major challenge of LND on the lunar far-side surface is the 
+The easiest way to check whether LND is working or not is looking up during night, if you see a ? moon, which indicates that moon is moving our of the earth's shawdown and the farside is facing the sun. Once the light is arriving at the lander, the system will be waken up and start to work. So is LND and other instruments.
 
-temperature variation - plot 
+Up to May 2023, LND has been working on the lunar far-side surface for more than 4 years (more then 50 Lunar days), already exceeding its designed life time. 
 
-bias voltage of the detector -
+LND was switch off or switch on for a short period on the 6th and 45th lunar days, due to the special operations of lander and the extre movement from the ground. Up to May 2023, when the thesis finished, we have received the 47 lunar day data from January 2019 to the end of November 2022. The more data is coming. 
+The data is officially publishing in the Lunar and Planetary Data release system \url{moon.bao.ac.cn}. An alternative way to download the data is from the PDS \url{https://pds.nasa.gov/}. The data is also available in the \ac{PSA} \url{https://psa.esac.esa.int/psa/}.
 
-bias current of the detector
- How the real current are calculated - from stephan.
+After LND delivered and launched, we implement several configuration changes and upload together 14 extra commands to fix the issues including the design issue and the malfunction issue. The design issue is due to the bugs in the processing software causing the wrong usage of the channels. The affection on the data products is minor. However, the major change of the data products are caused by the sky rocket of the noise level in certain channels. The reason for the noise issue is due to the unproper operation in the ground. On the 3rd and 4th lunar day, LND was switched off but kept the LND lid open until LND was switch shortly after. The immediately consequence of such operation is the dramastically drop of the temperature on the detector. Such a change is unrecoveryable, even if the temperature is back to normal.
 
+To mitigating the impact of the noise issue and its influence on the data products, we implement several changes including raise the threshold of the noise detector, disable A2 channels which larger affect the LET spectra and hardly fixed by raising the threshold. No doubt, the consequence of such changes is obviouse. For instance, we lose the measurement of minimum ioninzing particle after the increment of the threshold of I detector, and the geometry factor of LET spectra and penetrating particle are dramatically reduced since we disable A outer channels. 
 
+The details of the configuration changes and affections are given in the Appendix of chapter \ref{} and the corresponding change of the original code in the LND data processing software is given in the appendix ( if you have time to do it)
 
+As we listed before, a major 
 
-Data availability - website
-Data volume ~ how much
-
-
+\subsection{The charged particle telescope of LND}
 
 
 
-\missingfigure[options]{LND inside image}
-
-\missingfigure{LND detector inner structure sketch}
-
-\missingfigure[options]{The LND structure}
-
-\missingfigure[options]{The LND sandwich structure of }
 
 
-LND as a radiation detector
 
-LND as a neutron detector including both thermal and fast neutrons
+
 
 Most importantly LND as the charged particle telescope:
 
 The measurment principle
 
-The current 
 
 
-a paragraph: explain clearly the reason of those two major malfunction;
 
-Two major malfunctions of the LND}
-
-\subsection{configration changes of the LND}
 
 \subsection{The other opportunity of the LND}
 

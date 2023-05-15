@@ -8,7 +8,7 @@ It is filled with a thin plasma consisting of various populations of particles, 
 
 Introduce all the particles population from lower energy to the higher energy, each population has one paragraph, according to the plot you add, and maybe one plot showed the position of multiple process, could be the plot of blue or the plot in Paddy's thesis
 
-As shown in Fig.\ref{fig:heliospheric_energy_spectrum}, from the lower energy end to the higher energy end, we could find several different component. Solar wind, suprathermal particle, SEP, ACR, GCR. 
+As shown in Fig.\ref{Fig:heliospheric_energy_spectrum}, from the lower energy end to the higher energy end, we could find several different component. Solar wind, suprathermal particle, SEP, ACR, GCR. 
 The shadow region indicating the energy range between few MeV to few hundreds MeV, where SEP, ACR and GCR are co-exist. 
 
 
@@ -62,23 +62,24 @@ The problem of SEP studies
 	\centering
 	\includegraphics[width = 0.5\textwidth]{images/oxygen_cosmic-ray spectrum.png}
 	
-	\caption{The cosmic spectra of all particles and ACR oxygens observed at 1 AU. This figure is from Giacalone 2021, 2012, and also originally from Jokipii 1990}
+	\caption{The cosmic spectra of all particles and ACR oxygens observed at 1 AU. This figure is from Giacalone 2021, 2012, and also originally from Jokipii 1990.
+	The spectrum is displayed in more than 15 orders magnitude on the energy scale and about 30 orders of magnitude on the intensity scale, much broader than Fig.\ref{Fig:Oxygen_spectra_heliosphere}.}
 	\label{Fig:Oxygen_spectra_cosmic_ray}
 \end{figure}
 
+The first discovery of the galactic cosmic rays was made by the Victor Hess in 1912 in a ballon experiement, in order to find the source of ionizing radiation in the atmosphere. In the experiment, as the ballon climb-up, he measured the radiation in earth atmosphere in a balloon experiement, finding an enhancement of the ionizing radiation in an electroscope.  
 
-magnitude on the energy scale and about 20 orders of magnitude on the intensity scale.
 
-The first observation of GCR- Victor Hess, 1912 and he found an electroscope discharged rapidly as he ascended in a ballon.
-  (100)
-  
+Cosmic rays, first discovered by physicist Victor Hess during a daring hot-air balloon flight in 1912, are subatomic particles moving at nearly the speed of light. These particles, primarily composed of protons, helium nuclei, and high-energy electrons, originate from a variety of sources both inside and outside our galaxy. GCRs, as the name suggests, are predominantly sourced from within the Milky Way.
+
+
 
 GCRs consist of wide range of energetic particles,  which mostly are dominated by the proton, about 89\%  and the remain share are 10\% helium and a small portal of heavier ions (1\%), electron, positron and antiproton. The dominated energy of gcr, as shown in the Fig.\ref{Fig:Oxygen_spectra_heliosphere} is above 100MeV/nuc. Below that, the other component are more common than GCR and it is hard to seperated those particles.
 
 Figure \ref{Fig:Oxyge_spectra_cosmic_ray} are the full spectrum of the all cosmic particles observed at 1 AU which includes the ACR and GCR components.  The GCR
 
 
-Currently it is believed that those GCR are main originated from the supernova explosion and derived the energy from the shock waves which is genereate from the explosion. When the shock wave travel through the surrounding interstellar gas, the kinetic energy of shock are tranfer to the  (neutral gas?) by the (Fermi-acceleration, ciataion and the acceleration process), Utilimatly, causing the galactic cosmic ray up to 10^12 eV.
+Currently it is believed that those GCR are main originated from the supernova explosion and derived the energy from the shock waves which is genereate from the explosion. When the shock wave travel through the surrounding interstellar gas, the kinetic energy of shock are tranfer to the  (neutral gas?) by the (Fermi-acceleration, ciataion and the acceleration process), Utilimatly, causing the galactic cosmic ray up to 10$^12$ eV.
 
 Because cosmic rays are fully charged, they are deflected by the magnetic field when they propagation in the interstellar space after speeding up. The directions of those particle are normalized by the strong magnetic field. Hence when they arrived at the local bubble of solar system, we obtained an nearly isotropic and constant intensity profile [citaion of the LSTM,]
 
@@ -86,29 +87,25 @@ Because cosmic rays are fully charged, they are deflected by the magnetic field 
 To model the solar modulation on the particle transportation of GCR spectra, an input particle spectra need to be specifield, which is the so-call LSTM [ citaion of LSTM]. LSTM is the modulation boundary and will be modulatined as the change of the position, energy, and time after those particle diffusion into the heliosphere. Such a spectra have been observed by the voyeger after then cross the boundary of solar system and enter the interstellar medium
 
 
-	
-A paragraph of local intersteallar spectra
+A paragraph of local intersteallar spectra ?
 
 
 After enter the heliosphere, those high energetic particle are modulated the solar wind and its embedding magnetic field  which change in a 11 year or 22 year period,
 The relavant process of the solar modulations could be described by a basic transport equation (TPE) which is first derived by Parker (1965). The same equations was also derived by Gleeson and Axford (1967) in the more rigorous ways. This equation is based on the motion of charged and particle in the high frequently changed magnetic field and averages over the pitch angle of particle moving in the magnetic field. The precondition of this equation is the reasonable assumption of the isotropically distributed GCRs. The TPE give the phase-space distribution function, $f$ as the function of positions, time  and momentum magnetitude. In Potgieter (2013), the helispheric TPE, based on Parker (1965) is rewritten in the following form:
 
-\begin{equation}
-	\frac{\partial f}{\partial t} = - ( V + )
+	\begin{equation}
+		\underbrace{\frac{\partial f}{\partial t}}_{a} = - ( \underbrace{\boldsymbol{V}}_{b} + \underbrace{\langle v_d \rangle }_{b}) \cdot \nabla f + \underbrace{\nabla \cdot (\boldsymbol{K_s \cdot \nabla f})}_{d} + \underbrace{\frac{1}{3}(\nabla \cdot \boldsymbol{V}) \frac{\partial f}{\partial ln P}}_{d}
+		\label{Eq:Transportation_equation}
+	\end{equation}
 
-\end{equation}
+where $f(r, P, t)$ is the cosmic ray distribution as the function of the time t, particle rigidity P and 3-dimension position in the space. Compared with the $\sim$ 11 years solar cycle, the periodcally solar rotation ($\sim$ 27 days) and  the time of the solar wind traveling to the edge of helipshere ($\sim$ 1 years) are short-term variation and can be neglected. Hence the steady-state solution with  $\frac{\partial f}{\partial t} = 0$ (part a of Eq.\ref{Eq:Transportation_equation}) is a reasonable assumption and also considered. Terms in the right parts include four effects that are used to describe the variation of the cosmic rays: (b) convection due to the solar wind velocity $\boldsymbol{V}$; (c) drift effects caused by the gradient and curvature of the large-scale \ac{HMF}, which is estimated by a 3D Archimedean spiral (Parker 1978), $\langle v_d \rangle$ represents the averaged drift velocity; (d) diffusion effects caused by the turbulent mangetic field, with the $\boldsymbol{K}_s$ the symmetrical diffusion tenser; (e)adiabatic energy change and deceleration due to the expansion of the solar wind. 
+
+Since TPE is a high non-linear partial differential equation, only a simplified solution of the GCR spectra is the Force-field Solution (FFS), which is first derived by Gleeson and Axford [1967, 1968b]. Later, a reasonable GCR spectra of the particle with energy above 150 MeV were given by Gleeson and Urch 1973.
+
+With the development of computer technque and numerical studies, simulation are becoming more and more important in studying the tranporation and solar modulation of the cosmic rays. [Jokippi and Kopriva 1979, Le Roux and Potgieter 1995, Manuel et al 2011, and Potgieter 2013]. 
+Several model like BON14, 2020, CREME 96 and [Find the paper give the name]. 
 
 
-1. Transport equation( TPE)
-	 Parker 1965 derived the basic TPE. More rigorously derivation was carried on by Cleeson and Axford 1967, and the same the function.
-	
-	add the transport equation and discussion different case
-	
-    The so-called force field solution is an analyitical solution of the TPE a example of protons
-    
-    
-    With the development of numerical studies, model solution are derived from the transportation model
-    Several model like BON14, 2020, CREME and other[Find the paper give the name]. One person  
 
 	
 2 Temperal and spatial variation
@@ -116,15 +113,15 @@ The relavant process of the solar modulations could be described by a basic tran
 \begin{figure}
 	\centering
 	\includegraphics[width = 0.6\textwidth]{images/Solar_modulation.png}
-	\caption{The solar modulation potential \cite{Usoskin 2011}, data from https://cosmicrays.oulu.fi/phi/phi.html and the monthly averaged sunspot number from Solar Influences Data analysis Center (SIDC), Royal Observatory of Belgium, Brussels [https://www.sidc.be/silso/datafiles].}
+	\caption{The solar modulation potential \cite{Usoskin 2011}, data are downloaded from \url{https://cosmicrays.oulu.fi/phi/phi.html}, and the monthly averaged sunspot number from Solar Influences Data analysis Center (SIDC), Royal Observatory of Belgium, Brussels, \url{https://www.sidc.be/silso/datafiles}}
 	\label{Fig:Solar_modulation}
 \end{figure}
-
 
 
 3.  temperal variation and GCR solar modulation 
 	 The temperal variation comprise of 
 	- When the arrived on the local bubble of Solar system- the solar modulation dominate the transport of the particle - General say about 
+
 
 4. 	GCR spatial variation
 	What is ?
