@@ -1,4 +1,4 @@
-\chapter{LND instrument }
+\chapter{LND instrument}
 \label{chp:GCS_Python}
 
 \section{temperature variation of the LND instrument from 2019 to 2023}
@@ -45,8 +45,8 @@ Created by Zigong Xu. following the tempelate of SOLO loader
 
     Due to the noise of the detectors, the bias current reach the limit of the meaurements at 2$\mu$A. 
 
-Below are the script from Stephan, which is used to calculate the correct bias voltage and current that measured on the LND instrument.
-
+Below are the scripts used to calculate the correct bias voltage and current that measured on the LND instrument from Stephan B¨ottcher (private communication), who is the desinger of the LND instruement hardware and software in the IEAP.
+\begin{lstlisting}[language=Python]
 function Ibias() {
     a = $(HK_Ibias+3)
     if (a>4000) a = (147.3 + degC($(HK_T_LVPS+3))*0.164 - $(HK_Vbias+3)*0.05488) / 0.01810
@@ -57,6 +57,7 @@ function Vbias() {
     return $(HK_Vbias+3)*0.05488 + $(HK_Ibias+3)*0.01810
 }
 
+\end{lstlisting}
 \section{Discrepanchy between LND and CREME}
 
 \section{Heavy ion spectra}
