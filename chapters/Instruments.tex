@@ -15,52 +15,34 @@
     \includegraphics[width = 0.4\textwidth]{images/change4_lnd-c9_trigger-cones-colored.pdf}
     \caption{The skeptical view of the inner structure of the sensor head. Ten 500 $\mu$m silicon \acs{SSD} are assembly in order from A to J. The figure was from \cite{Wimmer-2020-LND}. More detailes could be found in the instrument paper.}
 \end{figure}
-Chang'E-4 is a chinese lunar exploration mission to the lunar far-side surface, which is also the first human mission sofely landed on the lunar far-side surface. The whole mission consists of a lander, a rover (Yutu-2, citaion) and a relay sattellite (Queqiao, citaion) which is working in the lunar orbit and responsible for the communication between the lunar far-side surface and the ground. The mission was launched on December 7, 2018 and successfully landed on January 3, 2019 in the Von K\`arm\`an crater near the south pole of Moon. 
+Chang'E-4 is a robotic spacecraft mission of China exploring the lunar far-side surface, which is also the first human soft-landing missions on the lunar far-side surface \cite{Li2021SSRv}. The whole mission consists of a lander, a rover named Yutu-2 and a relay sattellite named Queqiao which works in the lunar orbit and connects the lunar far-side surface and the ground. The mission was launched on December 8, 2018 and successfully landed on the Von K\`arm\`an crater near the south pole of Moon on January 3, 2019 \cite{Wu2019NatGe}. Due to the extreme temperature variations on the lunar surface, the rover, lander, and scientific payloads onboard go into hibernation during the approximately two-week-long lunar night to conserve power and protect the detectors.  After a long 'sleep' night, the instruments onboard are awakened by sunlight and start measuring during the daytime. The design life time of the mission is at least one year. Obviously this target have been surpassed and so are the scientific instruments.
 
-There four 
-including 4 international     al payloads and 4 domestic payloads.
-Environment, 
-Up to now.
-
-As one of the four internation payload, LND is designed by  Kiel University
-Which is a  instrument 
-Aim at 
-The main scientific objects of LND, as indicated in the instrument paper, are the following:
+As one of the international scientic payload of Chang'E-4 mission, \acl{LND} is designed in the Kiel University, Germany, with the coorperation with NSSC. The initial designed purpose of LND is to measure the first active radiation dose rate and monitor the radiation environment caused by the changed and neutral (neutrons and $\gamma$-ray) particles, in preparation of the future human exploration of the Moon and solar system.
+The main scientific objects of LND, as indicated in the instrument paper \cite{Wimmer-2020-LND}, are the following:
 \begin{itemize}
-    \item Dosimetry for human exploration of the Moon
-    \item Contribution to the heliospheric science
+    \item Dosimetry for human exploration of the Moon: LND is design to determine the temperal variations of the dose rate and the LET spectra which will be used to derived the quality factor \textit{Q} which is an key factor to interprete the dosimetric data.
+    \item Contribution to the heliospheric science: The particle fluxes and time series of the flux are measured on the far-side of the Moon. Due to its additional measurement location, those new data can be of great help in understanding the propagation of the particles.
 \end{itemize}
 And LND also has two technological demonstration objects which are \textit{Determine the subsurface water content in the South-Pole Aitken Basin} and \textit{Determine the FeO content in the South-Pole Aitken Basin} 
-To achieve the above scientific objects, LND measure and provide the data products including up to 1-minute charged and neutral particle dose rate measured in Si, up to 1 minute cadence LET spectra, 1 minute neutral particle deposition energy spectra, 10 minute count rates of thermal neutrons and high time resolution (1-min, 10-min) flux and high energy resolution charged particle spectra including the electron and ions from proton to iron.
+To achieve the above scientific objects, LND measures and provides the data products including up to 1-minute charged and neutral particle dose rate measured in Si, up to 1 minute cadence LET spectra, 1 minute neutral particle deposition energy spectra, 10 minute count rates of thermal neutrons and high time resolution (1-min, 10-min) flux and high energy resolution charged particle spectra including the electron and ions from proton to iron.
+
+Up to May 2023, LND has been working on the lunar far-side surface for more than 4 years,(about 50 Lunar days, 2019.1.3 - ), have largely surpass its designed life time.
+The easiest way to check whether LND is working or not is looking up during night and checking whether you can see a new moon or the moon in the last/first quarter phase, which indicates that moon is moving out of the earth's shawdown and the far-side of moon is facing the sun.
+
+Due to the special operations of lander and the extra experiments from the ground, LND was switch off or switch on for a short period on the 6th, 44th, 45th lunar days. Up to May 2023, when the thesis finished, we have received the 46 lunar day data from January 2019 to the end of November 2022 storing in the kiel server. We hope the instrument can keep running in the farside and provide more interesting data.
+
+The data is officially publishing in the Lunar and Planetary Data release system \url{moon.bao.ac.cn}, where you could find the data until December 2022. 
+The alternative downloading options include NASA Space Science Data Coordinated Archive and, ESA's archive ESDC (ESAC Science Data Center) which are still in building.
 
 
-LND only working on the local day time of lunar farside. One of major challenge of LND on the lunar far-side surface is the 
-The easiest way to check whether LND is working or not is looking up during night, if you see a ? moon, which indicates that moon is moving our of the earth's shawdown and the farside is facing the sun. Once the light is arriving at the lander, the system will be waken up and start to work. So is LND and other instruments.
-
-Up to May 2023, LND has been working on the lunar far-side surface for more than 4 years (more then 50 Lunar days), already exceeding its designed life time. 
-
-LND was switch off or switch on for a short period on the 6th, 44th, 45th lunar days, due to the special operations of lander and the extre movement from the ground. Up to May 2023, when the thesis finished, we have received the 46 lunar day data from January 2019 to the end of November 2022. The more data is coming. 
-The data is officially publishing in the Lunar and Planetary Data release system \url{moon.bao.ac.cn}. An alternative way to download the data is from the PDS \url{https://pds.nasa.gov/}. The data is also available in the \ac{PSA} \url{https://psa.esac.esa.int/psa/}.
-
-After LND delivered and launched, we implement several configuration changes and upload together 14 extra commands to fix the issues including the design issue and the malfunction issue. The design issue is due to the bugs in the processing software causing the wrong usage of the channels. The affection on the data products is minor. However, the major change of the data products are caused by the sky rocket of the noise level in certain channels. The reason for the noise issue is due to the unproper operation in the ground. On the 3rd and 4th lunar day, LND was switched off but kept the LND lid open until LND was switch shortly after. The immediately consequence of such operation is the dramastically drop of the temperature on the detector. Such a change is unrecoveryable, even if the temperature is back to normal.
+It is worth noting that after LND delivered and launched, we implemented several configuration changes and upload together 14 extra commands to fix the issues including the software issues and the malfunction issue. The software issues are due to mistakes in the software pipeline which cause the wrong usage of the channels and the mistakes in the simulation set-up which is used to determine the energy channels. Though the impact on the data products is minor, we still correct the mistakes and generate the data in right ways. Desipite this, the major changes of the data products are raising the threshold of noise channels and removing A2 in the level 3 trigger logical (the outer segement of front A detector, see Appendix in Section ** for more details of this change).  The reason that we need to implement such changes are becase of the skyrocket of the noise level in detector A, G, H I and J. On the 3rd and 4th lunar day after LND swith on, \ac{LND} was switched off for a short periods according to the schedule on the ground but leave the lid open. Though the temperature on the lunar surface is increasing as sun rising, LND and its detectors are keeping lose its heat after switch off and the temperature droped dramastically in the sensor head which should be protected by lid and lander outer shell. Such a temperature variation caused an unrecoverable deformation to the carrier and its attached detectors, especially the one in the front side and bottom side, i.e. det A and I/J. In the end the lower energy noise ($\sim$ 100 -200 keV) largely increase.
 
 To mitigating the impact of the noise issue and its influence on the data products, we implement several changes including raise the threshold of the noise detector, disable A2 channels which larger affect the LET spectra and hardly fixed by raising the threshold. No doubt, the consequence of such changes is obviouse. For instance, we lose the measurement of minimum ioninzing particle after the increment of the threshold of I detector, and the geometry factor of LET spectra and penetrating particle are dramatically reduced since we disable A outer channels. 
 
 The details of the configuration changes and affections are given in the Appendix of chapter \ref{} and the corresponding change of the original code in the LND data processing software is given in the appendix ( if you have time to do it)
 
-As we listed before, a major 
 
 
-During the first half year of Chang'e-4 mission, the sun had a extremely quite phase and the solar activities reached the minimum level as indicated by the monthly averaged sunspot number which is nearly zero according to the observation from *****. Furthmmore, almost no SEP events happened during this period. 
-
-On the other side, the crucial environment on the lunar far-side surface is a big challenge for the LND to work properly. The
-The LND is designed to work in the temperature range of -40 to 60 degree, but the temperature on the lunar surface could be as low as -180 degree during the night.
-In order to protect the detectors from the frozen temperature, the LND is only allowed to work during the day time after the lander is raised by the light of the sun.
-During night, the RTG and RHU heater will keep the Lander and other scientific payload warm. 
-Since LND only work 1\/3 of the time, the chance that LND encounter a SEP event during the solar minimum is even lower.
-
-However, the LND is still lucky enough detecting several SEP events during the first half of 2019. 
-On May 2019, two SEP events arrived on the lunar surface and 
 
 \subsection{Charged particle telescope of LND}
 
