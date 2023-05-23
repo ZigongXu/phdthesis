@@ -1,4 +1,4 @@
-\section{Chang\'E-4 and Lunar Lander Neutron and Dosimetry Experiment}
+\section{Chang'E-4 and Lunar Lander Neutron and Dosimetry Experiment}
 \label{sec:change_4_LND}
 
 \subsection{Overview and current status (2019 - 2022)}
@@ -51,20 +51,24 @@ The SH consists of 10 Si \acs{SSD} of norminal 500 $\mu$m thickness. They are la
 
 The structure of the telescope can be divied into two parts. The upper half consists of four detectors (A, B, C, D) with A placed away from the others. A detector is the most important one in \ac{LND} sensor head, since all the charged-particle data products only count particles that have triggered the front detector A. B/C/D are assembled closely in the space in order to perform an anti-coincidence measuremet in the inner C segements. Such a detector arrangement is similar to the Flight Radiation Environment Detector (FRED) \citep{moeller-etal-2013, moeller-etal-2013b}. The lower half consists three detector pairs (E/F, G/H, I/J) which are closely packed together and an Al-Gd-Al absorber which is for the thermal neutrons. A 20 $\mu$m thickness Gd foils is insert into E/F and G/H and sandwiched structures are formed to detect the thermal neutrons. This charged particle telescope is completed by the last detector pair I/J.
 
-By measuring the energy depostion in different \acp{SSD} and using the dE vs E or dE vs dE method [citation], LND can easily identify the charged particles, including their energy and species. 
-The averaged energy loss of the charged particle along their travel path depends on the nuclear $Z_1$ and the incident velocity $\nu$. Such relationship could be expressed by the well-known Bethe-Bloch formula \citep{bethe-1930, bloch-1933}:
+By measuring the energy depostion in different \acp{SSD} and using the dE/dX - E or dE/dX - dE/dX method, depending the energy of primary particle, LND can easily identify the particles energy and species. 
+The averaged energy loss of the charged particle along their travel path depends on the nuclear charge $Z_1$ and the incident velocity $\nu$. 
+Such relationship could be expressed by the well-known Bethe-Bloch formula \citep{bethe-1930, bloch-1933}:
 
 \begin{equation}
     \frac{\dd E}{\dd x} = - \frac{Z_1^2 e^4 n_e}{4 \pi \cdot \varepsilon_0^2 \beta^2 c^2 m_e} \cdot \left[ \ln\left(\frac{2 m_e  \beta^2 c^2}{\braket{E_B}}\right) - \ln(1 - \beta^2) - \beta^2  \right], 
     \label{eq:BB}
   \end{equation}
 where $c$ is the speed of light, $\beta = \nu/c$, $E_B$ is the ionization energy of the medium that particle pass, and $n_e$ is the electron density in the medium, $m_e$ is the electron mass, and constant $varepsilon_0$ is the permittivity of free space.
+
+
+
 In the energy range that \ac{LND} covered, since the $ln(\beta^2)$ hardly change, the above function could be simplified as:
 \begin{equation}
     E_A \propto \frac{Z_1^2 m_1}{E_{\mathrm tot}},
     \label{eq:BB2}
 \end{equation}
-The products of $E_A$ and $E_{tot}$ is proportional to the nuclear charge and the mass of elements which only depend on the particle species. Hence, the composition of particles are determined. Notely, the isotopes of some elements, for instance Helium-3 and Helium-4, can also be discriminated desipite the limited resolution and precison in the Xmas plot [Not shown now]. 
+The products of $E_A$ and $E_{tot}$ is proportional to the nuclear charge and the mass of elements which only depend on the particle species. Hence, the composition of particles are determined. Notely, \ac{LND} could discriminate the the isotopes of elements, for instance Helium-3 and Helium-4, with limited resolution and precison in the Xmas plot (Fig.~\ref{Fig:measurement_Xmas}). However, the telescope like \ac{LND} have   Note that the nuclear charge $Z_1$ is equal to the number of protons in the nucleus, i.e. the atomic number $Z$ of the elements. When traversing the front foil of \ac{LND} sensor head, the partially charged particle like \ac{ACR} which are singly charged \citet{}, will be ionized and stripped the electrons, becoming fully charged \citet{Swaczyna2017ApJ}. Therefore,
 
 The charged particles that LND measurement can be divided into two categories: stopping particles with energy between $\sim$ 8 MeV/nuc and $\sim$ 35 MeV/nuc and penetrating particles with energy above that range.
 
@@ -100,7 +104,7 @@ The remain data products related to the radiation are \ac{LET} spectrum. \ac{LND
 In the appendix of Chapter [], we provide the change of geometry factor of the LET spectra after implementing the configuration changes.
 More details of the data products can be found in the instrument paper \citet{Wimmer2020SSRv}.
 
-The first scientific result of \ac{LND} regarding the radiation environment on the lunar surface are reported in \ctep{Zhang-2020-LND-firstresults}. In this paper, the \ac{TID}, neutron dose and \ac{LET} spectra of the first two lunar day were analyzed and presented. This is first ever dynamic measurement of the radiation variation on the lunar surface. According the measurement, the averaged total absorbed dose rate in silicon is about 13.59$\pm$1.01 $\mu$Gy/hour and among that the neutral particles account for $3.10 \pm 0.43 \mu$Gy/hour. 
+The first scientific result of \ac{LND} regarding the radiation environment on the lunar surface are reported in \citep{Zhang-2020-LND-firstresults}. In this paper, the \ac{TID}, neutron dose and \ac{LET} spectra of the first two lunar day were analyzed and presented. This is first ever dynamic measurement of the radiation variation on the lunar surface. According the measurement, the averaged total absorbed dose rate in silicon is about 13.59$\pm$1.01 $\mu$Gy/hour and among that the neutral particles account for $3.10 \pm 0.43 \mu$Gy/hour. 
 
 
 
@@ -109,12 +113,12 @@ The first scientific result of \ac{LND} regarding the radiation environment on t
     \centerfloat
     \includegraphics[width =\textheight, height = 0.6\textheight, angle = 90]{images/xmas-2019-01-03To2022-11-29.png}
     \caption[LND Xmas plot based on the measurement between 2019.1.3 and 2022.11.29]{The complete Xmas plot (274 $\times$ 64) of LND based on the measurement between 2019.1.3 and 2022.11.29. All the data products could be found in this plot, including neutrals, \ac{LET} spectra, \ac{TID}, stopping and penetrating charged particles, including electron, protoon, helium and heavy ions. The corresponding simulation version could be found in \citep{Wimmer2020SSRv}}
-    \label{Fig: measurement_Xmas}
+    \label{Fig:measurement_Xmas}
 \end{figure}
 \clearpage
 Fig.~\ref{Fig: measurement_Xmas} is the so-called "Xmas plot" \footnote{It was the front cover of the Xmas card of IEAP group in 2017, hence got the name.} of the LND. 
 
-Xmas plot actually is an image of \ac{LND}'s memory space shaped in a 274 \times 64 matrix. LND is the principal data products and all others are extracted from it every hours. Each pixel in the Xmas plot servers as a counter. After LND obtaining the deposited energy in each detector for an effective signal, the L3 trigger will calculate onboard the right position of this signal in the Xmas plot and increment the corresponding counter. 
+Xmas plot actually is an image of \ac{LND}'s memory space shaped in a 274 $\times$ 64 matrix. LND is the principal data products and all others are extracted from it every hours. Each pixel in the Xmas plot servers as a counter. After LND obtaining the deposited energy in each detector for an effective signal, the L3 trigger will calculate onboard the right position of this signal in the Xmas plot and increment the corresponding counter. 
 
 Unlike the simulated version in \citep{Wimmer2020SSRv}, here we displayed the real measurement data from 2019.1.3 to 2022.11.29, sum up of all the data we accumulated since the first lunar day. The green rows are the memory space will not be transmitted to the ground, to save the telemetry bandwidth. The major different compared with the Xmas plot in \citep{Wimmer2020SSRv} is that LND measure not only the particle incident from above but also the albedo particles moving upward, while in the simulation, we did add the albedo component. It is obvious that in the penetrating panel of Xmas plot,  a higher than backgrond branch strech from middle to the left side. This branch represents the protons moving upward with enough energy fully penetrating all the detectors as well as the extra shielding from the lander structure. More details of how to derive albedo proton flux are given in Section.~\ref{sec:albedo_proton}.
 The detailed explanations of the format of the Xmas plot are given in the \citep{Wimmer2020SSRv}
@@ -122,7 +126,7 @@ The detailed explanations of the format of the Xmas plot are given in the \citep
 
 \section{Solar orbiter and High energy telescope}
 
-Successfully launched on Feb 10, 2020, \ac{SolO} missions \citet{Mueller-2020-SolO} is an international mission cooperated between \ac{ESA} and \ac{NASA} with the aim to understand the sun and how it control the so-called helisphere. As indicated in the mission paper, the following scientific questions will be answered and further studied: a). What drives the solar wind and where dose the coronal magnetic field originate from? b). How do solar transients drive heliospheric variability ? c). How do solar eruptions produce energetic particles radiation that fills the heliosphere? d). How does the solar dynamo work and drive connections between the Sun and the heliosphere?
+Successfully launched on Feb 10, 2020, \ac{SolO} missions \citet{Mueller-2020-SolO} is an international mission cooperated between \ac{ESA} and \ac{NASA} with the aim to understand the sun and how it control the so-called helisphere. As indicated in the mission paper, the following scientific questions will be answered and further studied: (a). What drives the solar wind and where dose the coronal magnetic field originate from? (b). How do solar transients drive heliospheric variability? (c). How do solar eruptions produce energetic particles radiation that fills the heliosphere? (d). How does the solar dynamo work and drive connections between the Sun and the heliosphere?
 
 %After finishing the cuise phase which started at June 14, 2020, \ac{SolO} has been operating in the nominla mission phase since Nov 26, 2021 as scheduled.
 
@@ -132,46 +136,45 @@ The \ac{SolO} has a special designed elliptic helioscentric orbit with the close
 
 Benefit from the special position of \ac{SolO} during this trip, the multiple scientific instruments onboard the \ac{SolO} could further advanced our understanding of the sun and its affects on the heliosphere.
 %in the relative field for instance the questions regarding solar coronal, solar magnetic field, solar wind, \ac{SEP}.
-
-\ac{EPD} \citet{RodriguezPacheco-2019-EPD} is one of such scientific payload suite onboard \ac{SolO}, measuring the energetic particles over a large scale from few kev to few GeV, including different plasma population of lower energy solar wind,  $\sim$ keV suprathermal particle, high energy \acp{SEP}, \acp{ACR} and \ac{GCR}. The spectra, composition, time variations and directional distributions could be obtained.
-\ac{EPD} comprises four different sensors, called \ac{SIS}, \ac{STEP}, \ac{EPT} and \ac{HET}. 
-\ac{SIS} is a time-of-flight mass spectrometer that measures ion composition from $\sim$ 0.1 - few MeV nucleon$^{-1}$;
- \ac{STEP}, is ? that measures what?;  
-\ac{EPT} and \ac{HET} have two identical sensor units.
-\ac{EPT} is ? and measure ? and \ac{HET}, is what and measure what
-Apart from SIS, all other instrument are design by Kiel group.
-Those four instruments are assembly on the SolO as the Fig.{}explain the instrument together image. The energy coverage of those four instruments are shown in Fig.{EPD energy range}.
-
-In the following section, we briefly introduce some details of the \ac{HET}, which is the mainly used in our study.
-
-Overview
-\subsection{High energy telescope}
-
-\citep{Elftmann-2020-PhD}
-
-The high energy telescopes (HET), as one of the scientific payload of The Energetic Particle Detector (EPD) \cite{EPD_instrument} on the Solar Orbiter, are designed to measure the high energetic particles and cover the higher end of the EPD energy range. The typical particles that HET measures include $\sim$ MeV electrons [citaion] and tens of MeV to few GeV positively charged particles like, protons, helium-4 and its isotope Helium-3, carbon, oxygen, nitrogen, and even heavy elements iron. 
-
-Two HET units, HET1 and HET2, are equiped on the \ac{SolO}. They are specially mounted on two perpendicular direcitons, sun-asun (ecliptic) and south-north (polar), providing the angle information of particles in the interplanetary space[citatoin]. Such measurements are especially useful during the SEP event because the pitch angle  distribution of energetic paricle in the magnetic field is an important paramter to understand the transportation of particle [citaion, find precious words]. 
-
-Each HET is a double-ended telescope which consists of four 300 $\mu$m silicon solid-state (SSD) detectors stacks, with two in each side (A1, B1 in the front side and A2, B2 in the back side), and a 2 cm thick $Bi_{4}Ge_{3}O_{12}$ (BGO) scintillator, in the center. The inner structure of the HET sensor head is given in Fig.\ref{fig:HET-sensor-head}. HET use the dE/dX - E technique to discriminates different particle species of different energy, including electron, proton, helium-4, and heavy ions like carbon, nitrogen, oxygen, and iron.  ( to expand and more details)
-
+\ac{EPD} \citet{RodriguezPacheco-2019-EPD} is one of such scientific payload suite onboard \ac{SolO}, measuring the energetic particles over a large scale from few kev to GeV, including different plasma population of lower energy solar wind,  $\sim$ keV suprathermal particle, high energy \acp{SEP}, \acp{ACR} and \ac{GCR}. The spectra, composition, time variations and directional distributions could be obtained and derived.
+\ac{EPD} comprises four different sensors, \ac{SIS}, \ac{STEP}, \ac{EPT} and \ac{HET}. 
+\ac{SIS} is a time-of-flight mass spectrometer that measures ion composition from $\sim$ 0.1 - few MeV nucleon$^{-1}$. \ac{STEP} measures electrons and ions with lower energies between 4 keV and 80 keV. The special design of \ac{STEP} allows it to have high pitch-angle resolution.
+\ac{EPT} and \ac{HET} share the same electronics and two identical sensor units are perpendicularly assembled on \ac{SolO}, thus detecting the particle incident from four directions. \ac{EPT} measures medium energy electrons and ions between 25 keV and 400 keV ($\sim$ 6 MeV for protons), while \ac{HET} completes the higher end, measuring electrons from 300 keV to 30 MeV and ions from 6.8 Mev/nuc to $\sim$ 100 MeV/nuc in the nominal data products. Particularly, the penetrating data products could extend the energy coverage of \ac{HET} up to $\sim$ GeV/nuc. \citet{Elftmann-2020-PhD}
+The complete energy coverage of those four instruments for different particle species are given in Fig.~\ref{Fig:EPD-energy-coverage}.
+In the following section, we briefly introduce the details of \ac{HET}, which is mainly used in this study. Further details of the other three parts can be found in the instrument paper \citet{RodriguezPacheco-2019-EPD} and the first years overview paper from \citep{Wimmer2021AA}.
 
 
 \begin{figure}
     \centering
-    \includegraphics[width = 0.6\textwidth]{images/het.png}
-    \caption{The sensor head o}
+    \includegraphics[width = \textwidth]{images/EPD_coverage.png}
+    \caption[The energy coverage of EPD instruments]{The energy coverage of different \ac{EPD} instruments for different partidcle species. This figure is an updated version of energy coverage plot made by \citep{JohanPhd2020}, based on the similar plot from \citep{RodriguezPacheco-2019-EPD}. We reproduced it here. In this figure, the HET measurements are splited into stopping and penetrating parts. The later one can largely extend the measurement ability of HET \citet{Elftmann-2020-PhD}.}
+    \label{Fig:EPD-energy-coverage}
+\end{figure}  
+
+\subsection{High energy telescope}
+
+\begin{figure}
+    \centering
+    \includegraphics[width = \textwidth]{images/het.png}
+    \caption[The HET sensor head]{The cross profile of HET sensor head. The detector names are labeled. (Figure reproduced from \citep{RodriguezPacheco-2019-EPD})}
     \label{fig:HET-sensor-head}
 \end{figure}
 
+\ac{HET} is a double-ended telescope. In FIg.~\ref{fig:HET-sensor-head}, we give the cross profile of the \ac{HET} sensor head. The sensor head of \ac{HET} consists of four 300 $\mu$m silicon \ac{SSD} stacks, with two in each side (A1, B1 in the front side and A2, B2 in the back side), and a 2-cm thickness bismuth germanium oxide ($Bi_{4}Ge_{3}O_{12}$ , BGO) scintillator (detector C) in the center. Suchs setup is similar to \ac{RAD} which is another instrument developed by Kiel Univeristy and is running on the Mars surface.  
+
+HET use the $\mathrm{dE/dX - E}$ technique to discriminates different particle species of different energy, including electron, proton, helium-4, and heavy ions like carbon, nitrogen, oxygen, and iron. This method is the same as the measurement principle of \ac{LND}.
+
+Noteablely, in order obtain the pitch-angle distribution of high energy particle in the magnetic field, especially during the onset phase of \ac{SEP}, two HET units, HET1 and HET2, are equiped on the \ac{SolO}. They are specially mounted on two perpendicular direcitons, sunward/antisunward (ecliptic) and south/north (polar). The evolution of pitch angle distribution of \ac{SEP} is of great importance in understanding the transportation process of particle in the space align with \ac{IMF} [citaion, find precious words]. 
 
 
-As given in Table 22 of \cite{EPD instruemnt},the nominal data products of HET include ABnC (6.5 - 9.5 Me\/nuc), ABC ($\sim$10 - $\sim$ 100 MeV/nuc) and penetrating (above 100 MeV/nuc). The energy range in the bracket are the designed energy range of helium-4 measurement by HET. In this study, we use the data products that measure helium stopping in inner C detector i.e. the ABC coincidence and we specially use the energy between 10 - 50 MeV\/nuc, because this is exactly the energy region where ACR helium dominate and the data product of SOHO\/EPHIN exaclty cover this energy region which we introduce in the following section. We will calculate the ratio of flux between HET and EPHIN. 
-Besides, the lowest energy channels of ABnC coincidence have unsolved calibration issue and the measurement of remain channels are constrained by their counting statistics which result in a relatively larger uncertainties.
+Charged particle after they incident and penetrate the A detector (A1 or A2), can be splited into the stopping particle and penetrating particle, depending on their energy and whether they stop in detector B/C. The corresponding nominal data products, as given in Table 22 of \citep{RodriguezPacheco-2019-EPD}, are ABnC (stopping in B, 6.5 - 9.5 Me\/nuc), ABC (stoppin in C, $\sim$10 - $\sim$ 100 MeV\/nuc) and penetrating (above 100 MeV/nuc to infinity). These particle are fully analyzed by the $\mathrm dE/dX - E$ method. For the stopping particle, the primary energy and the particle direction information are directly obtained. While for the penetrating particle, the primary energy can be estimated based on their energy loss on the detector and the \ac{Geant4} simulation. The abovementioned nominal data products of HET contribute to the study of \ac{SEP}, \ac{ACR} and \ac{GCR}.
 
 
+In addition to the nominal data products, it is crucial to underscore the contribution of housekeeping data in the studies.
+The housekeeping data are EPD sensor produced instrumental data which have the highest priority for downlink to the Earth and are used 
+it is worthnoting that the housekeeping data of HET also provide the possibility to study the \ac{SEP} events.
 
-The nominal scientific data products of HET are designed to study SEP events of higher intensity by limiting the FOV and using coincidence measurements to discriminate species and achieve better energy resolution. However such data products are not optimal for the analysis that requires both time resolution and larger counting statistc, for instance to determine the SEP events period.    Alternatively, single detector count rates without any coincidence conditions which is one kind of housekeeping data, could provide the possibility to achieve better counting statistic. Von forstner et al 2021 use the single C counter to study the temporal varitation of the forbush decrease and Allen et al 2021 confirmed the drop out of C counter rate during the first venus flyby is due to the VENUS blockage on the HET FOV.
+The nominal scientific data products of HET are designed to study SEP events of higher intensity by limiting the FOV and using coincidence measurements to discriminate species and achieve better energy resolution. However such data products are not optimal for the analysis that requires both time resolution and larger counting statistc, for instance to determine the SEP events period. Alternatively, single detector count rates without any coincidence conditions which is one of the housekeeping data, could provide the possibility to achieve better counting statistic. Von forstner et al 2021 use the single C counter to study the temporal varitation of the forbush decrease and Allen et al 2021 confirmed the drop out of C counter rate during the first venus flyby is due to the VENUS blockage on the HET FOV.
 
 Similar with the single detector count rate, in the study, we introduce \textit{any(a1, b1)} which is a level-2 trigger of HET to determine the SEP period. \textit{a1} and \textit{b1} represent the front two SSDs of HET sensor head. This level-2 trigger counts all the particles that have energy above the threshold of detector A or detector B, which is 50 keV in the nominal mode [citaion effman thesis]. Since no obstacles in front of A detector, both electron and protons with small energys could be counted in this trigger and not a single SEP event will be missed in the change of time series of \textit{any(a1,b1)}, even though sometimes no corresponding helium-4 change reflected in the flux higher energy channels.
 
