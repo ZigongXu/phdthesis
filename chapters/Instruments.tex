@@ -12,7 +12,7 @@
 
 \begin{figure}
     \centering
-    \includegraphics[width = 0.8\textwidth]{images/change4_lnd-c9_trigger-cones-colored.pdf}
+    \includegraphics[width = 0.7\textwidth, height = 0.5 \textheight]{images/change4_lnd-c9_trigger-cones-colored.pdf}
     \caption[The inner structure of LND sensor head]{The skeptical view of the inner structure of the sensor head. Ten 500 $\mu$m Si \acp{SSD} are assembled in order. The different color regions indicate the \ac{FOV} of different measurement combinations. The figure was from \citet{Wimmer-2020-LND} and more detailes could be found in instrument paper.}
     \label{Fig:LND_sensor_head}
 \end{figure}
@@ -117,9 +117,7 @@ The first scientific result of \ac{LND} regarding the radiation environment on t
     \label{Fig:measurement_Xmas}
 \end{figure}
 \clearpage
-Fig.~\ref{Fig: measurement_Xmas} is the so-called "Xmas plot" \footnote{It was the front cover of the Xmas card of IEAP group in 2017, hence got the name.} of the LND. 
-
-Xmas plot actually is an image of \ac{LND}'s memory space shaped in a 274 $\times$ 64 matrix. LND is the principal data products and all others are extracted from it every hours. Each pixel in the Xmas plot servers as a counter. After LND obtaining the deposited energy in each detector for an effective signal, the L3 trigger will calculate onboard the right position of this signal in the Xmas plot and increment the corresponding counter. 
+Fig.~\ref{Fig: measurement_Xmas} is the so-called "Xmas plot" \footnote{It was the front cover of the Xmas card of IEAP group in 2017, hence got the name.} of the LND. Xmas plot is an image of \ac{LND}'s memory space shaped in a 274 $\times$ 64 matrix. LND is the principal data products and all others are extracted from it every hours. Each pixel in the Xmas plot servers as a counter. After LND obtaining the deposited energy in each detector for an effective signal, the L3 trigger will calculate onboard the right position of this signal in the Xmas plot and increment the corresponding counter. 
 
 Unlike the simulated version in \citep{Wimmer2020SSRv}, here we displayed the real measurement data from 2019.1.3 to 2022.11.29, sum up of all the data we accumulated since the first lunar day. The green rows are the memory space will not be transmitted to the ground, to save the telemetry bandwidth. The major different compared with the Xmas plot in \citep{Wimmer2020SSRv} is that LND measure not only the particle incident from above but also the albedo particles moving upward, while in the simulation, we did add the albedo component. It is obvious that in the penetrating panel of Xmas plot,  a higher than backgrond branch strech from middle to the left side. This branch represents the protons moving upward with enough energy fully penetrating all the detectors as well as the extra shielding from the lander structure. More details of how to derive albedo proton flux are given in Section.~\ref{sec:albedo_proton}.
 The detailed explanations of the format of the Xmas plot are given in the \citep{Wimmer2020SSRv}

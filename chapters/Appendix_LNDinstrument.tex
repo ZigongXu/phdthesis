@@ -8,7 +8,7 @@ The temperature variation on the lunar surface
 
 \begin{figure}
     \centerfloat
-    \includegraphics[angle = 90, width = \textheight]{images/lnd_temperature.png}
+    \includegraphics[angle = 90, width = \textwidth, height = \textheight]{images/lnd_temperature.png}
     \caption{LND temperature variations}
     \label{}
 \end{figure}
@@ -18,7 +18,7 @@ The temperature variation on the lunar surface
 
 \begin{figure}
     \centerfloat
-    \includegraphics[angle = 90, width = \textheight, height = \textwidth]{images/LND-proton-helium-TID.png}
+    \includegraphics[angle = 90, width = 0.9\textheight, height = 0.8\textwidth]{images/LND-proton-helium-TID.png}
     \caption[The overview variation of proton and helium flux and \ac{TID}]{The proton, helium flux and hourly averaged \ac{TID} temporal variation from 2019 to 2023, based on the measurement from \ac{LND} on the lunar surface}
     \label{Fig:appendix_LND_proton_helium_TID}
 \end{figure}
@@ -32,15 +32,21 @@ Created by Zigong Xu. following the tempelate of SOLO loader
 2021 August, Lid problem. Beside, malfunction of the LND lid.
 
 % create a table of SEP list that LND measured
-\begin{tabular}{width}[pos]{cols}
+\begin{table}[!h]
+    \centering
+    \caption[The SEP event list observed on LND]{The SEP event list observed on LND between 2019 and 2022}
+\begin{tabular}{cccccc}
     \hline
     No.     & Lunar day & Start time    & End time      & Radiation hazard  & Peak energy\\
-    1       & 1         &               &               & \\
-    2       & 1         &               &               & \\
-    3       & 1         &               &               & \\
-    4       & 1         &               &               & \\    
-    
-\end{tabular*}
+    \hline
+    1       & 1         &               &               &  &\\
+    2       & 1         &               &               &   &\\
+    3       & 1         &               &               &   &\\
+    4       & 1         &               &               &   &\\    
+    \hline
+\end{tabular}
+\label{Tab:appendix_LND_SEP_list}
+\end{table}
 
 \section{Correction of the LND bias current and voltage}
 
