@@ -182,9 +182,12 @@ Several popular used model like BON14, 2020, CREME 96 and HELMOD based the solar
 \begin{figure}
 	\centering
 	\includegraphics[width = 0.9\textwidth]{images/Solar_modulation.png}
-	\caption{Oulu neutron monitor count rate\footnote{\url{https://www.nmdb.eu/data/}} measured by Sodankyla Geophysical Observatory of the University of Oulu, Finland  and the monthly averaged sunspot number from Solar Influences Data analysis Center (SIDC), Royal Observatory of Belgium, Brussels\footnote{ \url{https://www.sidc.be/silso/datafiles}}. The period that we are interested in is marked by the shadow region.}
+	\caption[Sunspot number and Neutron monitor count data]{Oulu neutron monitor count rate downlowded from \ac{NMDB} \footnotemark[1] measured by Sodankyla Geophysical Observatory of the University of Oulu, Finland and the monthly averaged sunspot number from Solar Influences Data analysis Center (SIDC) \footnotemark[2], Royal Observatory of Belgium, Brussels . The period that we are interested in is marked by the shadow region.}
 	\label{Fig:Solar_modulation}
 \end{figure}
+\footnotetext{\url{https://www.nmdb.eu/data/}}
+\footnotetext{\url{https://www.sidc.be/silso/datafiles}}
+
 %The solar modulation potential ($\phi$) \cite{Usoskin 2011}, data are downloaded from \url{https://cosmicrays.oulu.fi/phi/phi.html}, 
 
 Figure \ref{Fig:Solar_modulation} show the monthly averaged sunspot number since 1975 in red and Oulu neutron monitor count rate.
@@ -194,58 +197,61 @@ The GCR flux is anti-correlated with the averaged sunspot number, that is the GC
 The time between two neighbouring solar minimum is about 11 years, which is the period of the solar cycle and caused by the polarity reversal of the solar magnetic field, which is the solar cycle.
 
 Besides the magnetic field reversal, the drift effects play an important role in the 22-year cycle of the intensity of cosmic rays. Such effects are clearly observed in the temperoal variations.
-As shown in Fig.\ref{Fig:Solar_modulation}, during the A < 0 cycle, GCR had a more peaked time profile than A > 0 cycle, which have a plateau-like profile. 
-This because in the A < 0 magnetic polarity cycle, the positively (negatively) charged particles drift inwards (outwards) mainly along the equatuorial plane in the heliosphere and drift outward (inwards) through the open mangentic field in the polar region, resulted the sharp change of the intensity. While in the A > 0 cycle, the drift direction of the particle is opposite to the A < 0 cycle, caused the plateau region on the solar minimum. Fig.~\ref{Fig:drift_effect} illustrate the drift effects in the opposite polarity cycles, showing the drift directions of the positively charged particles like helium, oxygen.
+As shown in Fig.\ref{Fig:Solar_modulation}, during the A $<$ 0 cycle, GCR had a more peaked time profile than A $>$ 0 cycle, which have a plateau-like profile. 
+This is because in the A $<$ 0 magnetic polarity cycle, the positively (negatively) charged particles drift inwards (outwards) mainly along the equatuorial plane in the heliosphere and drift outward (inwards) through the open mangentic field in the polar region, resulted the sharp change of the intensity. While in the A $>$ 0 cycle, the drift direction of the particle is opposite to the A $<$ 0 cycle, caused the plateau region on the solar minimum. Fig.~\ref{Fig:drift_effect} illustrate the drift effects in the opposite polarity cycles, showing the drift directions of the positively charged particles like helium, oxygen.
 
 \begin{figure}
 	\centering
-	\includegraphics[width = 0.5\textwidth]{images/drift_effect.png}
-	\caption{The illustration of the drift effects, adapted from the Fig. 4 of \citep{}}
+	\includegraphics[width = 0.4\textwidth]{images/drift_effect.png}
+	\includegraphics[width = 0.4\textwidth]{images/drift_effect_2.png}
+	\caption{The illustration of the drift effects, adapted from the Fig. 4 of \citep{Rankin2022ApJ}}
 	\label{Fig:drift_effect}	
 \end{figure}
 
-Furthermore, the drift effects are also reflected in the spatial gradient [Vos and Potgieter 2016] of the cosmic rays. 
+Furthermore, the drift effects are also reflected in the spatial gradient [Vos and Potgieter 2016] of the cosmic rays, including both \ac{GCR} and \ac{ACR}. The related details of the latter component will be discussed in the next section. 
 \TODO{add more here}
 The spatial gradient, including the latitude and radial gradients have already been observed by multiple missions for the region from 1 AU to the edge of the heliosphere in the past few solar cycles, for instance the two Voyager probes, the Ulysses spacecraft, Pioneer and also combined the measurements like PAMELA from L1 point, [citaion]
 Besides, the charge sign-dependent radial gradients have been measured, finding the positive and negative latitude gradients in the outer helisphere. [citaion]
-The GCR spatial gradient have not been studied in following chapter but will be studies in future base on the new measurement of the PSP and SOLO missions.
-
-As ** indicating the solar minimum of SC 23/24 was quite unusual, with a much weaker \ac{HMF} compared with the history record and a higher then ever GCRn intensity. Further more, The recent solar minimum 
-is even more unusual, the highest GCR intensity in the history and the unusual ACR intensity [that paper]. 
+The GCR spatial gradient have not been studied in following chapter but will be studies in future base on the new measurement of the PSP and SOLO missions. 
 
 
 Therefore, the studies of both the temperal variation and spatial gradient are still not compeleted and it is still worthwhile to check the GCR data with more new data and by more detailed analysis.
 
-	
-
 
 \section{Anomalous Cosmic Ray}
 
-\ac{ACR} are mostly the singly charged energetic particle dominated the energy range between few meV/nuc to $\sim$ 100 MeV/nuc. \acs{ACR} were firstly discovered by the \acs{IMP} 7 and 8, the instrumnent back to 1970s \citet{Garcia1973ICRC, Hoverstadt1973PhRvL, McDonald1974ApJ}. By analyzing the lower spectra of cosmic rays, the scientist found an "unusual" enhancement of the flux of helium (\< 50 MeV\/nuc), oxygen and nitrogen (\<20 MeV\/nuc) below 100 MeV\/nuc. As the oxygen spectrum which is pointed out by the arrow in Figure \ref{Fig:Oxygen_spectra_cosmic_ray} shown, the intensity of lower energy oxygen did not decrease as the energy decrease from hundred MeV/nuc to MeV/nuc, as expected from our understanding of the \ac{GCR} spectrum, but increase instead. Those particles have been known as the \ac{ACR}. \ac{ACR} elements include helium, nitrogen, oxygen, and neon that have been discovered in the inner heliosphere, and Ar and possibly protons that have been found in the outer region of heliosphere \citet{Klecker1995SSRv}.
+\ac{ACR} are mostly the singly charged energetic particle dominated the energy range between few meV/nuc to $\sim$ 100 MeV/nuc. \acs{ACR} were firstly discovered by the \acs{IMP} 7 and 8, the instrumnent back to 1970s \citet{Garcia1973ICRC, Hoverstadt1973PhRvL, McDonald1974ApJ}. By analyzing the lower spectra of cosmic rays, the scientist found an "unusual" enhancement of the flux of helium ($<$ 50 MeV\/nuc), oxygen and nitrogen ($<$ 20 MeV\/nuc) below 100 MeV\/nuc. As the oxygen spectrum which is pointed out by the arrow in Figure \ref{Fig:Oxygen_spectra_cosmic_ray} shown, the intensity of lower energy oxygen did not decrease as the energy decrease from hundred MeV/nuc to MeV/nuc, as expected from our understanding of the \ac{GCR} spectrum, but increase instead. Those particles have been known as the \ac{ACR}. \ac{ACR} elements include helium, nitrogen, oxygen, and neon that have been discovered in the inner heliosphere, and Ar and possibly protons that have been found in the outer region of heliosphere \citet{Klecker1995SSRv}.
 
-It is believe that ACRs are the high energy interstellar pick up ions which are accelerated in termination shock of the heliosphere \citet{Fisk1974ApJ}. The pick up ions are oriented from the intersteallar neutral atoms which are ionzied by the solar UV and the interaction with solar wind ions when they drift into the heliosphere. After being ionized, the solar wind carry those pick up ions and transport them to the outer heliosphere, where the charge particles are accelerated by the blunt termination shocks \citet{McComas2006GeoRL} and gain energy up to few tens of MeV/nuc. Currently , this is the most accepted theory of the ACR origin, which is also supported by the current observation of various instrument \citet{McComas2019ApJ, Cummings2019ICRC,}.
+It is believe that ACRs are the high energy interstellar pick up ions which are accelerated in termination shock of the heliosphere \citet{Fisk1974ApJ}. The pick up ions are oriented from the intersteallar neutral atoms which are ionzied by the solar UV and the interaction with solar wind ions when they drift into the heliosphere. After being ionized, the solar wind carry those pick up ions and transport them to the outer heliosphere, where the charge particles are accelerated by the blunt termination shocks \citet{McComas2006GeoRL} and gain energy up to few tens of MeV/nuc. Currently , this is the most accepted theory of the ACR origin, which is also supported by the current observation of various instrument \citet{McComas2019ApJ, Cummings2019ICRC}.
 
-One of the key chararcters of \ac{ACR} is that particles are singly charged, which could help us to seperate the ACR from the GCR and SEPs. 
+One of the key chararcters of \ac{ACR} is that particles are singly charged \citep{Klecker1980GeoRL,Adams1991ApJ, Klecker1995ApJ}. Such property indicates the distinct source as \ac{GCR} and \acp{SEP} and limited travel age of \acp{ACR} in the space. The direct measurement of the charge states of ten of MeV\/nuc particles is quite difficult with the current measurement technique. Therefore, at early stage most works to determine the charge state were based on the propagtion model. For instance, \citet{Klecker1980GeoRL} report that the \ac{ACR} oxygens have lower charge states $<$3 by observing the phase leg effects. Later, a smart method using the Earth's magnetic field as a magnetic spectrometer is applied to determine the charge states. \citet{Adams1991ApJ} and \citet{Klecker1995ApJ} both confirmed the inonic charge of oxygen, nitrogen and neons with the energy around tens MeV/nuc equals to 1.
 
-[Find a paragraph to extend the charge state analysis] - a relatively detailed observation history of the ACR charge state which is already the fixed answer. - Explain.
+As we introduced and explained before in the last section, the transport process of the cosmic ray in the heliosphere can be modeled by the TPE equation. The complex processes include diffusion caused by the \ac{HMF} fluctuation, adiabatic energy loss, convection in the expanding solar wind and the drift effects in the large-scale \ac{HMF} which have already been well modeled \citep{Parker1965Pss, Jokipii1977ApJ, Jokipii1981ApJ}.
 
-Though the source of ACR and GCR are total different, after they entering the heliosphere, the energetic particles endourver the same transport process and interact with the solar wind and magnetic field,  which together could be described by the TPE equation.
+By 1 AU, similar to \ac{GCR}, the intensities of \ac{ACR} are also heaviely modulated during their transportation in the solar wind and globar \ac{HMF}. Figure \ref{Fig:ACR_solarmodulation} show the comparison between the ACR oxygen intensity and the neutron monitor count rate which is a proxy of the GCR variation in the deep space. The \ac{ACR} intensities show clearly the peaked and plateau-shaped profiles which depend on the magnetic polarity in the last two and half solar cycles, i.e. during the A $<$ 0 period, particle drift into the heliosphere in the equatorial region along the \ac{HCS} and drift outward from the south and north pole region and vice veras during the positive polarity solar cycle.
 
-By 1 AU, similar to GCR intensity, ACR intensities are also heaviely modulated during their transportation in the solar wind and globar \ac{HMF}. Figure \ref{Fig:ACR_solarmodulation} show the comparison between the ACR oxygen intensity and the neutron monitor count rate which is a proxy of the GCR variation in the deep space. The peaked and plateau-shaped profiles in the last two and half solar cycles are consistent in two measurements.
+%Such a trend is consistent with \ac{GCR} and neutron monitor 
+%measurement.
 
 
 \begin{figure}
 	\centering
 	\includegraphics[width = 0.9\textwidth]{images/ACR_solarmodulation.png}
-	\caption{ACR oxygen intensity with energy between 8 and 27 MeV/nuc at 1 AU measured by ACE/SIS instrument (red) and count rate of Newark Neutron monitor (blue). The plot is adapted from Figure 6 of Giacalone et al 2022}
+	\caption[Long term variation of \ac{ACR} oxygen and neutron monitor count rate]{ACR oxygen intensity variation with energy between 8 and 27 MeV/nuc at 1 AU measured by ACE/SIS instrument (red) and count rate of Newark Neutron monitor (blue). The blue data points are from the earlier measurements \citep{Mewaldt1993GeoRL}. The plot is adapted from Figure 6 of \citet{Giacalone2022SSRv}}.
 	\label{Fig:ACR_solarmodulation}
 \end{figure}
 
-The spatial gradient consist the important information of the transportation and acceleration of the ACRs in the heliosphere and in the terminaton shock \cite{Rankin 2020}. 
-The radial and latitude gradient of ACR in the region outside of 1AU
+
+As we explained before, the spatial distribution of the \ac{ACR} along the radial and latitudinal direction contains important information of how the particles transport and being accelerated in the heliosphere and out of the helioshphere, i.e. terminaton shock \cite{Rankin2021ApJ}.  Therefore, by determining the magnetitude of the gradient, we can estimate and reconstruct the transport process including drift and diffusion of the \ac{ACR} in the heliosphere.
+
+According to the model prediction, the latitudianl gradient during different polarity change the sign. The observation evidence of \ac{ACR} latitudinal gradient in the outer heliosphere were determined by the two Pioneer and Voyager missions. 
+
 
 Below 1 AU, Marqunet, Helios, number 
 And more recently, Rankin, PSP, find Oxygen and protons
+ 
+A comprehensive summary of the ACR oxygen radial gradient and helium radial gradient including the observation from Helios, Pioneer, Voyager, Ulysses and the most recently PSP could be found in \citet{Rankin2021ApJ} and \citep{Rankin2022ApJ}
+
 
 \section{Radiation hazard of energetic particle}
 
@@ -291,6 +297,12 @@ Under these circumstances, the study of solar energetic particles (SEPs) assumes
 \section{Motivition}
 
 The few tens of MeV energy range is an very important energy range for the heliosphere. In this part the SEP, ACR, lower GCR are bothe there. Therefore, more attention required here
+
+New solar Cycle
+As ** indicating the solar minimum of SC 23/24 was quite unusual, with a much weaker \ac{HMF} compared with the history record and a higher then ever GCRn intensity. Further more, The recent solar minimum 
+is even more unusual, the highest GCR intensity in the history and the unusual ACR intensity [that paper]. 
+
+
 
 New measurements, new time and multipoints (NNM)
 new age (deep space age)
