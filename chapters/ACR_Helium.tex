@@ -78,7 +78,9 @@ Apart from the measurement from \ac{SolO}, we also utilized the observations fro
 
 \subsection{Overview observation between 2020 and 2022 and the cross calibration between four instruments}
 
-Before we start deriving the radial gradient, we first have a quick overlook of the observation of heavier ions, including helium, carbon, nitrogen and oxygen from \ac{HET}, as Fig.~\ref{fig:overview} shown. After removed the possible \ac{SEP} contaminations, the averaged spectra between 2020 and 2022 are displayed.
+\subsubsection{Spectra comparison between \ac{HET} and other instruments}
+
+Before we start deriving the radial gradient, we first have a quick overlook of the observation of heavier ions, including helium, carbon, nitrogen and oxygen from \ac{HET}, as Fig.~\ref{fig:overview} shown. After removed the possible \ac{SEP} contaminations, the averaged spectra between 2020 and 2022 are displayed. The \ac{SEP} list are determined below and the completed list of periods that we remove are also given.
 
 We first go through all the data point in this figure.
 The \ac{HET} measurements are marked as diamonds of different colors with red for helium-4, blue for oxygen, orange for carbon and green for nitrogen.
@@ -89,10 +91,12 @@ It is worth noting the potential issue of these penetrating data products. The i
 Besides, the geometry factors of fully penetrating particles channels, i.e. the last three channels, are divided by a factor of two, to account for those \acp{GCR} equally incident from opposite directions. The current version of geometry factors are obtained based on the 2$\pi$ simulation by assuming the \ac{SEP} are highly anisotropic and arrive the detector from only one direction. 
 
 The \ac{ACE} measurements are plotted as circles including filled circles representing \ac{ACESIS} and empty one for \ac{CRIS}. Unfortunately, \ac{ACESIS} only measured helium with energy below 15 MeV/nuc.
-The helium data from \ac{SOHO}/\ac{EPHIN} are shown as the purple squares and the \ac{LND} measured helium-4 are shown as the brown triangles. Their measurement cover the \ac{ACR} energy range between 10 - 50 MeV/nuc and will be used in the later analysis.
+The helium data from \ac{SOHO}/\ac{EPHIN} are shown as the purple squares and the \ac{LND} measured helium-4 are shown as the brown triangles. Their measurement cover the \ac{ACR} energy range between 10 - 50 MeV/nuc.
 
 The cross-comparison of the averaged spectra of all particle species in Fig.~\ref{fig:overview} reveals a general agreement between different instruments despite their distinct positions. This agreement indicates the reliable measurement of the \ac{SolO} and also \ac{LND}, which we for the first time report the helium-4 spectrum. Futhermore, the flat helium spectra between 10 MeV - 50 MeV/nuc and the higher intensity of oxygen and nitrogen at 10 MeV/nuc clearly demonstrate the presence of the \ac{ACR} components in the inner heliosphere. 
-Later in Fig.~\ref{fig:helium_spec_1au}, we specifically focus on the helium-4 spectra based on the measurement when \ac{SolO} was positioned between 0.95 and 1 au. Still the \ac{EPHIN} and \ac{HET} helium of energy above 10 MeV/nuc are consistent, though the discrepancy appear for the energy channel below 10 Mev, especially for the \ac{ACESIS} and 
+Later in Fig.~\ref{fig:helium_spec_1au}, we specifically focus on the helium-4 spectra based on the measurement when \ac{SolO} was positioned between 0.95 and 1 au. The time periods we selected in the last two years are given in Tabel \ref{tab:1AU_period}, which consist of the start time, end time and the distance from \ac{SolO} to the Earth.
+Similarly, the \ac{EPHIN} and \ac{HET} helium of energy above 10 MeV/nuc show  the consistency in averaged spectrum. However, the discrepancy appear on the energy channel below 10 Mev where the intensity of \ac{ACESIS} is about 2 time higher than \ac{EPHIN}. Besides, the \ac{LND} spectrum appears generally higher than the other measurements and it also has larger error bars. This due to the limited operation time on the lunar surface (see section \ref{sec:change_4_LND}). As a result, we utilize the \ac{EPHIN} and \ac{HET} helium measurement within the energy of 10 to 50 MeV/nuc in the susequent analysis.
+
 
 
 \begin{figure}
@@ -101,16 +105,24 @@ Later in Fig.~\ref{fig:helium_spec_1au}, we specifically focus on the helium-4 s
     \caption[The quite time spactra of helium, carbon, nitrogen and oxygen between 2020 and 2022]{The helium-4 (red, brown, purple), carbon (orange), nitrogen (green) and oxygen (blue) spectrum averaged between 2020 and 2022. The \ac{SEP} events are removed. The data used in this figure consist of observation from \ac{SolO}/\ac{HET}, \ac{SOHO}/\ac{EPHIN}, \ac{ACE} and \ac{LND}}
     \label{fig:overview}
 \end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.8\textwidth]{images/ACR/1AU_comparison_ACE_EPHIN_SOLO_SEP_version2.png}
+    \caption[The helium spectra during the period \ac{SolO} between 0.95 and 1 au]{The helium-4 spectra of \ac{SolO}/\ac{HET}, \ac{SOHO}/\ac{EPHIN}, \ac{ACE}/\ac{ACESIS} and Chang'4/\ac{LND} when SOLO was between 0.95 and 1AU. The \ac{SEP} events are removed.}
+    \label{fig:helium_spec_1au}
+\end{figure}
 
+\subsubsection{Two years' temperal variation of helium-4}
 
+Fig.~\ref{fig:overview_helium_intensity} presents the intensity profile of helium on the reconstructed energy channels from \ac{HET}, \ac{EPHIN}, \ac{LND} and \ac{STEREO}-A. The energy range of recontructed channels are labeled in the legend correspondingly. The measurements are from Feb 2020 to October 2022. In the bottom panel, we again plot the orbit distance variation of \ac{SolO}.
 
+It is evident from the observations that from 2020 to the middle of 2021, the measurements in the first half of period are generally dominated by the \ac{ACR} helium with only a few large \ac{SEP} events occuring at the end of 2020. After that with the increase of solar activities, the appear frequency of \ac{SEP} noticeably increase. Particularly, the solar energetic helium arrive differently at the \ac{SolO}, \ac{EPHIN} and \ac{STEREO}-A.
+Those large and intense \ac{SEP} significantly disturbe the time profile of the \ac{ACR} background and consequently, we must remove them before calculating the \ac{ACR} radial gradient. Of note, the discoutinuity of \ac{LND} measurement are due to the hibernation of instrument during the lunar local night.
 
-The temperol variation of the Helium measurement from different instrument including HET, EPHIN, LET and LND.
-The solar minimum is still continuing between 2020 and 2021 when GCR quite, SEP rare.
+In addition to the intermittent occuring \ac{SEP}, the long-term decrease is also evident in the \ac{SolO} and \ac{EPHIN} measurements from 2020 to the end of 2022. This is because of the enhanced solar modulation of the solar magnetic field which is change with the solar cycle. The interplay between the large scale \ac{HMF} significantly reduce the number of \acp{ACR} arrival at the Earth and inner heliosphere below 1 au. We could foresee the further decrease of the \ac{ACR} intensity in the new few years before the solar acitivity reach the maximum in 2025 \citep{}.
 
-After SEP increase
+In contrast to the transient variation from \ac{SEP} and 11-years variation due to the large scale solar modulation, the intensities of cosmic rays are also influenced and modulated by an recurring compressed structures that form from the interaction between fast and slow solar wind stream, emiting from the solar surface. Such a structure has enhanced pressure and density and occurs periodically with a period of approximately 27 days, i.e. the solar rotation period. This is so-called stream interaction region or corotating interaction regions \citep{Burlaga9174, Gosling1976, Schwenn1990, Richardson2004}. The changes of the local conditions modify the transport of cosmic rays and the consequence reflects on the intensity changes, though such variation is not as significant as the \acp{SEP} and solar modulations.
 
-The SEP list are determined below. The complete table of the SEP events are given in the appendix
 \begin{figure}
     \centering
     \includegraphics[width = 0.8\textwidth]{images/ACR/overview_Helium_4_instrument.png}
@@ -121,7 +133,7 @@ The SEP list are determined below. The complete table of the SEP events are give
 \end{figure}
 
 
-Based on the orbit information, we could easily determind the period, when \ac{SolO} located near 1 au. such a list of periods in the last two years is given in Tab.~\ref{tab:1AU_period}.
+
 
 \begin{table}[]
     \centering
@@ -147,26 +159,26 @@ Based on the orbit information, we could easily determind the period, when \ac{S
 \end{table}
 
 
-To further compare and cross calibrate the measurement between different instrument, we extracted the data when the SOLO is located between 0.95 and 1 au. These period are marked out by the shadow region in the \ref{fig:overview}. The corresponding spectra are given in Fig.\ref{fig:spec}. 
-We could 
-Spectra.
+\subsection{\ac{SEP} list}
 
-\begin{figure}
-    \centering
-    \includegraphics[width = 0.8\textwidth]{images/ACR/1AU_comparison_ACE_EPHIN_SOLO_SEP_version2.png}
-    \caption[The helium spectra during the period \ac{SolO} between 0.95 and 1 au]{The helium-4 spectra of \ac{SolO}/\ac{HET}, \ac{SOHO}/\ac{EPHIN}, \ac{ACE}/\ac{ACESIS} and Chang'4/\ac{LND} when SOLO was between 0.95 and 1AU. The \ac{SEP} events are removed.}
-    \label{fig:helium_spec_1au}
-\end{figure}
+As we aforementioned, the \acp{SEP} is one of most manifest disturbance to the \ac{ACR} background. Therefore, a completed and properly defined \ac{SEP} periods are crucial. In this section we explain what type of data we used and how we determine the \ac{SEP} periods.
 
-Considering the energy coverage of different L1 instruments we utitlized before and for the convinence of the comparison with SOLO, in the following chapter, we only consider the SOHO/EPHIN which could cover the energy between 10 - 50 MeV/nuc as the base line of SOLO.
+The \ac{SEP} arrived differently at \ac{SolO} and at the Earth. Hence, the \ac{SEP} list are determined seperated for both cases.
+Moreover, in order to remove the solar particle thoroughly and prevent the existence of remanent particles that could not be recognized directly from the intensity profiles, we consider utilizing different measurements to identify the \acp{SEP}.
+
+Fig.~\ref{Fig:solo-lvl2} presents the 10 minute count rate of L2 counter named HET_any(a1, b1) and HET_any(a2, b2). As we explained in the instrument section, those channels are perfect indicator of the \ac{SEP} with larger counting statistics, approximately 600 counts per ten minutes. The \ac{SEP} list at Earth is determined by the time profile of lower energy proton below 10 MeV that observed from \ac{EPHIN}.
+
+The duration of the SEP is simply determined by the 3-$\sigma$ method with the eye determination as supplements. $\sigma$ is the standard deviation of a background or the preevent quite time. The \ac{SEP} periods are defined as the consecutive time series when the flux is 3 time of the standard derivations above the background. This method was commonly used in determining the onset time of the SEPs event and valid for those SEPs has clear onset and sharp increase. 
+However, if the background is unclear and increase of the temporal profiles is slow, the determination of the onset and end of event might have larger uncertainty. In this case, we determine the boundary of periods by eye.
+
+As a result, the \ac{SEP} periods that we determined are illustrated as the magenta color region in Fig.~\ref{Fig:solo-lvl2} and Fig.~\ref{Fig:SOHO_EPHIN_Proton_flux} and  the \ac{SEP} priods are listed in Table.~\ref{tab:SEP_list} in Appendix.
 
 
-\subsection{Generate the SEP list and remove the SEP events}
 
 \begin{figure}
     \centering
     \includegraphics[width = \textwidth]{images/ACR/SOLO-lvl2-trriger.png}
-    \caption{The 1 hour time resolution Level-2 trigger of the SOLO HET, logic: any(a1,b1) and any(a2,b2). The shadow regions represent the SEP periods.}
+    \caption{The Level-2 counter of the \ac{HET} named any(a1,b1) and any(a2,b2). The magenta color regions are the SEP periods we identified.}
     \label{Fig:solo-lvl2}
 \end{figure}
 
