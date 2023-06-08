@@ -61,6 +61,7 @@ rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
 \usepackage{xpatch}
 \usepackage{minted}
 \usepackage{ccicons}
+\usepackage{longtable}
 
 \usepackage[separate-uncertainty=true, quotient-mode=fraction, per-mode=symbol]{siunitx}
 \DeclareSIUnit{\AU}{AU}
@@ -153,10 +154,10 @@ rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
 %*******************************************************
 \cleardoublepage
 \pagenumbering{arabic}
-\setcounter{page}{1}	
+\setcounter{page}{1}
 
 
-\chapter{Introduction}
+\chapter{Introduction and Motivation} 
 \label{chp:introduction}
 \input{chapters/Introduction}
 
@@ -217,6 +218,8 @@ rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
 
 %\cleardoublepage
 %\include{chapters/Appendix_HET_Ccounter_temperature_dependent}
+\cleardoublepage
+\include{chapters/Appendix_SEPlist}
 
 \cleardoublepage
 \include{chapters/Appendix_Publicationlist}

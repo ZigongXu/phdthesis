@@ -1,9 +1,9 @@
+In the end of section ~\ref{chp:SOLO_Quite_time}, \citet{Mason-2021-SolOQuietTime} reported the radial gradient of \ac{ACR} oxygen and helium-4 with energy of 4.4 MeV/nuc inside 1 au. The results are based on the measurement from \ac{SIS} in 2020 and part intensities are plotted as a function of three radial locations. Due to limited counting numbers, the uncertainties of flux is relative large. But still the results suggest a positive and small oxygen gradient, compared with the observation from Helios and \ac{PSP} \citep{Rankin2021ApJ,Marquardt2018AA}.
 
-\section{Introduction}
+As of 2023, \ac{SolO} has finished its fifth orbit and continues its trip in the inner heliosphere. \ac{EPD} onboard \ac{SolO} provides more measurements 
 
-In the end of section ~\ref{chp:SOLO_Quite_time}, \citet{Mason-2021-SolOQuietTime} reports the radial gradient of \ac{ACR} oxygen and helium-4 with energy of 4.4 MeV/nuc inside 1 au. The results are based on the measurement in 2020 and the intensities of particle are plotted as a function of three radial gradients. Though the relative larger uncertainty which is due to the limited count number, the results suggest a positive and small oxygen gradient, compared with the observation from Helios and \ac{PSP} \citep{Rankin2021ApJ,Marquardt2018AA}.
+for the study of \ac{ACR} radial gradient of \ac{ACR}. 
 
-As of 2023, \ac{SolO} has finished its fifth orbit and continues its trip in the inner heliosphere and \ac{EPD} provides more measurements for the study of \ac{ACR} radial gradient of \ac{ACR}. 
 In this chapter, we will employ the new data from \ac{HET} onboard \ac{SolO} and present the first observation of the \ac{ACR} heliums in the inner heliosphere between 2020 and 2022. Possible interuptions including \acp{SEP}, periodically appeared compression regions and the long term solar modulation are properly considered. Moreover, the helium flux measured by \ac{EPHIN} onboard \ac{SOHO} is utilized to derive the ratio of \ac{SolO} and \ac{SOHO}/\ac{EPHIN} in order to remove the effect of solar modulation. Our preliminary results show that \ac{SolO} and \ac{SOHO}/\ac{EPHIN} are consistent with each other and the radial gradient of helium-4 is closed to the previous results determined by \ac{PSP}, considering the uncertainty.
 
 The details of the data analysis and summary of the results are given below, although some results are still in the preliminary phase. We will continue the data analysis and the final version of the paper is in preparation and to be submited to Astronomy and Astrophysics.
@@ -23,6 +23,7 @@ The comparison between most recent observtion from \ac{PSP} and history observat
 The radial gradient could be express as \cite{Rankin2021ApJ} :
 \begin{equation}
     g_r = \frac{1}{f}\frac{\partial{f}}{\partial{r}} = \frac{\partial{\mathrm{ln} f}}{\partial{r}}
+    \label{eq:radial_gradient}
 \end{equation}
 Where $g_r$ represents the radial gradient component under the assumption that the latitude gradient are neglectable. $f$ is the differential flux and $r$ is the radial distance. The radial gradient could be easily derived by fitting it to a linear equation according to the least minimum square method.
 
@@ -74,12 +75,11 @@ In addition to the nominal data products which are designed to provide precious 
 
 Apart from the measurement from \ac{SolO}, we also utilized the observations from \ac{SOHO}/\ac{EPHIN}, \ac{ACESIS} and \ac{CRIS} onboard \ac{ACE} and \ac{LND} as a comparsion and reference line, in particular when encountering long term variations of the cosmic rays.
 
-\section{Observation and data analysis}
 
-\subsection{Overview observation between 2020 and 2022 and the cross calibration between four instruments}
+\section{Overview observation between 2020 and 2022 and the cross calibration between four instruments}
 
-\subsubsection{Spectra comparison between \ac{HET} and other instruments}
-
+\subsubsection*{Spectra comparison between \ac{HET} and other instruments}
+%\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 Before we start deriving the radial gradient, we first have a quick overlook of the observation of heavier ions, including helium, carbon, nitrogen and oxygen from \ac{HET}, as Fig.~\ref{fig:overview} shown. After removed the possible \ac{SEP} contaminations, the averaged spectra between 2020 and 2022 are displayed. The \ac{SEP} list are determined below and the completed list of periods that we remove are also given.
 
 We first go through all the data point in this figure.
@@ -112,7 +112,7 @@ Similarly, the \ac{EPHIN} and \ac{HET} helium of energy above 10 MeV/nuc show  t
     \label{fig:helium_spec_1au}
 \end{figure}
 
-\subsubsection{Two years' temperal variation of helium-4}
+\subsection*{Temperal variation of helium-4 intensity}
 
 Fig.~\ref{fig:overview_helium_intensity} presents the intensity profile of helium on the reconstructed energy channels from \ac{HET}, \ac{EPHIN}, \ac{LND} and \ac{STEREO}-A. The energy range of recontructed channels are labeled in the legend correspondingly. The measurements are from Feb 2020 to October 2022. In the bottom panel, we again plot the orbit distance variation of \ac{SolO}.
 
@@ -158,27 +158,26 @@ In contrast to the transient variation from \ac{SEP} and 11-years variation due 
     \end{tabular}
 \end{table}
 
+\section{Averaged helium intensity profile}
+\subsection*{Solar energetic particle events list}
 
-\subsection{\ac{SEP} list}
+As we aforementioned, \ac{SEP} is one of most manifest disturbance to the \ac{ACR} background. Therefore, a completed and properly defined \ac{SEP} periods are crucial. In this section we explain what type of data we used and how we determine the \ac{SEP} periods.Because \ac{SEP} arrived differently at \ac{SolO} and at the Earth. Therefore the \ac{SEP} list are determined seperated for both cases.
 
-As we aforementioned, the \acp{SEP} is one of most manifest disturbance to the \ac{ACR} background. Therefore, a completed and properly defined \ac{SEP} periods are crucial. In this section we explain what type of data we used and how we determine the \ac{SEP} periods.
+In order to remove the solar particle thoroughly and prevent the existence of remanent particles that could not be recognized directly from the intensity profiles, we consider utilizing different measurements to identify the \acp{SEP}.
 
-The \ac{SEP} arrived differently at \ac{SolO} and at the Earth. Hence, the \ac{SEP} list are determined seperated for both cases.
-Moreover, in order to remove the solar particle thoroughly and prevent the existence of remanent particles that could not be recognized directly from the intensity profiles, we consider utilizing different measurements to identify the \acp{SEP}.
-
-Fig.~\ref{Fig:solo-lvl2} presents the 10 minute count rate of L2 counter named HET_any(a1, b1) and HET_any(a2, b2). As we explained in the instrument section, those channels are perfect indicator of the \ac{SEP} with larger counting statistics, approximately 600 counts per ten minutes. The \ac{SEP} list at Earth is determined by the time profile of lower energy proton below 10 MeV that observed from \ac{EPHIN}.
+Fig.~\ref{Fig:solo-lvl2} presents the 10-minute count rate of L2 counter which are named as HET\_any(a1, b1) and HET\_any(a2, b2), the former from the sunward telescope and the latter from the anti-sunward telescope. As we explained in the instrument section, those channels are perfect indicators of the \ac{SEP} with larger counting statistics, approximately 600 counts per ten minutes. Since the profile of both case are similar, we only use the sunward measurement for the determination of \ac{SEP} periods. The \acp{SEP} that reach the Earth are determined by the time profile of proton of energy below 10 MeV that were observed by \ac{EPHIN}.
 
 The duration of the SEP is simply determined by the 3-$\sigma$ method with the eye determination as supplements. $\sigma$ is the standard deviation of a background or the preevent quite time. The \ac{SEP} periods are defined as the consecutive time series when the flux is 3 time of the standard derivations above the background. This method was commonly used in determining the onset time of the SEPs event and valid for those SEPs has clear onset and sharp increase. 
 However, if the background is unclear and increase of the temporal profiles is slow, the determination of the onset and end of event might have larger uncertainty. In this case, we determine the boundary of periods by eye.
 
-As a result, the \ac{SEP} periods that we determined are illustrated as the magenta color region in Fig.~\ref{Fig:solo-lvl2} and Fig.~\ref{Fig:SOHO_EPHIN_Proton_flux} and  the \ac{SEP} priods are listed in Table.~\ref{tab:SEP_list} in Appendix.
+As a result, the \ac{SEP} periods that we determined are illustrated as the magenta color region in Fig.~\ref{Fig:solo-lvl2} and Fig.~\ref{Fig:SOHO_EPHIN_Proton_flux}. In the end, the \ac{SEP} priods are listed in Table.~\ref{tab:solo_SEPlist} and \ref{tab:SOHO_SEP_list} in Appendix {chp:SEPlist}.
 
 
 
 \begin{figure}
     \centering
     \includegraphics[width = \textwidth]{images/ACR/SOLO-lvl2-trriger.png}
-    \caption{The Level-2 counter of the \ac{HET} named any(a1,b1) and any(a2,b2). The magenta color regions are the SEP periods we identified.}
+    \caption[The L2 counter of \ac{HET}]{The Level-2 counter of the \ac{HET} named any(a1,b1) and any(a2,b2). The magenta color regions are the SEP periods we identified.}
     \label{Fig:solo-lvl2}
 \end{figure}
 
@@ -186,12 +185,23 @@ As a result, the \ac{SEP} periods that we determined are illustrated as the mage
 
 \begin{figure}
     \centering
-    \includegraphics[width = 0.8\textwidth]{images/ACR/SOLO-EPHIN-l3i-log2+6-proton-6H.png}
-    \caption{The proton flux measured by SOHO/EPHIN below 10 MeV. The data we used here are the level-3 proton data products. The magenta shadow regions are the SEP.}
+    \includegraphics[width = \textwidth]{images/ACR/SOLO-EPHIN-l3i-log2+6-proton-6H.png}
+    \caption{The intensity profile of proton of energy below 10 MeV}{The proton flux measured by SOHO/EPHIN below 10 MeV. The data we used here are the level-3 proton data products. The magenta shadow regions are the SEP.}
     \label{Fig:SOHO_EPHIN_Proton_flux}
 \end{figure}
 
-\subsection{Averaged over carrington rotation}
+\subsection*{Averaged over Carrington rotation}
+
+As mentioned earlier, transient \acp{SEP}, long-term solar modulation, and periodic \ac{CIR} and \ac{SIR} significantly affect the \ac{ACR} intensity. In the previous section, we have identified and removed \ac{SEP} periods, obtained a slowly changed profile. In this section, we will further reduce the impact of the recurring compressed regions by averaging the intensity profile over the carrington rotation. It is worth noting that the length of a carrington rotaion in the \ac{SolO} corrdinate varies as the spacecraft moving closer to or further away from the sun. The carrington longititude of \ac{SolO} is illustrated in the second panel from top in Fig.~\ref{fig:SOLO_orbit_info}. 
+
+Fig.~\ref{fig:carrington_flux} displays the averaged helium flux from \ac{HET} (orange line) and \ac{EPHIN} (blue line). The red dashed lines indicate the variation in radial distance between \ac{SolO} and the sun. Despite the approximately 30\%/au radial gradient \citep{Rankin2021ApJ} that we expect and the slight discrepancy of the energy channels between \ac{HET} and \ac{EPHIN}, the measurements show overall consistency for all the four channels, even though the flux decrease over time. The decreases in the flux is significant and due to the long-term solar modulation. 
+
+More interestingly, during the end of 2020 and start of 2021, the \ac{HET} helium intensity is unusualy higher than that of \ac{EPHIN}. The discrepancies are up to 30 \% and are clear seen in four channels. Though that data point is from a carrington rotation with an larger \ac{SEP} event, we have already removed the \ac{SEP} periods from the data. Besides, such an increase are even more clear in the higher energy channel (bottom panel). 
+
+Furthermore, the bottom panel of Fig.~\ref{fig:carrington_flux} show that during 2020  the 40 - 50 MeV/nuc helium intensity from \ac{EPHIN} is statistically lower than that from \ac{HET}. But such a discrepancy is unseen in the lower energy channels and the same channel but later. Currently, the reasons for these two kind of discrepancise are unclear.
+
+Fig.~\ref{fig:fluxvsdistance} shows how the flux of helium with energy range of 10 - 20 MeV/nuc from \ac{HET} change as a function of the radial distance from 0.4 to 1 au. Averaged flux of four orbits are showed in different colors and the blue triangles overlaid the solid circles suggest the time orders of the measurements. The intensity of helium in the end of the measurements is about 5 times less than that in the beginning. 
+
 
 \begin{figure}
     \centering
@@ -199,43 +209,57 @@ As a result, the \ac{SEP} periods that we determined are illustrated as the mage
     \includegraphics[width = 0.8\textwidth,height = 0.2\textheight]{images/ACR/seperate_mask_1-3/Carrington_SOLO_19.4-29.5MeV_EPHIN_20.3-28.0MeV.png}
     \includegraphics[width = 0.8\textwidth,height = 0.2\textheight]{images/ACR/seperate_mask_1-3/Carrington_SOLO_29.5-41.2MeV_EPHIN_28.0-38.5MeV.png}
     \includegraphics[width = 0.8\textwidth,height = 0.2\textheight]{images/ACR/seperate_mask_1-3/Carrington_SOLO_41.2-49.0MeV_EPHIN_38.5-53.0MeV.png}
-    \caption{The carrington rotation averaged flux of SOLO (orange) and EPHIN (blue) in corresponding cordinate. The time profile in light orange color is the daily averaged SOLO/HET in different energy channel.}
+    \caption[The helium flux averaged over the the carrington rotation periods in four energy channels between 10 and 50 MeV/nuc]{The flux of \ac{SolO} (orange) and \ac{EPHIN} (blue) averaged over the carrington rotation periods in the energy channels of 10 - 20 MeV/nuc, 20 - 30 MeV/nuc, 30 - 40 MeV/nuc and 40 - 50 MeV/nuc. The daily averaged \ac{HET} helium flux, as indicated by the fluctuatign light orange lines, is also shown for different energy channels. Red dashed lines are the radial distance of \ac{SolO} to the sun.}
     \label{fig:carrington_flux}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics{images/ACR/SOLO-flux_only.png}
-    \caption{The flux vs the radial distance of SOLO.}
+    \caption[10 - 20 MeV/nuc \ac{HET} helium flux vs the radial distance of \ac{SolO}]{The flux of 10 - 20 MeV/nuc helium from \ac{HET} changes a function of the radial distance of \ac{SolO}. The data from different orbit are show in different colors. The arrow indicates the direction of time.}
     \label{fig:fluxvsdistance}  
 \end{figure}
 
 
-\subsection{Ratio of SOLO and EPHIN and radial gradient}
+\section{Radial gradient of ACR helium}
 
-\begin{figure}
+Deriving the limited radial gradient from the substantially changed data are challenging, in particular, under the case that the 5 times decrease of the intensity caused by the solar modulation on the \ac{ACR}.
+Therefore, in order to obtain the accurate value of gradient we de-trend the \ac{HET} data using the \ac{EPHIN} measurement as the baseline. Following the defination in Eq.~\ref{eq:radial_gradient}, we can calcuate the radial gradient of different energy \ac{ACR} helium.
+
+We present the variation of the \ac{HET} to \ac{EPHIN} ratio for 4 energy channels in the first and third row's panel in Fig.~\ref{fig:ratio_radialgradient} as well as the log-linear fits results in row number 2 and 4 respectviely. The orbit periods are drawn as the colorful region in the ratio variation plots and corresponding data points have the same colors. So were the final fits shown as the dashed line and the 95\% confident interval. The black dashed lines in the the panel of the second and forth rows are the fit result to the data points from orbit 1 to orbit 3.
+
+Below we give an table of the radial gradient of helium in different energy channels at different orbit.
+
+\begin{table}
+
+
+\end{table}
+
+\begin{figure}[!htb]
     \centering
     \includegraphics[width =0.4\textwidth]{images/ACR/seperate_mask_1-3/ratio_time_radialgradient_10-20MeV.png}
     \includegraphics[width =0.4\textwidth]{images/ACR/seperate_mask_1-3/ratio_time_radialgradient_20-30MeV.png}
     \includegraphics[width =0.4\textwidth]{images/ACR/seperate_mask_1-3/ratio_time_radialgradient_30-40MeV.png}
     \includegraphics[width =0.4\textwidth]{images/ACR/seperate_mask_1-3/ratio_time_radialgradient_40-50MeV.png}
-    \caption{The ratio of SOLO and EPHIN in different energy channel changes over times. The ratio is calculated using the carrington averaged flux. The bottom panels of four subplots are the ratio vs the radial gradient. The data points in different colors are from different orbit as given in the legend.} 
-
+    \caption[Ratio of helium intensity between \ac{HET} and \ac{EPHIN} and the radial grdient]{Row 1 and 3: The ratio of helium intensity between \ac{HET} and \ac{EPHIN} in different energy channel changes over times. Row 2 and 4: Ratio vs the radial gradient and the log-linear fitting to the scattering data points for the first three orbit.} 
+    \label{fig:ratio_radialgradient}
 \end{figure}
 
-\subsection{Compared with model and the observations}
-\begin{figure}
+\subsection*{Compared with model and the observations}
+\begin{figure}[!htb]
     \centering
     \includegraphics{images/ACR/Gradient_Energy_distribution_v2}
-    \caption{The radial gradient of Helium measured on the ecliptic plane at different energies. The values (1 au) based on the SOLO/HET measurements are given as diamonds with corresponding error bars in orange (SEP-mask-Carrington-average), green (SEP-mask-daily-averaged), red (SEP-mask-larger-than-0.9-Poisson-distribution-80000s-daily). The dashed lines are generated based on the model \citep{Strauss&Potgieter_2010} \TODO{New simulation and ask help from some one in Kiel, not now}. We extracted the result from \citep{Rankin2021ApJ}.  \TODO{This image need to be reproduct, using just the one case}}
+    \caption{The radial gradient of helium measured on the ecliptic plane at different energies. The values (1 au) based on the SOLO/HET measurements are given as diamonds with corresponding error bars in orange (SEP-mask-Carrington-average), green (SEP-mask-daily-averaged), red (SEP-mask-larger-than-0.9-Poisson-distribution-80000s-daily). The dashed lines are generated based on the model \citep{Strauss2010JGRA}. We extracted the result from \citep{Rankin2021ApJ}.  }
     \label{fig:comparison_SOLO_PSP}
 \end{figure}
+%\TODO{This image need to be reproduct, using just the one case}
+%  \TODO{New simulation and ask help from some one in Kiel, not now}.
 
 
-\subsection{The time variation of the radial gradient}
+\subsection*{The time variation of the radial gradient}
 
 
-\section{Results and summary}
+\section{ Summary and discussion}
 
 We reported the ACR helium (10 - 50MeV/nuc) measured by SolO/HET from 2020 - 2022.9. The first half period is still the solar minimum with almost no solar activities and the second half has increasing number of solar eruptions.
 The comparison between the helium spectra of SOLO/HET, SOHO/EPHIN and ACE/SIS indicates a good agreement. SolO and ACE are also consistent with each other for Carbon, Oxygen and Nitrogen.
@@ -245,7 +269,10 @@ Solar activities affect the radial gradient. It is difficult to derive the weak 
 Currently, the results have larger uncertainties and more discussions are needed to improve the results.
 
 
+The precious SEP list and
 
+
+The
 
 
 
