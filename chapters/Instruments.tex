@@ -1,3 +1,5 @@
+This chapter describes the current status, the measurement principle and the latest updates of \ac{LND} onboard the lander of Chang`E - 4 mission and \ac{HET} onboard the \ac{SolO}. 
+
 \section{Chang'E-4 and Lunar Lander Neutron and Dosimetry (LND)Experiment}
 \label{sec:change_4_LND}
 
@@ -184,6 +186,7 @@ The housekeeping data are \ac{EPD} sensor produced instrumental data. They have 
 Such a housekeeping data is the single detector counter which register signals in the \ac{BGO} scintillator crystal, this is the C detector. This counter does not require any coincidence condition and respond to particles from all directions and types. The sole requirement is that the deposited energy exceeds the threshold of the C detector. Due to its larger geometry factor, this counter exhibits better counting statistics and can be used to detect small disturbance in the \ac{GCR} background. For example \citet{Forstner-2021-SolO} use this counter to study a \ac{FD} with an ampliude of 3\% when a \ac{CME} passed \ac{SolO} on 19 April 2020. In addition, \citet{Allen2021AA_venus} found an $\sim$ 5\% drop in the count rates during the first Venus flyby. This drop is due to the planet body blockage on the \ac{FOV} of \ac{HET}.
 
 Similar to the single detector count rate, we also utilize the L2 counters named \textit{any(a1, b1)} or \textit{any(a2,b2)} to determine the periods of \acp{SEP}. The counters sum up every signal that triggers detectors A1 (A2) and B1 (B2) in the sensor head, regardless of the primary energy and the particle species. \acp{GCR} which are slowly varying are the dominant particles in the background of this counter. Therefore, a temporal increase indicates an incoming of \ac{SEP} event. These data products exhibit better counting statistics than the nominal science data products which are designed to derive the flux. Additionally, \textit{any(a1, b1)} or \textit{any(a2,b2)} are more sensitive to lower energy particles from \acp{SEP}, as they have a lower energy threshold of $\sim$ 50 keV compared to the C counter \citep{Elftmann-2020-PhD}. The counters can detect electrons and ions with energy below 1 MeV. As a result, those two counters are particularly useful in determining the start and end time of the \ac{SEP} events, no matter what particles trigger them. In Section~\ref{chp:ACR_Helium}, where we are interested in \acp{ACR}, we remove \ac{SEP} time periods determined by this method based on the \textit{any(a1,b1)} counter to enable an accurate \ac{ACR} measurement.
+
 
 For more details on the inner structure and parameters of the \ac{HET}, as well as the most update status of \ac{HET}, one could refer to \citet{RodriguezPacheco-2019-EPD, Wimmer2021AA,Elftmann-2020-PhD}.
 
