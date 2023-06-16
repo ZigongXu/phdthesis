@@ -88,7 +88,7 @@ The temperature variation on the lunar surface
 
 \begin{figure}[!htb]
     \centering
-    \subfloat[]{\includegraphics[angle =  90, width = 0.35\textwidth, height = 0.9\textheight]{images/lnd_temperature.png}}
+    \subfloat[]{\includegraphics[angle =  90, width = 0.34\textwidth, height = 0.9\textheight]{images/lnd_temperature.png}}
     \subfloat[]{\includegraphics[angle = 90, width = 0.33\textwidth, height = 0.9\textheight]{images/lnd_bias_current.png}}
     \subfloat[]{\includegraphics[angle = 90, width = 0.33\textwidth, height = 0.9\textheight]{images/lnd_bias_voltage.png}}
     \caption[LND temperature, bias current, and bias voltage variations]{The variation of housekeeping data including (a) temperature, (b) bias current, and (c) bias voltage. The temperatures are measured by the sensors assembled inside of LND sensor head and electronic box. The overview plot  2019 to Nov 29, 2022. }
@@ -100,7 +100,7 @@ The temperature variation on the lunar surface
 Due to the noise of the detectors, the bias current reach the limit of the meaurements at 2$\mu$A. 
 
 Below are the scripts used to calculate the correct bias voltage and current that measured on the LND instrument from Stephan B\¨ottcher (private communication), who is the desinger of the LND instruement hardware and software in the IEAP.
-\begin{lstlisting}
+\begin{lstlisting}[!htb]
 # The Awk script for the LND bias current and voltage correction
 # HK_Ibias and HK_Vbias are the bias current and voltage measured on the LND instrument
 # HK_T_LVPS is the temperature of the LND instrument ( TODO: check the meaning of the LVPS)
