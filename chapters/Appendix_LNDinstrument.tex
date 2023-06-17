@@ -100,7 +100,7 @@ The temperature variation on the lunar surface
 Due to the noise of the detectors, the bias current reach the limit of the meaurements at 2$\mu$A. 
 
 Below are the scripts used to calculate the correct bias voltage and current that measured on the LND instrument from Stephan B\¨ottcher (private communication), who is the desinger of the LND instruement hardware and software in the IEAP.
-\begin{lstlisting}[!htb]
+\begin{lstlisting}[float]
 # The Awk script for the LND bias current and voltage correction
 # HK_Ibias and HK_Vbias are the bias current and voltage measured on the LND instrument
 # HK_T_LVPS is the temperature of the LND instrument ( TODO: check the meaning of the LVPS)
@@ -123,7 +123,7 @@ function Vbias() {
 \section{The change of LND data process pipeline}
 \label{chp:appendix_LND_data_process_pipeline}
 
-\section{Discrepanchy between LND and CREME}
+\section{Discrepanchy between LND and CRater}
 
 \section{Heavy ion spectra}
 
@@ -133,3 +133,7 @@ Mostly the instrument effect, the He3 spectra is not reliable.
 
 \section{L1 responce simulation}
 
+
+\section{Responce of TID to SEPs}
+and provide invaluable insight into our heliosphere. 
+Though \ac{LND} have been troubled by the noise issue and discoutinuity of the data due to the special working environment on the lunar suface, the large amount of \ac{LND} data have large potential in contributing to our understanding of the inteaction between charged particle and environement. One of the interesting topic is linking \ac{TID} measurements with energetic particles measurements. In order to achive this, we first need to derive the response of \ac{LND} to the charged particle with power law input spectra. Then we fold different input spectra with the response function to predict the possible \ac{TID} on the lunar surface. Finally, we compare the predicted \ac{TID} with the measured \ac{TID} to validate the current model. By doing so, we could have better understanding of the instrument itself and the radiation environment on the lunar surface.
