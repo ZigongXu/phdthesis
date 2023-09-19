@@ -35,7 +35,9 @@ rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
 \usepackage{upgreek}
 \usepackage{enumitem}
 \usepackage{doi}
-\usepackage[style=authoryear-comp,natbib=true,backend=biber,uniquename=false,uniquelist=false,sortcites=false,maxcitenames=2,maxbibnames=3,date=year,firstinits=true]{biblatex}
+\usepackage[style=authoryear-comp,natbib=true,backend=bibtex,uniquename=false,uniquelist=false,sortcites=false,maxcitenames=2,maxbibnames=3,date=year,firstinits=true]{biblatex}
+% backend=biber; to replace the above backend=bibtex, when you finize it in git.
+
 %\usepackage{framed, color}
 %\definecolor{shadecolor}{rgb}{1.0, 0.72, 0.77}
 
@@ -59,6 +61,8 @@ rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
 \usepackage{xpatch}
 \usepackage{minted}
 \usepackage{ccicons}
+\usepackage{longtable}
+\usepackage[most]{tcolorbox}
 
 \usepackage[separate-uncertainty=true, quotient-mode=fraction, per-mode=symbol]{siunitx}
 \DeclareSIUnit{\AU}{AU}
@@ -77,8 +81,9 @@ rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
 
 \ExecuteBibliographyOptions{sortcase=false,babel=other,abbreviate=false}
 \ExecuteBibliographyOptions{isbn=false,url=true,eprint=false}
-\bibliography{bibliography.bib}
+\bibliography{bibliography}
 
+\newcommand{\mytodo}[1]{\textcolor{red}{\emph{#1}}}
 \newcommand{\TODO}[1]{\todo[inline]{#1}}
 \newcommand{\const}{\ensuremath\textrm{const.}}
 
@@ -119,6 +124,8 @@ rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
 
 \hypersetup{colorlinks=false}
 
+
+
 \begin{document}
 \frenchspacing
 \raggedbottom
@@ -149,39 +156,44 @@ rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
 %*******************************************************
 \cleardoublepage
 \pagenumbering{arabic}
-\setcounter{page}{1}	
+\setcounter{page}{1}
 
-\chapter{Introduction}
+
+\chapter{Introduction and Motivation} 
 \label{chp:introduction}
-
 \input{chapters/Introduction}
+
+\chapter{Observation and theoretical background of energetic particles}
+\input{chapters/Theoraticalbackground}
 
 \chapter{Instrumentation}
 \label{chp:instruments}
 
 \input{chapters/Instruments}
 
-\chapter{Studies of ICME arrival times at 1 AU and Mars using Forbush decreases}
-\label{chp:arrival_times}
+\chapter{First Solar Energetic Particles measured on the lunar far-side}
+\label{chp:LND_SEP}
 
-\input{chapters/ICME_arrival_times}
+\input{chapters/LND_SEP}
 
-\chapter{Comparing Forbush decrease properties at Earth and Mars}
-\label{chp:fd_properties}
+\chapter{Primary and albedo protons detected by the Lunar Lander Neutron
+and Dosimetry experiment on the lunar farside}
+\label{chp:LND_GCR_albedo}
 
-\input{chapters/FD_Properties}
+\input{chapters/LND_GCR_albedo}
 
-\chapter{Major Space Weather events: The events of September 2017}
-\label{chp:september_event}
+\chapter{Quiet-time low energy ion spectra observed on Solar
+Orbiter during solar minimum}
+\label{chp:SOLO_Quite_time}
 
-\input{chapters/September_event}
+\input{chapters/SOLO_quite_time}
 
-\chapter{Case study: First CME seen at Solar Orbiter}
-\label{chp:solo}
+\chapter{Observation of anomalous cosmic rays in the inner heliosphere}
+\label{chp:ACR_Helium}
 
-\input{chapters/SolO}
+\input{chapters/ACR_Helium}
 
-\chapter{Summary and Outlook}
+\chapter{Conclusion and Outlook}
 \label{chp:outlook}
 
 \input{chapters/Outlook}
@@ -203,10 +215,14 @@ rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
 
 \cleardoublepage
 \appendix
-\include{chapters/Appendix_HETSimulation}
+\include{chapters/Appendix_LNDinstrument}
 
-\cleardoublepage
-\include{chapters/Appendix_GCSPython}
+%\cleardoublepage
+%\include{chapters/Appendix_LNDNew_data_products}
+%\cleardoublepage
+%\include{chapters/Appendix_HET_Ccounter_temperature_dependent}
+%\cleardoublepage
+\include{chapters/Appendix_SEPlist}
 
 \cleardoublepage
 \include{chapters/Appendix_Publicationlist}
