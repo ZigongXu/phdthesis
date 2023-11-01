@@ -2,6 +2,8 @@
     "latex-workshop.latex.recipes": [
 
 
+
+
         {
             "name": "latexmk",
             "tools": [
@@ -65,6 +67,7 @@
     ],
     "latex-workshop.latex.tools": [
         
+        
         {
             "name": "latexmk",
             "command": "latexmk",
@@ -101,7 +104,8 @@
                 "-file-line-error",
                 "-xelatex",
                 "-outdir=%OUTDIR%",
-                "%DOC%"
+                "%DOC%",
+                "-shell-escape"
             ],
             "env": {}
         },
