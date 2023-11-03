@@ -194,3 +194,4 @@ talk/preview.pdf
 *DS_store
 *synctex*
 .*
+.vscode/settings.json
