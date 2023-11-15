@@ -68,7 +68,7 @@ The color bars in both panels indicate the time sequence from February 2020 to M
 
 The charged particle measurements reported in this study are from \ac{HET} onboard \ac{SolO} which could measure charged particles in the energy range from tens of MeV/nuc to a hundred MeV/nuc. Specifically, we focus on helium particles within the energy range of 10 - 50 MeV/nuc, which are the \ac{HET} stopping particles measured in detector C. During quiet times, the predominant particles are \acp{ACR} in this energy range. Further details regarding the \ac{HET} measurement principle can be found in section \ref{sec:Solar_Orbiter} and \citet{RodriguezPacheco-2019-EPD}.
 
-Similar to the analysis by \citet{Mason-2021-SolOQuietTime} for \ac{SIS}, our analysis of the helium radial gradients measured by \ac{HET} is also constrained by the counting statistics due to the limited geometry factor of \ac{HET} and the low helium intensities in space. In order to derived radial gradients with better accuracy, we employ two methods to increase count statistics and hence reduce uncertainties of gradients. In the first method, we calculate a summation of count rates measured by four \ac{HET} apertures. There are two sets of \ac{EPT}/\ac{HET} telescopes onboard the \ac{SolO}, with each measuring stopping particles incidenting from opposite directions. \ac{SolO}/\ac{HET} provide helium flux measurements from sunward, anti-sunward, southward, and northward directions. Since \ac{ACR} are isotropic in the heliosphere [\todo{citation need}], these measurements are resembled. We simply utilize the averaged helium intensity from four directions in the following analysis. By doing so, we reduce the uncertainties of helium intensity to half. Secondly, we rebinned the fine energy channels of \ac{HET} and reconstructed four energy channels in the energy range of 11.1 - 19.4 MeV/nuc, 19.4 - 29.5 Mev/nuc, 29.5 - 41.2 Mev/nuc, 41.2 - 49.0 Mev/nuc, to further increase the counting statistic of each channels.
+Similar to the analysis by \citet{Mason-2021-SolOQuietTime} for \ac{SIS}, our analysis of the helium radial gradients measured by \ac{HET} is also constrained by the counting statistics due to the limited geometry factor of \ac{HET} and the low helium intensities in space. In order to derived radial gradients with better accuracy, we employ two methods to increase count statistics and hence reduce uncertainties of gradients. In the first method, we calculate a summation of count rates measured by four \ac{HET} apertures. There are two sets of \ac{EPT}/\ac{HET} telescopes onboard the \ac{SolO}, with each measuring stopping particles from two ends. Hence, \ac{SolO}/\ac{HET} can provide helium flux measurements from sunward, anti-sunward, southward, and northward directions. In the following analysis, we simply use the averaged helium intensity from four directions as the measurement of \ac{SolO}. By doing so, we can reduce the uncertainties of helium intensity to half. Secondly, we rebinned the fine energy channels of \ac{HET} and reconstructed four energy channels in the energy range of 11.1 - 19.4 MeV/nuc, 19.4 - 29.5 Mev/nuc, 29.5 - 41.2 Mev/nuc, 41.2 - 49.0 Mev/nuc, to further increase the counting statistic of each channels.
 
 
 \todo{TO here, continue, this part still need more}
@@ -156,15 +156,15 @@ In contrast to the transient variation from \acp{SEP} and 11-year variation attr
     \hline
     1   & 2020-02-28 & 2020-03-16   & 0.07 \\
     \hline
-	1	& 2020-09-14 & 2020-11-10	& 1.76 \\
+	2	& 2020-09-14 & 2020-11-10	& 1.76 \\
     \hline
-	2	& 2021-05-27 & 2021-06-09	& 1.49 \\
+	3	& 2021-05-27 & 2021-06-09	& 1.49 \\
     \hline
-	3	& 2021-11-21 & 2022-01-15	& 0.13 \\
+	4	& 2021-11-21 & 2022-01-15	& 0.13 \\
     \hline
-	4	& 2022-06-05 & 2022-08-02	& 1.96 \\
+	5	& 2022-06-05 & 2022-08-02	& 1.96 \\
     \hline
-    5 (not used)	& 2023-01-04 & 2023-01-17	& 0.41 \\
+    6 (not used)	& 2023-01-04 & 2023-01-17	& 0.41 \\
     \hline
     \end{tabular}
 \end{table}
@@ -203,7 +203,7 @@ As a result, the \ac{SEP} periods that we determined are illustrated as the mage
 \begin{figure}
     \centering
     \includegraphics[width = \textwidth]{images/ACR/SOLO-EPHIN-l3i-log2+6-proton-6H-V2.png}
-    \caption{The proton intensity profile observed by \ac{EPHIN}}{The proton flux measured by \ac{SOHO}/\ac{EPHIN} below 10 MeV. The data we used here are the level-3 proton data products \citep{kuehl2020JSWSC}. The magenta-colored regions are \acp{SEP} observed near Earth.}
+    \caption[The proton intensity profile observed by \ac{EPHIN}]{The proton flux measured by \ac{SOHO}/\ac{EPHIN} below 10 MeV. The data we used here are the level-3 proton data products generated from pha data \citep{kuehl2020JSWSC}. The magenta-colored regions indicate \acp{SEP} observed near Earth.}
     \label{Fig:SOHO_EPHIN_Proton_flux}
 \end{figure}
 
@@ -215,9 +215,9 @@ As mentioned earlier, transient \acp{SEP}, long-term solar modulation, \acs{SIR}
 
 Fig.~\ref{fig:carrington_flux} displays the average helium flux from \ac{HET} (orange line) and \ac{EPHIN} (blue line) in four energy bins, which are generally comparable though they were measured by two different instruments from different locations. Besides, both averaged fluxes decrease over time which are noteworthy, indicating the largely increased solar modulation during the new solar cycle. The red dashed lines indicate the variation in radial distance between \ac{SolO} and the Sun. 
 
-However, we could still see some discrepancies that are worth noting. During the end of 2020 and the start of 2021, the \ac{HET} helium intensity is unusually high compared to that measured by \ac{EPHIN}. The discrepancies are up to 30 \% and are clearly seen in all four channels. Furthermore, the bottom panel of Fig.~\ref{fig:carrington_flux} shows that before 2021, the intensities of 40 - 50 MeV/nuc helium from \ac{EPHIN} are statistically lower than those from \ac{HET}. After that, such a discrepancy gradually disappeared in this channel. However, such a discrepancy is unseen in lower energy channels. Currently, the reasons for these discrepancies are unclear.
+However, we could still see some discrepancies that are worth noting. During the end of 2020 and the start of 2021, the \ac{HET} helium intensity is unusually higher compared to that measured by \ac{EPHIN}. The discrepancies are up to 30 \% and are clearly seen in all four channels. Furthermore, the bottom panel of Fig.~\ref{fig:carrington_flux} shows that before 2021, the intensities of 38.5 - 53.0 MeV/nuc helium from \ac{EPHIN} are statistically lower than those from \ac{HET}. After that, such a discrepancy gradually disappeared in this channel. However, such a discrepancy is unseen in lower energy channels. Currently, the reasons for these discrepancies are unclear.
 
-Fig.~\ref{fig:fluxvsdistance} illustrates the helium flux within the energy range of 10 - 20 MeV/nuc from \ac{HET}, as a function of the radial distance from 0.4 to 1 au. Averaged fluxes of four orbits are represented by distinct colors, as indicated in the legends. In addition, blue triangles that overlay solid circles suggest the time order of measurements. Notably, the intensity of helium at the last measurement point is about five times less than that at the beginning. Such a decrease is caused by the solar modulation. Removing this trend is discussed in the next section.
+Fig.~\ref{fig:fluxvsdistance} illustrates the helium flux within the energy range of 11.1-19.4 MeV/nuc from \ac{HET}, shown as a function of the radial distance from 0.4 to 1 au. Data points of different colors represent the averaged fluxes during the Carrington rotation in different orbits, as indicated in the legends. The Carrington rotation numbers from 0 to 30 also given. Notably, the intensity of helium at the last measurement point is about five times less than that at the beginning. Such a decrease is caused by the solar modulation. Removing this trend is discussed in the next section.
 
 %Without carefully tackling this underlying baseline trend, we could not derive the radial gradient with a magnitude of $\sim$ 25\%/au.
 
@@ -226,18 +226,18 @@ Fig.~\ref{fig:fluxvsdistance} illustrates the helium flux within the energy rang
 
 \begin{figure}
     \centering
-    \includegraphics[width = 0.8\textwidth, height = 0.2\textheight]{images/ACR/seperate_mask_1-3_newSOHOSEPmask/Carrington_SOLO_11.1-19.4MeV_EPHIN_10.7-20.3MeV.png}
-    \includegraphics[width = 0.8\textwidth,height = 0.2\textheight]{images/ACR/seperate_mask_1-3_newSOHOSEPmask/Carrington_SOLO_19.4-29.5MeV_EPHIN_20.3-28.0MeV.png}
-    \includegraphics[width = 0.8\textwidth,height = 0.2\textheight]{images/ACR/seperate_mask_1-3_newSOHOSEPmask/Carrington_SOLO_29.5-41.2MeV_EPHIN_28.0-38.5MeV.png}
-    \includegraphics[width = 0.8\textwidth,height = 0.2\textheight]{images/ACR/seperate_mask_1-3_newSOHOSEPmask/Carrington_SOLO_41.2-49.0MeV_EPHIN_38.5-53.0MeV.png}
+    \includegraphics[width = 0.8\textwidth, height = 0.4\textwidth]{images/ACR/seperate_mask_1-3_newSOHOSEPmask/Carrington_SOLO_11.1-19.4MeV_EPHIN_10.7-20.3MeV.png}
+    \includegraphics[width = 0.8\textwidth,height = 0.4\textwidth]{images/ACR/seperate_mask_1-3_newSOHOSEPmask/Carrington_SOLO_19.4-29.5MeV_EPHIN_20.3-28.0MeV.png}
+    \includegraphics[width = 0.8\textwidth,height = 0.4\textwidth]{images/ACR/seperate_mask_1-3_newSOHOSEPmask/Carrington_SOLO_29.5-41.2MeV_EPHIN_28.0-38.5MeV.png}
+    \includegraphics[width = 0.8\textwidth,height = 0.4\textwidth]{images/ACR/seperate_mask_1-3_newSOHOSEPmask/Carrington_SOLO_41.2-49.0MeV_EPHIN_38.5-53.0MeV.png}
     \caption[The averaged helium flux in four energy channels between 10 and 50 MeV/nuc]{The flux of \ac{SolO} (orange) and \ac{EPHIN} (blue) averaged over the Carrington rotation periods in the energy channels of 10 - 20 MeV/nuc, 20 - 30 MeV/nuc, 30 - 40 MeV/nuc and 40 - 50 MeV/nuc. The daily averaged \ac{HET} helium fluxes are also shown in different energy channels as light orange lines. Red dashed lines are the radial distance of \ac{SolO} to the sun.}
     \label{fig:carrington_flux}
 \end{figure}
 
 \begin{figure}
     \centering
-    \includegraphics{images/ACR/SOLO-flux_only.png}
-    \caption[10 - 20 MeV/nuc \ac{HET} helium flux vs the radial distance of \ac{SolO}]{The flux of 10 - 20 MeV/nuc helium from \ac{HET} changes with respect to the radial distance of \ac{SolO}. The data corresponding to different orbits are presented in distinct colors. The blue arrows indicate the time flow direction.}
+    \includegraphics[scale = 0.8]{images/ACR/SOLO-flux_only.png}
+    \caption[11.1 - 19.4 MeV/nuc \ac{HET} helium flux vs the radial distance of \ac{SolO}]{The change of flux of 11.1 - 19.4 MeV/nuc helium from \ac{HET} with respect to the radial distance of \ac{SolO}. The data for different orbits are presented in distinct colors. The numbers over data points indicate the order of time. }
     \label{fig:fluxvsdistance}  
 \end{figure}
 
@@ -252,10 +252,10 @@ In addition, we have summarized the radial gradient of \ac{ACR} helium in differ
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width =0.48\textwidth, height = 0.4\textheight]{images/ACR/seperate_mask_1-3_newSOHOSEPmask/ratio_time_radialgradient_10-20MeV.png}
-    \includegraphics[width =0.48\textwidth, height = 0.4\textheight]{images/ACR/seperate_mask_1-3_newSOHOSEPmask/ratio_time_radialgradient_20-30MeV.png}
-    \includegraphics[width =0.48\textwidth, height = 0.4\textheight]{images/ACR/seperate_mask_1-3_newSOHOSEPmask/ratio_time_radialgradient_30-40MeV.png}
-    \includegraphics[width =0.48\textwidth, height = 0.4\textheight]{images/ACR/seperate_mask_1-3_newSOHOSEPmask/ratio_time_radialgradient_40-50MeV.png}
+    \includegraphics[width =0.48\textwidth, height = 0.48\textwidth]{images/ACR/seperate_mask_1-3_newSOHOSEPmask/ratio_time_radialgradient_10-20MeV_2.png}
+    \includegraphics[width =0.48\textwidth, height = 0.48\textwidth]{images/ACR/seperate_mask_1-3_newSOHOSEPmask/ratio_time_radialgradient_20-30MeV_2.png}
+    \includegraphics[width =0.48\textwidth, height = 0.48\textwidth]{images/ACR/seperate_mask_1-3_newSOHOSEPmask/ratio_time_radialgradient_30-40MeV_2.png}
+    \includegraphics[width =0.48\textwidth, height = 0.48\textwidth]{images/ACR/seperate_mask_1-3_newSOHOSEPmask/ratio_time_radialgradient_40-50MeV_2.png}
     \caption[Ratio of helium intensity between \ac{HET} and \ac{EPHIN} and helium radial grdient in different energy range]{Row 1 and 3: The temporal variation of the helium flux ratio between \ac{HET} and \ac{EPHIN} measurements (averaged over their own Carrington rotation and interpolated to calculate the ratio) for different energies; Row 2 and 4: Flux ratio vs radial gradients in the first three orbits, overlay by the log-linear fitting lines.} 
     \label{fig:ratio_radialgradient}
 \end{figure}
